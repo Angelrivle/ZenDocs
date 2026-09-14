@@ -1,0 +1,54 @@
+---
+title: "Comisiones e Hitos (commissions.yml)"
+description: "Gestiona las misiones asignadas a cada jugador y los hitos globales por completar comisiones."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comisiones e Hitos (commissions.yml)
+
+---
+
+Gestiona las misiones asignadas a cada jugador y los hitos globales por completar comisiones.
+
+```yaml
+settings:
+  # Slots de comisiones simultáneas por permisos
+  slots:
+    0:
+      permission: ""
+      locked-message: "&cDesbloqueado por defecto."
+    1:
+      permission: ""
+      locked-message: "&cDesbloqueado por defecto."
+    2:
+      permission: "zenforges.commissions.slot3"
+      locked-message: "&cRequieres rango VIP para desbloquear este slot de comisión."
+    3:
+      permission: "zenforges.commissions.slot4"
+      locked-message: "&cRequieres nivel de HOTM 3 para desbloquear este slot de comisión."
+
+commissions:
+  mine_mythril_prismarine:
+    display-name: "&2Minero de Mithril I"
+    description: "&7Mina 50 bloques de Prismarina."
+    category: "mythril_mine"
+    target-material: "PRISMARINE"
+    target-amount: 50
+    rewards:
+      hotm-xp: 100
+      powders:
+        mythril: 150
+      commands:
+        - "eco give %player% 200"
+
+milestones:
+  "1":
+    required: 10                        # 10 comisiones completadas
+    display-name: "&eHito I: Iniciado"
+    rewards:
+      commands:
+        - "eco give %player% 1000"
+      messages:
+        - "&e&l¡HITO COMPLETADO! &fHas completado 10 comisiones. ¡Recompensa: $1,000!"
+```

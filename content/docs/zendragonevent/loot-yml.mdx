@@ -1,0 +1,62 @@
+---
+title: "Recompensas y Rangos (loot.yml)"
+description: "El sistema de loot se evalúa de manera totalmente independiente por cada entrada configurada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Recompensas y Rangos (loot.yml)
+
+---
+
+El sistema de loot se evalúa de manera totalmente independiente por cada entrada configurada.
+
+### Tipos de Entrada Disponibles:
+1. `COMMAND`: Ejecuta un comando desde la consola. Soporta el placeholder `%player%`.
+2. `ITEM`: Entrega un ítem vanilla (`MATERIAL:cantidad`) o de plugins compatibles (`eco:ecoitems:<id>`).
+3. `ECO_ITEM`: Entrega un ítem registrado en **EcoItems**.
+4. `ECO_ARMOR`: Entrega una pieza o set de **EcoArmor**.
+
+### Estructura de Tablas:
+```yaml
+loot-tables:
+  # Identificador de la tabla
+  superior_loot:
+    # Cantidad de pasadas de dados sobre la tabla base
+    rolls: 2
+    entries:
+      - chance: 1.0       # 100% de probabilidad
+        type: ITEM
+        value: "DIAMOND:5"
+      - chance: 0.5       # 50% de probabilidad por pasada
+        type: COMMAND
+        value: "eco give %player% 5000"
+      - chance: 0.25
+        type: ITEM
+        value: "eco:ecoitems:superior_fragment"
+
+    # Recompensas exclusivas por posición en el Ranking de Daño (Top 1 al 5)
+    # Se entregan de forma ADICIONAL a la tabla base
+    rank-rewards:
+      rank-1:
+        rolls: 1
+        entries:
+          - chance: 1.0   # El puesto #1 tiene este ítem asegurado
+            type: ITEM
+            value: "NETHERITE_INGOT:2"
+          - chance: 0.35
+            type: ECO_ARMOR
+            value: "superior_dragon_helmet"
+      rank-2:
+        rolls: 1
+        entries:
+          - chance: 1.0
+            type: ITEM
+            value: "DIAMOND:10"
+      rank-3:
+        rolls: 1
+        entries:
+          - chance: 1.0
+            type: ITEM
+            value: "DIAMOND:5"
+```

@@ -1,0 +1,58 @@
+---
+title: "Rachas de Victorias (winstreak_system.yml)"
+description: "Permite configurar recompensas al alcanzar una cantidad de kills consecutivas sin morir. Soporta:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Rachas de Victorias (winstreak_system.yml)
+
+---
+
+Permite configurar recompensas al alcanzar una cantidad de kills consecutivas sin morir. Soporta:
+- **Mensaje Global** en el chat (`message`).
+- **Título en Pantalla** (`title` formato `Titulo;Subtitulo`).
+- **Sonido** (`sound` formato `SOUND_NAME;volumen;pitch`).
+- **Efectos de Poción Dinámicos** (`effects` formato `POTION_TYPE:NIVEL:DURACION_SEGUNDOS`).
+- **Ítems Entregados al Inventario** (`items` formato `MATERIAL:CANTIDAD`).
+- **Comandos de Consola** (`commands`).
+
+```yaml
+enabled: true
+
+streaks:
+  # Racha de 5 Kills
+  5:
+    message: "<red><bold>🔥 ¡%player% ha conseguido una racha de %streak% victorias! 🔥</bold></red>"
+    title: "<red><bold>🔥 RACHA DE 5 🔥</bold></red>;<gold>¡Estás en racha!</gold>"
+    sound: "ENTITY_ENDER_DRAGON_GROWL;1.0;1.0"
+    effects:
+      - "SPEED:2:10"            # Speed nivel 2 por 10 segundos
+      - "RESISTANCE:1:5"         # Resistance nivel 1 por 5 segundos
+    items:
+      - "GOLDEN_APPLE:2"         # 2 Manzanas Doradas
+    commands:
+      - "eco give %player% 500"
+
+  # Racha de 10 Kills
+  10:
+    message: "<dark_red><bold>☠ ¡IMPARABLE! %player% lleva %streak% victorias seguidas. ☠</bold></dark_red>"
+    title: "<dark_red><bold>☠ IMPARABLE ☠</bold></dark_red>;<red>¡Racha de 10 alcanzada!</red>"
+    sound: "UI_TOAST_CHALLENGE_COMPLETE;1.0;1.0"
+    effects:
+      - "SPEED:2:15"
+      - "REGENERATION:2:5"
+    items:
+      - "ENCHANTED_GOLDEN_APPLE:1"
+    commands:
+      - "eco give %player% 2000"
+
+  # Racha de 15 Kills
+  15:
+    message: "<dark_purple><bold>👑 ¡MODO DIOS! %player% lleva una racha de %streak%. 👑</bold></dark_purple>"
+    effects:
+      - "STRENGTH:1:10"
+      - "SPEED:2:20"
+    commands:
+      - "eco give %player% 5000"
+```

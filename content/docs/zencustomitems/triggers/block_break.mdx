@@ -1,0 +1,27 @@
+---
+title: "block_break"
+description: "Se dispara cuando el jugador destruye un bloque con la herramienta."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `block_break`
+
+* **Categoría:** `Bloques`  
+* **Identificador / Alias:** `BLOCK_BREAK`
+
+---
+
+Se dispara cuando el jugador destruye un bloque con la herramienta.
+```yaml
+triggers:
+  - id: explosive_mining
+    type: BLOCK_BREAK
+    filters:
+      - type: BLOCKS
+        blocks: ["STONE", "DEEPSLATE"]
+    effects:
+      - type: EXPLOSION
+        power: 1.5
+        breakBlocks: true
+```

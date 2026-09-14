@@ -1,0 +1,26 @@
+---
+title: "fish_caught"
+description: "Se dispara exclusivamente al pescar con éxito un pez, ítem o entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fish_caught`
+
+* **Categoría:** `Pesca`  
+* **Identificador / Alias:** `FISH_CAUGHT`
+
+---
+
+Se dispara exclusivamente al pescar con éxito un pez, ítem o entidad.
+```yaml
+triggers:
+  - id: lucky_catch
+    type: FISH_CAUGHT
+    effects:
+      - type: GIVE_ITEM
+        item: DIAMOND
+        amount: 1
+```
+
+---

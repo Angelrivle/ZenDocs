@@ -1,0 +1,25 @@
+---
+title: "arrow_hit"
+description: "Se dispara específicamente cuando una flecha disparada impacta en un objetivo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `arrow_hit`
+
+* **Categoría:** `Proyectiles`  
+* **Identificador / Alias:** `ARROW_HIT`
+
+---
+
+Se dispara específicamente cuando una flecha disparada impacta en un objetivo.
+```yaml
+triggers:
+  - id: lightning_arrow
+    type: ARROW_HIT
+    effects:
+      - type: LIGHTNING
+        target: TARGET
+```
+
+---

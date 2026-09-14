@@ -1,0 +1,29 @@
+---
+title: "Estructura de Archivos"
+description: "Dentro de la carpeta plugins/ZenBank/ encontrarás:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Dentro de la carpeta `plugins/ZenBank/` encontrarás:
+
+```text
+ZenBank/
+│
+├── config.yml            # Configuración principal, bases de datos y módulos
+├── messages.yml          # Textos y mensajes del plugin en formato Adventure
+├── plans.yml             # Niveles de planes de banco, requisitos e intereses
+├── data.yml              # Persistencia del último cobro global de intereses
+├── bank.db               # Base de datos local SQLite (si MySQL está deshabilitado)
+└── menus/
+    ├── main.yml          # Menú principal de la cuenta
+    ├── deposit.yml       # Menú de opciones de depósito
+    ├── withdraw.yml      # Menú de opciones de retiro
+    ├── upgrades.yml      # Menú de ascenso de planes
+    ├── history.yml       # Menú paginado de historial de transacciones
+    └── inspect.yml       # Menú de inspección administrativa
+```

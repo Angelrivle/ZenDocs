@@ -8,7 +8,7 @@ const geist = Geist({
 
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={geist.className} suppressHydrationWarning>
+    <html lang="es" className={geist.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider
           search={{

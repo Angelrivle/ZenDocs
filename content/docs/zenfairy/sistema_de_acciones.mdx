@@ -1,0 +1,24 @@
+---
+title: "Sistema de Acciones Disponibles"
+description: "Puedes utilizar las siguientes acciones en cualquier lista de comandos o eventos del plugin:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Sistema de Acciones Disponibles
+
+---
+
+Puedes utilizar las siguientes acciones en cualquier lista de comandos o eventos del plugin:
+
+| Acción | Sintaxis / Ejemplo | Descripción |
+| :--- | :--- | :--- |
+| `[MESSAGE]` | `[MESSAGE] <green>¡Hola %player%!</green>` | Envía un mensaje formateado con Adventure al jugador. |
+| `[CONSOLE]` | `[CONSOLE] eco give %player% 1000` | Ejecuta un comando desde la consola del servidor. |
+| `[PLAYER]` | `[PLAYER] spawn` | Hace que el jugador ejecute el comando. |
+| `[BROADCAST]` | `[BROADCAST] <gold>%player% encontró un alma!</gold>` | Difunde un mensaje a todos los jugadores del servidor. |
+| `[TITLE]` | `[TITLE] <gold>¡Éxito!</gold>;<gray>Subtítulo aquí</gray>` | Muestra un título y subtítulo en pantalla completa. |
+| `[ACTIONBAR]`| `[ACTIONBAR] <green>+1 Alma Adquirida</green>` | Envía un mensaje sobre la barra de vida del jugador. |
+| `[SOUND]` | `[SOUND] ENTITY_PLAYER_LEVELUP` o `[SOUND] custom:sound` | Reproduce un sonido estándar de Bukkit o de un Resource Pack. |
+| `[CLOSE]` | `[CLOSE]` | Cierra el inventario que el jugador tenga abierto. |
+| `[AURA-STAT]` | `[AURA-STAT] strength 5` | Añade puntos a una estadística pasiva del plugin AuraSkills. |

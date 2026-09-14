@@ -1,0 +1,117 @@
+---
+title: "Configuración (config.yml)"
+description: "El archivo config.yml controla el motor central y la activación de cada módulo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+El archivo `config.yml` controla el motor central y la activación de cada módulo.
+
+```yaml
+# ============================================================= #
+#                   CONFIGURACIÓN DE ZENBANK                    #
+# ============================================================= #
+
+# --- Configuración de Base de Datos ---
+database:
+  # Base de datos compartida MySQL (útil para Networks o servidores vinculados)
+  mysql:
+    enabled: false
+    host: localhost
+    port: 3306
+    database: zenbank
+    username: root
+    password: ""
+    ssl: false
+  
+  # Optimización SQLite: Write-Ahead Logging (WAL)
+  # Permite lecturas asíncronas concurrentes sin bloquear la escritura en disco
+  sqlite-wal-mode: true
+
+# --- Sistema de Intereses ---
+interest:
+  # Intervalo de pago en minutos (por defecto 30 minutos)
+  interval-minutes: 30
+  
+  # Modo de distribución:
+  # "LAZY" (Recomendado): Calcula los intereses pendientes al entrar el jugador (on-demand), reduciendo lag a cero.
+  # "GLOBAL_BATCH": Recorre todas las cuentas periódicamente (comportamiento tradicional).
+  distribution-mode: "LAZY"
+
+# --- Penalización por Muerte ---
+death-penalty:
+  # Activar la pérdida de monedas al morir
+    enabled: true
+  # PERCENT: Deduce un porcentaje del dinero en mano (Vault)
+  # FIXED: Deduce una cantidad fija
+  type: PERCENT
+  # Cantidad o porcentaje a cobrar
+  amount: 50.0
+  # Mundos seguros donde los jugadores NO pierden dinero al morir
+  safe-worlds:
+    - safe_zone
+    - spawn
+
+# --- Función 1: Transferencias entre Jugadores ---
+transfers:
+  # Activar el subcomando /bank transfer <jugador> <monto>
+    enabled: true
+  # Monto mínimo permitido en una transferencia
+  min-amount: 1.0
+  # Comisión bancaria cobrada al emisor (en porcentaje, 0.0 para desactivar)
+  fee-percent: 1.0
+
+# --- Función 2: Cheques Bancarios Físicos ---
+cheques:
+  # Activar el subcomando /bank cheque <monto>
+    enabled: true
+  # Material de Minecraft para el ítem
+  material: "PAPER"
+  # CustomModelData para paquetes de texturas (0 para desactivar)
+    custom-model-data: 0
+  # Monto mínimo para emitir un cheque
+  min-amount: 10.0
+  # De dónde se extrae el dinero al crear el cheque: "BANK" (banco) o "VAULT" (monedero)
+  source: "BANK"
+  # Dónde se deposita el dinero al canjear con clic derecho: "BANK" (banco) o "VAULT" (monedero)
+  redeem-target: "BANK"
+
+# --- Inactividad Offline ---
+# Si un jugador no entra en N días, se deja de acumular su interés offline
+interest-offline-limit-days: 7
+
+# Recordatorio periódico en minutos para retirar el saldo que excede el límite del plan
+excess-reminder-interval-minutes: 10
+
+# Impuestos por transacción (Depósito / Retiro) definidos en cada plan
+taxes:
+    enabled: true
+
+# --- Sonidos ---
+sounds:
+    enabled: true
+  click:
+    sound: BLOCK_NOTE_BLOCK_PLING
+    volume: 1.0
+    pitch: 1.0
+  success:
+    sound: ENTITY_PLAYER_LEVELUP
+    volume: 1.0
+    pitch: 1.2
+  error:
+    sound: ENTITY_VILLAGER_NO
+    volume: 1.0
+    pitch: 1.0
+  upgrade:
+    sound: UI_TOAST_CHALLENGE_COMPLETE
+    volume: 1.0
+    pitch: 1.0
+  interest:
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 0.8
+```

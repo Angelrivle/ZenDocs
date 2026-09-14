@@ -1,0 +1,15 @@
+---
+title: "Integración con ZenDiscord"
+description: "ZenForges se conecta automáticamente con la API de ZenDiscord si el plugin se encuentra en la carpeta..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Integración con ZenDiscord
+
+---
+
+ZenForges se conecta automáticamente con la API de **ZenDiscord** si el plugin se encuentra en la carpeta `plugins/`:
+- **Verificación en tiempo constante $O(1)$**: Solo envía alertas si el usuario ha vinculado su cuenta de Minecraft con `/link` o `/discord link`.
+- **Alertas Offline**: Si un jugador tiene procesos de forja activos y se desconecta, ZenForges monitorea periódicamente el progreso en segundo plano. Cuando el ítem finaliza, despacha un Embed privado por Mensaje Directo (DM) sin congelar el servidor de Minecraft.
+- **Sin duplicados**: La base de datos SQLite almacena el estado `discord_notified` garantizando que solo se reciba un aviso por forja.

@@ -1,0 +1,71 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Todos los mensajes soportan etiquetas modernas de Adventure MiniMessage como gradient:#HEX:#HEX, rainbow,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Todos los mensajes soportan etiquetas modernas de **Adventure MiniMessage** como `<gradient:#HEX:#HEX>`, `<rainbow>`, `<color:#HEX>`, `<b>`, `<i>`, etc.
+
+```yaml
+# =========================================================
+#                 ZenAfkZone - Mensajes del Plugin
+#                       Soporte MiniMessage
+# =========================================================
+
+prefix: <gradient:#4158D0:#C850C0:#FFCC70><b>ZenAfkZone</b></gradient> <dark_gray>»</dark_gray> 
+
+general:
+  no-permission: <red>No tienes permiso para ejecutar este comando.</red>
+  only-players: <red>Este comando solo puede ser ejecutado por jugadores.</red>
+  plugin-reloaded: <green>La configuración y las zonas se han recargado correctamente.</green>
+  unknown-subcommand: <red>Subcomando desconocido. Usa <yellow>/zenafkzone help</yellow> o <yellow>/afk gui</yellow>.</red>
+
+wand:
+  given: <green>Has recibido la <b>Wand de Selección AFK</b>.</green>
+  pos1-set: <green>Posición 1 establecida en <yellow><x>, <y>, <z></yellow> (<world>).</green>
+  pos2-set: <green>Posición 2 establecida en <yellow><x>, <y>, <z></yellow> (<world>).</green>
+  incomplete-selection: <red>Debes seleccionar ambas posiciones con la wand primero.</red>
+  different-worlds: <red>Las dos posiciones deben estar en el mismo mundo.</red>
+
+zone:
+  created: <green>La zona <yellow><zone></yellow> ha sido creada con éxito.</green>
+  deleted: <green>La zona <yellow><zone></yellow> ha sido eliminada.</green>
+  redefined: <green>La zona <yellow><zone></yellow> ha sido redefinida con tu nueva selección.</green>
+  not-found: <red>La zona <yellow><zone></yellow> no existe.</red>
+  already-exists: <red>La zona <yellow><zone></yellow> ya existe.</red>
+  teleported: <green>Te has teletransportado al centro de la zona <yellow><zone></yellow>.</green>
+  list-header: <gradient:#4158D0:#C850C0><b>--- Lista de Zonas AFK (<count>) ---</b></gradient>
+  list-item: <gray>- <yellow><zone></yellow> <dark_gray>(<world>) - Jugadores: <green><players></green></gray>
+  list-empty: <gray>No hay zonas AFK configuradas actualmente.</gray>
+  ip-limit-reached: <red>Has alcanzado el límite máximo de cuentas permitidas por IP en esta zona AFK.</red>
+  no-permission-zone: <red>No tienes el permiso necesario (<yellow><permission></yellow>) para acceder a esta zona.</red>
+  min-level-required: <red>Necesitas al menos nivel <yellow><level></yellow> de experiencia para entrar a esta zona.</red>
+  insufficient-funds: <red>No tienes suficiente dinero para ingresar. Costo: <gold>$<cost></gold>.</red>
+  cost-paid: <green>Has pagado <gold>$<cost></gold> para ingresar a la zona AFK.</green>
+  milestone-reached: <gradient:#FFD700:#FFA500><b>¡HITO AFK!</b></gradient> <yellow><player></yellow> ha completado <green><streak></green> ininterrumpidos en <aqua><zone></aqua>.
+
+help:
+  header: <gradient:#4158D0:#C850C0><b>=== Comandos de ZenAfkZone ===</b></gradient>
+  item: <yellow>/zenafkzone <command></yellow> <dark_gray>- <gray><description></gray>
+  footer: <gradient:#4158D0:#C850C0><b>===============================</b></gradient>
+
+rewards:
+  header: <gradient:#FFD700:#FFA500><b>¡Recompensa AFK Recibida!</b></gradient>
+  item-received: <gray>• </gray><white><display></white>
+
+gui:
+  zone-item-name: <gradient:#56CCF2:#2F80ED><b>Zona AFK: <zone></b></gradient>
+  zone-item-lore:
+    - <gray>Estado: <status></gray>
+    - <gray>Progreso: <yellow><progress>%</yellow> (<time_left>)</gray>
+    - "
+ - <yellow>Recompensas Posibles:</yellow>
+ - <rewards_list>
+ - 
+ - <green>Click para teletransportarte a la zona</green>
+```

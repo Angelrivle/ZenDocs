@@ -1,0 +1,25 @@
+---
+title: "respawn"
+description: "Se dispara inmediatamente después de que el jugador reaparece tras morir."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `respawn`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `RESPAWN`
+
+---
+
+Se dispara inmediatamente después de que el jugador reaparece tras morir.
+```yaml
+triggers:
+  - id: respawn_shield
+    type: RESPAWN
+    effects:
+      - type: ADD_POTION_EFFECT
+        effect: RESISTANCE
+        duration: 100
+        amplifier: 1
+```

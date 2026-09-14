@@ -1,0 +1,41 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Todos los mensajes que reciben los jugadores están centralizados en messages.yml."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Todos los mensajes que reciben los jugadores están centralizados en `messages.yml`.
+
+| Clave | Descripción | Placeholders Soportados |
+| :--- | :--- | :--- |
+| `prefix` | Prefijo que precede a las notificaciones del plugin | Ninguno |
+| `elytra_blocked` | Notificación cuando una Elytra está bloqueada en la región | Ninguno |
+| `wind_charge_blocked` | Notificación al usar Cargas de Viento en zona bloqueada | Ninguno |
+| `mace_blocked` | Notificación al usar Mazos en zona bloqueada | Ninguno |
+| `firework_rocket_blocked`| Notificación al disparar cohetes en zona bloqueada | Ninguno |
+| `ender_pearl_blocked` | Notificación al lanzar perlas en zona bloqueada | Ninguno |
+| `ender_pearl_cooldown` | Mensaje de espera por cooldown de perlas | `%time%` |
+| `enchanted_golden_apple_cooldown` | Mensaje de espera por cooldown de manzanas Notch | `%time%` |
+| `arrow_blocked` | Mensaje al disparar flechas en zona restringida | Ninguno |
+| `region_command_blocked` | Mensaje al ejecutar un comando restringido por región | Ninguno |
+| `crystal_only_allowed_blocks` | Mensaje al intentar colocar bloques ilegales en Crystal PvP | Ninguno |
+| `combat_tagged` | Mensaje recibido al entrar en combate | Ninguno |
+| `combat_expired` | Mensaje recibido al salir de combate | Ninguno |
+| `combat_log_death` | Anuncio cuando un jugador se desconecta en combate | `%player%` |
+| `combat_command_blocked` | Intento de usar comando no permitido en combate | Ninguno |
+| `combat_safezone_blocked`| Intento de entrar a zona segura en combate | Ninguno |
+| `combat_fly_disabled` | Notificación de apagado de fly al entrar en combate | Ninguno |
+| `combat_profile_switch_denied` | Intento de cambiar de perfil en combate | Ninguno |
+| `combat_actionbar` | Texto en el Actionbar durante el combate | `%time%`, `%opponent%` |
+| `report_sent` | Notificación de reporte enviado con éxito | Ninguno |
+| `report_notify` | Alerta enviada a los miembros del Staff con permiso | `%reporter%`, `%reported%`, `%reason%` |
+| `report_type_proof` | Solicitud en chat para adjuntar pruebas o descripción | Ninguno |
+| `bounty_placed` | Anuncio global de nueva recompensa | `%target%`, `%reward%`, `%player%` |
+| `bounty_claimed` | Anuncio global de recompensa cobrada | `%killer%`, `%target%`, `%reward%` |
+| `elo_added` / `elo_removed` | Notificaciones de modificación de ELO por comando | `%amount%`, `%player%` |
+| `elo_season_reset` | Confirmación de reinicio de temporada de ELO | `%season%` |

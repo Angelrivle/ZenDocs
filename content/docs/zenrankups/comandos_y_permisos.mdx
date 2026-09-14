@@ -1,0 +1,29 @@
+---
+title: "Comandos y Permisos"
+description: "Guía y detalles de configuración del módulo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+| Comando | Alias | Permiso Requerido | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/rankup` | `/ru` | `zenrankups.use` | Intenta subir al siguiente rango disponible. |
+| `/ranks` | - | `zenrankups.use` | Abre el menú interactivo con la progresión de rangos. |
+| `/rankupmax` | `/rumax` | `zenrankups.use` | Sube todos los rangos posibles de manera consecutiva. |
+| `/autorankup` | - | `zenrankups.use` | Activa o desactiva la subida de rango automática cada 5s. |
+| `/prestige` | - | `zenrankups.use` | Avanza al siguiente nivel de prestigio (requiere rango máximo). |
+| `/prestigemax` | - | `zenrankups.use` | Sube automáticamente al máximo prestigio que puedas costear. |
+| `/ranktop` | - | `zenrankups.use` | Muestra el menú de la tabla de clasificación por rangos. |
+| `/prestigetop` | - | `zenrankups.use` | Muestra el menú de la tabla de clasificación por prestigios. |
+| `/zenrankups reload` | `/zru reload` | `zenrankups.admin` | Recarga todos los archivos `.yml` en caliente. |
+| `/zenrankups set <jugador> <rango>` | `/zru set` | `zenrankups.admin` | Asigna un rango específico a un jugador. |
+| `/zenrankups setprestige <jugador> <nivel>` | - | `zenrankups.admin` | Establece el nivel de prestigio de un jugador. |
+| `/zenrankups reset <jugador>` | `/zru reset` | `zenrankups.admin` | Restablece el rango y prestigio a los valores por defecto. |
+| `/zenrankups info [jugador]` | - | `zenrankups.admin` | Muestra los detalles de rango, prestigio y estadísticas del jugador. |
+| `/zenrankups stat <jugador> <stat>` | - | `zenrankups.admin` | Consulta el valor de una estadística personalizada. |
+| `/zenrankups give <jugador> <stat> <cant>` | - | `zenrankups.admin` | Suma una cantidad a la estadística del jugador. |
+| `/zenrankups remove <jugador> <stat> <cant>` | - | `zenrankups.admin` | Resta una cantidad a la estadística del jugador. |

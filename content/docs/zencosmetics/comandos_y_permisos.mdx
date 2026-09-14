@@ -1,0 +1,23 @@
+---
+title: "Comandos y Permisos"
+description: "- /zencosmetics (Aliases: /cosmetics, /cosmeticos, /zc): Abre el menú principal de cosméticos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos:
+- `/zencosmetics` (Aliases: `/cosmetics`, `/cosmeticos`, `/zc`): Abre el menú principal de cosméticos.
+- `/zencosmetics menu`: Abre el menú principal de cosméticos.
+- `/zencosmetics reload`: Recarga todas las configuraciones, mensajes, menús y cosméticos.
+- `/zencosmetics setpreview <spawn|target>`: Establece el punto de spawn de la cámara de vista previa (`spawn`) o el objetivo hacia donde mirará el efecto (`target`).
+
+### Permisos:
+- `zencosmetics.use`: Permiso general para acceder y utilizar el comando `/zencosmetics` (por defecto: todos los jugadores).
+- `zencosmetics.admin`: Permiso de administrador para ejecutar `/zc reload` y `/zc setpreview`.
+- `zencosmetics.colors.<colorId>`: Permiso para desbloquear un color personalizado específico.
+- `zencosmetics.format.<formato>`: Permiso para estilos de formato (ej: `bold`, `italic`, `underlined`, etc.).
+- Permisos por cosmético: Cada cosmético define su propio nodo en su `.yml` (ejemplo: `zencosmetics.aura.fuego`).

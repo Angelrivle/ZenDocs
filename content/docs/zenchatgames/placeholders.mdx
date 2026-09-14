@@ -1,0 +1,40 @@
+---
+title: "Placeholders (PAPI)"
+description: "Para utilizar estos placeholders se requiere tener instalado..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Placeholders (PAPI)
+
+---
+
+Para utilizar estos placeholders se requiere tener instalado [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/).
+
+### Estado del Juego en Curso:
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%zenchatgames_has_active_game%` | Devuelve `true` si hay partida en curso, o `false`. | `true` |
+| `%zenchatgames_active_game%` | Nombre público del juego activo. | `Matemáticas` |
+| `%zenchatgames_active_question%` | Pregunta o reto planteado actualmente. | `15 + 27` |
+| `%zenchatgames_time_left%` | Segundos restantes para que termine la ronda. | `14` |
+
+### Estadísticas del Jugador:
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%zenchatgames_won%` (o `games_won`) | Total de partidas ganadas. | `45` |
+| `%zenchatgames_correct%` | Total de respuestas correctas acumuladas. | `45` |
+| `%zenchatgames_streak%` | Racha actual de victorias consecutivas. | `3` |
+| `%zenchatgames_best_streak%` | Racha máxima histórica alcanzada. | `12` |
+| `%zenchatgames_last_played%` | Fecha de la última partida ganada. | `2026-09-12 18:30` |
+| `%zenchatgames_player_name%` | Nombre registrado del jugador en BD. | `Steve` |
+
+### Leaderboards / Tops (Ideal para Hologramas y NPCs):
+Reemplaza `X` por la posición del 1 al 10 (ej: `1`, `2`, `3`).
+
+| Placeholder | Descripción |
+| :--- | :--- |
+| `%zenchatgames_top_won_name_X%` | Nombre del jugador en el puesto X de más victorias. |
+| `%zenchatgames_top_won_val_X%` | Cantidad de victorias del jugador en el puesto X. |
+| `%zenchatgames_top_streak_name_X%` | Nombre del jugador en el puesto X de mejor racha. |
+| `%zenchatgames_top_streak_val_X%` | Mejor racha histórica del jugador en el puesto X. |

@@ -1,0 +1,28 @@
+---
+title: "Estructura de Archivos"
+description: "Todos los archivos de configuración se generan en la carpeta plugins/ZenChat/:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Todos los archivos de configuración se generan en la carpeta `plugins/ZenChat/`:
+
+```text
+plugins/ZenChat/
+├── config.yml              # Opciones generales, menciones y ajustes de integración
+├── messages.yml            # Mensajes del sistema, alertas y respuestas a comandos
+├── backup.yml              # Archivo de respaldo / referencia de configuraciones
+└── modules/
+    ├── channels.yml        # Configuración de canales (Global, Local, Comercio, Staff, etc.)
+    ├── formats.yml         # Formatos de chat por rangos de LuckPerms, hovers y menciones
+    ├── msg.yml             # Formatos de /msg, comandos escuchados por SocialSpy
+    ├── tags.yml            # Tags interactivas ([inv], [ec], [item], [pos], [ping], [bal])
+    ├── guis.yml            # Títulos y paletas del menú GUI de ColorChat e ItemView
+    ├── emojiplaceholders.yml # Reemplazos automáticos de texto a emojis o MiniMessage
+    ├── punish.yml          # Reglas de protección: filtros antispam y bloqueador de publicidad
+    └── webhooks.yml        # Alertas automáticas hacia canales de Discord mediante Webhook
+```

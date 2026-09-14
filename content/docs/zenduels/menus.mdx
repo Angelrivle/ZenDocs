@@ -1,0 +1,45 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Todas las interfaces del plugin se configuran mediante archivos YAML individuales dentro de la carpeta menus/."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Todas las interfaces del plugin se configuran mediante archivos YAML individuales dentro de la carpeta `menus/`.
+
+### 7.1 Estructura General de Menús
+
+```yaml
+title: "<gradient:#4158D0:#C850C0>✦ ZenDuels</gradient> <dark_gray>| <white>Menú Principal"
+size: 45                         # Tamaño del cofre (múltiplo de 9: 9, 18, 27, 36, 45, 54)
+filler:                          # Relleno para slots vacíos
+    enabled: true
+  material: "BLACK_STAINED_GLASS_PANE"
+  name: " "
+
+items:
+  ranked_queue:
+    slot: 22                     # Posición en el inventario (0 a size - 1)
+    material: "NETHERITE_SWORD"  # Material de Bukkit
+    name: "<gradient:#FF416C:#FF4B2B>🏆 Modos Ranked (Elo)</gradient>"
+    lore:
+      - "<gray>Compite por los primeros puestos del ranking."
+      - "<dark_gray>•</dark_gray> <white>Tu Elo actual:</white> <gold>%elo%</gold>"
+    action: "OPEN_QUEUE_RANKED"  # Acción ejecutada al hacer clic
+```
+
+### 7.2 Acciones Disponibles (`action`)
+
+| Acción | Descripción |
+|---|---|
+| `OPEN_QUEUE_UNRANKED` | Abre el menú de selección de colas Unranked. |
+| `OPEN_QUEUE_RANKED` | Abre el menú de selección de colas Ranked con ELO. |
+| `OPEN_FFA` | Abre el selector de arenas públicas FFA. |
+| `OPEN_KIT_EDITOR` | Abre la selección de kit para organizar la disposición del inventario. |
+| `OPEN_LEADERBOARDS` | Muestra el top de jugadores con mejor ELO. |
+| `REFRESH` | Actualiza los datos y placeholders del menú actual. |
+| `CLOSE` | Cierra el inventario abierto. |

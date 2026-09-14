@@ -1,0 +1,26 @@
+---
+title: "ZenFairy"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenFairy."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenFairy
+
+**ZenFairy** es un plugin avanzado para servidores Minecraft (Paper / Purpur 1.21+) enfocado en la creación y recolección de **Almas Personalizables (Souls)** con soporte nativo para Adventure API, formato MiniMessage, menús interactivos sin recarga, persistencia asíncrona de alto rendimiento con pool de conexiones HikariCP, detección espacial de proximidad con radar inmersivo y entidades de visualización (*Display Entities*).
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Integraciones y Dependencias" href="/docs/zenfairy/integraciones" description="- Servidor: Paper / Purpur 1.21 o superior." />
+  <Card title="Estructura de Archivos" href="/docs/zenfairy/estructura_de_archivos" description="plugins/ZenFairy/" />
+  <Card title="Formato de Texto y MiniMessage" href="/docs/zenfairy/formato_minimessage" description="ZenFairy soporta la sintaxis moderna MiniMessage de la Adventure API de Paper, así como compatibilidad..." />
+  <Card title="Configuración (config.yml)" href="/docs/zenfairy/config-yml" description="Todos los mensajes enviados por el plugin son personalizables:" />
+  <Card title="Configuración de Almas (souls/)" href="/docs/zenfairy/souls" description="Cada archivo .yml en la carpeta souls/ representa un tipo de alma único e independiente. El nombre del..." />
+  <Card title="Sistema de Acciones Disponibles" href="/docs/zenfairy/sistema_de_acciones" description="Puedes utilizar las siguientes acciones en cualquier lista de comandos o eventos del plugin:" />
+  <Card title="Comandos y Permisos" href="/docs/zenfairy/comandos_y_permisos" description="Guía y detalles de configuración del módulo." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenfairy/placeholders" description="El plugin cuenta con los siguientes identificadores para su uso en chat, scoreboards, tabs o menús:" />
+</Cards>

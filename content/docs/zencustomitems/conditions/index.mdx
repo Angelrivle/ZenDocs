@@ -1,0 +1,62 @@
+---
+title: "Conditions"
+description: "Catálogo completo de condiciones y validaciones lógicas para ZenCustomItems."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Catálogo completo de **Conditions** para ZenCustomItems estilo eco / libreforge, estructurado con páginas individuales por cada elemento para consulta detallada.
+
+## 📑 Lista de Conditions (48)
+
+<Cards>
+  <Card title="chance" href="/docs/zencustomitems/conditions/chance" description="Determina una probabilidad entre `0.0` y `1.0` (o `0%` a `100%`)." />
+  <Card title="player" href="/docs/zencustomitems/conditions/player" description="Verifica que el causante de la acción sea un jugador válido." />
+  <Card title="sneaking" href="/docs/zencustomitems/conditions/sneaking" description="Verifica si el jugador está agachado (presionando Shift)." />
+  <Card title="sprinting" href="/docs/zencustomitems/conditions/sprinting" description="Verifica si el jugador está esprintando." />
+  <Card title="flying" href="/docs/zencustomitems/conditions/flying" description="Verifica si el jugador se encuentra volando." />
+  <Card title="on_ground" href="/docs/zencustomitems/conditions/on_ground" description="Verifica si el jugador o la entidad está tocando el suelo." />
+  <Card title="in_water" href="/docs/zencustomitems/conditions/in_water" description="Verifica si el jugador se encuentra sumergido en agua." />
+  <Card title="in_lava" href="/docs/zencustomitems/conditions/in_lava" description="Verifica si el jugador está dentro de lava." />
+  <Card title="health" href="/docs/zencustomitems/conditions/health" description="Verifica la salud del jugador mediante operadores relacionales (`<`, `<=`, `>`, `>=`, `..." />
+  <Card title="health_below" href="/docs/zencustomitems/conditions/health_below" description="Acceso directo para comprobar si la salud está por debajo de un valor." />
+  <Card title="food" href="/docs/zencustomitems/conditions/food" description="Verifica el nivel de comida (hambre) del jugador (0 a 20)." />
+  <Card title="level" href="/docs/zencustomitems/conditions/level" description="Verifica el nivel de experiencia del jugador." />
+  <Card title="experience" href="/docs/zencustomitems/conditions/experience" description="Verifica la cantidad total de puntos de experiencia del jugador." />
+  <Card title="game_mode" href="/docs/zencustomitems/conditions/game_mode" description="Verifica el modo de juego del jugador (`SURVIVAL`, `CREATIVE`, `ADVENTURE`, `SPECTATOR`)." />
+  <Card title="permission" href="/docs/zencustomitems/conditions/permission" description="Verifica si el jugador cuenta con un permiso específico en su gestor de permisos (LuckP..." />
+  <Card title="world" href="/docs/zencustomitems/conditions/world" description="Verifica el nombre del mundo en el que ocurre el evento." />
+  <Card title="world_time" href="/docs/zencustomitems/conditions/world_time" description="Verifica la hora del mundo en ticks (0 a 24000) o mediante el flag de noche." />
+  <Card title="weather" href="/docs/zencustomitems/conditions/weather" description="Verifica las condiciones climáticas del mundo (`CLEAR`, `RAIN`, `THUNDER`)." />
+  <Card title="biome" href="/docs/zencustomitems/conditions/biome" description="Verifica si la ubicación coincide con un bioma específico." />
+  <Card title="has_item" href="/docs/zencustomitems/conditions/has_item" description="Comprueba si el inventario del jugador contiene cierta cantidad de un ítem." />
+  <Card title="has_effect" href="/docs/zencustomitems/conditions/has_effect" description="Comprueba si el jugador o entidad objetivo tiene un efecto de poción activo." />
+  <Card title="no_cooldown" href="/docs/zencustomitems/conditions/no_cooldown" description="Verifica que el ítem no tenga un cooldown vanilla activo." />
+  <Card title="entity_type" href="/docs/zencustomitems/conditions/entity_type" description="Verifica el tipo de entidad involucrada como objetivo (e.g. `ZOMBIE`, `SKELETON`, `PLAY..." />
+  <Card title="distance" href="/docs/zencustomitems/conditions/distance" description="Verifica la distancia euclidiana en bloques entre el jugador y el objetivo." />
+  <Card title="item_category" href="/docs/zencustomitems/conditions/item_category" description="Verifica la categoría asignada en la definición del ítem (`category: weapons`, etc.)." />
+  <Card title="item_rarity" href="/docs/zencustomitems/conditions/item_rarity" description="Verifica la rareza configurada en el ítem (`COMMON`, `RARE`, `EPIC`, `LEGENDARY`)." />
+  <Card title="item_tier" href="/docs/zencustomitems/conditions/item_tier" description="Verifica el tier del ítem (`TIER_1`, `MYTHIC`, etc.)." />
+  <Card title="variable" href="/docs/zencustomitems/conditions/variable" description="Compara el valor de una variable persistente almacenada en la instancia del ítem." />
+  <Card title="expression" href="/docs/zencustomitems/conditions/expression" description="Evalúa una expresión matemática o lógica con variables dinámicas del contexto (`damage`..." />
+  <Card title="full_netherite_armor" href="/docs/zencustomitems/conditions/full_netherite_armor" description="Verifica si el jugador viste un set completo de netherite o diamante." />
+  <Card title="full_set_equipped" href="/docs/zencustomitems/conditions/full_set_equipped" description="Comprueba si todas las piezas de armadura comparten el mismo prefijo de material." />
+  <Card title="main_hand_is" href="/docs/zencustomitems/conditions/main_hand_is" description="Comprueba el material exacto en la mano principal o secundaria." />
+  <Card title="has_shield_up" href="/docs/zencustomitems/conditions/has_shield_up" description="Comprueba si el jugador está bloqueando activamente con escudo." />
+  <Card title="item_durability_below" href="/docs/zencustomitems/conditions/item_durability_below" description="Comprueba la durabilidad restante del ítem." />
+  <Card title="is_sleeping" href="/docs/zencustomitems/conditions/is_sleeping" description="Comprueba estados físicos especiales del jugador." />
+  <Card title="target_distance_below" href="/docs/zencustomitems/conditions/target_distance_below" description="Evalúa la distancia al objetivo en bloques." />
+  <Card title="target_health_below" href="/docs/zencustomitems/conditions/target_health_below" description="Evalúa si la vida del objetivo es menor a un valor numérico específico." />
+  <Card title="in_nether" href="/docs/zencustomitems/conditions/in_nether" description="Comprueba el tipo de dimensión o mundo." />
+  <Card title="is_thundering" href="/docs/zencustomitems/conditions/is_thundering" description="Comprueba condiciones celestes y temporales del mundo." />
+  <Card title="in_cave" href="/docs/zencustomitems/conditions/in_cave" description="Comprueba si el jugador está bajo tierra profunda o con la vista sumergida en agua." />
+  <Card title="nearby_entities_count_above" href="/docs/zencustomitems/conditions/nearby_entities_count_above" description="Se cumple si hay más de cierta cantidad de entidades en el radio especificado." />
+  <Card title="block_below_is" href="/docs/zencustomitems/conditions/block_below_is" description="Comprueba el material del bloque sobre el que está parado o apuntando." />
+  <Card title="can_build" href="/docs/zencustomitems/conditions/can_build" description="Valida si la zona permite construcción, si el PVP está activo o si el jugador está en v..." />
+  <Card title="has_potion_effect" href="/docs/zencustomitems/conditions/has_potion_effect" description="Comprueba si el jugador tiene activo un efecto de poción en particular." />
+  <Card title="is_passive_mob" href="/docs/zencustomitems/conditions/is_passive_mob" description="Comprueba si el objetivo es un animal pacífico o un monstruo hostil." />
+  <Card title="target_is_burning" href="/docs/zencustomitems/conditions/target_is_burning" description="Comprueba si el objetivo está ardiendo en llamas." />
+  <Card title="is_holding_weapon" href="/docs/zencustomitems/conditions/is_holding_weapon" description="Comprueba la categoría o estado del ítem en mano." />
+  <Card title="ping_below" href="/docs/zencustomitems/conditions/ping_below" description="Comprueba que el ping de latencia de red del jugador sea menor al umbral configurado." />
+</Cards>

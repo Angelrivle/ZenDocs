@@ -1,0 +1,36 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Todos los textos enviados a los usuarios son 100% configurables en messages.yml."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Todos los textos enviados a los usuarios son 100% configurables en `messages.yml`.
+
+### 6.1 Formato MiniMessage
+
+ZenDuels utiliza el motor moderno **MiniMessage** de Kyori Adventure, permitiendo degradados RGB, colores hexadecimales, eventos de clic interactivos y efectos hover:
+
+```yaml
+# Ejemplo de gradiente RGB y negrita
+prefix: "<gradient:#00d4ff:#4b7bff>[ZenDuels]</gradient> "
+
+# Ejemplo de evento interactivo (clic para ejecutar comando y hover informativo)
+request-clickable: "<click:run_command:'/duels gui <player>'><hover:show_text:'<green>Haz clic para aceptar o rechazar'><gold><b>[¡HAZ CLIC AQUÍ PARA ABRIR EL MENÚ!]</b></gold></hover></click>"
+```
+
+### 6.2 Secciones Principales
+- **`general:`** Mensajes de error comunes, permisos insuficientes y estados de combate.
+- **`admin:`** Notificaciones de configuración de arenas, guardado de kits y spawns.
+- **`duel:`** Solicitudes directas de duelo 1v1 entre jugadores.
+- **`queue:`** Avisos al ingresar o abandonar colas de emparejamiento.
+- **`match:`** Títulos de inicio (`start-title`), conteos regresivos, victorias, derrotas y resúmenes de partida (hits, flechas, pociones).
+- **`kiteditor:`** Mensajes del editor de inventario de kits.
+- **`party:`** Mensajes del sistema de grupos (invitaciones, expulsiones, duelos entre parties, Split y Party FFA).
+- **`tournament:`** Anuncios de torneos automáticos por rondas y llaves eliminatorias.
+- **`ffa:`** Notificaciones de asesinatos, muertes y reinicios automáticos de arenas FFA.
+- **`replay:`** Mensajes de carga, reproducción y controles de repeticiones.

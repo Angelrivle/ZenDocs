@@ -1,0 +1,35 @@
+---
+title: "Nuevas Funcionalidades Integradas"
+description: "Permite que un comprador envíe una contraoferta directa al vendedor de un artículo activo:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Nuevas Funcionalidades Integradas
+
+---
+
+### 1. Sistema de Ofertas Privadas (*Make an Offer*)
+Permite que un comprador envíe una contraoferta directa al vendedor de un artículo activo:
+- Comando: `/ah offer <id> <monto>`
+- El vendedor recibe una notificación en el chat con botones interactivos Adventure (`[ACEPTAR]` y `[RECHAZAR]`).
+- Al aceptar, la transacción descuenta el dinero y entrega el artículo automáticamente garantizando atomicidad.
+
+### 2. Analítica y Precio Promedio de Mercado (*Market Analytics*)
+- El sistema examina de forma automática el historial de transacciones de los últimos 7 días.
+- Incorpora el placeholder `%market_average%` en los lores de los ítems en `auction-house.yml` para advertir a los jugadores si un artículo está por encima o por debajo del valor habitual de mercado.
+- Equipado con caché en memoria (TTL de 5 minutos) para evitar consultas pesadas a la base de datos.
+
+### 3. Subastas Destacadas / Promocionadas (*Featured Listings*)
+- Comando: `/ah sell <precio> --featured` (Requiere `zenauctions.featured`).
+- Los artículos destacados se guardan con el flag `featured = true` en base de datos y se posicionan automáticamente en las primeras posiciones de las páginas del menú principal.
+
+### 4. Alertas de Precio y Lista de Seguimiento (*Watchlist*)
+- Comando: `/ah watch <material> [precio_max]`
+- Cuando cualquier usuario publique en el mercado un artículo que coincida con el material y que su precio sea menor o igual al fijado, el suscriptor recibirá un aviso sonoro y un mensaje instantáneo en el chat con el ID para comprarlo.
+
+### 5. Filtros de Búsqueda Avanzados
+En el comando `/ah search <término>` o en la caja de búsqueda se pueden utilizar filtros clave:
+- `seller:<usuario>`: Filtra exclusivamente artículos de dicho vendedor.
+- `price:<monto>`: Filtra artículos con precio inferior o igual al monto.
+- `price:>monto`: Filtra artículos con precio superior o igual al monto.

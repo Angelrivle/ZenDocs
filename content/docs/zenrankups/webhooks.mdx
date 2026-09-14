@@ -1,0 +1,51 @@
+---
+title: "Webhooks de Discord"
+description: "Permite enviar notificaciones en tiempo real a tus canales de Discord cuando ocurren eventos en el servidor."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Webhooks de Discord
+
+---
+
+Permite enviar notificaciones en tiempo real a tus canales de Discord cuando ocurren eventos en el servidor.
+
+```yaml
+webhooks:
+  rankup:
+    url: "https://discord.com/api/webhooks/..."
+    enabled: true
+    username: "ZenRankups Bot"
+    avatar_url: "https://crafatar.com/avatars/%player_uuid%?size=128&overlay"
+    embed:
+      title: "¡Subida de Rango!"
+      description: "El jugador **%player%** ha ascendido de rango."
+      color: "#00FF00"
+      thumbnail_url: "https://crafatar.com/avatars/%player_uuid%?size=128&overlay"
+      fields:
+        - name: "» Rango anterior"
+          value: "`%old_rank%`"
+          inline: true
+        - name: "» Rango nuevo"
+          value: "`%new_rank%`"
+          inline: true
+      footer:
+        text: "ZenRankups • Servidor Survival"
+
+  prestige:
+    url: "https://discord.com/api/webhooks/..."
+    enabled: true
+    embed:
+      title: "¡Nuevo Prestigio!"
+      description: "¡El jugador **%player%** ha alcanzado el **%prestige_display%**!"
+      color: "#FFAA00"
+
+  reset:
+    url: "https://discord.com/api/webhooks/..."
+    enabled: false
+    embed:
+      title: "Datos Restablecidos"
+      description: "Los datos de **%player%** fueron reseteados por: %reason%"
+      color: "#FF0000"
+```

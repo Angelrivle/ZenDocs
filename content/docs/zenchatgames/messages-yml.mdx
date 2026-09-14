@@ -1,0 +1,77 @@
+---
+title: "Mensajes (messages.yml)"
+description: "El plugin utiliza MiniMessage de Kyori Adventure, soportando degradados de color (gradient:#hex:#hexTexto),..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+El plugin utiliza **MiniMessage de Kyori Adventure**, soportando degradados de color (`<gradient:#hex:#hex>Texto</gradient>`), colores estándar (`<green>`, `<aqua>`), estilos (`<bold>`, `<italic>`), eventos al pasar el ratón (`<hover:show_text:'...'>`) y eventos al hacer clic (`<click:suggest_command:'...'>`).
+
+### Placeholders en Mensajes:
+- `%game_name%`: Nombre público del juego.
+- `%question%`: Reto o enunciado del juego.
+- `%time%`: Tiempo límite o tiempo en el que el ganador respondió.
+- `%player%`: Nombre del jugador ganador o consultado.
+- `%answer%`: Respuesta correcta de la partida.
+- `%streak%`: Racha de victorias del jugador.
+- `%hint%`: Texto de la pista automática.
+
+```yaml
+prefix: "<gradient:#00FFA3:#00B8FF><bold>ZenChatGames</bold></gradient> <dark_gray>»</dark_gray> "
+
+game:
+  start:
+    - ""
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - "  <gradient:#00FFA3:#00B8FF><bold>¡JUEGO DE CHAT ACTIVO!</bold></gradient> <gray>(<white>%game_name%</white>)</gray>"
+    - "  <gray>Pregunta / Reto:</gray> <white><bold>%question%</bold></white>"
+    - "  <dark_gray>•</dark_gray> <hover:show_text:'<gray>Haz clic para escribir en el chat'><click:suggest_command:''> <yellow>⚡ ¡Sé el primero en responder correctamente!</yellow></click></hover>"
+    - "  <dark_gray>•</dark_gray> <gray>Tiempo límite:</gray> <aqua>%time%s</aqua>"
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - ""
+
+  hint:
+    - "  <gradient:#FFAA00:#FF5500><bold>💡 PISTA:</bold></gradient> <yellow><bold>%hint%</bold></yellow> <gray>(<white>%game_name%</white>)</gray>"
+
+  won:
+    - ""
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - "  <gradient:#55FF55:#00AA00><bold>¡TENEMOS UN GANADOR!</bold></gradient>"
+    - "  <dark_gray>•</dark_gray> <gray>Ganador:</gray> <green><bold>%player%</bold></green>"
+    - "  <dark_gray>•</dark_gray> <gray>Respuesta:</gray> <yellow>%answer%</yellow>"
+    - "  <dark_gray>•</dark_gray> <gray>Tiempo:</gray> <aqua>%time%s</aqua> <dark_gray>|</dark_gray> <gray>Racha:</gray> <gold>%streak% 🔥</gold>"
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - ""
+
+  timeout:
+    - ""
+    - "<gradient:#FF5555:#AA0000><strikethrough>                                                            </strikethrough></gradient>"
+    - "  <gradient:#FF5555:#AA0000><bold>¡TIEMPO AGOTADO!</bold></gradient>"
+    - "  <gray>Nadie logró acertar la respuesta a tiempo.</gray>"
+    - "  <gray>La respuesta correcta era:</gray> <yellow><bold>%answer%</bold></yellow>"
+    - "<gradient:#FF5555:#AA0000><strikethrough>                                                            </strikethrough></gradient>"
+    - ""
+
+  actionbar-start: "<gradient:#00FFA3:#00B8FF><bold>¡Juego de Chat!</bold></gradient> <gray>%question%</gray> <dark_gray>(<aqua>%time%s</aqua>)</dark_gray>"
+  title-start: "<gradient:#00FFA3:#00B8FF><bold>ZenChatGames</bold></gradient>"
+  subtitle-start: "<white>%question%</white>"
+
+leaderboard:
+  header:
+    - ""
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - "  <gradient:#00FFA3:#00B8FF><bold>TOP 10 JUGADORES</bold></gradient> <dark_gray>»</dark_gray> <gold><bold>%category%</bold></gold>"
+    - ""
+  format:
+    - "  <gold>#%position%</gold> <white><bold>%player%</bold></white> <dark_gray>-</dark_gray> <aqua>%value%</aqua>"
+  empty:
+    - "  <gray>Aún no hay datos suficientes para mostrar el top.</gray>"
+  footer:
+    - ""
+    - "<gradient:#00FFA3:#00B8FF><strikethrough>                                                            </strikethrough></gradient>"
+    - ""
+```

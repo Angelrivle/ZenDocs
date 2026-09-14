@@ -1,0 +1,13 @@
+{
+  "title": "ZenChatGames (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "comandos_y_permisos",
+    "placeholders",
+    "config-yml",
+    "messages-yml",
+    "games",
+    "base_de_datos"
+  ]
+}

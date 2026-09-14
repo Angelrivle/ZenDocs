@@ -1,0 +1,64 @@
+---
+title: "Estaciones de Forja (stations/)"
+description: "Cada archivo en stations/.yml define una estación de forja independiente con sus propias ranuras, menú..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estaciones de Forja (stations/)
+
+---
+
+Cada archivo en `stations/*.yml` define una estación de forja independiente con sus propias ranuras, menú paginado y recetas asociadas.
+
+### Ejemplo: `stations/iron_station.yml`
+```yaml
+display-name: "&eForja de Hierro"
+permission: "zenforges.station.iron"
+
+# IDs de creaciones asociadas que se podrán forjar aquí
+creations:
+  - iron_dagger
+  - iron_chestplate
+  - gancho
+  - espada_volcanica
+
+forge-menu:
+  title: "&eForja - Estación de Hierro"
+  rows: 6
+  page: 2                               # Total de páginas de ranuras
+  filler: GRAY_STAINED_GLASS_PANE       # Ítem de relleno estático
+  
+  # Hornos y barras verticales de progreso
+  furnaces:
+    - id: 1
+      page: 1
+      furnace-slot: 1                   # Slot del horno en el menú
+      progress-slots: [10, 19, 28, 37]  # Slots de los cristales de progreso vertical
+    - id: 2
+      page: 1
+      furnace-slot: 3
+      progress-slots: [12, 21, 30, 39]
+
+  # Botones personalizados dentro del menú
+    items:
+    item_id:
+      material: BARRIER
+      slot: 49
+      displayname: "&cCerrar"
+      lore:
+        - "&cClick para cerrar el menú"
+
+selection-menu:
+  title: "&eRecetas - Estación de Hierro"
+  rows: 6
+  filler: GRAY_STAINED_GLASS_PANE
+  recipe-slots: [10, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25]
+    items:
+    back:
+      material: ARROW
+      slot: 49
+      displayname: "&aVolver al Menú Principal"
+      lore:
+        - "&7Click para regresar a la forja"
+```

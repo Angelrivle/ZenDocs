@@ -1,0 +1,20 @@
+---
+title: "ping_below"
+description: "Comprueba que el ping de latencia de red del jugador sea menor al umbral configurado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `ping_below`
+
+* **Categoría:** `Nuevas Condiciones de Armadura, Estado y Entorno`  
+* **Identificador / Alias:** `PING_BELOW`
+
+---
+
+Comprueba que el ping de latencia de red del jugador sea menor al umbral configurado.
+```yaml
+conditions:
+  - type: PING_BELOW
+    ping: 80
+```

@@ -1,0 +1,57 @@
+---
+title: "Configuración de Kits (kits.yml)"
+description: "Cada modalidad de juego se define mediante un archivo de kit en plugins/ZenDuels/kits/nombre.yml."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Kits (kits.yml)
+
+---
+
+Cada modalidad de juego se define mediante un archivo de kit en `plugins/ZenDuels/kits/<nombre>.yml`.
+
+### 4.1 Parámetros de Cada Kit
+
+```yaml
+type: "nodebuff"                 # Identificador del tipo de combate
+build: false                     # Si permite colocar y romper bloques durante el match
+pearls-cooldown: 15              # Cooldown en segundos para perlas de ender (0 = sin cooldown)
+icon: "DIAMOND_SWORD"            # Ítem mostrado en las interfaces GUIs
+slot: 10                         # Slot en el menú GUI (-1 = automático)
+display-name: "<aqua>NoDebuff"   # Nombre con formato MiniMessage
+lore:
+  - "<gray>Combate competitivo con pociones"
+  - "<gray>y perlas de ender."
+rounds: 1                        # Número de rondas necesarias para ganar (ej. 1 para 1v1, 3 para mejor de 3)
+fall-damage: false               # Habilita o deshabilita el daño por caída
+natural-regen: false             # Habilita o deshabilita la regeneración natural por comida
+max-build-height: 256            # Límite de altura Y para construcciones si build=true
+block-regen-seconds: 0           # Segundos para regenerar bloques colocados por jugadores (0 = al fin de match)
+arenas:                          # Arenas asignadas a este kit (vacío = utiliza cualquier arena disponible)
+  - "desert"
+  - "colosseum"
+armor:
+  0:
+    ==: org.bukkit.inventory.ItemStack
+    v: 3465
+    type: DIAMOND_BOOTS
+  # ...
+items:
+  0:
+    ==: org.bukkit.inventory.ItemStack
+    v: 3465
+    type: DIAMOND_SWORD
+  # ...
+```
+
+### 4.2 Tipos de Kit (`type`)
+
+ZenDuels cuenta con motores lógicos especializados para distintas mecánicas de combate:
+
+- **`nodebuff`:** Combate con pociones arrojadizas de curación instantánea y perlas de ender con cooldown estricto.
+- **`boxing`:** Sistema por puntos de impacto. El primer jugador o equipo en conectar 100 golpes válidos gana la partida.
+- **`sumo`:** Se gana empujando al oponente fuera de la plataforma al agua o al vacío. Sin daño por armas ni armaduras.
+- **`classic`:** Estilo clásico de arco y flechas, espada de hierro y caña de pescar.
+- **`crystal` / `crystal_flat`:** Combate 1.20+ con End Crystals, Obsidian, Respawn Anchors y Totems of Undying.
+- **`mace`:** Combate 1.21 con Maza y Cargas de Viento (Wind Charges).

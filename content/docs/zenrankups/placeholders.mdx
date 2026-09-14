@@ -1,0 +1,29 @@
+---
+title: "Placeholders (PAPI)"
+description: "ZenRankups registra la expansión %zenrankups% para usar en tablists, scoreboards, chat y hologramas:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Placeholders (PAPI)
+
+---
+
+ZenRankups registra la expansión `%zenrankups_<parámetro>%` para usar en tablists, scoreboards, chat y hologramas:
+
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%zenrankups_rank%` | Identificador bruto del rango actual | `A` |
+| `%zenrankups_rank_display%` | Nombre formateado con colores del rango actual | `§aRango A` |
+| `%zenrankups_rank_symbol%` | Símbolo o prefijo del rango actual | `§a[A]` |
+| `%zenrankups_next_rank%` | Identificador del próximo rango | `B` (o `MAX`) |
+| `%zenrankups_next_rank_display%`| Nombre con colores del próximo rango | `§eRango B` |
+| `%zenrankups_rank_weight%` | Índice del rango para ordenamiento (3 dígitos) | `001` |
+| `%zenrankups_prestige%` | Nivel de prestigio numérico | `2` |
+| `%zenrankups_prestige_display%`| Nombre visible del nivel de prestigio | `§ePrestigio II` |
+| `%zenrankups_prestige_symbol%` | Símbolo del prestigio | `§e[Prestigio II]` |
+| `%zenrankups_prestige_weight%` | Índice de prestigio ordenable | `002` |
+| `%zenrankups_stat_<nombre>%` | Valor de cualquier estadística registrada | `%zenrankups_stat_items_cooked%` |
+| `%zenrankups_stat_playtime%` | Tiempo de juego formateado en legible | `1d 4h 32m` |
+| `%zenrankups_top_name_<1-10>%` | Nombre del jugador en el puesto X del leaderboard | `Cuac_XD` |
+| `%zenrankups_top_rank_<1-10>%` | Rango del jugador en el puesto X del leaderboard | `Z` |

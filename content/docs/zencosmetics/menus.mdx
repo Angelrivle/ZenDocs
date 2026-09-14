@@ -1,0 +1,47 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Todos los menús son altamente personalizables. Admiten títulos en MiniMessage, tamaño de cofre (size: 9, 18,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Todos los menús son altamente personalizables. Admiten títulos en MiniMessage, tamaño de cofre (`size: 9, 18, 27, 36, 45, 54`), materiales (`Material`), slots (0 a 53) y paneles de relleno (`filler`).
+
+### 5.1 Menú Principal (`main.yml`)
+Permite configurar el acceso a cada categoría. La clave de cada item en `items:` debe coincidir con el identificador de categoría:
+- `kill_messages`, `projectiles_trails`, `death_cries`, `kill_effects_players`, `kill_effects_mobs`, `balloons`, `win_effects`, `aura`, `click_effects`, `elytra_trail`, `footstep_trails`, `chat_color`, `name_color`, `colors`, `settings`.
+
+### 5.2 Menú de Categoría (`category.yml`)
+Muestra la lista de cosméticos de una categoría seleccionada:
+- `slots`: Lista explícita de slots donde se insertarán los cosméticos (ej: `[10, 11, 12, 13, 14, 15, 16, 19, 20...]`).
+- `cosmetics-start-slot` y `cosmetics-max-slot`: Usados si `slots` está vacío.
+- `stats-button`: Botón con estadísticas de cosméticos comprados y desbloqueados.
+- `back-button`: Botón para regresar al menú principal.
+
+### 5.3 Menú de Confirmación (`confirm.yml`)
+Pantalla de confirmación de compra:
+- `yes-button`: Slot, material y lore del botón confirmar.
+- `no-button`: Slot, material y lore del botón cancelar.
+
+### 5.4 Selector de Colores (`colors.yml`)
+Permite a los jugadores comprar y equipar colores globales para partículas y globos compatibles:
+- `clear-button`: Botón para desequipar el color activo.
+- `colors`: Lista de colores disponibles referenciados desde `config.yml`.
+
+### 5.5 Estilos de Texto (`styles.yml`)
+Permite aplicar formatos de texto tipográficos (`BOLD`, `ITALIC`, `UNDERLINED`, `STRIKETHROUGH`, `OBFUSCATED`) tanto a **Chat Color** como a **Name Color**.
+
+### 5.6 Personalizador de Partículas (`customizer.yml`)
+Permite alternar entre opciones predefinidas por cosmético:
+- Opción de color (`options.color`)
+- Opción de velocidad (`options.speed`)
+- Opción de densidad (`options.density`)
+
+### 5.7 Ajustes Personales (`settings.yml`)
+Opciones de cliente por jugador:
+- `settings.sounds`: Activa o desactiva la reproducción de sonidos cosméticos.
+- `settings.performance`: Modo FPS Boost (reduce la cantidad y densidad de partículas del usuario).

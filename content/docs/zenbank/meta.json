@@ -1,0 +1,15 @@
+{
+  "title": "ZenBank (New)",
+  "pages": [
+    "index",
+    "caracter_sticas_principales",
+    "estructura_de_archivos",
+    "config-yml",
+    "messages-yml",
+    "plans-yml",
+    "menus",
+    "comandos_y_permisos",
+    "placeholders",
+    "formato_minimessage"
+  ]
+}

@@ -1,0 +1,66 @@
+---
+title: "Heart of the Mountain (hotm.yml)"
+description: "Configura el árbol de habilidades mineras estilo Hypixel Skyblock, costos y stats."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Heart of the Mountain (hotm.yml)
+
+---
+
+Configura el árbol de habilidades mineras estilo Hypixel Skyblock, costos y stats.
+
+```yaml
+settings:
+  title: "&8Heart of the Mountain"
+  rows: 6
+  filler: "GRAY_STAINED_GLASS_PANE"
+  
+  # Reinicio de habilidades
+  reset:
+    cost-type: "money"                  # money (Vault), ecobits o ecoitems
+    cost-id: ""
+    cost-amount: 10000
+    display-name: "&c&lReiniciar Árbol"
+    lore:
+      - "&7Costo: &e$10,000"
+      - "&7Devuelve todos los powders y tokens invertidos."
+
+xp-per-level: 1000                      # XP necesaria por cada nivel de HOTM
+
+nodes:
+  mining_speed:
+    display-name: "&aMining Speed"
+    material: "GOLDEN_PICKAXE"
+    slot: 22                            # Slot dentro del menú
+    max-level: 50
+    cost:
+      token-per-level: 1
+      powder-type: "mythril"
+      base-powder: 100
+      powder-multiplier-per-level: 1.5
+    effects:
+      skills:
+        stat: "mining_speed"            # Estadística para AuraSkills / EcoSkills
+        amount-per-level: 5
+      permissions:
+        - "zenforges.hotm.speed.%level%"
+
+  daily_allowance:
+    display-name: "&eSubsidio Diario"
+    material: "SUNFLOWER"
+    slot: 13
+    max-level: 1
+    cost:
+      token-per-level: 2
+      powder-type: "mythril"
+      base-powder: 500
+      powder-multiplier-per-level: 1.0
+    effects:
+      recurring-reward:
+        interval-hours: 12
+        commands:
+          - "eco give %player% 1000"
+        message: "&e&l[Subsidio] &f¡Has recibido tus $1,000 periódicos de HOTM!"
+```

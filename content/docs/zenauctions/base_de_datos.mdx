@@ -1,0 +1,41 @@
+---
+title: "Base de Datos"
+description: "ZenAuctions incluye un motor ORM interno conectado mediante HikariCP de alto rendimiento. Soporta SQLite para..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Base de Datos
+
+---
+
+ZenAuctions incluye un motor ORM interno conectado mediante **HikariCP** de alto rendimiento. Soporta SQLite para servidores locales individuales y motores relacionales SQL para redes o modalidades interconectadas.
+
+```yaml
+# ======================================================
+#                ZenAuctions Database Config
+# Tipos soportados: SQLITE, MYSQL, MARIADB, POSTGRESQL
+# ======================================================
+
+type: SQLITE                # Motor seleccionado
+
+sqlite:
+  file: "data.db"           # Nombre del archivo SQLite generado en plugins/ZenAuctions/
+
+mysql:
+  host: "localhost"
+  port: 3306
+  database: "zenauctions"
+  username: "root"
+  password: ""
+  table-prefix: "zen_"      # Prefijo de las tablas (ej: zen_auctions, zen_history)
+  ssl: false
+
+# Configuración del Pool de Conexiones HikariCP
+pool:
+  maximum-pool-size: 10     # Conexiones activas simultáneas máximas
+  minimum-idle: 2           # Conexiones mínimas inactivas en espera
+  connection-timeout: 30000 # Tiempo máximo de espera para obtener conexión (30s)
+  idle-timeout: 600000      # Tiempo que una conexión puede estar ociosa (10 min)
+  max-lifetime: 1800000     # Tiempo de vida máximo de una conexión física (30 min)
+```

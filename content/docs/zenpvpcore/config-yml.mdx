@@ -1,0 +1,282 @@
+---
+title: "Configuración (config.yml)"
+description: "El archivo config.yml controla el núcleo del plugin, módulos de protección, combate, base de datos y..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+El archivo `config.yml` controla el núcleo del plugin, módulos de protección, combate, base de datos y mecánicas de arena.
+
+### 3.1 Sistema de Reportes y Webhook de Discord
+
+```yaml
+item_blocked_alerts: true # Envía alerta en chat cuando un jugador intenta usar un ítem bloqueado
+
+report:
+  # URL del Webhook de Discord para enviar notificaciones automáticas al Staff
+  webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+  
+  # Motivos disponibles en el menú interactivo /report
+  reasons:
+    - "Uso de Hacks"
+    - "Aprovechamiento de Bugs"
+    - "Insultos / Toxicidad"
+    - "Spam / Flood"
+    - "Evasión de Ban"
+    
+  # Comandos de consola que ejecuta el menú de sanciones rápidas /report view
+  # Placeholders disponibles: %player%, %reason%
+  actions:
+    ban: "ban %player% 30d %reason% -s"
+    mute: "mute %player% 1h %reason% -s"
+    kick: "kick %player% %reason%"
+    freeze: "freeze %player%"
+```
+
+---
+
+### 3.2 Sistema de Combate y Barrera Visual
+
+```yaml
+combat:
+    enabled: true                  # Activa o desactiva el sistema de combate (CombatLog)
+  duration_seconds: 15           # Tiempo en segundos que dura el estado de combate tras recibir/hacer daño
+  
+  # BossBar superior en pantalla
+  bossbar:
+    enabled: true
+    title: "<color:#ff3333><b>¡EN COMBATE!</b></color> <dark_gray>»</dark_gray> <yellow>%time%s</yellow>"
+    color: "RED"                 # Opciones: RED, BLUE, GREEN, PINK, PURPLE, WHITE, YELLOW
+    style: "PROGRESS"            # Opciones: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+    
+  # Muro visual de advertencia cerca de zonas seguras (WorldGuard)
+  barrier:
+    enabled: true
+  barrier_material: "RED_STAINED_GLASS" # Bloque falso renderizado solo para el jugador en combate
+  barrier_radius_check: 6        # Radio de detección antes de alcanzar el límite de la zona segura
+  
+  # Nombres de regiones de WorldGuard consideradas zonas seguras donde no se puede entrar en combate
+  safezones:
+    - "crystal_spawn"
+    - "koth_mazo"
+    - "koth_spawn"
+    - "spawnkothmixto"
+    
+  # Comandos permitidos durante el estado de combate
+    allowed_commands:
+    - "/msg"
+    - "/r"
+```
+
+---
+
+### 3.3 Restricciones de Ítems, Mecánicas y Cooldowns
+
+Cada mecánica puede configurarse por lista blanca (`WHITELIST`) o lista negra (`BLACKLIST`), filtrando por nombres de mundos o regiones de WorldGuard.
+
+```yaml
+# Restricción de uso de Flechas / Arco / Ballesta
+arrow:
+  worlds:
+    mode: "BLACKLIST"
+    list:
+      - "mundo_paz"
+  regions:
+    mode: "BLACKLIST"
+    list:
+      - "spawn"
+      - "zonasafe"
+
+# Restricción de Elytras
+elytra:
+  worlds:
+    mode: "BLACKLIST"
+    list:
+      - "test"
+  regions:
+    mode: "BLACKLIST"
+    list:
+      - "koths"
+      - "crystal_pvp"
+
+# Restricción de Cargas de Viento (Wind Charges)
+wind_charge:
+  worlds:
+    mode: "BLACKLIST"
+    list: []
+  regions:
+    mode: "BLACKLIST"
+    list:
+      - "koths"
+
+# Restricción de Mazo (Mace)
+mace:
+  worlds:
+    mode: "BLACKLIST"
+    list: []
+  regions:
+    mode: "BLACKLIST"
+    list:
+      - "koths"
+
+# Restricción de Cohetes de Fuegos Artificiales (Firework Rockets)
+firework_rocket:
+  worlds:
+    mode: "BLACKLIST"
+    list: []
+  regions:
+    mode: "BLACKLIST"
+    list:
+      - "koths"
+      - "crystal_pvp"
+
+# Restricción y Cooldown de Ender Pearls
+ender_pearl:
+  worlds:
+    mode: "BLACKLIST"
+    list: []
+  regions:
+    mode: "BLACKLIST"
+    list: []
+  cooldown:
+    enabled: true
+    time_seconds: 10
+    worlds:
+      mode: "WHITELIST"          # WHITELIST: Solo se aplica cooldown en los mundos listados
+      list:
+        - "minapvp"
+    regions:
+      mode: "WHITELIST"          # WHITELIST: Solo se aplica cooldown en las regiones listadas
+      list:
+        - "zonapvp"
+
+# Cooldown de Manzanas Doradas Encantadas (Notch Apples)
+enchanted_golden_apple:
+  cooldown:
+    enabled: true
+    time_seconds: 10
+    worlds:
+      mode: "WHITELIST"
+      list: []
+    regions:
+      mode: "WHITELIST"
+      list:
+        - "koth_mazo"
+        - "koth_mazo_pvp"
+```
+
+---
+
+### 3.4 Bloques Temporales (TempBlocks)
+
+Permite que bloques colocados en combate (como Obsidiana, Telarañas o Glowstone) desaparezcan automáticamente tras un tiempo configurado (formato `MATERIAL:TIEMPOs`):
+
+```yaml
+tempblocks:
+  regions:
+    koth_mixto:
+      - "OBSIDIAN:10s"
+      - "GLOWSTONE:5s"
+      - "COBWEB:10s"
+    warppvp:
+      - "OBSIDIAN:10s"
+      - "COBWEB:10s"
+  worlds:
+    arena_world:
+      - "STONE:15s"
+```
+
+---
+
+### 3.5 Flat Crystal PvP y Regeneración Automática
+
+Controla el comportamiento de daño de cristales y anclas, además del sistema de regeneración periódica de arenas planas con dispersión segura de jugadores:
+
+```yaml
+# Configuración de mecánicas Crystal PvP
+crystal_pvp:
+  clear_time_seconds: 10         # Tiempo de limpieza de ítems dropeados
+  end_crystal:
+    radius: 6.0                  # Radio de explosión
+    damage_multiplier: 3.0       # Multiplicador de daño de cristales
+  respawn_anchor:
+    damage_multiplier: 1.5       # Multiplicador de daño de anclas
+  worlds:
+    mode: "WHITELIST"
+    list:
+      - "KOTH_Mundo"
+  regions:
+    mode: "WHITELIST"
+    list:
+      - "koths"
+      - "crystal_pvp"
+
+# Regeneración automática periódica de la arena Flat Crystal
+crystal_pvp_flat:
+    enabled: true
+  reset_interval_seconds: 600    # Intervalo de reinicio en segundos (600s = 10 minutos)
+  regions:
+    - "crystal_flat"
+    - "arena_flat"
+  worlds: []
+  
+  alerts:
+    # Segundos previos en los que se envía una cuenta regresiva sonora y por chat
+    seconds:
+      - 300 # 5m
+      - 60  # 1m
+      - 30  # 30s
+      - 15  # 15s
+      - 5
+      - 4
+      - 3
+      - 2
+      - 1
+    message: "<color:#1c7bff><b>COMBATE</b></color> <dark_gray>» <yellow>La arena se regenerará y dispersará en <red><bold>%time%</bold></red>.</yellow>"
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    reset_completed_message: "<color:#1c7bff><b>COMBATE</b></color> <dark_gray>» <green>¡La arena ha sido completamente regenerada y los jugadores dispersados!</green>"
+```
+
+---
+
+### 3.6 Bloqueo de Comandos por Región
+
+```yaml
+blocked_commands_regions:
+    enabled: true
+  bypass_permission: "zenpvpcore.blockedcommands.bypass"
+  message: "<red>¡No puedes usar ese comando en esta región!</red>"
+  regions:
+    koths:
+      - "/fly"
+      - "/tp"
+    crystal_pvp:
+      - "/fly"
+      - "/god"
+```
+
+---
+
+### 3.7 Configuración de Base de Datos
+
+ZenPvPCore soporta **SQLite** (fichero local `.db` sin configuración externa) o **MySQL** (con pool de conexiones de alto rendimiento HikariCP):
+
+```yaml
+database:
+  type: "SQLITE" # Opciones: SQLITE o MYSQL
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "zenpvp"
+    username: "root"
+    password: "tu_password_aqui"
+    pool:
+      maximum-pool-size: 10
+      minimum-idle: 10
+      maximum-lifetime: 1800000     # 30 minutos en milisegundos
+      connection-timeout: 30000    # 30 segundos
+```

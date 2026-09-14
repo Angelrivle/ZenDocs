@@ -1,0 +1,25 @@
+---
+title: "Comandos y Permisos"
+description: "- zenbank.booster.multiplicador (ej. zenbank.booster.1.5 otorga un 50% extra de interés a jugadores VIP)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+| Comando | Descripción | Permiso Requerido |
+| :--- | :--- | :--- |
+| `/bank` (alias: `/banco`) | Abre la interfaz principal del banco. | `zenbank.use` (por defecto: todos) |
+| `/bank claim` | Reclama el saldo excedente acumulado. | `zenbank.use` |
+| `/bank transfer <jugador> <monto>` | Transfiere fondos entre cuentas bancarias. | `zenbank.use` |
+| `/bank cheque <monto>` | Emite un cheque bancario físico firmado. | `zenbank.use` |
+| `/bank inspect <jugador>` | Abre el menú de inspección de cuenta de otro jugador. | `zenbank.admin.inspect` |
+| `/bank reload` | Recarga las configuraciones y los planes en caliente. | `zenbank.admin` |
+| `/bank forceinterest` | Fuerza el pago global inmediato de intereses. | `zenbank.admin` |
+| `/bank setbalance <jugador> <monto>` | Establece el saldo bancario de un jugador. | `zenbank.admin` |
+| `/bank setplan <jugador> <plan_id>` | Establece el plan bancario de un jugador. | `zenbank.admin` |
+
+### Permisos de Boosters de Interés:
+- `zenbank.booster.<multiplicador>` (ej. `zenbank.booster.1.5` otorga un 50% extra de interés a jugadores VIP).

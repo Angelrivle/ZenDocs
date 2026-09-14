@@ -1,0 +1,25 @@
+---
+title: "sprint"
+description: "Se dispara cuando el jugador comienza a esprintar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `sprint`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `SPRINT`
+
+---
+
+Se dispara cuando el jugador comienza a esprintar.
+```yaml
+triggers:
+  - id: sprint_boost
+    type: SPRINT
+    effects:
+      - type: ADD_POTION_EFFECT
+        effect: SPEED
+        duration: 40
+        amplifier: 0
+```

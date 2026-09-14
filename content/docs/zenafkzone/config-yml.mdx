@@ -1,0 +1,96 @@
+---
+title: "Configuración (config.yml)"
+description: "Este archivo controla las opciones generales del plugin, límites de red, interfaz visual y aceleradores de..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+Este archivo controla las opciones generales del plugin, límites de red, interfaz visual y aceleradores de tiempo.
+
+```yaml
+# =========================================================
+#                 ZenAfkZone - Configuración Global
+# =========================================================
+
+# Formato del temporizador de tiempo restante:
+# 1 -> HH:MM:SS (ej: 01:25:35)
+# 2 -> Corto (ej: 1h 25m 35s o 20m)
+# 3 -> Texto expansivo (ej: 01h 25m 35s)
+timer-format: 1
+
+# Alias del comando principal (/zenafkzone)
+# El primer elemento será el comando primario.
+command-aliases:
+  - zenafkzone
+  - afkzone
+  - afk
+  - az
+
+# Si es true, la cuenta regresiva visible del jugador se reinicia tras entregar una recompensa.
+reset-after-reward: true
+
+# Límite de cuentas por dirección IP dentro de la misma zona AFK (-1 = ilimitado)
+zone-per-ip-limit: 1
+
+# Dirección de la BossBar:
+# 0 = Empieza llena y se vacía conforme avanza el tiempo
+# 1 = Empieza vacía y se llena conforme avanza el tiempo
+bossbar-direction: 0
+
+# Configuración Global de Efectos Sonoros (Minecraft Sound Enum)
+sounds:
+    enabled: true
+  sound-on-enter: ENTITY_PLAYER_LEVELUP
+  sound-on-exit: BLOCK_NOTE_BLOCK_BASS
+  sound-on-reward: UI_TOAST_CHALLENGE_COMPLETE
+
+# Configuración de Efectos Visuales (Partículas)
+particles:
+    enabled: true
+  type: HAPPY_VILLAGER # HAPPY_VILLAGER, END_ROD, FLAME, WAX_OFF, etc.
+  density: 5 # Partículas generadas por ciclo en la zona
+
+# Reducción de Tiempo AFK por Permiso / Rango (Time Boosts)
+# Reduce el porcentaje (%) de tiempo necesario para recibir la recompensa.
+time-boosts:
+    enabled: true
+  vip:
+    permission: zenafkzone.timeboost.vip
+    percentage: 20 # 20% menos de tiempo de espera
+  mvp:
+    permission: zenafkzone.timeboost.mvp
+    percentage: 40 # 40% menos de tiempo de espera
+
+# Multiplicadores de Ítems / Rolls por Permiso
+multipliers:
+    enabled: false
+  vip:
+    permission: zenafkzone.multiplier.vip
+    value: 1.5
+  mvp:
+    permission: zenafkzone.multiplier.mvp
+    value: 2.0
+
+# Configuración del menú GUI (/afk gui)
+gui:
+  title: <gradient:#4158D0:#C850C0><b>Zonas AFK Disponibles</b></gradient>
+  rows: 3
+  filler-glass: GRAY_STAINED_GLASS_PANE
+
+# Configuración del ítem Selección Wand
+wand-item:
+  material: STICK
+    custom-model-data: 10001
+  name: <gradient:#4158D0:#C850C0:#FFCC70><b>Wand de Selección AFK</b></gradient>
+  lore:
+    - <gray>Usa esta herramienta para seleccionar una zona.</gray>
+    - <yellow>Click Izquierdo:</yellow> <white>Establecer Posición 1</white>
+ - <yellow>Click Derecho:</yellow> <white>Establecer Posición 2</white>
+ - 
+ - <dark_purple>ZenAfkZone Wand System</dark_purple>
+   glowing: true
+```

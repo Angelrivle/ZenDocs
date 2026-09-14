@@ -1,0 +1,71 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Controla el menú interactivo /ranks. Permite una disposición inteligente mediante mapas de caracteres (Smart..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Controla el menú interactivo `/ranks`. Permite una disposición inteligente mediante mapas de caracteres (Smart Layout).
+
+### Smart Layout System
+Puedes "dibujar" el inventario con caracteres alfanuméricos:
+```yaml
+title: "&8Rankups - Pag %page%/%total_pages%"
+
+pages:
+  '1':
+    layout:
+      pattern:
+        - "PPPPPPPPP"
+        - "1#9ab#jkl"
+        - "2#8#c#i#m"
+        - "3#7#d#h#n"
+        - "456#efg#o"
+        - "PPPPXP>PP"
+      rank-path: "123456789abcdefghijklmnop" # Ruta en orden por la que fluirán los rangos
+      items:
+        'P':
+          material: "PURPLE_STAINED_GLASS_PANE"
+          displayname: " "
+        '#':
+          material: "GRAY_STAINED_GLASS_PANE"
+          displayname: " "
+        '<':
+          material: "ARROW"
+          displayname: "&ePágina Anterior (%prev_page%/%total_pages%)"
+          action: "previous"
+        '>':
+          material: "ARROW"
+          displayname: "&eSiguiente Página (%next_page%/%total_pages%)"
+          action: "next"
+        'X':
+          material: "BARRIER"
+          displayname: "&cCerrar Menú"
+          action: "close"
+```
+
+### Configuración de Estados de Rangos en el Menú:
+- **`locked-item`**: Ítem mostrado para rangos futuros que aún no pueden desbloquearse.
+- **`in-progress-item`**: Ítem del siguiente rango al que el jugador puede aspirar.
+- **`completed-item`**: Ítem representativo para rangos ya superados. Soporta `%rank_material%` para usar el icono definido en `ranks.yml`.
+
+### Formato de Requisitos en el Lore (`display-requirements`):
+Permite personalizar la apariencia de cada requerimiento dentro del menú `/ranks`:
+```yaml
+display-requirements:
+  vault: "&7Costo: &a$%current%/$%total% &7(Dinero)"
+  playerpoints: "&7Costo: &d%current%/%total% Puntos"
+  level: "&7Costo: &e%current%/%total% Niveles de XP"
+  item: "&7Costo: &f%current%/%total% %item%"
+  playtime: "&7Tiempo de juego: &e%minutes% min."
+```
+
+### Menú de Confirmación (`RankConfirmMenu`)
+Si `menus.confirmation.enabled` está activado en `config.yml`, al pulsar un rango disponible se abrirá un menú con:
+- **Slot 11:** Botón de confirmación (bloque de caliza verde si cumple los requisitos, bloque de redstone si no).
+- **Slot 13:** Ítem con el desglose detallado de todos los requisitos cumplidos (`✔`) y pendientes (`❌`).
+- **Slot 15:** Botón para cancelar y volver a la navegación general.

@@ -1,0 +1,106 @@
+---
+title: "Configuración (config.yml)"
+description: "debug: false"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+```yaml
+# Modo de depuración (muestra información técnica adicional en la consola)
+debug: false
+
+# Configuración del programador automático de juegos
+scheduler:
+    enabled: true
+  # Cantidad mínima de jugadores en línea para iniciar un juego automáticamente
+  min-players: 1
+  # Intervalo de tiempo mínimo entre juegos (en segundos)
+  min-delay: 180
+  # Intervalo de tiempo máximo entre juegos (en segundos)
+  max-delay: 360
+  # Tiempo de espera inicial tras encender el servidor antes del primer juego (en segundos)
+  initial-delay: 30
+
+# Ajustes generales del juego
+game-settings:
+  # ¿Ignorar mayúsculas y minúsculas al validar respuestas?
+  ignore-case: true
+  # ¿Ignorar tildes y acentos (ej. 'canción' = 'cancion')?
+  ignore-accents: true
+  # ¿Ocultar el mensaje en el chat del jugador que acertó la respuesta?
+  hide-winning-message: false
+  # ¿Exigir coincidencia exacta de la palabra? (Recomendado: true)
+  exact-match-only: true
+  
+  # Sistema inteligente de pistas progresivas (Hints)
+  hints:
+    enabled: true
+    # Porcentaje del tiempo límite para emitir la pista (0.5 = a la mitad del tiempo)
+    delay-percentage: 0.5
+
+# Efectos de sonido (Nativos de Minecraft 1.21+)
+sounds:
+  game-start:
+    enabled: true
+    sound: "block.note_block.pling"
+    volume: 1.0
+    pitch: 1.5
+  game-won:
+    enabled: true
+    sound: "entity.player.levelup"
+    volume: 1.0
+    pitch: 1.2
+  game-timeout:
+    enabled: true
+    sound: "block.note_block.bass"
+    volume: 1.0
+    pitch: 0.8
+  game-hint:
+    enabled: true
+    sound: "block.note_block.hat"
+    volume: 1.0
+    pitch: 1.8
+
+# Notificaciones visuales adicionales
+notifications:
+  actionbar-on-start: true
+  title-on-start: false
+
+# Configuración de base de datos
+database:
+  # SQLITE o MYSQL
+  type: SQLITE
+
+  # Ajustes de MySQL / MariaDB (usados si type: MYSQL)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: ""
+    use-ssl: false
+    table-prefix: "zen_"
+
+  # Ajustes de SQLite local
+  sqlite:
+    file-name: "zenchatgames.db"
+    table-prefix: "zen_"
+
+  # Pool de conexiones HikariCP
+  pool:
+    maximum-pool-size: 10
+    minimum-idle: 2
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1800000
+
+# Recompensas globales predeterminadas (ejecutadas desde la consola del servidor)
+# Placeholders disponibles: %player%, %time%, %answer%, %game%, %streak%
+default-rewards:
+  - "give %player% diamond 2"
+      - "eco give %player% 100"
+```

@@ -1,0 +1,21 @@
+---
+title: "health"
+description: "Verifica la salud del jugador mediante operadores relacionales (`<`, `<=`, `>`, `>=`, `==`)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `health`
+
+* **Categoría:** `📑 Catálogo de Condiciones`  
+* **Identificador / Alias:** `HEALTH`
+
+---
+
+Verifica la salud del jugador mediante operadores relacionales (`<`, `<=`, `>`, `>=`, `==`).
+```yaml
+conditions:
+  - type: HEALTH
+    operator: "<="
+    value: 10.0 # 5 corazones o menos
+```

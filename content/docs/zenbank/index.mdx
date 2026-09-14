@@ -1,0 +1,28 @@
+---
+title: "ZenBank"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenBank."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenBank
+
+¡Bienvenido a la documentación oficial completa de **ZenBank**!  
+Este archivo detalla minuciosamente todas las configuraciones, archivos YAML, permisos, comandos, sintaxis de Adventure/MiniMessage y opciones de personalización del plugin.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Características Principales" href="/docs/zenbank/caracter_sticas_principales" description="- Arquitectura Paper 1.21+ & Adventure API: Compatibilidad total con MiniMessage (gradient, bold, hex) y..." />
+  <Card title="Estructura de Archivos" href="/docs/zenbank/estructura_de_archivos" description="Dentro de la carpeta plugins/ZenBank/ encontrarás:" />
+  <Card title="Configuración (config.yml)" href="/docs/zenbank/config-yml" description="El archivo config.yml controla el motor central y la activación de cada módulo." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenbank/messages-yml" description="Admite tanto tags de MiniMessage (gradient:#00d2ff:#3a7bd5, color, bold) como formato tradicional &." />
+  <Card title="Planes (plans.yml)" href="/docs/zenbank/plans-yml" description="Los planes deben estructurarse de menor a mayor categoría." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zenbank/menus" description="Cada menú permite personalizar filas (rows: 1 a 6), relleno de fondo (filler), nombres, texturas de cabezas..." />
+  <Card title="Comandos y Permisos" href="/docs/zenbank/comandos_y_permisos" description="- zenbank.booster.multiplicador (ej. zenbank.booster.1.5 otorga un 50% extra de interés a jugadores VIP)." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenbank/placeholders" description="Para utilizar estos placeholders se requiere tener instalado PlaceholderAPI." />
+  <Card title="Formato de Texto y MiniMessage" href="/docs/zenbank/formato_minimessage" description="ZenBank cuenta con un motor híbrido que interpreta tanto el estándar moderno de Paper como códigos legados:" />
+</Cards>

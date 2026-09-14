@@ -1,0 +1,25 @@
+---
+title: "Base de Datos"
+description: "El plugin gestiona de manera automática la creación de la tabla e índices para SQLite y MySQL mediante..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Base de Datos
+
+---
+
+El plugin gestiona de manera automática la creación de la tabla e índices para SQLite y MySQL mediante **HikariCP**.
+
+### Esquema de la Tabla (`zen_chat_stats`):
+- `uuid` (`VARCHAR(36)`): UUID único del jugador de Minecraft.
+- `player_name` (`VARCHAR(32)`): Último nombre conocido del jugador.
+- `games_won` (`INT`): Total de juegos ganados.
+- `correct_answers` (`INT`): Total de aciertos.
+- `current_streak` (`INT`): Racha actual en curso.
+- `best_streak` (`INT`): Mejor racha histórica alcanzada.
+- `last_played` (`BIGINT`): Timestamp en milisegundos de la última victoria.
+
+### Índices de Alto Rendimiento:
+- `idx_zen_won`: Indexa `games_won DESC` para permitir consultas de top leaderboard instantáneas.
+- `idx_zen_streak`: Indexa `best_streak DESC` para rankings de rachas.

@@ -1,0 +1,206 @@
+---
+title: "API para Desarrolladores"
+description: "Guía completa para desarrolladores y referencia de la API de ZenDiscord."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# API para Desarrolladores
+
+---
+
+﻿# 🔌 ZenDiscord - Documentación Oficial de la API (Developer Guide)
+
+La API de **ZenDiscord** permite a desarrolladores de plugins de Minecraft conectar sus propios sistemas (como plugins de Forjas, Subastas, Clanes, Recompensas, Economías, etc.) con Discord de forma asíncrona, segura y de alto rendimiento.
+
+---
+
+## 📦 1. Agregar ZenDiscord como Dependencia (Maven / JitPack)
+
+Dado que este proyecto está en GitHub, puedes alojar y consumir la API en cualquier plugin utilizando **JitPack**.
+
+### En tu `pom.xml`:
+```xml
+<repositories>
+    <!-- Repositorio de JitPack -->
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <!-- ZenDiscord API -->
+    <dependency>
+        <groupId>com.github.cuac-xd</groupId>
+        <artifactId>ZenDiscord</artifactId>
+        <version>1.0.0</version> <!-- Reemplaza por la etiqueta, release o commit hash de GitHub -->
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+```
+
+### En tu `plugin.yml`:
+Si tu plugin necesita a ZenDiscord de forma opcional:
+```yaml
+softdepend: [ZenDiscord]
+```
+Si es un plugin que depende obligatoriamente de ZenDiscord:
+```yaml
+depend: [ZenDiscord]
+```
+
+---
+
+## 🚀 2. Cómo Obtener la Instancia de la API
+
+Existen dos formas estándar de obtener la API:
+
+### Opción A (Recomendada - Estática):
+```java
+import com.cuac_xd.zendiscord.api.ZenDiscordAPI;
+import com.cuac_xd.zendiscord.api.ZenDiscordAPIProvider;
+
+if (ZenDiscordAPIProvider.isAvailable()) {
+    ZenDiscordAPI api = ZenDiscordAPIProvider.getAPI();
+    // Tu código aquí
+}
+```
+
+### Opción B (Vía Bukkit ServicesManager):
+```java
+import com.cuac_xd.zendiscord.api.ZenDiscordAPI;
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.RegisteredServiceProvider;
+
+RegisteredServiceProvider<ZenDiscordAPI> provider = Bukkit.getServicesManager().getRegistration(ZenDiscordAPI.class);
+if (provider != null) {
+    ZenDiscordAPI api = provider.getProvider();
+}
+```
+
+---
+
+## 📚 3. Referencia de Métodos (`ZenDiscordAPI`)
+
+### 🔍 Comprobación de Cuentas y Vinculación
+
+#### `boolean isLinked(UUID uuid)`
+* **Descripción:** Comprueba en tiempo constante $O(1)$ si un jugador tiene su cuenta de Minecraft vinculada con Discord.
+* **Retorna:** `true` si está verificado, `false` de lo contrario.
+
+#### `boolean isLinked(OfflinePlayer player)`
+* **Descripción:** Sobrecarga para objetos `Player` o `OfflinePlayer`.
+
+#### `String getDiscordId(UUID uuid)`
+* **Descripción:** Devuelve el identificador de usuario de Discord (*Snowflake ID*) asociado al UUID del jugador.
+* **Retorna:** `String` con la ID de Discord, o `null` si no está vinculado.
+
+#### `UUID getMinecraftUuid(String discordId)`
+* **Descripción:** Devuelve el UUID del jugador de Minecraft a partir de su ID de usuario de Discord.
+* **Retorna:** `UUID` del jugador o `null`.
+
+---
+
+### ✉️ Envío de Mensajes Directos (DMs / MD)
+
+Todos los métodos de envío retornan un `CompletableFuture<Boolean>` para garantizar que las operaciones de red de Discord nunca bloqueen el hilo principal de Minecraft.
+
+#### `CompletableFuture<Boolean> sendDirectMessage(UUID uuid, String message)`
+* **Descripción:** Envía un mensaje de texto plano por mensaje directo al Discord del usuario.
+* **Parámetros:**
+  * `uuid`: UUID de Minecraft del jugador.
+  * `message`: Texto del mensaje.
+* **Retorna:** `CompletableFuture<Boolean>` que resuelve a `true` si el DM se entregó con éxito, o `false` si el jugador no está vinculado o tiene los DMs cerrados.
+
+#### `CompletableFuture<Boolean> sendDirectEmbed(UUID uuid, String title, String description, Color color)`
+* **Descripción:** Envía un Embed estilizado con pie de página automático, timestamp y color al Discord del usuario vinculado.
+* **Parámetros:**
+  * `uuid`: UUID de Minecraft del jugador.
+  * `title`: Título del Embed.
+  * `description`: Contenido del Embed (soporta Markdown de Discord).
+  * `color`: Color del lateral del Embed (`java.awt.Color`).
+
+#### `CompletableFuture<Boolean> sendDirectEmbed(UUID uuid, MessageEmbed embed)`
+* **Descripción:** Envía un `MessageEmbed` de JDA completamente personalizado al usuario por DM.
+
+---
+
+### 📢 Canales de Texto y JDA Avanzado
+
+#### `CompletableFuture<Boolean> sendChannelMessage(String channelId, String message)`
+* **Descripción:** Envía un mensaje a un canal de texto de Discord por su ID.
+
+#### `CompletableFuture<Boolean> sendChannelEmbed(String channelId, MessageEmbed embed)`
+* **Descripción:** Envía un Embed de JDA a un canal de texto de Discord por su ID.
+
+#### `CompletableFuture<User> retrieveDiscordUser(UUID uuid)`
+* **Descripción:** Obtiene de forma asíncrona el objeto `net.dv8tion.jda.api.entities.User` de JDA del jugador vinculado.
+
+#### `JDA getJda()`
+* **Descripción:** Devuelve la instancia activa de JDA del bot para realizar operaciones avanzadas si es necesario.
+
+---
+
+## 💡 4. Ejemplo Práctico Completo: Plugin de Forjas (Aviso por DM al terminar)
+
+Supongamos que tienes un plugin de Forjas y quieres avisar a un jugador cuando termine de forjarse su objeto, **únicamente si no está conectado en el servidor**:
+
+```java
+package com.miplugin.forjas;
+
+import com.cuac_xd.zendiscord.api.ZenDiscordAPI;
+import com.cuac_xd.zendiscord.api.ZenDiscordAPIProvider;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import java.awt.Color;
+import java.util.UUID;
+
+public class NotificadorForja {
+
+    public void onForjaTerminada(UUID uuidJugador, String nombreItem) {
+        Player jugador = Bukkit.getPlayer(uuidJugador);
+
+        // 1. Si el jugador está conectado en el servidor, le enviamos un mensaje in-game
+        if (jugador != null && jugador.isOnline()) {
+            jugador.sendMessage("§6[Forja] §a¡Tu objeto §e" + nombreItem + " §aha terminado de forjarse!");
+            return;
+        }
+
+        // 2. Si está desconectado, comprobamos si ZenDiscord está presente en el servidor
+        if (!ZenDiscordAPIProvider.isAvailable()) {
+            return;
+        }
+
+        ZenDiscordAPI api = ZenDiscordAPIProvider.getAPI();
+
+        // 3. Comprobar si el jugador está verificado con Discord
+        if (!api.isLinked(uuidJugador)) {
+            Bukkit.getLogger().info("El jugador no tiene su cuenta vinculada con Discord. No se envía DM.");
+            return;
+        }
+
+        // 4. Enviar un Embed atractivo por Mensaje Directo (DM)
+        String titulo = "⚒️ ¡Tu Forjado ha Finalizado!";
+        String descripcion = "Hola, tu objeto **" + nombreItem + "** ya terminó su tiempo en la forja.\n\n"
+                           + "📦 ¡Ingresa a **NextCraft** para retirarlo de tu yunque de forja!";
+        Color colorForja = new Color(255, 140, 0); // Naranja forja
+
+        api.sendDirectEmbed(uuidJugador, titulo, descripcion, colorForja)
+           .thenAccept(exito -> {
+               if (exito) {
+                   Bukkit.getLogger().info("DM de aviso de forja enviado exitosamente a: " + uuidJugador);
+               } else {
+                   Bukkit.getLogger().warning("No se pudo entregar el DM. El usuario podría tener los DMs deshabilitados.");
+               }
+           });
+    }
+}
+```
+
+---
+
+## 🛡️ 5. Manejo de Errores y Buenas Prácticas
+1. **DMs Cerrados en Discord:** Es común que usuarios tengan la opción *"Permitir mensajes directos de miembros del servidor"* deshabilitada en sus ajustes de privacidad de Discord. Por esta razón, `sendDirectMessage` y `sendDirectEmbed` devuelven `false` en lugar de lanzar excepciones que congelen tu código.
+2. **Hilos y Rendimiento:** La API de ZenDiscord gestiona todas las llamadas a Discord de forma asíncrona mediante `CompletableFuture`. Si necesitas ejecutar comandos de Bukkit al recibir la respuesta, asegúrate de volver al hilo principal con `Bukkit.getScheduler().runTask(plugin, () -> { ... })`.

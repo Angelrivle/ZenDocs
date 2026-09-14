@@ -1,0 +1,56 @@
+---
+title: "Configuración (config.yml)"
+description: "Controla el comportamiento global del motor de chat y las menciones."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+Controla el comportamiento global del motor de chat y las menciones.
+
+```yaml
+# ------------------------------------------------------------
+# INTEGRACIONES
+# ------------------------------------------------------------
+integrations:
+  combatlogx:
+    enabled: true                  # Habilita el hook con CombatLogX
+    block-inventory-view: true     # Bloquea abrir [inv] / [ec] durante el combate
+    block-private-messages: false  # Si es true, impide enviar /msg en combate
+
+# ------------------------------------------------------------
+# OPCIONES GENERALES
+# ------------------------------------------------------------
+options:
+  use-placeholderapi: true         # Habilita el soporte de PlaceholderAPI
+  debug: false                     # Modo depuración en la consola
+  player-cache-ttl-ms: 5000        # Tiempo de expiración del caché de datos del jugador (milisegundos)
+  log-chat-to-file: true           # Guarda un historial diario de chat en logs/chat-YYYY-MM-DD.log
+  player-click-action: "SUGGEST_COMMAND" # Acción al clickear el nombre: SUGGEST_COMMAND o RUN_COMMAND
+  player-click-value: "/msg {player} "   # Comando ejecutado o sugerido al dar clic
+
+  # Placeholders que el plugin reconoce como "nombre del jugador" en los formatos.
+  # Se transforman en el componente interactivo con Tooltip/Hover y Clic.
+  name-placeholders:
+    - "%player_name%"
+    - "%player%"
+    - "%cmi_user_nickname%"
+    - "%cmi_user_displayname%"
+    - "%cmi_user_nick%"
+    - "%essentials_nickname%"
+    - "%essentials_displayname%"
+
+# ------------------------------------------------------------
+# CONFIGURACION DE MENCIONES EN CHAT
+# ------------------------------------------------------------
+mentions:
+    enabled: true                    # Activa el detector de menciones @Jugador
+  highlight: "&e&l@{player}&r"     # Formato visual con el que se resalta en el mensaje
+  sound: "BLOCK_NOTE_BLOCK_PLING"  # Sonido reproducido al jugador mencionado
+  volume: 1.0                      # Volumen del sonido
+  pitch: 1.5                       # Tono del sonido (pitch)
+  notify: "&e✦ &fHas sido mencionado por &e{sender}" # Mensaje privado en el chat (vacío para desactivar)
+```

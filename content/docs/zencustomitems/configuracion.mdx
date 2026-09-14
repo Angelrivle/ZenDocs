@@ -1,0 +1,105 @@
+---
+title: "Configuración y Comandos"
+description: "Ajustes globales de config.yml, messages.yml, comandos administrativos y sistema de actualización."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+ZenCustomItems organiza sus recursos de forma limpia y desacoplada para facilitar el mantenimiento en servidores de producción.
+
+## 📁 Estructura del Plugin
+
+```text
+plugins/ZenCustomItems/
+├── config.yml           # Ajustes globales, web editor e integraciones
+├── messages.yml         # Textos configurables con soporte MiniMessage y Legacy
+├── items/               # Cada ítem activo vive en su propio archivo .yml
+│   ├── _example.yml     # Archivos que inician con '_' NO se cargan (documentación)
+│   ├── copper_blade.yml
+│   └── inferno_set.yml  # Sets completos en un solo archivo
+```
+
+---
+
+## ⚙️ Configuración Principal (`config.yml`)
+
+```yaml
+# ==========================================
+#      ZenCustomItems Global Configuration
+# ==========================================
+
+general:
+  debug: false
+  language: es
+  auto-save: true
+
+web-editor:
+  enabled: true
+  mode: EXTERNAL # EXTERNAL (usa API web estilo LuckPerms) o EMBEDDED (servidor local)
+  api-url: "https://zci-editor.zenforge.online"
+  port: 8080
+  bind-address: "127.0.0.1"
+
+updates:
+  enabled: true
+  mode: SAFE # Conserva gemas, reforjas, mejoras y durabilidad intactas
+
+recipes:
+  enabled: true
+  recipe-book:
+    enabled: true
+    auto-discover: true
+    discover-on-join: true
+
+integrations:
+  placeholderapi: true
+  vault: true
+  auraskills: true
+  mythicmobs: true
+  worldguard: true
+
+performance:
+  cache-items: true
+  async-file-loading: true
+```
+
+---
+
+## 💬 Mensajes y Colores (`messages.yml`)
+
+ZenCustomItems soporta tanto etiquetas modernas de **MiniMessage** (`<gradient:#00ffff:#7a5cff><bold>Texto</bold></gradient>`) como códigos de color tradicionales **Legacy** (`&b`, `&6`, `&l`, `&#RRGGBB`).
+
+```yaml
+prefix: "<gradient:#00ffff:#7a5cff><bold>ZenCustomItems</bold></gradient> <gray>» "
+no-permission: "<red>No tienes permiso para ejecutar este comando."
+item-saved: "<green>El ítem <yellow>%item%</yellow> ha sido guardado exitosamente."
+item-updated: "<green>Se actualizaron <aqua>%count%</aqua> ítems en los inventarios."
+cooldown: "<red>⏳ En enfriamiento: <yellow>%time%s"
+```
+
+---
+
+## 🛠️ Comandos y Permisos
+
+| Comando | Permiso | Descripción |
+| :--- | :--- | :--- |
+| `/zci help` | `zencustomitems.use` | Muestra la ayuda interactiva de comandos. |
+| `/zci give <jugador> <item> [cant]` | `zencustomitems.give` | Entrega un ítem personalizado al inventario. |
+| `/zci editor [item]` | `zencustomitems.editor` | Abre el editor GUI interactivo in-game. |
+| `/zci editor-web` | `zencustomitems.editor` | Genera un enlace temporal al editor web seguro. |
+| `/zci apply <code>` | `zencustomitems.editor` | Descarga y aplica los cambios realizados en la web. |
+| `/zci export <item>` | `zencustomitems.admin` | Exporta la definición del ítem en formato Base64. |
+| `/zci import <base64>` | `zencustomitems.admin` | Importa e instala un ítem desde un código Base64. |
+| `/zci update <jugador>` | `zencustomitems.update` | Actualiza todos los ítems del inventario del jugador. |
+| `/zci update-held` | `zencustomitems.update` | Actualiza el ítem que el jugador tiene en la mano. |
+| `/zci flags` | `zencustomitems.flags` | Menú interactivo de banderas de comportamiento. |
+| `/zci reload` | `zencustomitems.admin` | Recarga todas las configuraciones e ítems del disco. |
+
+---
+
+## 🔄 Sistema de Actualización Automática
+
+Cuando modificas un ítem en `/zci editor` o incrementas su `definition-version` en el archivo YAML:
+1. **Conservación de Estado**: Gemas engastadas en sockets, nivel de upgrade (+1, +2), reforjas y durabilidad actual **se conservan al 100%**.
+2. **Propagación en Vivo**: El plugin actualiza los ítems de todos los jugadores conectados instantáneamente.
+3. **Actualización Lazy**: Si un jugador tiene el ítem en mano y no ha abierto su inventario, se sincroniza en el primer clic o ataque sin requerir comandos manuales.

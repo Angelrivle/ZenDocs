@@ -1,0 +1,24 @@
+---
+title: "heal"
+description: "Se dispara cuando el jugador recupera puntos de salud."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `heal`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `HEAL`
+
+---
+
+Se dispara cuando el jugador recupera puntos de salud.
+```yaml
+triggers:
+  - id: heal_echo
+    type: HEAL
+    effects:
+      - type: PARTICLE
+        particle: HEART
+        count: 5
+```

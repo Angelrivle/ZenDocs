@@ -1,0 +1,46 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Todos los mensajes que emite el plugin hacia el chat, barra de acción o títulos se encuentran centralizados..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Todos los mensajes que emite el plugin hacia el chat, barra de acción o títulos se encuentran centralizados aquí. Se utiliza el formato **MiniMessage** de Kyori Adventure, lo que permite colores hexadecimales, degradados, negrita, enlaces y eventos de click.
+
+### Variables Comunes en Mensajes:
+- `%player%`: Nombre del jugador.
+- `%item%`: Nombre del artículo.
+- `%amount%`: Cantidad del artículo.
+- `%price%`: Precio formateado.
+- `%currency%`: Nombre o símbolo de la moneda.
+- `%seller%`: Nombre del vendedor.
+- `%buyer%`: Nombre del comprador.
+- `%id%`: Número de identificación de la subasta.
+- `%limit%`: Límite máximo de subastas del jugador.
+
+### Ejemplo de Estructura:
+```yaml
+prefix: "<gradient:#8A2BE2:#00D4FF><bold>ZenAuctions</bold></gradient> <dark_gray>»</dark_gray> "
+
+general:
+  no-permission: "<red>You do not have permission to execute this command."
+  player-only: "<red>This command can only be used by players."
+  reloaded: "<green>ZenAuctions configuration and menus have been safely reloaded!"
+
+auction:
+  created: "<green>Successfully listed <yellow>%amount%x %item%</yellow> for <gold>%price%</gold> (%currency%)."
+  purchased-buyer: "<green>You purchased <yellow>%amount%x %item%</yellow> from <yellow>%seller%</yellow> for <gold>%price%</gold>."
+  purchased-seller: "<green>Your listing <yellow>%amount%x %item%</yellow> was bought by <yellow>%buyer%</yellow> for <gold>%price%</gold>!"
+
+offer:
+  sent: "<green>Offer of <gold>%price% %currency%</gold> sent to <yellow>%seller%</yellow> for <aqua>%item%</aqua>."
+  accepted-buyer: "<green>Your offer for <yellow>%item%</yellow> was accepted by <yellow>%seller%</yellow>!"
+
+watchlist:
+  added: "<green>Watchlist alert added for '<yellow>%query%</yellow>' with max price <gold>%max_price%</gold>."
+  item-listed: "<gradient:#8A2BE2:#00D4FF><bold>[AH Alert]</bold></gradient> <yellow>%seller%</yellow> listed <aqua>%item%</aqua> for <gold>%price%</gold> (ID: #%id%)!"
+```

@@ -1,0 +1,45 @@
+---
+title: "Configuración de Arenas (arenas.yml)"
+description: "ZenDuels utiliza esquemáticas de FastAsyncWorldEdit (FAWE) para clonar y restaurar arenas instantáneamente...."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Arenas (arenas.yml)
+
+---
+
+ZenDuels utiliza esquemáticas de FastAsyncWorldEdit (FAWE) para clonar y restaurar arenas instantáneamente. Cada arena puede tener múltiples "slots" (instancias independientes en el mundo virtual).
+
+### 3.1 Estructura del Archivo
+
+```yaml
+arenas:
+  desert:
+    displayName: "<gold>Desierto Árido</gold>"
+    schematic: "desert.schem"     # Archivo ubicado en plugins/ZenDuels/schematics/
+    origin:                      # Vector relativo del centro u origen de pegado
+      x: 0.0
+      y: 64.0
+      z: 0.0
+    spawn1:                      # Posición del jugador 1 (relativa a la arena)
+      x: 10.5
+      y: 65.0
+      z: 0.5
+    spawn2:                      # Posición del jugador 2 (relativa a la arena)
+      x: -10.5
+      y: 65.0
+      z: 0.5
+    slots: [0, 1, 2, 3, 4]       # IDs de slots virtuales disponibles para esta arena
+```
+
+### 3.2 Proceso de Creación y Clonación (FAWE)
+
+1. Selecciona la región de la arena en tu servidor con el hacha de WorldEdit (`//wand`).
+2. Ejecuta `/zenduels arena create <nombre>` para guardar el esquema `.schem`.
+3. Sitúate en el punto de aparición del Equipo 1 y ejecuta:  
+   `/zenduels arena setspawn1 <nombre>`
+4. Sitúate en el punto de aparición del Equipo 2 y ejecuta:  
+   `/zenduels arena setspawn2 <nombre>`
+5. Genera instancias clonadas en el mundo virtual para permitir duelos simultáneos:  
+   `/zenduels arena paste <nombre> <cantidad_de_slots>` (ej. `/zenduels arena paste desert 5`).

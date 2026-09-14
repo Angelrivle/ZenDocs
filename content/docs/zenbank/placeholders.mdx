@@ -1,0 +1,27 @@
+---
+title: "Placeholders (PAPI)"
+description: "Para utilizar estos placeholders se requiere tener instalado PlaceholderAPI."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Placeholders (PAPI)
+
+---
+
+Para utilizar estos placeholders se requiere tener instalado **PlaceholderAPI**.
+
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%zenbank_balance%` | Saldo formateado en el banco. | `1.50M`, `250.00k`, `1,250.00` |
+| `%zenbank_balance_raw%` | Saldo numérico exacto sin abreviar. | `1500000` |
+| `%zenbank_excess_balance%` | Saldo excedente pendiente de reclamar. | `50,000.00` |
+| `%zenbank_excess_balance_raw%` | Saldo excedente numérico exacto. | `50000` |
+| `%zenbank_limit%` | Límite de capacidad del plan actual. | `50.00M` |
+| `%zenbank_limit_raw%` | Límite numérico exacto. | `50000000` |
+| `%zenbank_plan%` | Nombre estilizado del plan actual. | `Plan Comercial` |
+| `%zenbank_plan_id%` | Identificador interno del plan actual. | `medium` |
+| `%zenbank_next_interest%` | Tiempo restante para el próximo pago. | `14m 32s` |
+| `%zenbank_death_insurance%` | Porcentaje de seguro contra muerte del plan. | `50.0%` |
+| `%zenbank_deposit_fee%` | Comisión de depósito del plan actual. | `0.5%` |
+| `%zenbank_withdraw_fee%` | Comisión de retiro del plan actual. | `0.25%` |

@@ -1,0 +1,56 @@
+---
+title: "Mensajes de Muerte (deathmessages/)"
+description: "ZenPvPCore incluye un sistema modular de mensajes de muerte personalizables por paquete. Los archivos están..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes de Muerte (deathmessages/)
+
+---
+
+ZenPvPCore incluye un sistema modular de mensajes de muerte personalizables por paquete. Los archivos están en la carpeta `deathmessages/` (ej: `default.yml`, `halloween.yml`, `pirate.yml`).
+
+### Estructura de un archivo de paquete:
+
+```yaml
+name: "<gold>Paquete Estándar</gold>"
+permission: "zenpvpcore.deathmessages.default"
+icon: "DIAMOND_SWORD"
+lore:
+  - "<gray>Mensajes de combate clásicos."
+
+messages:
+  # Muertes en PvP cuerpo a cuerpo
+  pvp_melee:
+    - "<yellow>%victim%</yellow> <gray>fue destrozado por</gray> <red>%killer%</red> <gray>usando</gray> <white>%item%</white>."
+    - "<red>%killer%</red> <gray>liquidó a</gray> <yellow>%victim%</yellow>."
+
+  # Muertes por Proyectil / Flechas
+  pvp_bow:
+    - "<yellow>%victim%</yellow> <gray>fue alcanzado a larga distancia por</gray> <red>%killer%</red> <gray>(<aqua>%distance%m</aqua>).</gray>"
+
+  # Muertes por Cristales del End
+  pvp_crystal:
+    - "<yellow>%victim%</yellow> <gray>voló por los aires debido al cristal de</gray> <red>%killer%</red>."
+
+  # Muertes por Anclas de Reaparición
+  pvp_anchor:
+    - "<yellow>%victim%</yellow> <gray>explotó por el ancla de</gray> <red>%killer%</red>."
+
+  # Muertes por Mazo
+  pvp_mace:
+    - "<yellow>%victim%</yellow> <gray>fue aplastado desde las alturas por el mazo de</gray> <red>%killer%</red>."
+
+  # Muertes por Caída en Combate
+  fall_combat:
+    - "<yellow>%victim%</yellow> <gray>cayó al vacío intentando escapar de</gray> <red>%killer%</red>."
+
+  # Muertes Naturales (PvE / Caída / Lava)
+  pve_fall:
+    - "<yellow>%victim%</yellow> <gray>chocó contra el suelo fuertemente.</gray>"
+  pve_lava:
+    - "<yellow>%victim%</yellow> <gray>intentó nadar en lava.</gray>"
+  pve_void:
+    - "<yellow>%victim%</yellow> <gray>cayó al vacío.</gray>"
+```

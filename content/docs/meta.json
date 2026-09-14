@@ -1,10 +1,26 @@
 {
   "title": "Documentación",
   "pages": [
-    "introduccion",
-    "plugins",
-    "config",
-    "setups",
-    "recursos"
+    "zenafkzone",
+    "zenauctions",
+    "zenbank",
+    "zenchat",
+    "zenchatgames",
+    "zencosmetics",
+    "zencustomitems",
+    "zendiscord",
+    "zendragonevent",
+    "zenduels",
+    "zendungeons",
+    "zenfairy",
+    "zenforges",
+    "zenmilestone",
+    "zenorbs",
+    "zenprotecctions",
+    "zenpvpcore",
+    "zenrankups",
+    "zenrewards",
+    "zensacks",
+    "zenstorage"
   ]
 }

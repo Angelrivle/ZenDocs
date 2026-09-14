@@ -1,0 +1,47 @@
+---
+title: "API de Eventos para Desarrolladores"
+description: "Si desarrollas addons o conectas otros plugins, puedes escuchar los eventos personalizados dentro del paquete..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# API de Eventos para Desarrolladores
+
+---
+
+Si desarrollas addons o conectas otros plugins, puedes escuchar los eventos personalizados dentro del paquete `com.cuac_xd.zenrankups.api.events`:
+
+### 1. `PlayerRankupPreCheckEvent` (Cancellable)
+Se dispara inmediatamente antes de que el jugador suba de rango y antes de descontar los costos.
+```java
+@EventHandler
+public void onPreRankup(PlayerRankupPreCheckEvent event) {
+    Player player = event.getPlayer();
+    Rank target = event.getTargetRank();
+    if (isInCombat(player)) {
+        event.setCancelled(true);
+        player.sendMessage("§c¡No puedes subir de rango mientras estás en combate!");
+    }
+}
+```
+
+### 2. `PlayerRankupSuccessEvent`
+Se dispara cuando el jugador ha subido de rango con éxito y los requisitos ya fueron cobrados.
+```java
+@EventHandler
+public void onRankupSuccess(PlayerRankupSuccessEvent event) {
+    Player player = event.getPlayer();
+    Rank newRank = event.getNewRank();
+    Bukkit.getLogger().info(player.getName() + " ascendió a " + newRank.getId());
+}
+```
+
+### 3. `PlayerPrestigeEvent` (Cancellable)
+Se dispara cuando un jugador intenta avanzar de prestigio.
+```java
+@EventHandler
+public void onPrestige(PlayerPrestigeEvent event) {
+    int nextLevel = event.getToPrestige();
+    // Lógica personalizada
+}
+```

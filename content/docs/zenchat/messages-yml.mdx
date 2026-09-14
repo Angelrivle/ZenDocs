@@ -1,0 +1,57 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Contiene todas las cadenas de texto del plugin. Admite códigos de color clásicos (&a, &b), formatos..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Contiene todas las cadenas de texto del plugin. Admite códigos de color clásicos (`&a`, `&b`), formatos hexadecimales (`&#FFAA00`) y MiniMessage (`<gradient:...>`).
+
+```yaml
+prefix: "&8[&b&lZenChat&8] &r"
+
+reload-success: "{prefix}&aConfiguración y módulos recargados con éxito."
+no-permission: "{prefix}&cNo tienes permiso para realizar esta acción."
+player-not-found: "{prefix}&cJugador no encontrado: &f{player}"
+console-only-players: "{prefix}&cEste comando solo puede ser ejecutado por jugadores."
+
+gui:
+  offline: "{prefix}&cEse jugador no está conectado."
+  in-combat: "{prefix}&cNo puedes ver inventarios durante el combate."
+  opened-inv: "{prefix}&aAbriendo inventario de &f{player}&a..."
+  opened-ec: "{prefix}&aAbriendo EnderChest de &f{player}&a..."
+  opened-item: "{prefix}&aAbriendo item de &f{player}&a..."
+  item-expired: "{prefix}&cEl item ha expirado o ya no está disponible."
+
+msg:
+  usage: "{prefix}&7Uso: &f/msg <jugador> <mensaje>"
+  self: "{prefix}&cNo puedes enviarte mensajes a ti mismo."
+  ignored: "{prefix}&cEste jugador te tiene ignorado."
+  no-reply: "{prefix}&cNo tienes a nadie a quien responder."
+  combat: "{prefix}&cNo puedes enviar mensajes privados en combate."
+
+ignore:
+  usage: "{prefix}&7Uso: &f/ignore <jugador>"
+  added: "{prefix}&aAhora estás ignorando a &f{player}&a."
+  removed: "{prefix}&aHas dejado de ignorar a &f{player}&a."
+  self: "{prefix}&cNo puedes ignorarte a ti mismo."
+  staff-protected: "{prefix}&cNo puedes ignorar a un miembro del Staff."
+
+socialspy:
+    enabled: "{prefix}&aSocialSpy &2ACTIVADO&a."
+  disabled: "{prefix}&cSocialSpy &4DESACTIVADO&c."
+
+chatclear:
+  cleared: "{prefix}&aEl chat ha sido limpiado por &f{player}&a."
+
+antispam:
+  cooldown: "{prefix}&cEspera &f{seconds}s &cantes de volver a escribir."
+  duplicate: "{prefix}&cNo repitas el mismo mensaje."
+  caps: "{prefix}&cEvita escribir tantas mayúsculas."
+  blocked-word: "{prefix}&cTu mensaje contiene palabras prohibidas."
+  ad: "{prefix}&cNo está permitido compartir enlaces o IPs en el chat."
+```

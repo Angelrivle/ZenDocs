@@ -1,0 +1,133 @@
+---
+title: "Configuración de Zonas (zones/)"
+description: "Cada zona tiene su propio archivo YAML dentro de la carpeta zones/. Puedes crear tantas zonas como desees."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Zonas (zones/)
+
+---
+
+Cada zona tiene su propio archivo YAML dentro de la carpeta `zones/`. Puedes crear tantas zonas como desees.
+
+```yaml
+# =========================================================
+#                 Zona AFK de Ejemplo
+# =========================================================
+
+enabled: true
+display-name: <gradient:#56CCF2:#2F80ED><b>Zona VIP AFK</b></gradient>
+
+# Coordenadas de la región
+world: world
+pos1:
+  x: -50
+  y: 60
+  z: -50
+pos2:
+  x: 50
+  y: 80
+  z: 50
+
+# Ubicación de Teleport (opcional, si no está se calcula el centro)
+spawn-location:
+  world: world
+  x: 0.5
+  y: 64.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+# Intervalo de recompensas periódicas en segundos
+reward-time-seconds: 300
+
+# Cuántas recompensas se seleccionan en cada sorteo
+roll-amount: 1
+
+# =========================================================
+#  NUEVO: Requisitos de Entrada (Opcionales)
+# =========================================================
+requirements:
+  permission: "" # Ej: zenafkzone.zone.vip (vacío = sin permiso requerido)
+   min-level: 0 # Nivel mínimo de experiencia Vanilla (0 = desactivado)
+   cost-to-enter: 0.0 # Costo Vault cobrado al entrar (0.0 = gratis)
+
+# =========================================================
+# NUEVO: Ambientación y Efectos de Estado
+# =========================================================
+ambient-effects:
+   potions:
+   REGENERATION: 0 # Amplificador (0 = Nivel 1)
+   SATURATION: 0
+   titles:
+   enabled: true
+   enter-title: <gradient:#56CCF2:#2F80ED><b>¡Bienvenido!</b></gradient>
+   enter-subtitle: <gray>Has entrado en la zona AFK</gray>
+   exit-title: <red><b>Has salido</b></red>
+   exit-subtitle: <gray>Vuelve pronto a descansar</gray>
+
+# =========================================================
+# NUEVO: Holograma Nativo 1.21 (TextDisplay)
+# =========================================================
+hologram:
+   enabled: true
+   height-offset: 2.8 # Altura sobre el punto de spawn
+   lines:
+ - <gradient:#00c6ff:#0072ff><b>★ ZONA AFK ★</b></gradient>
+ - <gray>Jugadores descansando: <green><players></green></gray>
+ - <yellow>Ciclo de recompensa: <reward_time>s</yellow>
+
+# =========================================================
+# NUEVO: Metas / Rachas de Tiempo Continuo (Milestones)
+# =========================================================
+milestones:
+ # segundos: comandos a ejecutar en consola
+   1800: # 30 minutos
+ - eco give %player% 2500
+ - broadcast <gold>★</gold> <yellow>%player%</yellow> <gray>alcanzó <green>30 minutos</green> en la Zona AFK.</gray>
+   3600: # 1 hora
+ - eco give %player% 6000
+ - crate give %player% vip 1
+ - broadcast <gold>★</gold> <yellow>%player%</yellow> <gray>alcanzó <green>1 hora</green> continua en la Zona AFK.</gray>
+
+# Feedback Visual
+bossbar:
+   enabled: true
+   title: <gradient:#00c6ff:#0072ff><b>AFK Zone</b></gradient> <gray>|</gray> Recompensa en: <yellow><time_left></yellow>
+   color: BLUE # BLUE, BUKKIT, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
+   overlay: PROGRESS # PROGRESS, NOTCHES_6, NOTCHES_10, NOTCHES_12, NOTCHES_20
+
+actionbar:
+   enabled: true
+   message: <gray>Progreso AFK: <gradient:#11998e:#38ef7d><progress>%</gradient> (<yellow><time_left></yellow>) <dark_gray>|</dark_gray> Racha: <aqua><streak></aqua></gray>
+
+# Lista de recompensas periódicas
+rewards:
+   reward_diamonds:
+   chance: 50.0
+   display: <green>3x Diamantes Brillantes</green>
+   commands: []
+   items:
+ - material: DIAMOND
+   amount: 3
+   name: <gradient:#00c6ff:#0072ff><b>Diamante AFK</b></gradient>
+   lore:
+ - <gray>Obtenido por estar en la Zona AFK.</gray>
+   custom-model-data: 0
+   enchants: []
+
+   reward_vip_key:
+   chance: 20.0
+   display: <light_purple>1x Llave VIP</light_purple>
+   commands:
+ - crate give %player% vip 1
+   items: []
+
+   reward_coins:
+   chance: 80.0
+   display: <gold>500 Monedas</gold>
+   commands:
+ - eco give %player% 500
+   items: []
+```

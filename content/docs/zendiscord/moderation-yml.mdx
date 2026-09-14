@@ -1,0 +1,22 @@
+---
+title: "Auditoría de Comandos (moderation.yml)"
+description: "Envía un log detallado por Webhook cada vez que alguien usa un comando sensible:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Auditoría de Comandos (moderation.yml)
+
+---
+
+Envía un log detallado por Webhook cada vez que alguien usa un comando sensible:
+```yaml
+webhook-url: "https://discord.com/api/webhooks/..."
+monitored-commands:
+  - "/ban"
+  - "/tempban"
+  - "/kick"
+  - "/mute"
+  - "/op"
+  - "/gamemode"
+```

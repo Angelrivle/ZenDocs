@@ -1,0 +1,46 @@
+---
+title: "Mensajes (messages.yml)"
+description: "ZenCosmetics soporta de manera nativa Kyori Adventure y MiniMessage. Puedes usar tags RGB como #FF5555,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+ZenCosmetics soporta de manera nativa **Kyori Adventure** y **MiniMessage**. Puedes usar tags RGB como `<#FF5555>`, degradados `<gradient:#FF0000:#0000FF>`, arcoíris `<rainbow>` y negritas `<bold>`.
+
+```yaml
+prefix: "<bold><gold>ZenCosmetics</gold></bold> <dark_gray>»</dark_gray> "
+no-permission: "<red>No tienes permiso para hacer esto.</red>"
+only-players: "<red>Este comando solo puede ser ejecutado por jugadores.</red>"
+plugin-reloaded: "<green>El plugin ha sido recargado correctamente.</green>"
+buy-success: "<green>¡Has comprado el cosmético %cosmetic% con éxito por %price% %currency%!</green>"
+buy-fail-money: "<red>No tienes suficiente dinero para comprar este cosmético (requiere %price% %currency%).</red>"
+buy-fail-permission: "<red>No tienes el rango/permiso requerido para comprar este cosmético.</red>"
+equip-success: "<green>¡Te has equipado el cosmético %cosmetic%!</green>"
+unequip-success: "<yellow>Te has desequipado el cosmético de la categoría %category%.</yellow>"
+world-blacklisted: "<red>Los cosméticos están desactivados en este mundo.</red>"
+
+gui:
+  main-title: "<dark_gray>Cosméticos de Zen</dark_gray>"
+  status-owned: "<green>● Desbloqueado (Haz clic para equipar)</green>"
+  status-equipped: "<gold>✦ ¡Equipado Actualmente!</gold>"
+  status-not-owned: "<red>🔒 Bloqueado (Precio: %price% %currency%)</red>"
+  preview-instruction: "<dark_purple>▸ Click Derecho para Vista Previa</dark_purple>"
+
+currencies:
+  VAULT: "<gold>Monedas</gold>"
+  ECOBITS: "<aqua>Cristales</aqua>"
+  EXP: "<green>Niveles Exp</green>"
+  PLAYER_POINTS: "<light_purple>Puntos</light_purple>"
+
+rarities:
+  COMMON: "<white><b>Común</b></white>"
+  UNCOMMON: "<green><b>Poco Común</b></green>"
+  RARE: "<blue><b>Raro</b></blue>"
+  EPIC: "<dark_purple><b>Épico</b></dark_purple>"
+  LEGENDARY: "<gold>★ <b>Legendario</b> ★</gold>"
+  MYTHIC: "<red><b>Mítico</b></red>"
+```

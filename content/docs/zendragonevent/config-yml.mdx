@@ -1,0 +1,246 @@
+---
+title: "Configuración (config.yml)"
+description: "world-name: 'worldtheend'"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+### Mundo y Altar
+```yaml
+# Nombre del mundo donde se lleva a cabo el evento del dragón
+world-name: "world_the_end"
+
+altar:
+  # Tipo de bloque que los jugadores deben cliquear con el Ojo de Invocación (Material Bukkit)
+  block-type: END_PORTAL_FRAME
+  
+  # Cantidad de Ojos de Invocación requeridos para iniciar la secuencia de activación
+  required-eyes: 8
+  
+  # Radio (en bloques) para detectar marcos de portal pertenecientes al mismo altar
+  detection-radius: 8
+  
+  # Cooldown en segundos antes de que el altar pueda volver a usarse tras un evento
+  cooldown-seconds: 10
+  
+  # Radio alrededor del centro del altar donde se proyecta el título de invocación a los jugadores
+  spawn-title-radius: 64.0
+```
+
+---
+
+### BossBar
+Controla la barra superior de vida del dragón mostrada a los jugadores en el mundo del evento:
+```yaml
+bossbar:
+  # Colores disponibles: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+  # Nota: El plugin cambia automáticamente la barra a RED cuando el dragón entra en fase enfurecida (Enrage).
+  color: PURPLE
+  
+  # Estilos de segmentos: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+  overlay: NOTCHED_20
+```
+
+---
+
+### Scoreboard (Compatible con TAB & Vanilla)
+Muestra estadísticas en tiempo real durante la batalla. Integra un sistema inteligente de doble modo:
+- **Con TAB instalado**: Usa la API de TAB para asignar un scoreboard temporal sin alterar nametags, prefijos de tablist ni colisionar con sus equipos. Al terminar o salir del mundo, restaura el Scoreboard original de TAB.
+- **Sin TAB (Modo Autónomo)**: Genera un scoreboard virtual por jugador (`Bukkit.getScoreboardManager().getNewScoreboard()`) libre de parpadeo (flicker-free) y sin tocar el scoreboard principal del servidor.
+
+```yaml
+scoreboard:
+  # Activa o desactiva la barra lateral de información
+    enabled: true
+  
+  # Si es true y el plugin TAB está presente, usa su API. Si es false, usa el modo nativo de Paper.
+  use-tab-if-available: true
+  
+  # Título de la barra lateral (soporta formato completo MiniMessage y gradientes)
+  title: "<bold><gradient:#b721ff:#ff6b35>⚡ DRAGON EVENT ⚡</gradient></bold>"
+  
+  # Intervalo de actualización en ticks (20 ticks = 1 segundo)
+  update-interval-ticks: 20
+  
+  # Líneas del Scoreboard.
+  # Placeholders disponibles:
+  #   {dragon_name}        - Nombre formateado del dragón activo
+  #   {dragon_health}      - Vida actual del dragón
+  #   {dragon_max_health}  - Vida máxima del dragón
+  #   {dragon_percent}     - Porcentaje de vida restante (ej. 75)
+  #   {dragon_state}       - Estado actual (Normal, ESCUDO ACTIVO, ENFURECIDO)
+  #   {player_damage}      - Daño total acumulado por el jugador que ve el scoreboard
+  #   {player_rank}        - Puesto actual del jugador en el ranking (#1, #2, etc.)
+  #   {crystals_count}     - Cantidad de cristales activos regenerando al dragón
+  #   {event_world}        - Nombre del mundo del evento
+    lines:
+    - "<dark_gray>━━━━━━━━━━━━━━━━━━"
+    - "<white>Dragón: {dragon_name}"
+    - "<gray>Estado: {dragon_state}"
+    - "<gray>Vida: <red>{dragon_health} ❤ <dark_gray>({dragon_percent}%)"
+    - ""
+    - "<gold>Tu Rendimiento:"
+    - " <gray>Daño: <yellow>{player_damage} ❤"
+    - " <gray>Puesto: <aqua>#{player_rank}"
+    - ""
+    - "<gray>Cristales: <light_purple>{crystals_count}"
+    - "<dark_gray>━━━━━━━━━━━━━━━━━━"
+```
+
+---
+
+### Action Bar en Combate
+Envía un resumen continuo al centro inferior de la pantalla del jugador participante:
+```yaml
+actionbar:
+  # Activa o desactiva el mensaje de Action Bar
+    enabled: true
+  
+  # Formato del Action Bar.
+  # Placeholders disponibles: {dragon_name}, {dragon_health}, {dragon_percent}, {player_damage}, {player_rank}
+  format: "<gradient:#ff5555:#ffaa00>⚔ Daño:</gradient> <white>{player_damage} ❤</white> <gray>(#{player_rank})</gray> <dark_gray>•</dark_gray> <red>❤ {dragon_percent}%</red>"
+```
+
+---
+
+### Arena y Límites del Dragón
+Delimita el espacio de combate para evitar que el dragón vuele fuera de la arena del End o se pierda en el vacío:
+```yaml
+dragon:
+  # Altura vertical sobre el altar donde aparece el dragón
+  spawn-y-offset: 12.0
+  
+  # Radio horizontal (bloques) que delimita la zona de combate de la arena
+  arena-radius: 40.0
+  
+  # Altura máxima antes de que el dragón sea devuelto hacia el centro de la arena
+    max-height-offset: 18.0
+  
+  # Segundos tras la muerte del dragón antes de generar el portal de salida del End
+  portal-delay-seconds: 10
+```
+
+---
+
+### Mecánicas, Minions y Fases
+Configuración de las fases especiales y los esbirros que pueden invocarse en la batalla:
+```yaml
+mechanics:
+  phases:
+    # Porcentaje de vida en el que el dragón entra en Fase Enfurecida (Enrage)
+    # Aumenta su velocidad de ataque a la mitad del tiempo e ilumina su cuerpo en rojo
+    enraged-health-percent: 50.0
+    
+    # Porcentajes de vida en los que aparece un Cristal de Escudo Corrupto volviendo inmune al dragón
+    immunity-crystal-health-percents:
+      - 75.0
+      - 25.0
+
+  # Minions configurables invocados por los cristales o las habilidades del dragón
+  vanilla-minions:
+    dragon_guard:
+      type: ZOMBIE
+      name: "<red>Guardián del Dragón"
+      health: 50.0
+      speed: 0.35
+      damage: 10.0
+      # ID de la tabla de drop en loot.yml al ser asesinado por un jugador
+      loot-table: guardian_loot
+      equipment:
+        # Puedes usar ítems vanilla o prefijar con "ecoitems:" o "ecoarmor:" si usas la suite Eco
+        helmet: DIAMOND_HELMET
+        chestplate: DIAMOND_CHESTPLATE
+        leggings: DIAMOND_LEGGINGS
+        boots: DIAMOND_BOOTS
+        main-hand: DIAMOND_SWORD
+        off-hand: SHIELD
+```
+
+---
+
+### Cristales del Dragón (Regeneración & Escudo)
+Los cristales del evento se diferencian de los cristales vanilla: no generan explosiones destructivas de terreno, pueden reaparecer con temporizador y recompensan al jugador que los rompe.
+```yaml
+crystals:
+    enabled: true
+  
+  # Cantidad de cristales que se generan automáticamente alrededor del altar si no se usan posiciones manuales
+  count: 4
+  
+  # Radio de distancia respecto al centro del altar
+  spawn-radius: 7.0
+  
+  # Elevación vertical de los cristales
+  spawn-y-offset: 2.0
+  
+  # Segundos tras romperse antes de que un cristal vuelva a regenerarse
+  respawn-seconds: 5
+  
+  # Cantidad de vida que cura al dragón por cada pulso de rayo
+  heal-amount: 25.0
+  
+  # Tabla de loot en loot.yml otorgada al jugador que destruye el cristal
+  reward-table: crystal_loot
+  
+  # Probabilidad (0.0 a 1.0) de que aparezca un minion al romper el cristal
+    mob-spawn-chance: 0.25
+  
+  # Definición del minion: "vanilla:ZOMBIE", "DRAGON_GUARD" (nuestro minion custom), o "mythic:EndMinion"
+  mob-spawn-spec: "DRAGON_GUARD"
+  
+  # Cantidad de mobs a spawnear si la probabilidad se cumple
+  mob-spawn-amount: 1
+  
+  # Posiciones fijas manuales (formato: "mundo;x;y;z;yaw;pitch")
+  # Si esta lista está vacía, los cristales se distribuyen en círculo automáticamente.
+  manual-positions: []
+```
+
+---
+
+### Mensajes MiniMessage & Placeholders
+Todos los textos del plugin aceptan sintaxis completa **MiniMessage** (ej. `<gradient:#color1:#color2>Texto</gradient>`, `<click:run_command:'/cmd'>`, `<hover:show_text:'info'>`, `<bold>`, `<aqua>`, etc.):
+
+```yaml
+messages:
+  prefix: "<dark_purple>[<gradient:#b721ff:#ff6b35>ZenDragon</gradient>]</dark_purple> "
+
+  altar-eye-placed: "<prefix><green>Ojo colocado <white>(<aqua>{placed}</aqua>/<aqua>{required}</aqua>)</white>"
+  altar-eye-missing: "<prefix><red>Necesitas un <white>Ojo de Invocación</white> para activar el altar."
+  altar-already-active: "<prefix><red>¡Ya hay un dragón activo!"
+  altar-cooldown: "<prefix><yellow>El altar se enfriará en <white>{time}s</white>."
+  altar-activated: "<prefix><gold>¡El altar se ha activado! Preparándose para invocar..."
+  altar-spawn-title: "<gold><bold>EL ALTAR SE DESPIERTA</bold>"
+  altar-spawn-subtitle: "<gray>El End está respondiendo..."
+  altar-eye-broadcast: "<dark_purple>✦ <white>{player} <dark_purple>ha añadido un <white>Ojo de Invocación</white> <gray>(<gold>{placed}</gold><gray>/<gold>{required}</gold>)"
+
+  dragon-spawned: "<prefix><light_purple>¡Un <bold>{type}</bold> ha sido invocado en el evento!"
+  dragon-spawn-title: "<dark_purple><bold>¡UN DRAGÓN HA APARECIDO!</bold>"
+  dragon-spawn-subtitle: "<gray>Ve al End para enfrentarlo."
+  dragon-already-active: "<prefix><red>Ya hay un evento de dragón activo."
+  dragon-force-spawned: "<prefix><gold>Dragón <bold>{type}</bold> spawneado forzosamente."
+  dragon-stopped: "<prefix><yellow>El evento ha sido detenido por un administrador."
+  crystal-broken: "<prefix><aqua>Has roto un cristal del dragón."
+  crystal-respawned: "<prefix><gray>Un cristal del dragón ha reaparecido."
+
+  no-permission: "<prefix><red>No tienes permiso para esto."
+  reload-success: "<prefix><green>Configuración recargada correctamente."
+  player-only: "<prefix><red>Este comando solo puede ser ejecutado por un jugador."
+  invalid-dragon-type: "<prefix><red>Tipo de dragón inválido: <white>{type}</white>."
+  eye-given: "<prefix><green>Se te ha entregado <white>x{amount} Ojo(s) de Invocación</white>."
+
+  # Plantilla del anuncio de victoria tras derrotar al dragón
+  victory:
+    separator: "<dark_gray>■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
+    title: "        <bold><gradient:#ff6b35:#f7c59f>¡DRAGÓN {type} DERROTADO!</gradient></bold>"
+    final-blow: "  <gray>{prefix} <white>{player}</white> <gray>dio el golpe final."
+    damager-line: "  <gold>{pos} <gray>- <white>{prefix} {player}</white> <gray>- <yellow>{damage} ❤</yellow>"
+    personal-damage: "  <aqua>Tu Daño: <white>{damage} ❤</white>{record}"
+    personal-record: " <green><bold>(¡NUEVO RÉCORD!)</bold></green>"
+    personal-position: " <gray>(Posición <white>#{pos}</white>)"
+    no-damage: "  <gray>No participaste en este evento."
+```

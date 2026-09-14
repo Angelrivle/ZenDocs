@@ -1,0 +1,23 @@
+---
+title: "right_click_block"
+description: "Se dispara exclusivamente al hacer clic derecho sobre un bloque."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `right_click_block`
+
+* **Categoría:** `Interacción`  
+* **Identificador / Alias:** `RIGHT_CLICK_BLOCK`
+
+---
+
+Se dispara exclusivamente al hacer clic derecho sobre un bloque.
+```yaml
+triggers:
+  - id: inspect_block
+    type: RIGHT_CLICK_BLOCK
+    effects:
+      - type: MESSAGE
+        message: "<gray>Has interactuado con un bloque."
+```

@@ -1,0 +1,23 @@
+---
+title: "projectile_hit_block"
+description: "Se dispara cuando una flecha, tridente u otro proyectil disparado impacta en un bloque sólido."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `projectile_hit_block`
+
+* **Categoría:** `Nuevos Triggers de Eventos Adicionales`  
+* **Identificador / Alias:** `PROJECTILE_HIT_BLOCK`
+
+---
+
+Se dispara cuando una flecha, tridente u otro proyectil disparado impacta en un bloque sólido.
+```yaml
+triggers:
+  - id: arrow_bomb
+    type: PROJECTILE_HIT_BLOCK
+    effects:
+      - type: EXPLOSION
+        power: 2.0
+```

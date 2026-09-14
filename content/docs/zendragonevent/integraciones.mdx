@@ -1,0 +1,14 @@
+---
+title: "Integraciones y Dependencias"
+description: "- TAB (NEZnamy): Detección reflectiva automática. Si TAB está instalado, ZenDragonEvent registra su..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Integraciones y Dependencias
+
+---
+
+- **TAB (NEZnamy)**: Detección reflectiva automática. Si TAB está instalado, ZenDragonEvent registra su Scoreboard temporal vía `TabAPI.getInstance().getScoreboardManager()` sin necesidad de configurar nada extra, garantizando 0 errores y respetando el diseño de tablist y nametags del servidor.
+- **EcoItems & EcoArmor (Auxilor)**: Soporte de ítems personalizados en tablas de drop (`loot.yml`) y en el equipamiento de los minions guardianes (`config.yml`).
+- **MythicMobs**: Soporte nativo para invocar mobs de MythicMobs en los cristales o fases del dragón usando el prefijo `mythic:<MobId>`.

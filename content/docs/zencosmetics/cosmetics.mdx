@@ -1,0 +1,205 @@
+---
+title: "Cosméticos (cosmetics/)"
+description: "Cada cosmético es un archivo .yml individual alojado en su subcarpeta correspondiente dentro de cosmetics/."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Cosméticos (cosmetics/)
+
+---
+
+Cada cosmético es un archivo `.yml` individual alojado en su subcarpeta correspondiente dentro de `cosmetics/`.
+
+### Parámetros Comunes para Todos los Cosméticos:
+```yaml
+id: "identificador_unico"
+display-name: "<gold>Nombre en MiniMessage</gold>"
+permission: "zencosmetics.categoria.id" # Permiso necesario para usar
+price: 500.0 # Precio de compra (0.0 = gratis / sólo por permiso)
+price-type: "VAULT" # Opcional: VAULT o ECOBITS (toma default si se omite)
+rarity: "RARE" # Opciones: COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHIC
+blacklisted-worlds: # Mundos donde este cosmético no funcionará
+  - "spawn_pvp"
+  - "world_nether"
+item-display: # Aspecto del icono en el inventario GUI
+  material: DIAMOND
+  glow: true
+  name: "<gold>Nombre en el Menú</gold>"
+  lore:
+    - "<gray>Descripción o historia del cosmético.</gray>"
+```
+
+---
+
+### 6.1 Auras (`cosmetics/aura/`)
+Efectos de partículas continuos que orbitan o rodean al jugador.
+
+```yaml
+aura_type: "HALO" # Opciones: HALO, SPHERE, ORBIT, SPIRAL, RAIN_CLOUD, FIRE_RING
+particle: "FLAME" # Cualquier nombre de partícula Bukkit
+dust_color: "#FF5555" # Color HEX en caso de usar partícula DUST
+dust_size: 1.0 # Tamaño de la partícula si se usa DUST
+```
+
+---
+
+### 6.2 Globos Estéticos (`cosmetics/balloons/`)
+Entidades `ItemDisplay` con físicas suaves y cuerda de partículas que siguen al jugador.
+
+```yaml
+skull_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUv..."
+balloon_type: "DEFAULT" # Opciones: DEFAULT, HELIUM_LEAK, ORBITAL, CONFETTI, BLACK_HOLE, STORM_CLOUD
+animated: false # Si es true, cicla entre la lista de textures
+textures:
+  - "textura_base64_frame_1"
+  - "textura_base64_frame_2"
+animation_speed: 10 # Ticks por frame si animated es true
+balloon_count: 1 # Cantidad de globos (recomendado >= 3 si balloon_type es ORBITAL)
+```
+
+---
+
+### 6.3 Rastros de Proyectiles (`cosmetics/projectiles_trails/`)
+Efectos que siguen flechas, tridentes, cañas de pescar, perlas de ender, etc.
+
+```yaml
+trail_type: "HELIX" # Opciones: HELIX, DNA, VORTEX, ATOM, SWARM, ELECTRIC, POLYGON
+particle: "SOUL_FIRE_FLAME"
+polygon_sides: 4 # Lados del polígono si se usa POLYGON
+dust_color: "#00FFFF" # Color HEX si particle es DUST
+dust_size: 1.0
+```
+> [!NOTE]
+> Todos los proyectiles que lleven un rastro cosmético generarán automáticamente un efecto de **Splash al Impactar** (`ProjectileHitEvent`) al tocar un bloque o entidad.
+
+---
+
+### 6.4 Rastros de Pasos (`cosmetics/footstep_trails/`)
+Efectos que se generan en los bloques del suelo por los que camina o corre el jugador.
+
+```yaml
+particle: "FLAME"
+count: 2
+speed: 0.02
+chance: 0.9 # Probabilidad (0.1 a 1.0) de generar partícula por paso
+sound: "BLOCK_FIRE_AMBIENT" # Sonido opcional al pisar
+sound_volume: 0.2
+sound_pitch: 1.5
+disable-on-sneak: true # Si es true, no emite partículas al agacharse
+dust_color: "#FF5500" # Si particle es DUST
+dust_size: 0.9
+```
+
+---
+
+### 6.5 Rastros de Elytra (`cosmetics/elytra_trail/`)
+Efectos que se desprenden de las alas del jugador mientras planea con Elytra.
+
+```yaml
+particle: "DRAGON_BREATH"
+count: 3
+offset: 0.2
+speed: 0.05
+dust_color: "#FF00FF"
+dust_size: 1.2
+```
+
+---
+
+### 6.6 Efectos de Click (`cosmetics/click_effects/`)
+Efectos visuales que estallan cuando el jugador golpea a un jugador/mob o interactúa en el mundo.
+
+```yaml
+effect_type: "BURST" # Opciones: BURST, SPIRAL, EXPLOSION, SPARKS
+particle: "CRIT"
+count: 15
+speed: 0.15
+sound: "ENTITY_PLAYER_ATTACK_CRIT"
+```
+
+---
+
+### 6.7 Efectos de Asesinato a Jugadores (`cosmetics/kill_effects_players/`)
+Efectos espectaculares que se despliegan en la ubicación donde un jugador fue eliminado.
+
+```yaml
+effect_type: "BLOOD_EXPLOSION" # Opciones: LIGHTNING, BLOOD_EXPLOSION, GHOST_ASCEND, FIREWORK_BOMB, TORNADO, SQUID_ROCKET, BLACK_HOLE, METEOR, HEAD_TOTEM, CANDY_PINATA
+sound: "ENTITY_LIGHTNING_BOLT_THUNDER"
+sound_volume: 0.8
+sound_pitch: 1.0
+```
+
+---
+
+### 6.8 Efectos de Asesinato a Mobs (`cosmetics/kill_effects_mobs/`)
+Idéntico a los efectos de asesinato de jugadores, pero se activan al matar monstruos y animales (`EntityDeathEvent`).
+
+```yaml
+effect_type: "LIGHTNING"
+sound: "ENTITY_LIGHTNING_BOLT_IMPACT"
+```
+
+---
+
+### 6.9 Llantos de Muerte (`cosmetics/death_cries/`)
+Sonidos personalizados emitidos en la posición donde el jugador muere.
+
+```yaml
+sound: "ENTITY_GHAST_WARN" # Nombre de sonido Bukkit Sound
+volume: 1.0
+pitch: 0.8
+```
+
+---
+
+### 6.10 Mensajes de Muerte (`cosmetics/kill_messages/`)
+Mensajes personalizados globales de muerte en el chat según la causa del daño.
+
+```yaml
+messages:
+  DEFAULT:
+    - "<gold>%victim%</gold> <gray>fue pulverizado por</gray> <red>%attacker%</red>."
+  ENTITY_ATTACK:
+    - "<gold>%victim%</gold> <gray>perdió el duelo contra</gray> <red>%attacker%</red>."
+  FALL:
+    - "<gold>%victim%</gold> <gray>olvidó cómo volar mientras huía de</gray> <red>%attacker%</red>."
+  PROJECTILE:
+    - "<gold>%victim%</gold> <gray>recibió un flechazo certero de</gray> <red>%attacker%</red>."
+```
+Placeholders de mensaje:
+- `%victim%`: Nombre del jugador que murió.
+- `%attacker%`: Nombre del asesino o "el entorno".
+
+---
+
+### 6.11 Color de Chat (`cosmetics/chat_color/`)
+Modifica el formato y color de los mensajes enviados en el chat.
+
+```yaml
+color_format: "<gradient:#FF5555:#FFAA00>" # Soporta gradientes, arcoíris o colores sólidos
+```
+
+---
+
+### 6.12 Color de Nombre (`cosmetics/name_color/`)
+Modifica el color del nombre del jugador en Tablist, Nametag y Chat mediante PlaceholderAPI.
+
+```yaml
+color_format: "<gradient:#00FFAA:#00AAFF:{phase}>" # Soporta animación {phase}
+```
+
+---
+
+### 6.13 Efectos de Victoria (`cosmetics/win_effects/`)
+Eventos masivos de celebración para modalidades de minijuegos (SkyWars, BedWars, Duels, etc.).
+
+```yaml
+effect_type: "ICE_CASTLE" 
+# Opciones disponibles:
+# ICE_CASTLE, THRONE, VOID_CORRUPTION, ENDER_DRAGON_RIDE, ANCIENT_DEFENDERS, 
+# GIANT_SLIMES, ELEMENTAL_TORNADO, LIGHT_DOME, METEOR_SHOWER, PINATA_PARTY, 
+# EXPLOSIVE_CHICKENS, DISCO
+particle: "SNOWFLAKE"
+duration_seconds: 10
+```

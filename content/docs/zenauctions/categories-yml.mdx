@@ -1,0 +1,34 @@
+---
+title: "Categorías (categories.yml)"
+description: "Define los filtros por categorías que aparecen en el menú de categorías y en el selector del menú principal..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Categorías (categories.yml)
+
+---
+
+Define los filtros por categorías que aparecen en el menú de categorías y en el selector del menú principal `/ah`.
+
+### Formato de Categoría:
+```yaml
+categories:
+  <id_categoria>:
+    display-name: "<gradient:#HEX1:#HEX2>Nombre</gradient>"
+    material: <MATERIAL_ICONO>
+    slot: <SLOT_EN_MENU_CATEGORIAS>
+    description:
+      - "<gray>Línea descriptiva..."
+    matcher:
+      all: true # O 'materials: [...]'
+```
+
+### Ejemplo por defecto:
+- `all`: Muestra todos los ítems publicados (`matcher: { all: true }`).
+- `blocks`: Bloques de construcción (`STONE`, `DIRT`, `OAK_LOG`, etc.).
+- `weapons`: Espadas, hachas, arcos, ballestas y tridentes.
+- `armor`: Cascos, pecheras, grebas, botas y élitros.
+- `consumables`: Manzanas doradas, pociones, comida.
+- `valuables`: Diamantes, esmeraldas, lingotes de netherite, huevos de dragón, balizas.
+- `shulker-boxes`: Shulker boxes de todos los colores y barriles.

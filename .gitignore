@@ -16,6 +16,8 @@ backup
 *.tsbuildinfo
 
 # misc
+/DOCS
+h2_new.txt
 .DS_Store
 *.pem
 /.pnp

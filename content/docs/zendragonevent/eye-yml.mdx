@@ -1,0 +1,37 @@
+---
+title: "Ojo de Invocación (eye.yml)"
+description: "Permite diseñar el ítem necesario para interactuar con los marcos del portal del altar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Ojo de Invocación (eye.yml)
+
+---
+
+Permite diseñar el ítem necesario para interactuar con los marcos del portal del altar.
+
+```yaml
+item:
+  # Material del ítem (ej. PLAYER_HEAD, ENDER_EYE, NETHER_STAR, etc.)
+  material: "PLAYER_HEAD"
+  
+  # Nombre mostrado
+  name: "<dark_purple>Ojo de Invocación"
+  
+  # Descripción o Lore
+  lore:
+    - "<gray>Un ojo místico usado para"
+    - "<gray>despertar al Dragón."
+    - ""
+    - "<yellow>¡Colócalo en el Altar!"
+    
+  # Textura en formato Base64 (se aplica solo si el material es PLAYER_HEAD)
+  texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzRiZTY3YWVkZWRlMzE2ZTVmMDBhN2FkM2ZiZTMwYTgxY2VmNjdkNGRmN2NlZDEzMGZiZTAyYmUwMTU0OGJjZSJ9fX0="
+  
+  # Custom Model Data (para resource packs). 0 para desactivar.
+    custom-model-data: 0
+  
+  # Efecto visual de encantamiento brillante
+    glowing: true
+```

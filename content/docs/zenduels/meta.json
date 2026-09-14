@@ -1,0 +1,15 @@
+{
+  "title": "ZenDuels (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "config-yml",
+    "arenas-yml",
+    "kits-yml",
+    "scoreboards-yml",
+    "messages-yml",
+    "menus",
+    "comandos_y_permisos",
+    "integraciones"
+  ]
+}

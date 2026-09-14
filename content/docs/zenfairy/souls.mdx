@@ -1,0 +1,138 @@
+---
+title: "Configuración de Almas (souls/)"
+description: "Cada archivo .yml en la carpeta souls/ representa un tipo de alma único e independiente. El nombre del..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Almas (souls/)
+
+---
+
+Cada archivo `.yml` en la carpeta `souls/` representa un tipo de alma único e independiente. El nombre del archivo define el identificador del alma (ejemplo: `fairy.yml` -> id: `fairy`).
+
+### Parámetros Generales y Sonidos
+
+```yaml
+display-name: '<gradient:#da22ff:#9733ee>Fairy Soul</gradient>'
+
+# Sonido al encontrar un alma por primera vez
+soul-found-sound:
+    enabled: true
+  sound: ENTITY_EXPERIENCE_ORB_PICKUP
+  volume: 0.8
+  pitch: 1.2
+
+# Sonido si el jugador hace click en un alma que ya había recolectado
+soul-already-found-sound:
+    enabled: true
+  sound: BLOCK_NOTE_BLOCK_BASS
+  volume: 0.5
+  pitch: 0.8
+
+# Sonido al encontrar TODAS las almas existentes de este tipo
+all-souls-found-sound:
+    enabled: true
+  sound: UI_TOAST_CHALLENGE_COMPLETE
+  volume: 1.0
+  pitch: 1.0
+
+# Partícula al recolectar el alma
+found-soul-particle: ENCHANTMENT_TABLE
+
+# Acciones a ejecutar según eventos
+first-soul-found-actions:
+      - '[CONSOLE] eco give %player% 5000'
+  - '[MESSAGE] <green>¡Has encontrado tu primera alma mágica! Recompensa desbloqueada.</green>'
+
+soul-found-actions:
+      - '[CONSOLE] eco give %player% 500'
+
+all-souls-found-actions:
+  - '[BROADCAST] <gold>%player% <green>ha encontrado <yellow>TODAS</yellow> las almas de hada del servidor.</green>'
+  - '[SOUND] UI_TOAST_CHALLENGE_COMPLETE'
+```
+
+### Animación con Display Entities (`found-soul-animation`)
+Genera un `ItemDisplay` nativo de 1.21 que flota y gira suavemente al descubrir el alma:
+
+```yaml
+found-soul-animation:
+    enabled: true
+  # Textura en formato Base64 de la cabeza que flotará
+  texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjk2OTIzYWQyNDczMTAwMDdmNmFlNWQzMjZkODQ3YWQ1Mzg2NGNmMTZjMzU2NWExODFkYzhlNmIyMGJlMjM4NyJ9fX0="
+  duration: 40    # Duración en ticks (40 ticks = 2 segundos)
+  spin-speed: 12  # Velocidad de rotación en grados por tick
+  rise-speed: 0.05 # Velocidad de elevación vertical por tick
+```
+
+### Indicadores de Proximidad y Efecto Radar (`indicators`)
+Emite partículas y sonidos exclusivos para los jugadores que aún **no** hayan encontrado el alma cuando se acercan a su ubicación:
+
+```yaml
+indicators:
+  visual:
+    enabled: true
+    particle: VILLAGER_HAPPY
+    amount: 5
+    interval-ticks: 40 # Intervalo base en ticks
+    radius: 15.0       # Radio en bloques
+  auditory:
+    enabled: true
+    sound: BLOCK_NOTE_BLOCK_CHIME
+    volume: 0.6
+    pitch: 1.0
+    interval-ticks: 60 # Intervalo base en ticks
+    radius: 10.0       # Radio en bloques
+```
+
+> **Efecto Proximidad Radar:** El sistema incrementa automáticamente la cadencia de emisión y aumenta el pitch del sonido (de 1.0 hasta 1.8) cuanto más cerca esté el jugador del bloque.
+
+### Menú de Canje y Recompensas (`menu`)
+Configuración de la tienda/interfaz gráfica del alma (`/zf menu <tipo>`). Los items se actualizan dinámicamente sin parpadeos:
+
+```yaml
+menu:
+  title: '<gradient:#da22ff:#9733ee>Fairy Souls Rewards</gradient>'
+  rows: 6
+  filler:
+    material: GRAY_STAINED_GLASS_PANE
+    name: ' '
+    items:
+    exchange_souls:
+      display-name: '<green><bold>Canjear Almas</bold></green>'
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjk2OTIzYWQyNDczMTAwMDdmNmFlNWQzMjZkODQ3YWQ1Mzg2NGNmMTZjMzU2NWExODFkYzhlNmIyMGJlMjM4NyJ9fX0="
+      slot: 22
+      souls-required: 5 # Cantidad de almas que consume el canje
+
+      available-lore:
+        - '<gray>¡Tienes suficientes almas!</gray>'
+        - ''
+        - '<gray>Disponibles: <yellow>{souls_available}</yellow>/<purple>{souls_required}</purple></gray>'
+        - ''
+        - '<yellow>▶ Click para canjear</yellow>'
+
+      unavailable-lore:
+        - '<gray>Necesitas más almas para este canje.</gray>'
+        - ''
+        - '<gray>Disponibles: <yellow>{souls_available}</yellow>/<purple>{souls_required}</purple></gray>'
+        - ''
+        - '<red>✖ Almas insuficientes</red>'
+
+      actions:
+        - '[MESSAGE] %prefix% <green>Has canjeado <yellow>5 almas</yellow> por recompensas mágicas.</green>'
+        - '[CONSOLE] eco give %player% 2500'
+        - '[AURA-STAT] strength 2'
+        - '[SOUND] ENTITY_PLAYER_LEVELUP'
+
+    close_button:
+      display-name: '<red>Cerrar</red>'
+      material: BARRIER
+      slot: 49
+      lore:
+        - '<gray>Click para salir del menú.</gray>'
+      actions:
+        - '[CLOSE]'
+        - '[SOUND] UI_BUTTON_CLICK'
+```

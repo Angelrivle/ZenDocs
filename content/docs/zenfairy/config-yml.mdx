@@ -1,0 +1,95 @@
+---
+title: "Configuración (config.yml)"
+description: "Todos los mensajes enviados por el plugin son personalizables:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+### Mensajes (`messages`)
+Todos los mensajes enviados por el plugin son personalizables:
+
+```yaml
+messages:
+  # Prefijo global del plugin (disponible con %prefix% en acciones y mensajes)
+  prefix: "<gradient:#ff70a6:#ff9770><bold>ZenFairy</bold></gradient> <dark_gray>» </dark_gray>"
+  
+  # Mensajes de comandos
+  reload: "<green>Configuraciones recargadas correctamente.</green>"
+  no-permission: "<red>No tienes permiso para ejecutar este comando.</red>"
+  player-only: "<red>Este comando solo puede ser ejecutado por un jugador.</red>"
+  unknown-command: "<red>Comando desconocido. Usa /zf para ver la ayuda.</red>"
+  invalid-soul-type: "<red>El tipo de alma '<yellow>{soul_type}</yellow>' no existe.</red>"
+  set-usage: "<red>Uso: /zf set <tipo_de_alma></red>"
+  reset-usage: "<red>Uso: /zf reset <jugador> <tipo_de_alma></red>"
+  player-not-found: "<red>El jugador <yellow>{player}</yellow> no fue encontrado.</red>"
+  data-reset-success: "<green>El progreso de <yellow>{player}</yellow> para <yellow>{soul_type}</yellow> fue reiniciado.</green>"
+
+  # Interacción con almas
+  soul-already-exists: "<red>Ya existe un alma en este bloque. Usa /zf remove primero.</red>"
+  look-at-block: "<red>Debes estar mirando a un bloque sólido.</red>"
+  soul-found: "<green>¡Has encontrado un {soul_display_name}<green>! <gray>({found}/{total})</gray></green>"
+  soul-already-found: "<red>Ya has recolectado esta alma anteriormente.</red>"
+  soul-set: "<green>Has colocado un alma de tipo <yellow>{soul_type}</yellow> en este bloque.</green>"
+  soul-remove: "<green>Has eliminado el alma del bloque que estabas mirando.</green>"
+  soul-not-found-at-loc: "<red>No hay ninguna alma en el bloque que miras.</red>"
+  
+  # Mensajes de GUI
+  no-menu-configured: "<red>Este tipo de alma no tiene un menú de recompensas configurado.</red>"
+  not-enough-souls: "<red>No tienes suficientes almas disponibles para realizar este canje.</red>"
+  teleporting-to-soul: "<green>Teletransportándote a la ubicación del alma...</green>"
+```
+
+### Menú de Localizaciones de Almas (`location-menu`)
+Permite a los administradores visualizar y teletransportarse a todas las almas de un tipo mediante `/zf location <tipo>`:
+
+```yaml
+location-menu:
+  title: "&8Ubicaciones: {soul_type_display_name} &8(Pág. {current_page}/{max_pages})"
+  rows: 6 # Tamaño del menú (filas de 9 slots, entre 1 y 6)
+
+  location-item:
+    material: COMPASS
+    display-name: "<green>Alma #{index}</green>"
+    lore:
+      - "<gray>Mundo: <white>{world}</white></gray>"
+      - "<gray>Coordenadas: <yellow>{x}, {y}, {z}</yellow></gray>"
+      - ""
+      - "<yellow>¡Click para teletransportarte!</yellow>"
+
+    control-items:
+    previous-page:
+      material: ARROW
+      display-name: "<green><-- Página Anterior</green>"
+      slot: 48
+    next-page:
+      material: ARROW
+      display-name: "<green>Página Siguiente --></green>"
+      slot: 50
+    close-menu:
+      material: BARRIER
+      display-name: "<red>✖ Cerrar Menú ✖</red>"
+      slot: 49
+    filler-item:
+      material: BLACK_STAINED_GLASS_PANE
+      display-name: " "
+      slots: [45, 46, 47, 51, 52, 53]
+```
+
+### Configuración de Base de Datos (`database`)
+Soporta almacenamiento local mediante SQLite con modo WAL o sincronización en red de múltiples servidores con MySQL / MariaDB a través de HikariCP:
+
+```yaml
+database:
+  type: "sqlite" # Opciones: "sqlite" o "mysql"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "zenfairy"
+    username: "root"
+    password: "tu_password_aqui"
+    ssl: false
+```

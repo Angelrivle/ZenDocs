@@ -1,0 +1,142 @@
+---
+title: "Configuración (config.yml)"
+description: "Configura las credenciales y presencia de tu bot de Discord."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+### 🤖 Sección: `bot`
+Configura las credenciales y presencia de tu bot de Discord.
+```yaml
+bot:
+  token: "TU_BOT_TOKEN_AQUI"        # Token obtenido en Discord Developer Portal
+  server-id: "TU_GUILD_ID_AQUI"     # ID del servidor de Discord donde opera el bot
+  status-format: "Jugando en %server% | %online%/%max% jugadores" # Actividad del bot
+```
+* **Variables permitidas en status:** `%server%`, `%online%`, `%max%`.
+
+---
+
+### 🌐 Información del Servidor
+```yaml
+server-name: "NextCraft"
+server-ip: "play.nextcraft.net"
+```
+
+---
+
+### 👑 Sincronización de Rangos (`ranks`)
+Sincroniza grupos de **LuckPerms** con roles de Discord. Si un usuario sube de rango en Minecraft, se le asigna el rol correspondiente en Discord (y viceversa si la sincronización inversa está activa).
+```yaml
+ranks:
+  - default: "ID_ROL_DISCORD_USUARIO"
+  - vip: "ID_ROL_DISCORD_VIP"
+  - staff: "ID_ROL_DISCORD_STAFF"
+```
+
+---
+
+### 💬 Mensaje de `/discord`
+Formateado con **Adventure MiniMessage** (soporta colores HEX, gradientes, click y hover events).
+```yaml
+discord-message:
+  - "&7------------------------------------"
+  - "<center><blue><bold>Unete a Nuestro Discord"
+  - "<yellow>Comunidad oficial: <green><link:https://discord.gg/invite>¡Click Aquí!"
+  - "&7------------------------------------"
+```
+* Marcadores especiales:
+  * `<center>`: Centra el texto en la ventana de chat del jugador.
+  * `<link:URL>Texto`: Convierte el texto en un enlace clicable que abre la URL.
+
+---
+
+### 🔒 Whitelist vinculada a Discord (`whitelist`)
+Obliga a los jugadores a vincular su cuenta con Discord para poder entrar al servidor.
+```yaml
+whitelist:
+    enabled: false                                 # Activar/desactivar whitelist por Discord
+  kick-message: "<red>Debes vincular tu cuenta con Discord para entrar al servidor.\n<gray>Unete y usa /discord link."
+  require-guild-member: false                   # Exigir además que sea miembro del servidor de Discord
+  kick-message-not-in-guild: "<red>Debes estar unido a nuestro servidor de Discord para poder jugar."
+```
+
+---
+
+### 🧩 Módulos del Sistema (`modules`)
+Permite encender o apagar componentes de forma modular sin reiniciar el plugin:
+```yaml
+modules:
+  whitelist: false              # Control de acceso vinculado
+  booster-rewards: true         # Recompensas para Discord Server Boosters
+  chat-sync: true               # Sincronización bidireccional de chat
+  staff-chat: true              # Chat interno de Staff Minecraft <-> Discord
+  server-announcements: true    # Avisos de entradas, salidas, muertes y encendido
+  webhook-logs: true            # Logs de comandos administrativos a webhook
+  reports: true                 # Sistema de tickets /report con hilos en Discord
+  verification-panel: true      # Botón y modal interactivo de verificación
+```
+
+---
+
+### 🔄 Chat Sincronizado (`chat-sync`)
+```yaml
+chat-sync:
+  channel-id: "ID_CANAL_CHAT"
+  webhook-url: "URL_WEBHOOK_CHAT"
+  topic-format: "Jugadores en línea: %online%/%max%"
+  minecraft-format: "<blue>[Discord]</blue> <white>%user%</white><gray>: %message%</gray>"
+```
+
+---
+
+### 🛡️ Staff Chat (`staff-chat`)
+Los administradores pueden usar `/sc <mensaje>`, alternar el modo con `/sc` o usar el **prefijo rápido `#mensaje`** en el chat del juego.
+```yaml
+staff-chat:
+  channel-id: "ID_CANAL_STAFF"
+  minecraft-format: "<red>[StaffChat]</red> <gray>%player%</gray><white>: %message%</white>"
+  discord-format: "**[StaffChat]** %player%: %message%"
+```
+
+---
+
+### 💎 Recompensas Booster (`booster-rewards`)
+Otorga recompensas automáticas en Minecraft cuando un usuario boostea tu servidor de Discord.
+```yaml
+booster-rewards:
+  booster-role-id: "ID_ROL_NITRO_BOOSTER"
+  broadcast-message: "&d&l¡BOOSTER! &fEl usuario &a%player% &fha boosteado el servidor de Discord."
+    commands:
+    - "give %player% diamond 10"
+    - "xp add %player% 500"
+```
+
+---
+
+### 🚨 Sistema de Reportes / Tickets (`reports`)
+```yaml
+reports:
+  channel-id: "ID_CANAL_REPORTES"
+  create-thread: true           # Crea automáticamente un hilo/thread para discutir el reporte
+  cooldown-seconds: 60          # Tiempo de espera entre reportes por jugador
+  title: "🚨 Reporte de Jugador"
+  color: "#FF3333"
+```
+
+---
+
+### 🔗 Panel Interactivo de Verificación (`verification`)
+Publicable en Discord usando `/zendiscord sendpanel [canal_id]`.
+```yaml
+verification:
+  title: "🔗 Vinculación de Cuenta de Minecraft"
+  description: "Haz clic en el botón de abajo para vincular tu cuenta de Minecraft con Discord y recibir tus recompensas y rangos."
+  color: "#5865F2"
+  button-label: "Vincular Cuenta"
+  button-emoji: "🔗"
+```

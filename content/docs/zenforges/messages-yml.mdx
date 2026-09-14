@@ -1,0 +1,31 @@
+---
+title: "Mensajes (messages.yml)"
+description: "Soporta códigos de color clásicos (&a, &l) y sintaxis moderna de MiniMessage / Adventure (green,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Mensajes (messages.yml)
+
+---
+
+Soporta códigos de color clásicos (`&a`, `&l`) y sintaxis moderna de **MiniMessage / Adventure** (`<green>`, `<gradient:#FF0000:#00FF00>Texto</gradient>`).
+
+```yaml
+prefix: "&8[&dZenForges&8] "
+no-permission: "&cNo tienes permiso para usar esto."
+station-no-permission: "&cNo tienes permiso para abrir esta estación."
+creation-no-permission: "&cNo tienes permiso para forjar esta receta."
+limit-reached: "&cHas alcanzado tu límite de forjas activas (%limit%/%limit%)."
+forge-started: "&a¡Has comenzado a forjar %item%! Tardará %time%."
+forge-finished-broadcast: "&a&l¡Tu forja de %item% &r&aha terminado! &fEntra al menú para reclamarlo."
+forge-claimed: "&a¡Has reclamado tu %item% con éxito!"
+insufficient-materials: "&cNo tienes los materiales suficientes para forjar esto."
+login-notification-msg: "&d&l¡Atención! &fTienes &a%amount% items &flistos en tu forja."
+reload-success: "&a¡Configuración recargada correctamente!"
+
+# Mensajes al cancelar forja
+forge-cancelled: "&c¡Forja de %item% cancelada! %refund%"
+refund-returned: "&aLos materiales han sido devueltos a tu inventario."
+refund-lost: "&7Los materiales invertidos se han perdido."
+```

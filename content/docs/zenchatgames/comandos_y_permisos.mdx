@@ -1,0 +1,25 @@
+---
+title: "Comandos y Permisos"
+description: "El comando base es /zenchatgames, pero dispone de varios alias rápidos: /cg, /chatgames y /zcg."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+El comando base es `/zenchatgames`, pero dispone de varios alias rápidos: `/cg`, `/chatgames` y `/zcg`.
+
+| Comando | Alias | Permiso | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/zcg help` | `/cg help` | `zenchatgames.use` | Muestra el menú de ayuda interactivo. |
+| `/zcg stats [jugador]` | `/cg stats` | `zenchatgames.use` | Consulta las estadísticas propias o las de otro usuario. |
+| `/zcg top [won\|streak]` | `/cg top` | `zenchatgames.use` | Muestra el Top 10 de victorias o mejores rachas. |
+| `/zcg force [id]` | `/cg start` | `zenchatgames.admin` | Fuerza el inicio inmediato de un juego (o uno al azar). |
+| `/zcg stop` | `/cg cancel` | `zenchatgames.admin` | Detiene y cancela inmediatamente el juego en curso. |
+| `/zcg reload` | `/cg reload` | `zenchatgames.admin` | Recarga todas las configuraciones, mensajes y juegos sin reiniciar. |
+
+### Permisos:
+- `zenchatgames.use` (Predeterminado: `true` para todos los jugadores): Permite consultar estadísticas, tops y ver menús de ayuda.
+- `zenchatgames.admin` (Predeterminado: `op`): Permite usar comandos de administración (`force`, `stop`, `reload`).

@@ -1,0 +1,70 @@
+---
+title: "Recetas y Creaciones (creations/)"
+description: "Cada archivo en creations/.yml representa una receta que puede forjarse. Soporta ítems vanilla, ItemEdit,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Recetas y Creaciones (creations/)
+
+---
+
+Cada archivo en `creations/*.yml` representa una receta que puede forjarse. Soporta ítems vanilla, `ItemEdit`, `EcoItems`, `EcoArmor` y sistema de calidad.
+
+### Ejemplo Completo: `creations/iron_dagger.yml`
+```yaml
+display-name: "&fDaga de Hierro"
+permission: "zenforges.creation.iron_dagger"
+
+# Tipo de receta:
+# TIME: Requiere tiempo de forjado en un slot.
+# DIRECT: Se forja al instante entregando los ingredientes.
+type: TIME
+duration: 600                # Duración en segundos (10 minutos)
+refund-on-cancel: true       # Si es true, devuelve materiales si el jugador cancela la forja
+
+# Requisitos de nivel de herrería
+required-level: 2
+
+# Experiencia otorgada al reclamar el ítem
+xp-gain:
+  type: FIXED                # FIXED o RANGE (ej. amount: "15-30")
+  amount: 50
+
+# Cosméticos de reclamo
+claim-cosmetics:
+  sound: "BLOCK_ANVIL_USE"
+  particle: "FLAME"
+  particle-count: 20
+
+# Ítem entregado al terminar
+result:
+    material: IRON_SWORD       # O soporte para 'itemedit:id_custom' o 'eco:ecoitems:id_custom'
+  name: "&fDaga de Hierro Reforzada"
+  lore:
+    - "&7Una daga forjada con el mejor hierro."
+    - ""
+    - "&e¡Estadísticas mejoradas!"
+    custom-model-data: 1001
+
+# Ingredientes necesarios
+materials:
+  - material: IRON_INGOT
+    amount: 100
+    display-name: "Lingote de Hierro"
+  - material: itemedit:ceniza_volcanica
+    amount: 5
+    display-name: "Ceniza Volcánica"
+
+# Sistema opcional de Calidad y Rareza
+quality:
+    enabled: true
+  base-success-rate: 90.0    # Porcentaje base de éxito; si falla, el ítem se convierte en carbón arruinado
+  qualities:
+    masterwork:
+      chance: 15.0
+      display-name-prefix: "&6&l[Obra Maestra] "
+      lore-addition:
+        - "&6★ Calidad de Forja Superior"
+      custom-model-data-offset: 10
+```

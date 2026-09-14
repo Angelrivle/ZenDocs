@@ -1,0 +1,23 @@
+---
+title: "damage"
+description: "Se dispara cuando el jugador recibe cualquier tipo de daño (ambiental o por entidad)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `damage`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `DAMAGE`
+
+---
+
+Se dispara cuando el jugador recibe cualquier tipo de daño (ambiental o por entidad).
+```yaml
+triggers:
+  - id: on_damaged
+    type: DAMAGE
+    effects:
+      - type: PLAY_SOUND
+        sound: ENTITY_ITEM_BREAK
+```

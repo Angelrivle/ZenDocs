@@ -1,0 +1,84 @@
+---
+title: "Rangos (ranks.yml)"
+description: "Aquí se configuran todos los rangos, sus caminos de progresión, ítem representativo en el menú, recompensas y..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Rangos (ranks.yml)
+
+---
+
+Aquí se configuran todos los rangos, sus caminos de progresión, ítem representativo en el menú, recompensas y requisitos.
+
+### Ejemplo de Configuración de un Rango:
+```yaml
+default-rank: "A" # Rango asignado inicialmente al ingresar por primera vez
+
+ranks:
+  A:
+    displayname: "&aRango A"
+    symbol: "&a[A]"
+    next-rank: "B" # Rango al que ascenderá
+    item:
+      material: "COAL"
+      displayname: "&aRango A"
+      lore:
+        - "&7El primer paso de tu aventura."
+      slot: 10
+      glow: false
+    requeriments:
+      - "[COST-VAULT] 100"
+      - "[KILL-MOB] ZOMBIE:10"
+    display-requirements:
+      - "&7Dinero: &a$100"
+      - "&7Zombis eliminados: &c10"
+    display-rewards:
+      - "&e+ 1x Manzana Dorada"
+      - "&e+ $500 de Bono"
+    commands:
+      - "[CONSOLE]give %player% golden_apple 1"
+      - "[PLAYER]spawn"
+    revert-commands: # Comandos que se ejecutan si el rango expira o es removido
+      - "[CONSOLE]broadcast &cEl rango de %player% ha expirado."
+```
+
+### Todos los Tipos de Requisitos Soportados
+
+| Tipo de Requisito | Sintaxis | Ejemplo | Explicación |
+| :--- | :--- | :--- | :--- |
+| **Economía Vault** | `[COST-VAULT] <monto>` | `[COST-VAULT] 5000` | Descuenta dinero del jugador usando Vault. |
+| **PlayerPoints** | `[COST-PLAYERPOINTS] <puntos>` | `[COST-PLAYERPOINTS] 50` | Descuenta puntos del plugin PlayerPoints. |
+| **EcoBits** | `[COST-ECOBITS-<moneda>] <monto>` | `[COST-ECOBITS-GEMS] 10` | Descuenta monedas secundarias de EcoBits. |
+| **EcoItems** | `[COST-ECOITEMS] <item_id>:<cant>` | `[COST-ECOITEMS] espada_fuego:1` | Consume items personalizados de EcoItems. |
+| **Niveles de XP** | `[COST-LEVEL] <niveles>` | `[COST-LEVEL] 15` | Consume niveles de experiencia vanilla. |
+| **Ítems Vanilla** | `[COST-ITEM] <MATERIAL>:<cant>` | `[COST-ITEM] DIAMOND:32` | Consume ítems del inventario del jugador. |
+| **Depósito Parcial** | `[DEPOSIT-ITEM] <MATERIAL>:<cant>` | `[DEPOSIT-ITEM] IRON_INGOT:500` | Permite ir depositando materiales progresivamente. |
+| **Matar Mobs** | `[KILL-MOB] <ENTITY_TYPE>:<cant>` | `[KILL-MOB] ENDERMAN:25` | Requiere haber matado X cantidad de ese mob. |
+| **Tiempo de Juego** | `[PLAYTIME] <minutos>` | `[PLAYTIME] 120` | Requiere X minutos totales jugados en el servidor. |
+| **Objetos Reparados**| `[ITEMS-REPAIRED] <cant>` | `[ITEMS-REPAIRED] 10` | Cantidad de usos en Yunque o Afiladora (Grindstone). |
+| **Pociones Destiladas**| `[POTIONS-BREWED] <cant>` | `[POTIONS-BREWED] 20` | Pociones retiradas de un soporte para pociones. |
+| **Animales Domados** | `[ANIMALS-TAMED] <cant>` | `[ANIMALS-TAMED] 5` | Mascotas y animales domesticados (lobos, gatos, caballos). |
+| **Items Cocinados** | `[ITEMS-COOKED] <cant>` | `[ITEMS-COOKED] 250` | Ítems fundidos/cocinados en cualquier horno. |
+| **Troncos Talados** | `[LOGS-CHOPPED] <cant>` | `[LOGS-CHOPPED] 500` | Troncos de madera talados por el jugador. |
+| **Lana Picada** | `[WOOL-MINED] <cant>` | `[WOOL-MINED] 100` | Bloques de lana de cualquier color destruidos. |
+| **Cosecha Vanilla** | `[HARVEST] <tipo> <cant>` | `[HARVEST] potatoes 200` | Cosecha sin depender de plugins externos. (Tipos: `potatoes`, `carrots`, `wheat`, `beetroots`, `melon`, `pumpkin`, `sugarcane`, `cocoa`, `netherwart`). |
+| **RivalHarvesterHoes**| `[RIVAL-HARVESTER-HOES] <tipo> <cant>` | `[RIVAL-HARVESTER-HOES] crops 1000` | Estadísticas del plugin RivalHarvesterHoes (`crops`, `essence`, `cane`, etc.). |
+| **PlaceholderAPI** | `[PLACEHOLDER]%<holder>% <op> <val>` | `[PLACEHOLDER]%player_ping% <= 100` | Evalúa cualquier condición numérica o textual (`>=`, `<=`, `==`, `!=`, `>`, `<`). |
+
+### Bifurcaciones de Rangos (Branching Paths)
+ZenRankups permite caminos no lineales. Puedes definir una lista en `next-rank` o `next-ranks`:
+```yaml
+  GuerreroNovato:
+    displayname: "&cGuerrero Novato"
+    next-ranks:
+      - "Caballero"
+      - "Arquero"
+      - "Berserker"
+```
+El jugador podrá seleccionar en el menú a qué senda desea avanzar.
+
+### Comandos y Reversión de Comandos
+- Prefijo `[CONSOLE]`: Ejecuta la orden desde la consola del servidor (ej. `[CONSOLE]lp user %player% parent add vip`).
+- Prefijo `[PLAYER]`: Fuerza al jugador a ejecutar el comando.
+- Prefijo `[CLOSE]`: Cierra el menú actual del jugador.

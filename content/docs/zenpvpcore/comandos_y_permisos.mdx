@@ -1,0 +1,34 @@
+---
+title: "Comandos y Permisos"
+description: "Guía y detalles de configuración del módulo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### 🎮 Comandos para Jugadores
+
+| Comando | Alias | Permiso | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/elo` | `/ranked`, `/liga` | *Ninguno* | Abre el menú interactivo principal de ELO, estadísticas y rangos. |
+| `/bounty` | `/recompensa`, `/bounties` | *Ninguno* | Abre la lista de recompensas activas o crea una nueva con `/bounty <jugador> [ELO/DINERO] <monto> [anonimo]`. |
+| `/report <jugador>` | `/reportar` | *Ninguno* | Inicia el asistente interactivo de reporte con selección de motivo y captura de snapshot. |
+| `/deathmessages` | `/dhm` | *Ninguno* | Abre el selector de paquetes de mensajes de muerte cosméticos. |
+
+### 🛠️ Comandos de Administración y Staff
+
+| Comando | Permiso | Descripción |
+| :--- | :--- | :--- |
+| `/zenpvpcore reload` | `zenpvpcore.admin` | Recarga todos los archivos `.yml` de configuración, mensajes y menús sin reiniciar. |
+| `/zenpvpcore combat disable all` | `zenpvpcore.admin` | Remueve el estado de combate a todos los jugadores del servidor. |
+| `/zenpvpcore combat disable <jugador>`| `zenpvpcore.admin` | Remueve el estado de combate a un jugador específico. |
+| `/elo give <jugador> <cantidad>` | `zenpvpcore.elo.admin` | Añade puntos de ELO a un jugador. |
+| `/elo remove <jugador> <cantidad>` | `zenpvpcore.elo.admin` | Quita puntos de ELO a un jugador. |
+| `/elo set <jugador> <cantidad>` | `zenpvpcore.elo.admin` | Establece el ELO de un jugador a un valor exacto. |
+| `/elo setrank <jugador> <rango>` | `zenpvpcore.elo.admin` | Asigna un rango específico a un jugador ajustando su ELO al mínimo de ese rango. |
+| `/elo season reset <nombre>` | `zenpvpcore.elo.admin` | Archiva la temporada actual en la tabla `zenpvp_seasons_history` y reinicia el ELO de todos los usuarios al valor inicial. |
+| `/report view` | `zenpvpcore.report.view` | Abre la interfaz de gestión de reportes pendientes con opciones de teletransporte y sanciones. |
+| `/staff` (o `/v`, `/vanish`) | `zenpvpcore.staff` | Alterna el modo invisibilidad/Staff invisible. |

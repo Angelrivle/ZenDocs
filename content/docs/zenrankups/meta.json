@@ -1,0 +1,16 @@
+{
+  "title": "ZenRankups (New)",
+  "pages": [
+    "index",
+    "caracter_sticas_principales",
+    "comandos_y_permisos",
+    "estructura_de_archivos",
+    "config-yml",
+    "ranks-yml",
+    "prestige-yml",
+    "menus",
+    "webhooks",
+    "placeholders",
+    "api_de_eventos_para_desarrolladores"
+  ]
+}

@@ -1,0 +1,34 @@
+---
+title: "Estructura de Archivos"
+description: "Cuando el plugin se inicia por primera vez, genera la siguiente jerarquía de archivos en la carpeta..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Cuando el plugin se inicia por primera vez, genera la siguiente jerarquía de archivos en la carpeta `plugins/ZenForges/`:
+
+```
+ZenForges/
+├── config.yml
+├── messages.yml
+├── boosters.yml
+├── powders.yml
+├── commissions.yml
+├── hotm.yml
+├── storage.db              (Base de datos SQLite optimizada en modo WAL)
+├── stations/
+│   └── iron_station.yml    (Estaciones de forja personalizadas)
+├── creations/
+│   ├── iron_dagger.yml     (Recetas de tiempo o directas)
+│   ├── iron_chestplate.yml
+│   └── ...
+└── menus/
+    ├── recipe_detail.yml   (Detalle de recetas e ingredientes)
+    ├── level_progress.yml  (Árbol paginado de niveles de herrería)
+    ├── commissions.yml     (Menú principal de comisiones)
+    └── milestones.yml      (Menú de hitos y recompensas acumuladas)
+```

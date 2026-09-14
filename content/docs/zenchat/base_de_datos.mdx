@@ -1,0 +1,27 @@
+---
+title: "Base de Datos"
+description: "ZenChat almacena los canales activos de cada usuario, jugadores ignorados y colores seleccionados de forma..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Base de Datos
+
+---
+
+ZenChat almacena los canales activos de cada usuario, jugadores ignorados y colores seleccionados de forma asíncrona. La configuración de base de datos se genera automáticamente en `config.yml`:
+
+```yaml
+database:
+  type: "sqlite"          # Opciones: "sqlite" o "mysql"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "zenchat"
+    username: "root"
+    password: ""
+    pool-size: 10         # Conexiones simultáneas mediante HikariCP
+    ssl: true             # Conexión cifrada SSL
+```
+
+*Si usas `sqlite`, los datos se guardarán automáticamente en `plugins/ZenChat/zenchat.db` sin requerir configuración adicional.*

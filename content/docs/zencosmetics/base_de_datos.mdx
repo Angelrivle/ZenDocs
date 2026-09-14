@@ -1,0 +1,24 @@
+---
+title: "Base de Datos"
+description: "ZenCosmetics utiliza HikariCP de alta velocidad con dos motores disponibles:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Base de Datos
+
+---
+
+ZenCosmetics utiliza **HikariCP** de alta velocidad con dos motores disponibles:
+
+### 1. SQLite (Por Defecto)
+- Los datos se almacenan localmente en `plugins/ZenCosmetics/data.db`.
+- No requiere configuración adicional.
+
+### 2. MySQL / MariaDB (Para Servidores en Red / BungeeCord)
+- Almacena datos sincronizados entre múltiples servidores.
+- Configurable en la sección `database.mysql` de `config.yml`.
+
+### Tablas Gestionadas Automáticamente:
+1. `zencosmetics_players`: Registra el UUID del jugador y los cosméticos actualmente activos en cada categoría (`active_aura`, `active_footstep_trails`, `active_chat_color`, etc.).
+2. `zencosmetics_owned`: Registra qué cosméticos han sido adquiridos o desbloqueados por cada jugador.

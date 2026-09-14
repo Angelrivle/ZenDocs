@@ -1,0 +1,24 @@
+---
+title: "Avisos y Eventos (embeds.yml)"
+description: "Controla los avisos visuales enviados a Discord ante eventos del juego:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Avisos y Eventos (embeds.yml)
+
+---
+
+Controla los avisos visuales enviados a Discord ante eventos del juego:
+
+| Clave | Evento que lo dispara | Placeholders soportados |
+| :--- | :--- | :--- |
+| `join` | Jugador entra al servidor | `%player%`, `%online%`, `%max%` |
+| `first-join` | Jugador entra por primera vez | `%player%`, `%online%`, `%max%` |
+| `quit` | Jugador sale del servidor | `%player%`, `%online%`, `%max%` |
+| `death` | Muerte de un jugador | `%player%`, `%death_message%`, `%world%`, `%x%`, `%y%`, `%z%` |
+| `advancement`| Jugador completa un logro | `%player%`, `%advancement%`, `%description%` |
+| `server-start` | Servidor encendido | `%server%`, `%online%`, `%max%` |
+| `server-stop` | Servidor apagado | `%server%` |
+| `server-status`| Comando `/server status` en Discord | `%server%`, `%server_icon%`, `%guild_icon%`, `%online%`, `%max%` |
+| `player-list` | Comando `/playerlist` en Discord | `%server%`, `%server_icon%`, `%guild_icon%`, `%online%`, `%max%` |

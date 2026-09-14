@@ -1,0 +1,44 @@
+---
+title: "Comandos y Permisos"
+description: "- zenchat.: Otorga todos los permisos del plugin (por defecto: OP)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos:
+| Comando | Alias | Permiso Requerido | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/zenchat reload` | `/zc`, `/zen` | `zenchat.admin` | Recarga todas las configuraciones y módulos YAML. |
+| `/zenchat version`| `/zc`, `/zen` | *Ninguno* | Muestra la versión actual instalada. |
+| `/canal [canal]`  | `/c` | `zenchat.use` | Consulta o cambia tu canal de chat activo. |
+| `/colorchat`      | `/chatcolor`, `/ccolor` | `zenchat.colorchat.use` | Abre el menú interactivo para elegir color de chat. |
+| `/msg <jugador> <mensaje>` | `/tell`, `/w`, `/whisper`, `/dm` | `zenchat.msg` | Envía un mensaje privado a otro usuario. |
+| `/reply <mensaje>` | `/r` | `zenchat.msg` | Responde rápidamente al último mensaje recibido. |
+| `/ignore <jugador>` | — | `zenchat.ignore` | Añade o remueve a un jugador de tu lista de ignorados. |
+| `/socialspy`      | `/spy` | `zenchat.socialspy` | Activa o desactiva la vista espía de mensajes privados. |
+| `/chatclear`      | `/clearchat`, `/cc` | `zenchat.clear` | Limpia 100 líneas del chat global para todos los jugadores. |
+
+### Lista Completa de Permisos:
+- `zenchat.*`: Otorga todos los permisos del plugin (por defecto: OP).
+- `zenchat.admin`: Acceso al comando `/zenchat reload` (por defecto: OP).
+- `zenchat.staff`: Permite ver y hablar en el canal de Staff y evita ser ignorado (por defecto: OP).
+- `zenchat.use`: Permite interactuar con los canales de chat.
+- `zenchat.msg`: Permite usar `/msg` y `/reply`.
+- `zenchat.ignore`: Permite usar `/ignore`.
+- `zenchat.socialspy`: Permite usar `/socialspy`.
+- `zenchat.clear`: Permite usar `/chatclear`.
+- `zenchat.colorchat.use`: Permite usar el menú y comando `/colorchat`.
+- `zenchat.inv`: Permite insertar la tag `[inv]` en el chat.
+- `zenchat.ec`: Permite insertar la tag `[ec]` en el chat.
+- `zenchat.item`: Permite compartir el item en mano con `[item]`.
+- `zenchat.item.view`: Permite abrir la GUI de inspección de un item compartido.
+- `zenchat.pos`: Permite compartir ubicación con `[pos]`.
+- `zenchat.ping`: Permite compartir latencia con `[ping]`.
+- `zenchat.balance`: Permite compartir dinero con `[balance]`.
+- `zenchat.mention`: Permite mencionar a otros usuarios con `@Jugador`.
+- `zenchat.bypass.antispam`: Ignora el cooldown y chequeos antispam (por defecto: OP).
+- `zenchat.bypass.antiad`: Ignora la detección de publicidad y links (por defecto: OP).

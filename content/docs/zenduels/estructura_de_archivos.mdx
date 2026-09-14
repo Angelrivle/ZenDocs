@@ -1,0 +1,33 @@
+---
+title: "Estructura de Archivos"
+description: "Al iniciar ZenDuels por primera vez en tu servidor, se creará la carpeta plugins/ZenDuels/ con la siguiente..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Al iniciar ZenDuels por primera vez en tu servidor, se creará la carpeta `plugins/ZenDuels/` con la siguiente estructura de carpetas y ficheros:
+
+```text
+plugins/ZenDuels/
+├── config.yml                  # Opciones generales del plugin
+├── arenas.yml                  # Registro de arenas, esquemas y coordenadas
+├── kits.yml                    # Registro maestro de kits por defecto
+├── messages.yml                # Todos los textos, prefijos y mensajes en MiniMessage
+├── scoreboards.yml             # Tableros de puntuación laterales para cada estado
+├── database.sqlite             # Base de datos local (si se usa sqlite)
+├── schematics/                 # Archivos .schem generados o pegados con FAWE
+├── kits/                       # Definición individualizada de cada kit en YAML
+├── replays/                    # Archivos binarios grabados de cada partida/killcam
+└── menus/                      # Configuración de interfaces gráficas (GUIs)
+    ├── main.yml                # Menú principal (/zenduels o /duels)
+    ├── queue.yml               # Menú de selección de colas (Ranked/Unranked)
+    ├── kit_selection.yml       # Selector de kit para duelos directos
+    ├── kit_settings.yml        # Configuración de reglas por kit
+    ├── kit_editor.yml          # Interfaz para guardar/editar inventarios
+    ├── ffa.yml                 # Selector de arenas FFA públicas
+    └── duel_accept.yml         # Menú interactivo para aceptar o rechazar solicitudes
+```

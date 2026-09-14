@@ -1,0 +1,89 @@
+---
+title: "Filtros y Mutadores"
+description: "Filtra entidades y bloques objetivo y altera dinámicamente el daño con mutadores matemáticos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Los **Filters** y **Mutators** permiten refinar con exactitud qué entidades o bloques son afectados por una habilidad, y transformar matemáticamente valores numéricos (como el daño o las variables) antes de que se ejecuten los efectos.
+
+---
+
+## 🎯 Catálogo de Filtros (Filters)
+
+Los filtros descartan objetivos no deseados de forma instantánea.
+
+### Filtros de Entidades
+* `TARGET`: Verifica que el contexto contenga un objetivo válido.
+* `SELF` / `PLAYER`: Verifica que el ejecutor sea un jugador.
+* `HOSTILE` / `ONLY_MONSTERS`: Filtra exclusivamente monstruos hostiles (Zombies, Creepers, Esqueletos).
+* `PASSIVE` / `ONLY_ANIMALS`: Filtra criaturas pacíficas (Vacas, Cerdos, Aldeanos).
+* `PLAYERS` / `TARGET_PLAYER`: Aplica únicamente si el objetivo es otro jugador humano.
+* `BOSSES`: Filtra jefes (Ender Dragon, Wither, Elder Guardian, Warden).
+* `ONLY_UNDEAD`: Filtra no-muertos (afectados por pociones de curación invertidas).
+* `CRITICAL_HIT`: Solo pasa si el golpe es un impacto crítico vanilla.
+* `TARGET_IN_FOV`: Valida que el objetivo esté dentro del cono de visión frontal.
+
+### Filtros de Bloques & Materiales
+* `BLOCKS`: Verifica que el contexto contenga un bloque.
+* `BLOCK_TYPE`: Filtra por lista de materiales específicos.
+
+```yaml
+filters:
+  - type: BLOCK_TYPE
+    values:
+      - DIAMOND_ORE
+      - DEEPSLATE_DIAMOND_ORE
+      - ANCIENT_DEBRIS
+```
+
+---
+
+## ⚡ Catálogo de Mutadores (Mutators)
+
+Los mutadores modifican dinámicamente variables numéricas. Por defecto operan sobre `damage`, pero pueden aplicarse a cualquier variable de instancia (`combo`, `multiplier`, etc.).
+
+### Operaciones Básicas
+
+```yaml
+mutators:
+  - type: ADD
+    variable: damage
+    value: 4.0 # +4 daño fijo
+
+  - type: MULTIPLY
+    variable: damage
+    value: 1.5 # +50% de daño
+
+  - type: PERCENTAGE
+    variable: damage
+    value: 125 # 125% del valor base
+
+  - type: SUBTRACT
+    variable: damage
+    value: 2.0
+```
+
+### Límites y Redondeo
+
+```yaml
+mutators:
+  - type: CLAMP
+    variable: damage
+    min: 2.0
+    max: 25.0
+
+  - type: ROUND
+    variable: damage
+```
+
+### Expresiones Matemáticas Avanzadas
+
+Calcula fórmulas dinámicas compuestas con funciones matemáticas:
+
+```yaml
+mutators:
+  - type: EXPRESSION
+    variable: damage
+    expression: "damage * (1 + (combo * 0.05))"
+```

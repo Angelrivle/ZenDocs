@@ -1,0 +1,25 @@
+---
+title: "Estructura de Archivos"
+description: "plugins/ZenChatGames/"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+```text
+plugins/ZenChatGames/
+├── config.yml           # Ajustes globales del plugin, scheduler, sonidos, DB y recompensas
+├── messages.yml         # Mensajes del plugin en formato MiniMessage de Adventure
+├── zenchatgames.db      # Base de datos local SQLite (si se usa SQLite)
+└── games/               # Carpeta con las configuraciones individuales de cada juego
+    ├── math.yml         # Juego de operaciones aritméticas y álgebra
+    ├── trivia.yml       # Preguntas y respuestas personalizables
+    ├── type.yml         # Retos de velocidad de escritura
+    ├── unscramble.yml   # Palabras desordenadas (anagramas)
+    ├── reverse.yml      # Invertir palabras
+    ├── capital.yml      # Adivinar capitales de países
+    └── click.yml        # Reacción rápida mediante botones clickeables en el chat
+```

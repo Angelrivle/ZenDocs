@@ -1,0 +1,90 @@
+---
+title: "Monedas e Impuestos (currencies.yml)"
+description: "El plugin permite configurar varias monedas al mismo tiempo (Vault, PlayerPoints, EcoBits, o..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Monedas e Impuestos (currencies.yml)
+
+---
+
+El plugin permite configurar varias monedas al mismo tiempo (Vault, PlayerPoints, EcoBits, o comandos/placeholders custom). Cada moneda puede tener sus propias tarifas e impuestos.
+
+```yaml
+# ======================================================
+#                ZenAuctions Currencies
+# ======================================================
+
+currencies:
+  vault:
+    display-name: "<gold>Coins</gold>"
+    symbol: "$"
+    provider: vault         # Se enlaza con Vault / Essentials / Economy plugin
+    format: "$%amount%"
+    default: true           # Moneda por defecto al usar /ah sell sin especificar
+    taxes:
+      listing-fee:          # Tarifa cobrada por publicar el ítem
+        enabled: true
+        amount: 10.0
+      transaction-fee:      # Tarifa fija descontada al comprador/vendedor
+        enabled: false
+        amount: 0.0
+      tax-percent:          # Porcentaje descontado de la ganancia final del vendedor
+        enabled: true
+        percentage: 5.0     # 5% de impuesto sobre la venta
+
+  playerpoints:
+    display-name: "<light_purple>Points</light_purple>"
+    symbol: "⛁"
+    provider: playerpoints  # Requiere plugin PlayerPoints
+    format: "%amount% Points"
+    default: false
+    taxes:
+      listing-fee:
+        enabled: false
+        amount: 0.0
+      transaction-fee:
+        enabled: false
+        amount: 0.0
+      tax-percent:
+        enabled: true
+        percentage: 2.0
+
+  ecobits:
+    display-name: "<green>Bits</green>"
+    symbol: "✦"
+    provider: ecobits       # Requiere plugin EcoBits
+    format: "%amount% Bits"
+    default: false
+    taxes:
+      listing-fee:
+        enabled: false
+        amount: 0.0
+      transaction-fee:
+        enabled: false
+        amount: 0.0
+      tax-percent:
+        enabled: false
+        percentage: 0.0
+
+  tokens:
+    display-name: "<yellow>Tokens</yellow>"
+    symbol: "Ⓣ"
+    provider: placeholder   # Integración genérica basada en Comandos y PlaceholderAPI
+    balance-placeholder: "%tokens_balance%"
+    withdraw-command: "tokens take %player% %amount%"
+    deposit-command: "tokens give %player% %amount%"
+    format: "%amount% Tokens"
+    default: false
+    taxes:
+      listing-fee:
+        enabled: false
+        amount: 0.0
+      transaction-fee:
+        enabled: false
+        amount: 0.0
+      tax-percent:
+        enabled: false
+        percentage: 0.0
+```

@@ -1,0 +1,32 @@
+---
+title: "Comandos y Permisos"
+description: "/zf open  - Abre la interfaz de una estación de forjado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos de Jugador:
+* `/zf open <estación>` - Abre la interfaz de una estación de forjado.
+* `/zf levels` - Muestra el menú de progreso y recompensas de niveles de herrería.
+* `/zf commissions` - Abre el panel de comisiones activas.
+* `/zf hotm` - Abre el árbol de habilidades Heart of the Mountain.
+* `/zf salvage` - Abre la mesa interactiva para desarmar y reciclar ítems forjados.
+* `/zf claimall` - Reclama de golpe todas las forjas que ya hayan finalizado.
+
+### Comandos de Administración:
+* `/zf reload` - Recarga todas las configuraciones, recetas y cachés de minería.
+* `/zf give <timebooster/xpbooster> <jugador> <id> <cantidad>` - Otorga potenciadores.
+* `/zf powder <give/set/take> <jugador> <powder_id> <cantidad>` - Modifica polvos de minería.
+* `/zf hotm xp <give/set/take> <jugador> <cantidad>` - Modifica la experiencia de HOTM.
+
+### Permisos Principales:
+* `zenforges.admin` - Acceso a comandos administrativos y recarga.
+* `zenforges.station.<id>` - Permiso para interactuar con una estación específica.
+* `zenforges.creation.<id>` - Permiso para poder forjar una receta concreta.
+* `zenforges.slots.<cantidad>` - Permite otorgar más slots simultáneos de forja al jugador (ej. `zenforges.slots.3`).
+* `zenforges.commissions.slot3` - Desbloquea el tercer slot de comisión.
+* `zenforges.commissions.slot4` - Desbloquea el cuarto slot de comisión.

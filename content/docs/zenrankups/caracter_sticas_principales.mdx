@@ -1,0 +1,17 @@
+---
+title: "Características Principales"
+description: "- Paper Adventure & MiniMessage Nativo: Compatibilidad simultánea con gradientes modernos..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Características Principales
+
+---
+
+- **Paper Adventure & MiniMessage Nativo:** Compatibilidad simultánea con gradientes modernos (`<gradient:#ff0000:#00ff00>Texto</gradient>`), colores hexadecimales (`<#55cdfc>`), formato legacy (`&a`, `&l`, `&#123456`) y eventos de hover/click.
+- **Asincronía Total en GUIs:** Cero congelamiento del hilo principal (`main thread freezes`). Las validaciones de requisitos se evalúan en segundo plano y se renderizan sin generar lag spikes.
+- **Persistencia Optimizada (Write-Behind Cache):** Los eventos de alta concurrencia (estadísticas de hornos, pociones, yunques, etc.) se gestionan en memoria y se persisten en lotes (`executeBatch()`) cada 30 segundos y al desconectarse.
+- **Adventure BossBar de Progreso:** Indicador visual configurable en tiempo real que ilustra el porcentaje completado hacia el siguiente rango.
+- **Branching Paths:** Soporte para rutas de rangos no lineales (ej. Guerrero vs Minero vs Comerciante).
+- **GUI de Confirmación Interactiva:** Evita que los jugadores gasten dinero o materiales por accidente.

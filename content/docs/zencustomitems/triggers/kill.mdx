@@ -1,0 +1,25 @@
+---
+title: "kill"
+description: "Se dispara cuando el portador elimina a una entidad viviente."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `kill`
+
+* **Categoría:** `Combate`  
+* **Identificador / Alias:** `KILL`
+
+---
+
+Se dispara cuando el portador elimina a una entidad viviente.
+```yaml
+triggers:
+  - id: kill_reward
+    type: KILL
+    effects:
+      - type: MESSAGE
+        message: "<gold>¡Enemigo derrotado!"
+      - type: EXPERIENCE
+        amount: 20
+```

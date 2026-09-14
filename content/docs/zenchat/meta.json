@@ -1,0 +1,13 @@
+{
+  "title": "ZenChat (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "config-yml",
+    "base_de_datos",
+    "modules",
+    "messages-yml",
+    "comandos_y_permisos",
+    "integraciones"
+  ]
+}

@@ -1,0 +1,23 @@
+---
+title: "fish_caught_2"
+description: "Se dispara cuando el jugador pesca un pez, tesoro o basura con la caña de pescar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fish_caught_2`
+
+* **Categoría:** `Nuevos Triggers de Eventos Adicionales`  
+* **Identificador / Alias:** `FISH_CAUGHT`
+
+---
+
+Se dispara cuando el jugador pesca un pez, tesoro o basura con la caña de pescar.
+```yaml
+triggers:
+  - id: on_catch
+    type: FISH_CAUGHT
+    effects:
+      - type: MESSAGE
+        message: "<aqua>¡Has pescado algo grandioso!</aqua>"
+```

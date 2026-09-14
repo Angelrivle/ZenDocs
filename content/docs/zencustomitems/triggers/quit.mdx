@@ -1,0 +1,20 @@
+---
+title: "quit"
+description: "Se dispara cuando el jugador sale del servidor (limpia automáticamente los cooldowns activos)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `quit`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `QUIT`
+
+---
+
+Se dispara cuando el jugador sale del servidor (limpia automáticamente los cooldowns activos).
+```yaml
+triggers:
+  - id: goodbye_log
+    type: QUIT
+```

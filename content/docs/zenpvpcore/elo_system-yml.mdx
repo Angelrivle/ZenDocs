@@ -1,0 +1,115 @@
+---
+title: "Sistema ELO (elo_system.yml)"
+description: "enabled: true                    # Activar o desactivar el sistema ELO"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Sistema ELO (elo_system.yml)
+
+---
+
+### 4.1 Configuración Base y Algoritmo Dinámico (K-Factor / MMR)
+
+```yaml
+enabled: true                    # Activar o desactivar el sistema ELO
+starting_elo: 1000               # ELO inicial asignado a un jugador nuevo
+base_kill_elo: 15                # ELO base otorgado por una kill estándar
+base_death_elo: 10               # ELO base restado por morir
+base_assist_elo: 5               # ELO por asistencia (si aplica)
+
+# Algoritmo Dinámico de Matchmaking (K-Factor / MMR)
+# Ajusta la ganancia y pérdida según la diferencia de habilidad entre la víctima y el asesino
+dynamic_k_factor:
+    enabled: true
+  k_factor: 32                   # Factor de volatilidad (estándar de ajedrez / juegos competitivos)
+  min_gain: 5                    # Mínimo de ELO que se puede ganar (evita 0 ELO)
+  max_gain: 45                   # Máximo de ELO que se puede ganar (al matar a alguien de mucho más ELO)
+  min_loss: 5                    # Mínimo de ELO que se puede perder
+  max_loss: 35                   # Máximo de ELO que se puede perder
+
+# Multiplicadores de ganancia
+global_booster: 1.0              # Multiplicador global para todo el servidor
+clan_booster_multiplier: 1.2     # Multiplicador adicional si el jugador pertenece a un Clan (UltimateClans)
+
+# Webhook de Discord para anunciar subidas de rango
+webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
+```
+
+### 4.2 Boosters, Clanes y Webhook
+
+- Si un jugador tiene clan en **UltimateClans**, su ganancia de ELO se multiplicará por `clan_booster_multiplier`.
+- Al subir de rango, el plugin enviará automáticamente un Embed estilizado a la URL de `webhook_url` con el avatar del jugador, rango alcanzado y ELO actual.
+
+### 4.3 Penalización por Inactividad
+
+```yaml
+penalty:
+    enabled: true
+  days_inactive: 7               # Días sin conectarse requeridos para recibir penalización
+  elo_loss: 15                   # ELO restado periódicamente por inactividad
+```
+
+### 4.4 Configuración de Rangos
+
+Cada rango puede tener ícono, prefijo, requerimiento mínimo de ELO, títulos en pantalla, sonidos y recompensas en comandos:
+
+```yaml
+ranks:
+  bronce:
+    name: "<color:#8b5a2b>Bronce</color>"
+    prefix: "<color:#8b5a2b>[Bronce]</color>"
+    min_elo: 0
+    icon: "COPPER_INGOT"
+    lore:
+      - "<gray>El rango más básico."
+      - ""
+      - "<yellow>Requisitos:"
+      - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
+    rewards: []
+    title: ""
+    sound: ""
+    message: ""
+
+  hierro:
+    name: "<gray>Hierro</gray>"
+    prefix: "<gray>[Hierro]</gray>"
+    min_elo: 500
+    icon: "IRON_INGOT"
+    lore:
+      - "<gray>Rango intermedio inicial."
+      - ""
+      - "<yellow>Requisitos:"
+      - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
+    rewards:
+      - "eco give %player% 1000"
+    title: "<gray><bold>¡RANGO HIERRO!</bold></gray>;<white>Has demostrado tu valía</white>"
+    sound: "ENTITY_PLAYER_LEVELUP;1.0;1.0"
+    message: "<green>¡Felicidades, has subido al rango Hierro!</green>"
+
+  oro:
+    name: "<gold>Oro</gold>"
+    prefix: "<gold>[Oro]</gold>"
+    min_elo: 1000
+    icon: "GOLD_INGOT"
+    lore:
+      - "<gray>Rango de combatiente probado."
+    rewards:
+      - "eco give %player% 2500"
+    title: "<gold><bold>¡RANGO ORO!</bold></gold>;<yellow>¡Impresionante nivel!</yellow>"
+    sound: "ENTITY_PLAYER_LEVELUP;1.0;1.0"
+    message: "<gold>¡Felicidades, has alcanzado el rango Oro!</gold>"
+
+  diamante:
+    name: "<aqua>Diamante</aqua>"
+    prefix: "<aqua>[Diamante]</aqua>"
+    min_elo: 2500
+    icon: "DIAMOND"
+    lore:
+      - "<gray>Élite del servidor."
+    rewards:
+      - "eco give %player% 10000"
+    title: "<aqua><bold>¡RANGO DIAMANTE!</bold></aqua>;<white>¡Nivel de élite!</white>"
+    sound: "UI_TOAST_CHALLENGE_COMPLETE;1.0;1.0"
+    message: "<aqua>¡Increíble! Has alcanzado el rango Diamante.</aqua>"
+```

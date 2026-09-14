@@ -1,0 +1,24 @@
+---
+title: "Leaderboards e Imágenes (tops.yml)"
+description: "Define clasificaciones que se generan como imágenes renderizadas a partir de leaderboard.html:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Leaderboards e Imágenes (tops.yml)
+
+---
+
+Define clasificaciones que se generan como **imágenes renderizadas a partir de `leaderboard.html`**:
+```yaml
+tops:
+  money:
+    title: "Top Balance"
+    color: "#00F0FF"
+    template-file: "leaderboard.html"
+    width: 450
+    height: 480
+    board: "vault_eco"              # Tablero en ajLeaderboards
+    timed-type: "ALLTIME"
+    size: 10
+```

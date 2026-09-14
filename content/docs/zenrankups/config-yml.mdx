@@ -1,0 +1,99 @@
+---
+title: "Configuración (config.yml)"
+description: "Configura las opciones nucleares del plugin, bases de datos, mensajes globales y alertas visuales."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+Configura las opciones nucleares del plugin, bases de datos, mensajes globales y alertas visuales.
+
+```yaml
+# =====================================================================
+#                      ZenRankups Global Config
+# =====================================================================
+
+# Módulos del Plugin
+modules:
+  prestige: true # Habilita o deshabilita el sistema de prestigios (/prestige)
+
+# Configuración de Base de Datos
+database:
+  type: "sqlite" # Opciones: "sqlite" o "mysql"
+  sqlite:
+    file-name: "database.db"
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: ""
+    useSSL: false
+
+# Mensajes (Soporta MiniMessage y códigos con &)
+messages:
+  prefix: "<dark_purple>[ZenRankups] </dark_purple>"
+  no-permission: "<red>No tienes permisos para ejecutar este comando.</red>"
+  only-players: "<red>Solo los jugadores pueden ejecutar este comando.</red>"
+  reload-success: "<green>¡Configuraciones y rangos recargados exitosamente!</green>"
+  rankup-success: "<green>¡Felicidades! Has ascendido a %rank_displayname%<green>!</green>"
+  already-max-rank: "<yellow>Ya te encuentras en el rango máximo (%rank_displayname%<yellow>)!</yellow>"
+  not-enough-requirements: "<red>¡No cumples los requisitos para subir a %rank_displayname%<red>!</red>"
+  rank-set-success: "<green>Rango de %player% cambiado a %rank%.</green>"
+  player-not-found: "<red>Jugador no encontrado.</red>"
+  rank-not-found: "<red>El rango especificado no existe.</red>"
+  rankup-broadcast: "<green><bold>[!]</bold> %player% subió al rango %rank_displayname%<green>!</green>"
+  
+  # Mensajes de Prestigio
+  prestige-disabled: "<red>El sistema de prestigios está desactivado.</red>"
+  prestige-success: "<green>¡Felicidades! Has avanzado al Prestigio %prestige% (%prestige_display%)!</green>"
+  not-max-rank: "<red>¡Debes alcanzar el rango máximo (%max_rank%) antes de poder hacer prestigio!</red>"
+  already-max-prestige: "<yellow>Ya estás en el nivel máximo de prestigio (%prestige_display%)!</yellow>"
+  not-enough-prestige-requirements: "<red>¡No cumples con los requisitos para avanzar al Prestigio %prestige%!</red>"
+  prestige-set-success: "<green>Prestigio de %player% establecido en %prestige%.</green>"
+  prestige-not-found: "<red>Nivel de prestigio no encontrado.</red>"
+  player-reset-success: "<green>Rango y prestigio de %player% restablecidos a valores por defecto.</green>"
+
+# Visuales (Efectos al subir de rango / prestigio)
+visuals:
+  rankup:
+    title:
+      enabled: true
+      main: "<gradient:#00ff00:#00aa00>¡NUEVO RANGO!</gradient>"
+      sub: "&fHas subido a %rank_displayname%"
+    actionbar:
+      enabled: true
+      text: "&a¡Subiste de rango a %rank_displayname%!"
+    sound:
+      enabled: true
+      name: "ENTITY_PLAYER_LEVELUP" # Sonido de Bukkit Sound
+      volume: 1.0
+      pitch: 1.0
+    broadcast:
+      enabled: true # Anuncio a todo el servidor
+  prestige:
+    title:
+      enabled: true
+      main: "<gradient:#ffaa00:#ff5500>¡NUEVO PRESTIGIO!</gradient>"
+      sub: "&fHas avanzado al prestigio %prestige_display%"
+    actionbar:
+      enabled: true
+      text: "&6¡Subiste al prestigio %prestige_display%!"
+    sound:
+      enabled: true
+      name: "UI_TOAST_CHALLENGE_COMPLETE"
+      volume: 1.0
+      pitch: 1.0
+  # BossBar interactiva con Paper Adventure API
+  bossbar:
+    enabled: true
+    format: "<gradient:#55cdfc:#f7a8b8>Progreso hacia %next_rank%</gradient> &7(%percent%%)"
+
+# Menús y Ventanas de Interacción
+menus:
+  confirmation:
+    enabled: true # Abre un menú de confirmación interactivo antes de realizar el rankup
+```

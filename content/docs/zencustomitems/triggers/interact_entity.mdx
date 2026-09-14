@@ -1,0 +1,24 @@
+---
+title: "interact_entity"
+description: "Se dispara al interactuar con clic derecho sobre cualquier entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `interact_entity`
+
+* **Categoría:** `Interacción`  
+* **Identificador / Alias:** `INTERACT_ENTITY`
+
+---
+
+Se dispara al interactuar con clic derecho sobre cualquier entidad.
+```yaml
+triggers:
+  - id: taming_touch
+    type: INTERACT_ENTITY
+    effects:
+      - type: HEAL
+        target: TARGET
+        amount: 5.0
+```

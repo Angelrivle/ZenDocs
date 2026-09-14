@@ -1,0 +1,19 @@
+---
+title: "Comandos y Permisos"
+description: "Guía y detalles de configuración del módulo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+| Comando | Alias | Permiso | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/zf menu [tipo]` | `/zenfairy`, `/souls` | `zenfairy.command.use` | Abre el menú de recompensas del tipo indicado (por defecto `fairy`). |
+| `/zf set <tipo>` | — | `zenfairy.admin` | Establece un alma del tipo indicado en el bloque mirado. |
+| `/zf remove` | — | `zenfairy.admin` | Elimina el alma del bloque mirado. |
+| `/zf location <tipo>` | `/zf locations` | `zenfairy.admin` | Abre el menú interactivo para ver y teletransportarse a las almas. |
+| `/zf reload` | — | `zenfairy.admin` | Recarga todas las configuraciones y tipos de almas en caliente. |
+| `/zf reset <jugador> <tipo>` | — | `zenfairy.admin.reset` | Reinicia todo el progreso de un jugador para ese tipo de alma. |

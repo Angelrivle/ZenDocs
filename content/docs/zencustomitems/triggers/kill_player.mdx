@@ -1,0 +1,23 @@
+---
+title: "kill_player"
+description: "Se dispara al derrotar a otro jugador en combate PvP."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `kill_player`
+
+* **Categoría:** `Nuevos Triggers de Eventos Adicionales`  
+* **Identificador / Alias:** `KILL_PLAYER`
+
+---
+
+Se dispara al derrotar a otro jugador en combate PvP.
+```yaml
+triggers:
+  - id: on_bounty_claim
+    type: KILL_PLAYER
+    effects:
+      - type: MESSAGE
+        message: "<red>¡Has reclamado la recompensa de tu rival!</red>"
+```

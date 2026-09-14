@@ -1,0 +1,54 @@
+---
+title: "Marcadores en Pantalla (scoreboards.yml)"
+description: "Permite personalizar los marcadores laterales (Scoreboards) en base al estado del jugador y el tipo de duelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Marcadores en Pantalla (scoreboards.yml)
+
+---
+
+Permite personalizar los marcadores laterales (Scoreboards) en base al estado del jugador y el tipo de duelo.
+
+### 5.1 Tipos de Scoreboards
+
+- **`lobby`:** Mostrado a los jugadores que se encuentran libres en el spawn/lobby.
+- **`queue`:** Mostrado mientras el jugador espera rival en la cola de emparejamiento.
+- **`match-default`:** Marcador genérico durante la partida para la mayoría de kits.
+- **`match-sumo`:** Marcador específico adaptado para Sumo.
+- **`match-boxing`:** Marcador específico con contador de golpes conectados en tiempo real.
+
+```yaml
+scoreboards:
+  queue:
+    enabled: true
+    title: "<aqua><bold>ZenDuels <gray>| <white>Queue"
+    lines:
+      - ""
+      - "<white>Buscando oponente..."
+      - "<white>Modo: <aqua>{queue_kit}"
+      - "<white>Tipo: <aqua>{queue_type}"
+      - "<white>Tiempo en cola: <aqua>{queue_time}"
+      - ""
+      - "<gray>play.tuservidor.com"
+```
+
+### 5.2 Placeholders Disponibles
+
+| Placeholder | Contexto | Descripción |
+|---|---|---|
+| `{player}` | Global | Nombre del jugador que visualiza el tablero. |
+| `{elo}` | Global | ELO actual del jugador en la modalidad o global. |
+| `{wins}` | Global | Victorias totales del jugador. |
+| `{losses}` | Global | Derrotas totales del jugador. |
+| `{playing}` | Global | Total de jugadores actualmente en combate. |
+| `{queued}` | Global | Total de jugadores esperando en colas. |
+| `{queue_kit}` | Cola | Nombre del kit seleccionado en la cola. |
+| `{queue_type}` | Cola | Tipo de cola: `Ranked` o `Unranked`. |
+| `{queue_time}` | Cola | Tiempo transcurrido en cola (formato mm:ss). |
+| `{kit}` | Partida | Nombre del kit en juego. |
+| `{opponent}` | Partida | Nombre del rival (o bot). |
+| `{opponent_ping}` | Partida | Ping en milisegundos del oponente. |
+| `{your_hits}` | Boxing | Golpes conectados por tu equipo. |
+| `{opponent_hits}`| Boxing | Golpes conectados por el oponente. |

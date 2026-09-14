@@ -1,0 +1,17 @@
+{
+  "title": "ZenPvPCore (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "formato_minimessage",
+    "config-yml",
+    "elo_system-yml",
+    "winstreak_system-yml",
+    "bounties_system-yml",
+    "messages-yml",
+    "deathmessages",
+    "menus",
+    "comandos_y_permisos",
+    "placeholders"
+  ]
+}

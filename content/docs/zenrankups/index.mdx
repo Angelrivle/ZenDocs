@@ -1,0 +1,28 @@
+---
+title: "ZenRankups"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenRankups."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenRankups
+
+ZenRankups es un plugin de progresión de rangos y prestigios de alto rendimiento diseñado específicamente para servidores PaperMC (1.20+) con integración completa y nativa de **Paper Adventure API**, MiniMessage, persistencia en SQLite/MySQL con HikariCP y Write-Behind Caching, y un sistema extensible de requisitos y webhooks de Discord.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Características Principales" href="/docs/zenrankups/caracter_sticas_principales" description="- Paper Adventure & MiniMessage Nativo: Compatibilidad simultánea con gradientes modernos..." />
+  <Card title="Comandos y Permisos" href="/docs/zenrankups/comandos_y_permisos" description="Guía y detalles de configuración del módulo." />
+  <Card title="Estructura de Archivos" href="/docs/zenrankups/estructura_de_archivos" description="Al instalarse, ZenRankups genera en la carpeta plugins/ZenRankups/ los siguientes archivos:" />
+  <Card title="Configuración (config.yml)" href="/docs/zenrankups/config-yml" description="Configura las opciones nucleares del plugin, bases de datos, mensajes globales y alertas visuales." />
+  <Card title="Rangos (ranks.yml)" href="/docs/zenrankups/ranks-yml" description="Aquí se configuran todos los rangos, sus caminos de progresión, ítem representativo en el menú, recompensas y..." />
+  <Card title="Prestigios (prestige.yml)" href="/docs/zenrankups/prestige-yml" description="Define los rangos de prestigio para jugadores que ya completaron todos los rangos de ranks.yml." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zenrankups/menus" description="Controla el menú interactivo /ranks. Permite una disposición inteligente mediante mapas de caracteres (Smart..." />
+  <Card title="Webhooks de Discord" href="/docs/zenrankups/webhooks" description="Permite enviar notificaciones en tiempo real a tus canales de Discord cuando ocurren eventos en el servidor." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenrankups/placeholders" description="ZenRankups registra la expansión %zenrankups% para usar en tablists, scoreboards, chat y hologramas:" />
+  <Card title="API de Eventos para Desarrolladores" href="/docs/zenrankups/api_de_eventos_para_desarrolladores" description="Si desarrollas addons o conectas otros plugins, puedes escuchar los eventos personalizados dentro del paquete..." />
+</Cards>

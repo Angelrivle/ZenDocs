@@ -1,0 +1,23 @@
+---
+title: "projectile_launch"
+description: "Se dispara cuando el jugador dispara una flecha, perla o proyectil con este arco o ítem."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `projectile_launch`
+
+* **Categoría:** `Proyectiles`  
+* **Identificador / Alias:** `PROJECTILE_LAUNCH`
+
+---
+
+Se dispara cuando el jugador dispara una flecha, perla o proyectil con este arco o ítem.
+```yaml
+triggers:
+  - id: launch_flare
+    type: PROJECTILE_LAUNCH
+    effects:
+      - type: PLAY_SOUND
+        sound: ENTITY_ARROW_SHOOT
+```

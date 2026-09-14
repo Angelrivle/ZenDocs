@@ -1,0 +1,23 @@
+---
+title: "death"
+description: "Se dispara cuando el jugador que porta el ítem o viste la armadura muere."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `death`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `DEATH`
+
+---
+
+Se dispara cuando el jugador que porta el ítem o viste la armadura muere.
+```yaml
+triggers:
+  - id: death_explosion
+    type: DEATH
+    effects:
+      - type: EXPLOSION
+        power: 2.0
+```

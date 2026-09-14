@@ -1,0 +1,245 @@
+---
+title: "Configuración (config.yml)"
+description: "Define el motor de persistencia para guardar estadísticas, ELO, historiales y perfiles de jugadores."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+### 2.1 Almacenamiento (`storage`)
+
+Define el motor de persistencia para guardar estadísticas, ELO, historiales y perfiles de jugadores.
+
+```yaml
+storage:
+  type: "sqlite"                # Tipo de base de datos: "sqlite" o "mysql"
+  sqlite-file: "database.sqlite" # Nombre del archivo si se utiliza sqlite
+  mysql:
+    jdbc-url: "jdbc:mysql://localhost:3306/zenduels" # Cadena de conexión JDBC
+    username: "root"             # Usuario de la base de datos
+    password: ""                 # Contraseña de la base de datos
+```
+
+> **Consejo:** Para redes BungeeCord/Velocity con múltiples servidores de Duels, utiliza `mysql` para sincronizar automáticamente el ELO y estadísticas de los jugadores en tiempo real.
+
+---
+
+### 2.2 Mundo Virtual de Arenas (`world`)
+
+ZenDuels gestiona automáticamente un mundo virtual independiente para albergar todas las instancias de combate y duelos, evitando interferencias con el mundo de lobby o supervivencia.
+
+```yaml
+world:
+  name: "zenduels_vworld"        # Nombre del mundo generado automáticamente
+  arena-spacing: 1000            # Distancia en bloques entre cada copia de arena (slot)
+  void-world: true               # Si es true, el generador crea un mundo vacío (Void)
+  world-border: 30000            # Radio del límite del mundo virtual
+```
+
+- **`arena-spacing`:** Al clonar una arena en múltiples slots para partidas simultáneas, cada slot se desplaza en múltiplos de esta distancia (por ejemplo, slot 0 en `X=0`, slot 1 en `X=1000`, slot 2 en `X=2000`).
+- **`void-world`:** Garantiza un rendimiento óptimo de TPS y FPS al no generar biomas ni terrenos innecesarios.
+
+---
+
+### 2.3 Sistema de Clasificación (`elo`)
+
+Calcula los cambios en el ranking competitivo tras finalizar una partida Ranked.
+
+```yaml
+elo:
+    enabled: true                  # Habilita el cálculo y actualización de ELO
+  start-rating: 1000             # ELO inicial asignado a un jugador nuevo
+  win-amount: 16                 # Puntos base ganados por victoria
+  loss-amount: 12                # Puntos base descontados por derrota
+  kill-bonus: 2                  # Bonus de puntos por cada eliminación dentro del match
+```
+
+---
+
+### 2.4 Parámetros de Partidas (`matches`)
+
+Controla las reglas globales de comportamiento dentro de los duelos.
+
+```yaml
+matches:
+  countdown-seconds: 5           # Segundos de cuenta regresiva previa al inicio del combate
+  max-spectators-per-match: 20   # Límite máximo de espectadores simultáneos por duelo
+  allow-build-in-rankeds: false  # Si se permite colocar/romper bloques en partidas Ranked (salvo kits build)
+    allowed-commands:              # Comandos permitidos durante el duelo (los demás se bloquean)
+    - "/duel"
+    - "/duels"
+    - "/zenduels"
+    - "/msg"
+    - "/r"
+    - "/tell"
+```
+
+---
+
+### 2.5 Jaulas Físicas y Animadas (`cages`)
+
+ZenDuels incluye jaulas competitivas inspiradas en las mejores redes de PvP. Durante la cuenta regresiva, la jaula es **100% tangible y física** (bloques reales con colisión que impiden atravesarla o caer al vacío). Al comenzar el combate, los bloques físicos se remueven de inmediato y se ejecutan animaciones visuales mediante `BlockDisplay`.
+
+```yaml
+cages:
+    enabled: true                  # Habilita las jaulas elevadas en los puntos de spawn
+  material: "CYAN_STAINED_GLASS" # Material del bloque físico y visual de la jaula
+  animation: "SHATTER"           # Tipo de animación de apertura
+```
+
+#### Materiales recomendados:
+`CYAN_STAINED_GLASS`, `LIGHT_BLUE_STAINED_GLASS`, `RED_STAINED_GLASS`, `GLASS`, `TINTED_GLASS`, `SEA_LANTERN`, `CRYING_OBSIDIAN`.
+
+#### Animaciones disponibles (`animation`):
+| Animación | Comportamiento |
+|---|---|
+| `SHATTER` | La jaula estalla en pedazos con partículas de rotura y sonido de vidrio rompiéndose (`BLOCK_GLASS_BREAK`), encogiéndose suavemente en milisegundos. |
+| `RISE` | La jaula se eleva rápidamente hacia el cielo con sonido pirotécnico y desaparece. |
+| `EXPAND` | Los bloques de la jaula se expanden hacia el exterior alejándose del centro. |
+| `SLIDE` | La estructura se desliza hacia abajo hundiéndose en el suelo. |
+
+---
+
+### 2.6 Modalidad FFA (`ffa`)
+
+Lista de comandos autorizados dentro de las arenas públicas Free For All (todos contra todos).
+
+```yaml
+ffa:
+    allowed-commands:
+    - "/ffa"
+    - "/duel"
+    - "/duels"
+    - "/zenduels"
+    - "/zd"
+    - "/msg"
+    - "/r"
+    - "/tell"
+```
+
+---
+
+### 2.7 Sistema de Bots Autónomos (`bots`)
+
+ZenDuels cuenta con una arquitectura propia de **FakePlayers autónomos basados en `ServerPlayer` nativo**, sin dependencia obligatoria de Citizens ni ProtocolLib. Estos bots imitan con alta precisión el comportamiento humano en combate competitivo.
+
+```yaml
+bots:
+  provider: "NATIVE"             # "NATIVE" (FakePlayer autónomo nativo) o "CITIZENS"
+  prefix: "Bot-"                 # Prefijo aplicado al nombre del bot
+  profiles:
+    easy:
+      # ...
+    normal:
+      # ...
+    hard:
+      # ...
+    hacker:
+      # ...
+```
+
+#### Explicación detallada de parámetros de cada perfil:
+
+| Parámetro | Tipo | Descripción |
+|---|---|---|
+| `reach` | Decimal | Distancia máxima de ataque del bot en bloques (ej. `2.8` a `3.0`). |
+| `aim-accuracy` | Porcentaje | Precisión de puntería hacia el oponente (`70.0%` a `99.0%`). |
+| `aim-speed` | Decimal | Velocidad máxima de giro angular de la cabeza por tick (simulación humana). |
+| `cps-min` / `cps-max` | Entero | Rango de clics por segundo simulados para la velocidad de ataque. |
+| `w-tap-chance` | Probabilidad (0 a 1) | Posibilidad de soltar brevemente el sprint al golpear para maximizar el knockback infligido al jugador. |
+| `s-tap-chance` | Probabilidad (0 a 1) | Posibilidad de retroceder un paso al recibir un golpe para recomponer el espaciado (spacing). |
+| `jump-crit-chance` | Probabilidad (0 a 1) | Posibilidad de realizar un salto intencional y atacar en la fase descendente para asegurar un golpe crítico. |
+| `gapple-threshold` | Corazones/Vida | Cantidad de vida restante a partir de la cual el bot retrocede, equipa visiblemente la manzana dorada y la consume. |
+| `gapple-eat-speed-ticks` | Ticks (20 = 1s) | Tiempo que tarda el bot en comer la manzana (32 ticks = 1.6 segundos vanilla). |
+| `potion-threshold` | Corazones/Vida | Umbral de vida para arrojar una poción de curación instantánea arrojadiza. |
+| `potion-cooldown-ms` | Milisegundos | Tiempo de espera obligatorio entre el lanzamiento de pociones. |
+| `shield-block-chance` | Probabilidad (0 a 1) | Posibilidad de levantar el escudo cuando el rival se acerca a atacar. |
+| `shield-break-with-axe` | Booleano | Si es `true`, al detectar que el jugador bloquea con escudo, el bot cambia rápidamente al hacha, rompe el escudo rival (deshabilitándolo por 5s) y vuelve a la espada. |
+| `crystal-pvp.enabled` | Booleano | Habilita el combate con End Crystals y Respawn Anchors si el kit lo contiene. |
+| `crystal-pvp.cps` | Entero | Velocidad de colocación y detonación de cristales por segundo. |
+| `crystal-pvp.cooldown-ms` | Milisegundos | Cooldown entre ciclos de cristales. |
+| `mace-pvp.enabled` | Booleano | Habilita combinaciones avanzadas de Wind Charge + Maza si el kit dispone de ellas. |
+| `mace-pvp.cooldown-ms` | Milisegundos | Cooldown entre intentos de combinación con maza. |
+
+---
+
+### 2.8 Grabación y Replays (`replays`)
+
+Sistema de grabación de partidas que permite inspeccionar duelos pasados y reproducir una cámara de muerte (Killcam) en FFA.
+
+```yaml
+replays:
+    enabled: true                  # Habilita el sistema de grabación de partidas
+  record-duels: true             # Graba automáticamente cada duelo 1v1 y por equipos
+  record-ffa-killcam: true       # Almacena un búfer en memoria de los últimos segundos antes de morir en FFA
+  ffa-killcam-seconds: 12        # Duración en segundos de la repetición de killcam
+  max-replay-length-seconds: 1800 # Límite máximo de duración de grabación (1800s = 30 minutos)
+  cleanup-days: 7                # Días de antigüedad para purgar grabaciones antiguas del disco
+  controls:
+    actionbar-progress: true     # Muestra una barra interactiva de progreso en la actionbar durante la reproducción
+```
+
+Durante la reproducción del replay, el espectador cuenta con una barra de ítems interactiva (pausar, reanudar, retroceder 5 segundos, adelantar 5 segundos, variar la velocidad a 0.5x, 1x, 2x, 4x y salir).
+
+---
+
+### 2.9 Efectos de Sonido (`sounds`)
+
+Configuración de todos los sonidos reproducidos en eventos clave del juego:
+
+```yaml
+sounds:
+  match-countdown:
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.0
+  match-start:
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 2.0
+  match-victory:
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    volume: 1.0
+    pitch: 1.0
+  match-defeat:
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+  match-found:
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.5
+  duel-request:
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.2
+  kit-saved:
+    sound: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.5
+  button-click:
+    sound: "UI_BUTTON_CLICK"
+    volume: 1.0
+    pitch: 1.5
+```
+
+---
+
+### 2.10 Spawn Global del Lobby (`lobby`)
+
+Ubicación a la que regresan los jugadores tras finalizar un duelo, salir de una cola o abandonar un replay.
+
+```yaml
+lobby:
+  world: world
+  x: -7.37
+  y: 72.0
+  z: 225.54
+  yaw: 89.42
+  pitch: 6.14
+```
+
+> **Comando de configuración directa:** Sitúate en la ubicación deseada y ejecuta `/zenduels setspawn`.

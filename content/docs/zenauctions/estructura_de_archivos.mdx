@@ -1,0 +1,38 @@
+---
+title: "Estructura de Archivos"
+description: "Al instalar el plugin, los archivos de configuración se distribuyen de la siguiente forma:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Al instalar el plugin, los archivos de configuración se distribuyen de la siguiente forma:
+
+```
+plugins/ZenAuctions/
+├── config.yml              # Ajustes globales, módulos, límites y discord
+├── database.yml            # Parámetros de conexión SQL (SQLite, MySQL, MariaDB, Postgres)
+├── currencies.yml          # Proveedores de economía, impuestos y tarifas
+├── filters.yml             # Control de objetos prohibidos o permitidos
+├── categories.yml          # Definición de categorías en los menús
+├── messages.yml            # Todos los mensajes del plugin formateados en MiniMessage
+└── menus/                  # Personalización de todas las interfaces gráficas (GUIs)
+    ├── admin.yml
+    ├── auction-house.yml
+    ├── auction-preview.yml
+    ├── barrel-preview.yml
+    ├── categories.yml
+    ├── confirm-bid.yml
+    ├── confirm-purchase.yml
+    ├── currency-selector.yml
+    ├── expired-items.yml
+    ├── history.yml
+    ├── my-items.yml
+    ├── player-history.yml
+    ├── search.yml
+    ├── sell.yml
+    └── shulker-preview.yml
+```

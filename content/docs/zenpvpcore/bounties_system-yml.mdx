@@ -1,0 +1,32 @@
+---
+title: "Sistema de Recompensas (bounties_system.yml)"
+description: "Permite a los jugadores o administradores colocar recompensas sobre otros usuarios utilizando ELO o Dinero..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Sistema de Recompensas (bounties_system.yml)
+
+---
+
+Permite a los jugadores o administradores colocar recompensas sobre otros usuarios utilizando **ELO** o **Dinero (Vault)**.
+
+```yaml
+enabled: true
+min_bounty_elo: 100            # ELO mínimo necesario para crear una recompensa
+min_bounty_cash: 100           # Dinero mínimo (Vault) para crear una recompensa
+tax_percentage: 10             # Porcentaje quemado en concepto de impuesto del servidor
+max_bounties_per_player: 1      # Máximo de recompensas simultáneas sobre el mismo jugador
+
+# Anuncios globales
+announcements:
+  chat: true                   # Anuncio en chat global al colocar o reclamar una recompensa
+  title: true                  # Título enviado al asesino al cobrar la recompensa
+```
+
+### 💰 Recompensas Anónimas
+Los jugadores pueden agregar la palabra clave `anonimo` al final del comando:
+```
+/bounty <jugador> [ELO/DINERO] <cantidad> anonimo
+```
+Al hacerlo, su nombre no aparecerá en el chat ni en el menú interactivo, mostrándose como `Anónimo`.

@@ -46,7 +46,7 @@ export function MarkdownCopyButton({
   return (
     <button disabled={isLoading} onClick={onClick} className={mergedClassName}>
       {checked ? <Check /> : <Copy />}
-      <span>{children ?? "Copy Markdown"}</span>
+      <span>{children ?? "Copiar Markdown"}</span>
     </button>
   );
 }

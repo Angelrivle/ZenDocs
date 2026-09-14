@@ -1,0 +1,26 @@
+---
+title: "Placeholders (PAPI)"
+description: "El identificador oficial del plugin es %zencosmetics...%."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Placeholders (PAPI)
+
+---
+
+El identificador oficial del plugin es **`%zencosmetics_...%`**.
+
+| Placeholder | Descripción | Salida Ejemplo |
+| :--- | :--- | :--- |
+| `%zencosmetics_colored_name%` | Nombre del jugador coloreado con sus cosméticos y estilos activos (Legacy § format). | `§#FF0000§lSteve` |
+| `%zencosmetics_colored_name_minimessage%` | Nombre en formato MiniMessage limpio. | `<gradient:#FF0000:#0000FF><bold>Steve</gradient>` |
+| `%zencosmetics_chat_prefix%` | Prefijo de color para el chat en formato Legacy. | `§#FFAA00` |
+| `%zencosmetics_chat_prefix_minimessage%` | Prefijo de color para el chat en formato MiniMessage. | `<gradient:#FF5555:#FFAA00>` |
+| `%zencosmetics_name_color%` | Código de color activo de nombre. | `§c` |
+| `%zencosmetics_chat_color%` | Código de color activo de chat. | `§a` |
+| `%zencosmetics_active_<categoria>%` | Nombre display del cosmético activo en una categoría. | `Globo de Creeper` |
+| `%zencosmetics_has_<cosmeticId>%` | Devuelve si el jugador tiene comprado o con permiso el cosmético. | `Sí` o `No` |
+| `%zencosmetics_count_<categoria>%` | Cantidad de cosméticos desbloqueados en una categoría. | `5` |
+
+*(Donde `<categoria>` puede ser: `balloons`, `aura`, `projectiles_trails`, `footstep_trails`, `elytra_trail`, `click_effects`, `kill_effects_players`, `kill_effects_mobs`, `death_cries`, `kill_messages`, `chat_color`, `name_color`, `win_effects`)*.

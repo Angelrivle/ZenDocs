@@ -1,0 +1,18 @@
+---
+title: "Visión General y Arquitectura"
+description: "ZenAuctions es un sistema avanzado de subastas y casa de empeño / mercado para Minecraft, compatible..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Visión General y Arquitectura
+
+---
+
+**ZenAuctions** es un sistema avanzado de subastas y casa de empeño / mercado para Minecraft, compatible nativamente con **Paper 1.21+** y optimizado para arquitecturas multihilo como **Folia**.
+
+### Características Principales:
+- **Compatibilidad con Adventure API & MiniMessage:** Textos con degradados (`<gradient:#HEX1:#HEX2>`), estilos modernos (`<bold>`, `<italic>`), y soporte para sonidos nativos o de Resource Packs (`namespace:sound`).
+- **I/O Asíncrono de Alto Rendimiento:** Todas las escrituras de bases de datos y transacciones se delegan a hilos de cómputo en segundo plano sin congelar el hilo principal (eliminación de TPS drops).
+- **Protección Concurrente y Sin Fugas de Memoria:** Manejo de concurrencia atómica mediante `AuctionLockManager` para evitar exploits de duplicación de compras simultáneas.
+- **Sistema de Buzón / Mailbox Antiperdida (`/ah expired`):** Si un jugador tiene el inventario lleno al reclamar o recibir un ítem, el ítem jamás se tira al suelo; se almacena de forma segura en su buzón.

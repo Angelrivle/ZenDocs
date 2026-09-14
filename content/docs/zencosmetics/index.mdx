@@ -1,0 +1,26 @@
+---
+title: "ZenCosmetics"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenCosmetics."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenCosmetics
+
+Bienvenido a la documentación oficial y completa de **ZenCosmetics**. Este documento detalla toda la arquitectura de configuración, base de datos, sistemas de economía, menús interactivos, creación de cosméticos por categoría, placeholders, comandos y permisos.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Integraciones y Dependencias" href="/docs/zencosmetics/integraciones" description="ZenCosmetics está compilado y optimizado para servidores Paper / Purpur 1.21.x (Java 21)." />
+  <Card title="Comandos y Permisos" href="/docs/zencosmetics/comandos_y_permisos" description="- /zencosmetics (Aliases: /cosmetics, /cosmeticos, /zc): Abre el menú principal de cosméticos." />
+  <Card title="Configuración (config.yml)" href="/docs/zencosmetics/config-yml" description="El archivo config.yml controla la base de datos, el sistema de vista previa, economías globales y proyectiles..." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zencosmetics/messages-yml" description="ZenCosmetics soporta de manera nativa Kyori Adventure y MiniMessage. Puedes usar tags RGB como #FF5555,..." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zencosmetics/menus" description="Todos los menús son altamente personalizables. Admiten títulos en MiniMessage, tamaño de cofre (size: 9, 18,..." />
+  <Card title="Cosméticos (cosmetics/)" href="/docs/zencosmetics/cosmetics" description="Cada cosmético es un archivo .yml individual alojado en su subcarpeta correspondiente dentro de cosmetics/." />
+  <Card title="Placeholders (PAPI)" href="/docs/zencosmetics/placeholders" description="El identificador oficial del plugin es %zencosmetics...%." />
+  <Card title="Base de Datos" href="/docs/zencosmetics/base_de_datos" description="ZenCosmetics utiliza HikariCP de alta velocidad con dos motores disponibles:" />
+</Cards>

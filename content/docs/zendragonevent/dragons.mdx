@@ -1,0 +1,66 @@
+---
+title: "Arquetipos de Dragones (dragons/)"
+description: "Cada archivo dentro de la carpeta dragons/ define una variante única de dragón."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Arquetipos de Dragones (dragons/)
+
+---
+
+Cada archivo dentro de la carpeta `dragons/` define una variante única de dragón.
+
+### Ejemplo Completo (`superior.yml`):
+```yaml
+# Identificador único en minúsculas
+id: superior
+
+# Nombre visible en Bossbar, Chat y Scoreboard
+display-name: "<gold><bold>Superior</bold> Dragon"
+
+# Peso / Probabilidad relativa de ser seleccionado en la invocación del altar
+weight: 5
+
+stats:
+  max-health: 2000.0        # Vida máxima del Ender Dragon
+  damage-multiplier: 3.5    # Multiplicador de daño cuerpo a cuerpo
+  ability-damage: 11.0      # Daño base aplicado por sus habilidades especiales
+  speed: 0.35               # Atributo FLYING_SPEED de Paper (Vanilla es ~0.06 - 0.1)
+
+# Color del brillo luminoso (Glow outline): GOLD, RED, BLUE, GREEN, PURPLE, WHITE
+glow-color: GOLD
+
+# Habilidad periódica principal
+ability: SUPERIOR_COMBINED
+
+# Intervalo en ticks entre cada lanzamiento de la habilidad principal (50 ticks = 2.5s)
+ability-interval-ticks: 50
+
+# Triggers por umbral de salud
+health-triggers:
+  - below: 80               # Cuando la vida baja del 80%
+    action: CAST_SKILL
+    value: WITHER_NOVA      # Lanza una habilidad instantánea
+    chance: 1.0
+  - below: 55               # Cuando la vida baja del 55%
+    action: SPAWN_MOB
+    value: mythic:EndMinion # Invoca minions (Vanilla, Custom Guard o MythicMobs)
+    amount: 3
+    chance: 1.0
+  - below: 25               # Cuando la vida baja del 25%
+    action: CAST_SKILL
+    value: SUMMON_MINIONS
+    chance: 1.0
+
+# Tabla de recompensas asignada de loot.yml
+loot-table: superior_loot
+```
+
+### Habilidades Disponibles (`ability` y `action: CAST_SKILL`):
+- `FIREBALL_BARRAGE`: Lanza una ráfaga de proyectiles de fuego cargados hacia los jugadores objetivo.
+- `LIGHTNING_STRIKE`: Invoca rayos consecutivos sobre los jugadores presentes en la arena.
+- `WITHER_NOVA`: Desata una explosión de calaveras de Wither y partículas oscuras que aplican efecto Wither.
+- `PULL_PLAYERS`: Atrae gravitacionalmente a todos los jugadores cercanos hacia la posición del dragón.
+- `SUMMON_MINIONS`: Genera un grupo de guardianes protectores.
+- `SUPERIOR_COMBINED`: Alterna y combina aleatoriamente todas las habilidades anteriores en un ciclo devastador.

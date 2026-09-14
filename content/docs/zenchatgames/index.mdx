@@ -1,0 +1,26 @@
+---
+title: "ZenChatGames"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenChatGames."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenChatGames
+
+**Plugin de juegos de chat de alto rendimiento para Paper 1.21+**  
+*Manejo 100% nativo con Kyori Adventure (MiniMessage), base de datos híbrida (SQLite/MySQL) con pool de conexiones HikariCP y soporte para PlaceholderAPI.*
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Estructura de Archivos" href="/docs/zenchatgames/estructura_de_archivos" description="plugins/ZenChatGames/" />
+  <Card title="Comandos y Permisos" href="/docs/zenchatgames/comandos_y_permisos" description="El comando base es /zenchatgames, pero dispone de varios alias rápidos: /cg, /chatgames y /zcg." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenchatgames/placeholders" description="Para utilizar estos placeholders se requiere tener instalado..." />
+  <Card title="Configuración (config.yml)" href="/docs/zenchatgames/config-yml" description="debug: false" />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenchatgames/messages-yml" description="El plugin utiliza MiniMessage de Kyori Adventure, soportando degradados de color (gradient:#hex:#hexTexto),..." />
+  <Card title="Configuración de Minijuegos (games/)" href="/docs/zenchatgames/games" description="Cada archivo en la carpeta games/ representa un juego autónomo. Si deseas crear nuevos juegos de preguntas o..." />
+  <Card title="Base de Datos" href="/docs/zenchatgames/base_de_datos" description="El plugin gestiona de manera automática la creación de la tabla e índices para SQLite y MySQL mediante..." />
+</Cards>

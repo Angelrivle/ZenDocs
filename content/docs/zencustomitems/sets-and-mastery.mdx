@@ -1,0 +1,79 @@
+---
+title: "Sets de Armadura y Maestría"
+description: "Configura sets completos con bonos progresivos de piezas y armas con niveles de experiencia (Mastery Evolution)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+ZenCustomItems incluye sistemas de progresión RPG nativos: **Sets de armadura** declarables en un solo archivo y **Maestría evolutiva** para armas y herramientas.
+
+---
+
+## 🛡️ Sets de Armadura (`set`)
+
+Puedes definir un set completo dentro de un solo archivo YAML con piezas individuales y bonificadores según la cantidad de partes equipadas simultáneamente:
+
+```yaml
+set:
+  id: guardian
+  pieces:
+    helmet:
+      id: guardian_helmet
+      base:
+        material: DIAMOND_HELMET
+      display:
+        name: "<aqua><bold>Casco del Guardián</bold></aqua>"
+    chestplate:
+      id: guardian_chestplate
+      base:
+        material: DIAMOND_CHESTPLATE
+      display:
+        name: "<aqua><bold>Pechera del Guardián</bold></aqua>"
+    leggings:
+      id: guardian_leggings
+      base:
+        material: DIAMOND_LEGGINGS
+    boots:
+      id: guardian_boots
+      base:
+        material: DIAMOND_BOOTS
+
+  bonuses:
+    - required-pieces: 2
+      effects:
+        - type: ADD_POTION_EFFECT
+          effect: RESISTANCE
+          amplifier: 0
+    - required-pieces: 4
+      effects:
+        - type: ADD_POTION_EFFECT
+          effect: REGENERATION
+          amplifier: 1
+        - type: PARTICLES
+          particle: ENCHANT
+```
+
+<Callout type="info" title="Lore Dinámico">
+El lore de cada pieza equipada muestra de manera automática el estado del set en tiempo real: `(2/4) Activo` o `(4/4) Set Completo`.
+</Callout>
+
+---
+
+## ⚔️ Maestría de Ítem (Evolution)
+
+Las armas y herramientas ganan experiencia por su uso activo en combate o minería:
+* **Asesinato de entidades**: `+15 XP`
+* **Rotura de bloques**: `+2 XP`
+
+Al alcanzar la fórmula `nivel * 100 XP`, el ítem sube de nivel automáticamente, desbloqueando estadísticas y actualizando el lore en tiempo real:
+
+```text
+⭐ Nivel de Maestría: 2 (XP: 45/200)
+```
+
+---
+
+## 📦 Exportación e Importación Rápida
+
+* **Exportar**: Usa `/zci export <id>` para generar un código compacto en Base64. Haz clic sobre él en el chat de Minecraft para copiarlo directamente al portapapeles.
+* **Importar**: En cualquier otro servidor que tenga ZenCustomItems instalado, ejecuta `/zci import <codigo>` para instalar y registrar el ítem al instante sin necesidad de reiniciar el servidor.

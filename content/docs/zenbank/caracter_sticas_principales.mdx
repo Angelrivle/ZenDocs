@@ -1,0 +1,19 @@
+---
+title: "Características Principales"
+description: "- Arquitectura Paper 1.21+ & Adventure API: Compatibilidad total con MiniMessage (gradient, bold, hex) y..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Características Principales
+
+---
+
+- **Arquitectura Paper 1.21+ & Adventure API**: Compatibilidad total con MiniMessage (`<gradient>`, `<bold>`, hex) y formato legado (`&a`, `&b`, `&#RRGGBB`).
+- **Sistema de Intereses Inteligente**: Modo `LAZY` (liquidación fluida on-demand al entrar) y modo `GLOBAL_BATCH` tradicional.
+- **Persistencia Optimizada**: Soporte nativo para SQLite en modo WAL (Write-Ahead Logging) y MySQL con pool de conexiones asíncronas.
+- **Transferencias entre Jugadores**: Permite transferencias seguras de banco a banco con tasas e impuestos ajustables (`/bank transfer`).
+- **Cheques Bancarios Físicos**: Creación de pagarés físicos firmados mediante NBT nativo de Paper (`PersistentDataContainer`), canjeables con clic derecho (`/bank cheque`).
+- **Seguro contra Pérdida por Muerte**: Protección porcentual integrada en cada plan para amortiguar o anular penalizaciones de muerte en combate.
+- **Historial de Transacciones Paginado**: Navegación de operaciones bancarias históricas con botones de página anterior/siguiente.
+- **100% Modular y Desactivable**: Cada función nueva o avanzada puede encenderse o apagarse con `enabled: true/false`.

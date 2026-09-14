@@ -1,0 +1,30 @@
+---
+title: "ZenAuctions"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenAuctions."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenAuctions
+
+Bienvenido a la documentación oficial y exhaustiva de **ZenAuctions** (Paper 1.21+ / Folia). En esta guía encontrarás la explicación detallada de cada archivo de configuración, todos sus parámetros, comandos, permisos, placeholders, y la arquitectura de menús GUI.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Visión General y Arquitectura" href="/docs/zenauctions/visi_n_general_y_arquitectura" description="ZenAuctions es un sistema avanzado de subastas y casa de empeño / mercado para Minecraft, compatible..." />
+  <Card title="Estructura de Archivos" href="/docs/zenauctions/estructura_de_archivos" description="Al instalar el plugin, los archivos de configuración se distribuyen de la siguiente forma:" />
+  <Card title="Configuración (config.yml)" href="/docs/zenauctions/config-yml" description="Controla los módulos activos, duraciones, anti-sniping en subastas por pujas, límites de publicación por..." />
+  <Card title="Base de Datos" href="/docs/zenauctions/base_de_datos" description="ZenAuctions incluye un motor ORM interno conectado mediante HikariCP de alto rendimiento. Soporta SQLite para..." />
+  <Card title="Monedas e Impuestos (currencies.yml)" href="/docs/zenauctions/currencies-yml" description="El plugin permite configurar varias monedas al mismo tiempo (Vault, PlayerPoints, EcoBits, o..." />
+  <Card title="Filtros y Restricciones (filters.yml)" href="/docs/zenauctions/filters-yml" description="Permite restringir qué artículos pueden o no publicarse en la subasta para proteger la economía del servidor..." />
+  <Card title="Categorías (categories.yml)" href="/docs/zenauctions/categories-yml" description="Define los filtros por categorías que aparecen en el menú de categorías y en el selector del menú principal..." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenauctions/messages-yml" description="Todos los mensajes que emite el plugin hacia el chat, barra de acción o títulos se encuentran centralizados..." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zenauctions/menus" description="Los menús se encuentran en la carpeta plugins/ZenAuctions/menus/. Cada archivo YAML define una interfaz..." />
+  <Card title="Comandos y Permisos" href="/docs/zenauctions/comandos_y_permisos" description="- zenauctions.use (Por defecto: true): Acceso a la casa de subastas." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenauctions/placeholders" description="- %seller%: Nombre del vendedor." />
+  <Card title="Nuevas Funcionalidades Integradas" href="/docs/zenauctions/nuevas_funcionalidades_integradas" description="Permite que un comprador envíe una contraoferta directa al vendedor de un artículo activo:" />
+</Cards>

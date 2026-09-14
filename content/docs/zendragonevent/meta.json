@@ -1,0 +1,13 @@
+{
+  "title": "ZenDragonEvent (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "config-yml",
+    "eye-yml",
+    "loot-yml",
+    "dragons",
+    "comandos_y_permisos",
+    "integraciones"
+  ]
+}

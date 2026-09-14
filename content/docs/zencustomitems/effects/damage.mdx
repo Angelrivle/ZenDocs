@@ -1,0 +1,21 @@
+---
+title: "damage"
+description: "Aplica daño a la entidad objetivo o al portador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `damage`
+
+* **Categoría:** `Jugador & Vida`  
+* **Identificador / Alias:** `DAMAGE / DAMAGE_ENTITY`
+
+---
+
+Aplica daño a la entidad objetivo o al portador.
+```yaml
+effects:
+  - type: DAMAGE
+    target: TARGET # TARGET o SELF
+    amount: 6.0 # 3 corazones de daño
+```

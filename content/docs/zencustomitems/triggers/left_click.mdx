@@ -1,0 +1,23 @@
+---
+title: "left_click"
+description: "Se dispara con clic izquierdo (ataque o golpe al aire)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `left_click`
+
+* **Categoría:** `Interacción`  
+* **Identificador / Alias:** `LEFT_CLICK`
+
+---
+
+Se dispara con clic izquierdo (ataque o golpe al aire).
+```yaml
+triggers:
+  - id: sweep_blade
+    type: LEFT_CLICK
+    effects:
+      - type: PLAY_SOUND
+        sound: ENTITY_PLAYER_ATTACK_SWEEP
+```

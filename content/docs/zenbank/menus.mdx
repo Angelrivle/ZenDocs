@@ -1,0 +1,26 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Cada menú permite personalizar filas (rows: 1 a 6), relleno de fondo (filler), nombres, texturas de cabezas..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Cada menú permite personalizar filas (`rows: 1 a 6`), relleno de fondo (`filler`), nombres, texturas de cabezas en Base64 (`texture`) y acciones.
+
+### Acciones (`action`) Disponibles:
+- `open:<nombre_menu>`: Abre otro menú (ej. `open:deposit`, `open:main`, `open:withdraw`, `open:upgrades`, `open:history`).
+- `close`: Cierra el menú abierto.
+- `page:next`: Avanza a la siguiente página de transacciones en el historial.
+- `page:prev`: Retrocede a la página anterior en el historial.
+- `deposit:all`: Deposita todo el dinero en mano.
+- `deposit:half`: Deposita el 50% del dinero en mano.
+- `deposit:custom`: Inicia sesión de chat interactivo para digitar la cantidad a depositar.
+- `withdraw:all`: Retira todo el saldo bancario.
+- `withdraw:half`: Retira la mitad del saldo bancario.
+- `withdraw:custom`: Inicia sesión de chat interactivo para digitar la cantidad a retirar.
+- `claim:excess`: Reclama el saldo que superó el límite del plan hacia el monedero.
+- `upgrade:<id_plan>`: Adquiere una mejora de plan bancario.

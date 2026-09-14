@@ -1,0 +1,50 @@
+---
+title: "Banderas de Comportamiento (Flags)"
+description: "Restricciones binarias optimizadas para controlar acciones sobre el ítem: NO_PLACE, NO_DROP, SOULBOUND y más."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Las **Behavior Flags** son restricciones binarias ultralivianas mediante bitmasks que permiten controlar qué acciones de Minecraft están bloqueadas para un ítem determinado.
+
+Pueden configurarse tanto en el archivo YAML del ítem como desde el menú gráfico in-game con `/zci flags` o dentro de `/zci editor`.
+
+---
+
+## 🚩 Lista de Banderas Disponibles
+
+| Bandera | Descripción |
+| :--- | :--- |
+| `NO_PLACE` | Impide que el ítem sea colocado como bloque en el mundo. |
+| `NO_DROP` | Impide que el jugador suelte o tire el ítem al suelo (tecla Q o arrastre). |
+| `NO_CONSUME` | Impide que el ítem sea comido o bebido. |
+| `NO_USE` | Impide la interacción normal con clic derecho. |
+| `NO_CRAFT` | Impide que el ítem sea usado como ingrediente en mesas de crafteo. |
+| `NO_SMITH` | Impide que el ítem sea mejorado en la mesa de herrería (Smithing Table). |
+| `NO_ANVIL` | Impide que el ítem sea reparado o combinado en un yunque. |
+| `NO_ENCHANT` | Impide que el ítem sea encantado en una mesa de encantamientos. |
+| `NO_GRIND` | Impide que el ítem sea desencantado en una afiladora (Grindstone). |
+| `SOULBOUND` | El ítem no se pierde ni cae al suelo cuando el jugador muere. |
+
+---
+
+## 🛠 Ejemplo de Configuración en YAML
+
+```yaml
+id: legend_sword
+type: WEAPON
+
+base:
+  material: NETHERITE_SWORD
+
+components:
+  behavior-flags:
+    - NO_PLACE
+    - NO_ANVIL
+    - NO_CRAFT
+    - SOULBOUND
+```
+
+<Callout type="info" title="Cancelación Silenciosa">
+Si un jugador intenta colocar este ítem o combinarlo en un yunque, la acción se cancelará de forma limpia y transparente sin generar advertencias molestas ni errores en la consola del servidor.
+</Callout>

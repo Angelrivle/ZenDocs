@@ -1,0 +1,56 @@
+---
+title: "Filtros y Restricciones (filters.yml)"
+description: "Permite restringir qué artículos pueden o no publicarse en la subasta para proteger la economía del servidor..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Filtros y Restricciones (filters.yml)
+
+---
+
+Permite restringir qué artículos pueden o no publicarse en la subasta para proteger la economía del servidor y prevenir ventas de objetos ilegales o de administración.
+
+```yaml
+# ======================================================
+#                ZenAuctions Item Filtering
+# ======================================================
+
+# Modo de operación:
+# 'blacklist': Todo se puede vender excepto lo listado abajo.
+# 'whitelist': Solo se puede vender lo especificado en la lista blanca.
+mode: blacklist
+
+blacklist:
+  # Materiales bloqueados (Nombres válidos de Material de Bukkit/Paper)
+  materials:
+    - BEDROCK
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - STRUCTURE_BLOCK
+    - STRUCTURE_VOID
+    - BARRIER
+    - JIGSAW
+    - LIGHT
+    - DEBUG_STICK
+
+  # Nombres personalizados bloqueados (si el nombre contiene esta cadena)
+  names:
+    - "<red>Admin Item"
+    - "<red>Illegal Item"
+
+  # Namespaces de NBT / Identificadores de items
+  namespaces:
+    - "minecraft:command_block"
+
+  # Claves de PersistentDataContainer (NBT de Paper) prohibidas
+  persistent-data-keys:
+    - "admin_unbreakable"
+
+whitelist:
+  materials: []
+  namespaces: []
+```
+
+> **Nota:** Jugadores con el permiso `zenauctions.bypass.blacklist` pueden publicar artículos bloqueados.

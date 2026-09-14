@@ -1,0 +1,174 @@
+---
+title: "Configuración de Minijuegos (games/)"
+description: "Cada archivo en la carpeta games/ representa un juego autónomo. Si deseas crear nuevos juegos de preguntas o..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Minijuegos (games/)
+
+---
+
+Cada archivo en la carpeta `games/` representa un juego autónomo. Si deseas crear nuevos juegos de preguntas o palabras, basta con duplicar uno de estos archivos y cambiarle el nombre.
+
+### Propiedades Comunes en Todos los Juegos:
+- `enabled`: `true` o `false` para activar o desactivar este juego.
+- `display-name`: Nombre descriptivo mostrado en anuncios.
+- `type`: Tipo de lógica (`math`, `trivia`, `type`, `unscramble`, `reverse`, `capital`, `click`).
+- `time-limit`: Tiempo máximo en segundos para responder.
+- `reward-commands`: Lista de comandos de recompensa ejecutados por la consola. Si se deja vacía (`[]`), se usan las recompensas predeterminadas de `config.yml`.
+
+---
+
+### 1. Matemáticas (`math.yml`)
+Genera operaciones matemáticas aleatorias en tiempo real (suma, resta, multiplicación, división exacta y ecuaciones algebraicas).
+
+```yaml
+enabled: true
+display-name: "Cálculo Matemático"
+type: "math"
+time-limit: 25
+
+settings:
+  question-format: "Resuelve la operación: <yellow><bold>%expression%</bold></yellow>"
+  # Operadores permitidos: '+' (suma), '-' (resta), '*' (multiplicación), '/' (división), 'x' (álgebra lineal)
+  allowed-operators:
+    - "+"
+    - "-"
+    - "*"
+    - "/"
+    - "x"
+  addition-subtraction:
+    min: 10
+    max: 200
+  multiplication:
+    min: 2
+    max: 15
+  division:
+    min-divisor: 2
+    max-divisor: 12
+    max-result: 20
+```
+
+---
+
+### 2. Trivia (`trivia.yml`)
+Permite configurar preguntas con múltiples opciones de respuestas aceptadas para cada una.
+
+```yaml
+enabled: true
+display-name: "Trivia de Minecraft y Cultura"
+type: "trivia"
+time-limit: 35
+
+settings:
+  question-format: "<white>%question%</white>"
+  questions:
+    - question: "¿Cuántos bloques de obsidiana se necesitan como mínimo para un portal al Nether?"
+      answers:
+        - "10"
+        - "diez"
+    - question: "¿Qué mineral se encuentra exclusivamente en el Nether?"
+      answers:
+        - "Netherite"
+        - "Netherita"
+```
+
+---
+
+### 3. Escribir Rápido (`type.yml`)
+Muestra una palabra o frase y gana el primero en escribirla textualmente.
+
+```yaml
+enabled: true
+display-name: "Velocidad de Escritura"
+type: "type"
+time-limit: 20
+
+settings:
+  question-format: "Sé el primero en escribir: <aqua><bold>%word%</bold></aqua>"
+  words:
+    - "Netherite"
+    - "Obsidiana"
+    - "Enderdragon"
+    - "Zenith"
+    - "Minecraft"
+```
+
+---
+
+### 4. Desordenar / Anagrama (`unscramble.yml`)
+El plugin mezcla aleatoriamente las letras de una palabra y los jugadores deben descifrar la palabra original.
+
+```yaml
+enabled: true
+display-name: "Palabra Desordenada"
+type: "unscramble"
+time-limit: 30
+
+settings:
+  question-format: "Ordena las letras para formar la palabra: <gold><bold>%scrambled%</bold></gold>"
+  words:
+    - "Diamante"
+    - "Esmeralda"
+    - "Encantamiento"
+    - "Inframundo"
+```
+
+---
+
+### 5. Invertir Palabra (`reverse.yml`)
+Muestra una palabra al revés y los usuarios deben escribirla al derecho.
+
+```yaml
+enabled: true
+display-name: "Palabra Invertida"
+type: "reverse"
+time-limit: 25
+
+settings:
+  question-format: "Escribe al derecho la siguiente palabra: <light_purple><bold>%reversed%</bold></light_purple>"
+  words:
+    - "Redstone"
+    - "Lapislazuli"
+    - "Terracota"
+```
+
+---
+
+### 6. Capitales del Mundo (`capital.yml`)
+Pregunta por la capital de un país seleccionado aleatoriamente.
+
+```yaml
+enabled: true
+display-name: "Geografía y Capitales"
+type: "capital"
+time-limit: 30
+
+settings:
+  question-format: "¿Cuál es la capital de <green><bold>%country%</bold></green>?"
+  countries:
+    - country: "España"
+      capital: "Madrid"
+    - country: "México"
+      capital: "Ciudad de Mexico"
+    - country: "Argentina"
+      capital: "Buenos Aires"
+```
+
+---
+
+### 7. Reacción Rápida / Click (`click.yml`)
+Genera un botón interactivo clickeable en el chat mediante Adventure. El jugador más rápido en hacer clic sobre el texto gana.
+
+```yaml
+enabled: true
+display-name: "Reacción Rápida"
+type: "CLICK"
+time-limit: 15
+
+settings:
+  question-format: "¡Presiona el botón lo más rápido que puedas! %button%"
+  button-text: "<gradient:#00FFA3:#00B8FF><bold>[¡HAZ CLICK AQUÍ!]</bold></gradient>"
+  hover-text: "<yellow>⚡ ¡Haz click para ganar el juego de chat!</yellow>"
+```

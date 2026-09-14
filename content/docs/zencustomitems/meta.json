@@ -1,0 +1,13 @@
+{
+  "title": "ZenCustomItems (New)",
+  "pages": [
+    "index",
+    "configuracion",
+    "effects",
+    "triggers",
+    "conditions",
+    "filters-and-mutators",
+    "flags",
+    "sets-and-mastery"
+  ]
+}

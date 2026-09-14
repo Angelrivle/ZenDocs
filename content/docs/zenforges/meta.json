@@ -1,0 +1,18 @@
+{
+  "title": "ZenForges (New)",
+  "pages": [
+    "index",
+    "estructura_de_archivos",
+    "config-yml",
+    "messages-yml",
+    "stations",
+    "creations",
+    "boosters-yml",
+    "powders-yml",
+    "commissions-yml",
+    "hotm-yml",
+    "menus",
+    "integraci_n_con_zendiscord",
+    "comandos_y_permisos"
+  ]
+}

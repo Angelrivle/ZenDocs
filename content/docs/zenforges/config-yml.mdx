@@ -1,0 +1,66 @@
+---
+title: "Configuración (config.yml)"
+description: "Controla los módulos activos del plugin, la experiencia de herrería, catalizadores e integraciones."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+Controla los módulos activos del plugin, la experiencia de herrería, catalizadores e integraciones.
+
+```yaml
+features:
+  forge-queues: true           # Habilita o deshabilita la cola de recetas en el mismo slot
+  quality-system: true         # Activa el sistema de calidad/rarezas y fallas de forjado
+  catalysts: true              # Permite el uso de catalizadores para reducir tiempo/calidad
+  bossbar-hud: true            # Muestra ActionBar con tiempo restante cuando hay un Elíxir de XP activo
+  offline-notifications: true  # Envía notificaciones de Discord si el jugador está offline
+  powders: true                # Habilita polvos de minería en bloques
+  commissions: true            # Habilita el sistema de misiones/comisiones diarias
+  hotm: true                   # Habilita el árbol Heart of the Mountain
+
+settings:
+  default-forge-slots: 1       # Cantidad base de slots de forja para jugadores sin permiso adicional
+  login-notification: true     # Aviso sonoro y por chat al entrar si hay ítems terminados
+  max-queued-items-per-slot: 2 # Máximo de ítems encolados por ranura
+
+  # Sistema de Niveles de Herrería (Forge XP)
+  xp:
+    base_xp: 100               # Fórmula: XP necesaria para nivel N = N * base_xp
+
+  # Recompensas al subir de nivel de herrería
+  level-up-rewards:
+    general:                   # Se otorgan en cada subida de nivel
+      commands:
+        - "eco give %player% 50"
+      messages:
+        - "&d&l¡SUBIDA DE NIVEL! &fHas subido al nivel de Herrería &e%level%&f."
+      sound: "ENTITY_PLAYER_LEVELUP"
+    specific:                  # Recompensas para niveles concretos
+      5:
+        commands:
+          - "give %player% diamond 5"
+        messages:
+          - "&6&l¡LOGRO ALCANZADO! &fHas alcanzado el Nivel 5 de Herrería."
+        sound: "UI_TOAST_CHALLENGE_COMPLETE"
+
+# Catalizadores de forjado
+catalysts:
+  magma_core:
+    material: "FIRE_CHARGE"
+    display-name: "&cNúcleo de Magma"
+    time-reduction-percent: 50.0  # Reduce un 50% el tiempo requerido de forja
+    xp-multiplier: 1.5           # Otorga 50% extra de XP de herrería al reclamar
+    quality-chance-multiplier: 2.0 # Duplica la probabilidad de calidad superior
+
+# Integración con ZenDiscord
+discord:
+    enabled: true
+  embed:
+    title: "⚒️ ¡Tu Forjado ha Finalizado!"
+    description: "Hola **%player%**, tu ítem **%item%** ya ha terminado de forjarse en la estación **%station%**.\n\n📦 ¡Ingresa al servidor para reclamarlo!"
+    color: "#FF8C00"            # Color del lateral del Embed en formato hexadecimal
+```

@@ -1,0 +1,25 @@
+---
+title: "Estructura de Archivos"
+description: "Cuando el plugin se inicia por primera vez, genera la siguiente jerarquía de archivos en la carpeta..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Cuando el plugin se inicia por primera vez, genera la siguiente jerarquía de archivos en la carpeta `plugins/ZenDragonEvent/`:
+
+```text
+plugins/ZenDragonEvent/
+├── config.yml              # Ajustes generales, altar, arena, scoreboard, bossbar y mensajes
+├── eye.yml                 # Ítem personalizado del Ojo de Invocación (textura Base64, nombre, lore)
+├── loot.yml                # Tablas de drop por porcentaje, recompensas por Top 1-5 y drops de minions
+└── dragons/                # Arquetipos de dragones invocables
+    ├── old.yml             # Dragón Viejo (Old Dragon)
+    ├── strength.yml        # Dragón de Fuerza (Strong Dragon)
+    ├── superior.yml        # Dragón Superior (Superior Dragon)
+    ├── unstable.yml        # Dragón Inestable (Unstable Dragon)
+    └── wise.yml            # Dragón Sabio (Wise Dragon)
+```

@@ -1,0 +1,22 @@
+---
+title: "projectile_hit_entity"
+description: "Se dispara cuando el proyectil impacta con precisión en una entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `projectile_hit_entity`
+
+* **Categoría:** `Nuevos Triggers de Eventos Adicionales`  
+* **Identificador / Alias:** `PROJECTILE_HIT_ENTITY`
+
+---
+
+Se dispara cuando el proyectil impacta con precisión en una entidad.
+```yaml
+triggers:
+  - id: piercing_shot
+    type: PROJECTILE_HIT_ENTITY
+    effects:
+      - type: LIGHTNING
+```

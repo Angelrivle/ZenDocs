@@ -1,0 +1,27 @@
+---
+title: "ZenDuels"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenDuels."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenDuels
+
+Bienvenido a la guía exhaustiva y técnica de configuración de **ZenDuels**. Este documento reúne toda la información necesaria para configurar, administrar y personalizar cada aspecto del plugin: almacenamiento de datos, mundos virtuales, sistema de ELO, jaulas físicas y animadas, inteligencia artificial de bots FakePlayer, grabaciones y repeticiones (Replays), sistemas de sonido, scoreboards, kits, arenas, menús interactivos, mensajes y permisos.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Estructura de Archivos" href="/docs/zenduels/estructura_de_archivos" description="Al iniciar ZenDuels por primera vez en tu servidor, se creará la carpeta plugins/ZenDuels/ con la siguiente..." />
+  <Card title="Configuración (config.yml)" href="/docs/zenduels/config-yml" description="Define el motor de persistencia para guardar estadísticas, ELO, historiales y perfiles de jugadores." />
+  <Card title="Configuración de Arenas (arenas.yml)" href="/docs/zenduels/arenas-yml" description="ZenDuels utiliza esquemáticas de FastAsyncWorldEdit (FAWE) para clonar y restaurar arenas instantáneamente...." />
+  <Card title="Configuración de Kits (kits.yml)" href="/docs/zenduels/kits-yml" description="Cada modalidad de juego se define mediante un archivo de kit en plugins/ZenDuels/kits/nombre.yml." />
+  <Card title="Marcadores en Pantalla (scoreboards.yml)" href="/docs/zenduels/scoreboards-yml" description="Permite personalizar los marcadores laterales (Scoreboards) en base al estado del jugador y el tipo de duelo." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenduels/messages-yml" description="Todos los textos enviados a los usuarios son 100% configurables en messages.yml." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zenduels/menus" description="Todas las interfaces del plugin se configuran mediante archivos YAML individuales dentro de la carpeta menus/." />
+  <Card title="Comandos y Permisos" href="/docs/zenduels/comandos_y_permisos" description="Requieren el permiso zenduels.admin:" />
+  <Card title="Integraciones y Dependencias" href="/docs/zenduels/integraciones" description="- FastAsyncWorldEdit (FAWE) (Obligatorio): Utilizado para la captura, copiado, clonación instantánea y..." />
+</Cards>

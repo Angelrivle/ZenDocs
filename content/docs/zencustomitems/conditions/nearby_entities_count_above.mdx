@@ -1,0 +1,21 @@
+---
+title: "nearby_entities_count_above"
+description: "Se cumple si hay más de cierta cantidad de entidades en el radio especificado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `nearby_entities_count_above`
+
+* **Categoría:** `Nuevas Condiciones de Armadura, Estado y Entorno`  
+* **Identificador / Alias:** `NEARBY_ENTITIES_COUNT_ABOVE`
+
+---
+
+Se cumple si hay más de cierta cantidad de entidades en el radio especificado.
+```yaml
+conditions:
+  - type: NEARBY_ENTITIES_COUNT_ABOVE
+    radius: 8.0
+    count: 4
+```

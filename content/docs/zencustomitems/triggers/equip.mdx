@@ -1,0 +1,23 @@
+---
+title: "equip"
+description: "Se dispara cuando el jugador se equipa una pieza de armadura con este ítem."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `equip`
+
+* **Categoría:** `Inventario`  
+* **Identificador / Alias:** `EQUIP`
+
+---
+
+Se dispara cuando el jugador se equipa una pieza de armadura con este ítem.
+```yaml
+triggers:
+  - id: equip_sound
+    type: EQUIP
+    effects:
+      - type: PLAY_SOUND
+        sound: ITEM_ARMOR_EQUIP_NETHERITE
+```

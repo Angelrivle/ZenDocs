@@ -1,0 +1,173 @@
+---
+title: "Configuración (config.yml)"
+description: "Controla los módulos activos, duraciones, anti-sniping en subastas por pujas, límites de publicación por..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+Controla los módulos activos, duraciones, anti-sniping en subastas por pujas, límites de publicación por rango y webhooks de Discord.
+
+### Ejemplo Completo y Explicación
+
+```yaml
+# ======================================================
+#                ZenAuctions Configuration
+# ======================================================
+
+# Activa o desactiva módulos individuales.
+# Los módulos desactivados no registran listeners, tareas ni comandos asociados.
+modules:
+  auctions: true            # Casa de subastas general
+  bidding: true             # Formato de subastas por pujas
+  fixed-price: true         # Formato de compra inmediata / precio fijo
+  search: true              # Búsqueda por texto y filtros avanzados
+  categories: true          # Filtro de categorías por material
+  history: true             # Historial global de transacciones
+    expired-items: true       # Buzón de items vencidos y cancelados
+  notifications: true       # Alertas en pantalla (chat, actionbar, sonido)
+  taxes: true               # Deducción de impuestos sobre ventas finales
+  fees: true                # Tarifas iniciales de publicación
+  item-preview: true        # Inspección previa de items normales
+  shulker-preview: true     # Vista previa del contenido de Shulker Boxes
+  barrel-preview: true      # Vista previa del contenido de Barriles y Bundles
+  multi-currency: true      # Soporte de múltiples monedas
+  player-history: true      # Historial personal de cada jugador
+  admin-tools: true         # Herramientas de moderación (/ah admin)
+  discord: false            # Integración de webhooks a Discord
+  redis: false              # Sincronización multi-servidor vía Redis
+  placeholderapi: true      # Expansión de variables PlaceholderAPI
+
+# Registros detallados en la consola [ZenAuctions/DEBUG]
+debug: false
+
+# Configuración general de subastas
+auctions:
+  default-duration: 172800  # Duración por defecto al publicar (en segundos: 48h)
+  min-duration: 3600        # Duración mínima permitida (1 hora)
+  max-duration: 604800      # Duración máxima permitida (7 días)
+  durations:                # Opciones disponibles en el menú interactivo /ah sell
+    - 3600    # 1 hora
+    - 21600   # 6 horas
+    - 43200   # 12 horas
+    - 86400   # 24 horas
+    - 172800  # 48 horas
+    - 259200  # 72 horas
+  min-price: 1.0            # Precio mínimo para listar un ítem
+  max-price: 1000000000.0   # Precio máximo permitido
+  allow-partial-purchase: true # Permite compras parciales (si se habilita en ítems apilados)
+
+# Sistema de Pujas (Bidding) y Anti-Sniping
+bidding:
+  min-bid-increment: 10.0   # Incremento mínimo requerido por encima de la puja actual
+  anti-sniping:
+    enabled: true           # Evita que pujen en el último segundo sin oportunidad de contraoferta
+    threshold: 30           # Si una puja entra a falta de menos de 30 segundos...
+    extension: 30           # ...se añaden 30 segundos más al tiempo restante
+    max-extensions: 5       # Número máximo de prórrogas consecutivas permitidas
+
+# Límites de publicaciones activas simultáneas
+# Se evalúan en orden; si el jugador tiene el permiso zenauctions.limit.<grupo>, se aplica dicho valor.
+listing-limits:
+  default:
+    max-active: 10
+  vip:
+    max-active: 25
+  mvp:
+    max-active: 50
+
+# Configuración de cachés internas para optimizar el rendimiento de base de datos
+cache:
+  auctions:
+    enabled: true
+    ttl: 2                  # Tiempo de vida de la caché de subastas activas (segundos)
+  players:
+    enabled: true
+    ttl: 30                 # Caché de perfiles y balances de jugadores (segundos)
+
+# Sincronización multi-servidor (Proxy / Red de Servidores)
+sync:
+    enabled: false
+  provider: sql             # Opciones: sql o redis
+  channel: "zenauctions:sync"
+  server-id: "server-1"
+
+# Webhooks de Discord (Notificaciones hacia canales de Discord)
+discord:
+    enabled: false
+  webhook-url: "https://discord.com/api/webhooks/..."
+  avatar-url: ""
+  username: "ZenAuctions Bot"
+  footer: "ZenAuctions | Market System"
+  events:
+    auction-create: true    # Notificar cuando se publique un nuevo artículo
+    auction-sold: true      # Notificar cuando se venda un artículo
+    auction-expired: false   # Notificar cuando caduque un artículo
+    admin-remove: true      # Notificar cuando un staff retire un artículo
+  embeds:
+    auction-created:
+      title: "📦 New Auction Listed: %item% x%amount%"
+      description: "**Seller:** %seller%\n**Price:** %price% %currency%\n**Format:** %type%\n**ID:** #%id%"
+      color: "#5865F2"
+    auction-sold:
+      title: "💰 Auction Sold: %item% x%amount%"
+      description: "**Buyer:** %buyer%\n**Seller:** %seller%\n**Final Price:** %price% %currency%"
+      color: "#57F287"
+    bid-placed:
+      title: "🔨 New Bid Placed on #%id%"
+      description: "**Bidder:** %bidder%\n**Item:** %item%\n**New Highest Bid:** %price% %currency%"
+      color: "#FEE75C"
+
+# Notificaciones directas en pantalla al jugador
+notifications:
+  item-sold:
+    chat: true
+    actionbar: true
+    title: false
+    sound: true
+  item-expired:
+    chat: true
+    actionbar: false
+    title: false
+    sound: true
+  bid-outbid:
+    chat: true
+    actionbar: true
+    title: false
+    sound: true
+
+# Sonidos de la interfaz gráfica y eventos
+# Formato: Nombre del sonido Vanilla de Spigot o Key Adventure ("minecraft:ui.button.click")
+sounds:
+  click:
+    sound: UI_BUTTON_CLICK
+    volume: 1.0
+    pitch: 1.0
+  auction-created:
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 1.2
+  auction-purchased:
+    sound: ENTITY_PLAYER_LEVELUP
+    volume: 1.0
+    pitch: 1.0
+  bid-placed:
+    sound: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 1.2
+  outbid:
+    sound: ENTITY_VILLAGER_NO
+    volume: 1.0
+    pitch: 1.0
+  error:
+    sound: ENTITY_VILLAGER_NO
+    volume: 1.0
+    pitch: 1.0
+  claim:
+    sound: ITEM_ARMOR_EQUIP_DIAMOND
+    volume: 1.0
+    pitch: 1.0
+```

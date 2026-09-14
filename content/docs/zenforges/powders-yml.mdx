@@ -1,0 +1,39 @@
+---
+title: "Polvos de Minería (powders.yml)"
+description: "Controla los polvos que caen al picar bloques específicos en mundos determinados."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Polvos de Minería (powders.yml)
+
+---
+
+Controla los polvos que caen al picar bloques específicos en mundos determinados.
+
+```yaml
+powders:
+  mythril:
+    display-name: "&2Mythril Powder"
+    send-message: true                  # Enviar mensaje al minar el polvo
+    blocks:
+      - material: PRISMARINE
+        chance: 100.0                  # Probabilidad en porcentaje
+        amount: "2-5"                   # Rango o número fijo
+      - material: DARK_PRISMARINE
+        chance: 100.0
+        amount: "4-10"
+    worlds:
+      - world
+      - minas
+
+  gemstone:
+    display-name: "&dGemstone Powder"
+    send-message: true
+    blocks:
+      - material: AMETHYST_BLOCK
+        chance: 80.0
+        amount: "1-4"
+    worlds:
+      - world
+```

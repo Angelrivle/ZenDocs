@@ -1,0 +1,62 @@
+---
+title: "Triggers"
+description: "Catálogo completo de disparadores y eventos de activación para ZenCustomItems."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Catálogo completo de **Triggers** para ZenCustomItems estilo eco / libreforge, estructurado con páginas individuales por cada elemento para consulta detallada.
+
+## 📑 Lista de Triggers (48)
+
+<Cards>
+  <Card title="join" href="/docs/zencustomitems/triggers/join" description="Se dispara cuando el jugador entra al servidor." />
+  <Card title="quit" href="/docs/zencustomitems/triggers/quit" description="Se dispara cuando el jugador sale del servidor (limpia automáticamente los cooldowns ac..." />
+  <Card title="respawn" href="/docs/zencustomitems/triggers/respawn" description="Se dispara inmediatamente después de que el jugador reaparece tras morir." />
+  <Card title="death" href="/docs/zencustomitems/triggers/death" description="Se dispara cuando el jugador que porta el ítem o viste la armadura muere." />
+  <Card title="damage" href="/docs/zencustomitems/triggers/damage" description="Se dispara cuando el jugador recibe cualquier tipo de daño (ambiental o por entidad)." />
+  <Card title="heal" href="/docs/zencustomitems/triggers/heal" description="Se dispara cuando el jugador recupera puntos de salud." />
+  <Card title="sneak" href="/docs/zencustomitems/triggers/sneak" description="Se dispara cuando el jugador presiona Shift para agacharse." />
+  <Card title="sprint" href="/docs/zencustomitems/triggers/sprint" description="Se dispara cuando el jugador comienza a esprintar." />
+  <Card title="fly" href="/docs/zencustomitems/triggers/fly" description="Se dispara cuando el jugador activa el vuelo (doble espacio o modo creativo/fly)." />
+  <Card title="right_click" href="/docs/zencustomitems/triggers/right_click" description="Se dispara con clic derecho con el ítem en la mano principal (al aire o contra bloque)." />
+  <Card title="left_click" href="/docs/zencustomitems/triggers/left_click" description="Se dispara con clic izquierdo (ataque o golpe al aire)." />
+  <Card title="right_click_air" href="/docs/zencustomitems/triggers/right_click_air" description="Se dispara exclusivamente al hacer clic derecho en el aire sin apuntar a ningún bloque." />
+  <Card title="right_click_block" href="/docs/zencustomitems/triggers/right_click_block" description="Se dispara exclusivamente al hacer clic derecho sobre un bloque." />
+  <Card title="left_click_air" href="/docs/zencustomitems/triggers/left_click_air" description="Se dispara al hacer clic izquierdo al aire sin golpear entidades ni bloques." />
+  <Card title="left_click_block" href="/docs/zencustomitems/triggers/left_click_block" description="Se dispara al hacer clic izquierdo contra un bloque." />
+  <Card title="interact_entity" href="/docs/zencustomitems/triggers/interact_entity" description="Se dispara al interactuar con clic derecho sobre cualquier entidad." />
+  <Card title="interact_at" href="/docs/zencustomitems/triggers/interact_at" description="Se dispara al interactuar con precisión de modelo sobre una entidad (e.g. soporte de ar..." />
+  <Card title="attack" href="/docs/zencustomitems/triggers/attack" description="Se dispara cuando el jugador golpea a otra entidad viva." />
+  <Card title="melee_attack" href="/docs/zencustomitems/triggers/melee_attack" description="Se dispara específicamente en ataques cuerpo a cuerpo." />
+  <Card title="melee_damage" href="/docs/zencustomitems/triggers/melee_damage" description="Se dispara al calcular el daño final de un ataque cuerpo a cuerpo (permite usar mutador..." />
+  <Card title="damage_taken" href="/docs/zencustomitems/triggers/damage_taken" description="Se dispara cuando el portador del ítem o armadura recibe daño de cualquier fuente." />
+  <Card title="kill" href="/docs/zencustomitems/triggers/kill" description="Se dispara cuando el portador elimina a una entidad viviente." />
+  <Card title="entity_death" href="/docs/zencustomitems/triggers/entity_death" description="Se dispara en el evento de muerte de la entidad cuando el asesino empuña este ítem." />
+  <Card title="block_break" href="/docs/zencustomitems/triggers/block_break" description="Se dispara cuando el jugador destruye un bloque con la herramienta." />
+  <Card title="block_place" href="/docs/zencustomitems/triggers/block_place" description="Se dispara cuando el jugador coloca este bloque en el mundo." />
+  <Card title="block_damage" href="/docs/zencustomitems/triggers/block_damage" description="Se dispara continuamente mientras el jugador está picando un bloque." />
+  <Card title="block_interact" href="/docs/zencustomitems/triggers/block_interact" description="Se dispara al interactuar con puertas, cofres, palancas o bloques mecánicos." />
+  <Card title="equip" href="/docs/zencustomitems/triggers/equip" description="Se dispara cuando el jugador se equipa una pieza de armadura con este ítem." />
+  <Card title="unequip" href="/docs/zencustomitems/triggers/unequip" description="Se dispara cuando el jugador se quita o desequipa la pieza de armadura." />
+  <Card title="drop" href="/docs/zencustomitems/triggers/drop" description="Se dispara cuando el jugador suelta el ítem al suelo (tecla Q)." />
+  <Card title="swap_hands" href="/docs/zencustomitems/triggers/swap_hands" description="Se dispara cuando el jugador intercambia el ítem a la mano secundaria (tecla F)." />
+  <Card title="use" href="/docs/zencustomitems/triggers/use" description="Disparador genérico de uso de ítem (clic derecho o activación)." />
+  <Card title="consume" href="/docs/zencustomitems/triggers/consume" description="Se dispara cuando el jugador termina de comer o beber un alimento o consumible." />
+  <Card title="durability_change" href="/docs/zencustomitems/triggers/durability_change" description="Se dispara cada vez que el ítem pierde o cambia durabilidad personalizada." />
+  <Card title="item_break" href="/docs/zencustomitems/triggers/item_break" description="Se dispara cuando el ítem agota toda su durabilidad y se destruye." />
+  <Card title="fish" href="/docs/zencustomitems/triggers/fish" description="Se dispara durante cualquier acción con la caña de pescar." />
+  <Card title="fish_caught" href="/docs/zencustomitems/triggers/fish_caught" description="Se dispara exclusivamente al pescar con éxito un pez, ítem o entidad." />
+  <Card title="projectile_launch" href="/docs/zencustomitems/triggers/projectile_launch" description="Se dispara cuando el jugador dispara una flecha, perla o proyectil con este arco o ítem." />
+  <Card title="projectile_hit" href="/docs/zencustomitems/triggers/projectile_hit" description="Se dispara cuando el proyectil lanzado impacta contra un bloque o una entidad." />
+  <Card title="arrow_hit" href="/docs/zencustomitems/triggers/arrow_hit" description="Se dispara específicamente cuando una flecha disparada impacta en un objetivo." />
+  <Card title="fish_caught_2" href="/docs/zencustomitems/triggers/fish_caught_2" description="Se dispara cuando el jugador pesca un pez, tesoro o basura con la caña de pescar." />
+  <Card title="pickup_item" href="/docs/zencustomitems/triggers/pickup_item" description="Se dispara cuando el jugador recoge un ítem del suelo con el ítem equipado." />
+  <Card title="kill_mob" href="/docs/zencustomitems/triggers/kill_mob" description="Se dispara cuando el jugador mata a cualquier criatura que no sea un jugador." />
+  <Card title="kill_player" href="/docs/zencustomitems/triggers/kill_player" description="Se dispara al derrotar a otro jugador en combate PvP." />
+  <Card title="projectile_hit_block" href="/docs/zencustomitems/triggers/projectile_hit_block" description="Se dispara cuando una flecha, tridente u otro proyectil disparado impacta en un bloque ..." />
+  <Card title="projectile_hit_entity" href="/docs/zencustomitems/triggers/projectile_hit_entity" description="Se dispara cuando el proyectil impacta con precisión en una entidad." />
+  <Card title="right_click_entity" href="/docs/zencustomitems/triggers/right_click_entity" description="Se dispara al hacer clic derecho con el ítem sobre cualquier entidad viva." />
+  <Card title="enchant_item" href="/docs/zencustomitems/triggers/enchant_item" description="Se dispara cuando el ítem es encantado en una mesa de encantamientos." />
+</Cards>

@@ -1,0 +1,52 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Los menús se encuentran en la carpeta plugins/ZenAuctions/menus/. Cada archivo YAML define una interfaz..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Los menús se encuentran en la carpeta `plugins/ZenAuctions/menus/`. Cada archivo YAML define una interfaz gráfica específica:
+
+| Archivo | Función |
+| :--- | :--- |
+| `auction-house.yml` | Menú principal de subastas navegables con paginación y ordenamiento. |
+| `sell.yml` | Interfaz interactiva de publicación (`/ah sell` sin argumentos). |
+| `categories.yml` | Selector visual de categorías de artículos. |
+| `confirm-purchase.yml` | Ventana de confirmación de compra inmediata. |
+| `confirm-bid.yml` | Ventana de confirmación de puja. |
+| `my-items.yml` | Gestión y cancelación de las subastas activas del jugador. |
+| `expired-items.yml` | Buzón seguro de ítems caducados o devueltos. |
+| `history.yml` | Historial general de compras del servidor. |
+| `player-history.yml` | Historial personal del jugador. |
+| `search.yml` | Interfaz de búsqueda de artículos. |
+| `auction-preview.yml` | Vista previa de items estándar. |
+| `shulker-preview.yml` | Visualización en vivo de los 27 slots de una Shulker Box sin romperla. |
+| `barrel-preview.yml` | Visualización en vivo de los slots de Barriles / Bundles. |
+| `currency-selector.yml` | Selector de moneda para compras y publicaciones. |
+| `admin.yml` | Panel administrativo para moderación de subastas. |
+
+### Configuración del Ítem Subastado en `auction-house.yml`:
+En `auction-house.yml` puedes definir cómo se ve el lore de los ítems en venta según si son de precio fijo o subasta por pujas:
+
+```yaml
+auction-item:
+  lore-fixed:
+    - "<gray>Seller: <yellow>%seller%</yellow>"
+    - "<gray>Price: <gold>%price%</gold> (%currency%)"
+    - "<gray>Market Avg (7d): <green>%market_average%</green>" # Nueva función analítica
+    - "<gray>Type: <white>Fixed Price</white>"
+    - "<gray>Time Left: <green>%time_left%</green>"
+    - "<dark_gray>ID: #%id%</dark_gray>"
+    - "<yellow>Left-Click to Buy | Right-Click to Preview</yellow>"
+```
+
+### Acciones de Botones en Menús:
+Los botones personalizados en los menús admiten la clave `actions:`:
+- `open:<nombre_menu>`: Abre otro menú (ej. `open:categories`, `open:my-items`).
+- `sort:cycle`: Cambia el modo de ordenamiento (precio ascendente, precio descendente, tiempo restante, más reciente).
+- `page:previous` / `page:next`: Navegación de páginas.
+- `close`: Cierra el inventario.

@@ -1,0 +1,26 @@
+---
+title: "fly"
+description: "Se dispara cuando el jugador activa el vuelo (doble espacio o modo creativo/fly)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fly`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `FLY`
+
+---
+
+Se dispara cuando el jugador activa el vuelo (doble espacio o modo creativo/fly).
+```yaml
+triggers:
+  - id: angel_wings
+    type: FLY
+    effects:
+      - type: PARTICLE
+        particle: END_ROD
+        count: 10
+```
+
+---

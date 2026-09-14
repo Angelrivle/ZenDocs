@@ -1,0 +1,35 @@
+---
+title: "Placeholders (PAPI)"
+description: "Si tienes PlaceholderAPI instalado, puedes usar los siguientes identificadores en scoreboards, chat (TAB,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Placeholders (PAPI)
+
+---
+
+Si tienes **PlaceholderAPI** instalado, puedes usar los siguientes identificadores en scoreboards, chat (TAB, Essentials, etc.) y hologramas:
+
+### Estadísticas de Combate y ELO
+- `%zenpvpcore_elo%`: ELO actual del jugador.
+- `%zenpvpcore_rank%`: Nombre con formato del rango actual.
+- `%zenpvpcore_kills%`: Total de asesinatos acumulados.
+- `%zenpvpcore_deaths%`: Total de muertes acumuladas.
+- `%zenpvpcore_kda%`: Ratio KDA (Kills / Deaths) formateado a dos decimales.
+- `%zenpvpcore_winstreak%`: Racha de victorias actual.
+- `%zenpvpcore_best_winstreak%`: Máxima racha de victorias alcanzada en la historia.
+
+### Estado de Combate y Recompensas
+- `%zenpvpcore_in_combat%`: `true` si el jugador está en combate, `false` en caso contrario.
+- `%zenpvpcore_combat_time%`: Segundos restantes de combate (o `0` si no está en combate).
+- `%zenpvpcore_combat_opponent%`: Nombre del oponente actual contra el que se está peleando (o `Ninguno`).
+- `%zenpvpcore_bounty_amount%`: Cantidad de recompensa activa sobre la cabeza del jugador.
+- `%zenpvpcore_bounty_type%`: Tipo de recompensa (`ELO` o `DINERO`).
+- `%zenpvpcore_bounty_creator%`: Nombre del creador de la recompensa (o `Anónimo` si se ocultó).
+
+### Leaderboards y Tops Globales (1 al 10)
+- `%zenpvpcore_top_elo_name_<1-10>%`: Nombre del jugador ubicado en la posición indicada del top ELO (ej: `%zenpvpcore_top_elo_name_1%`).
+- `%zenpvpcore_top_elo_val_<1-10>%`: Cantidad de ELO del jugador en esa posición (ej: `%zenpvpcore_top_elo_val_1%`).
+- `%zenpvpcore_top_kills_name_<1-10>%`: Nombre del jugador con más kills en la posición indicada.
+- `%zenpvpcore_top_kills_val_<1-10>%`: Cantidad de kills del jugador en dicha posición.

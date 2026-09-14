@@ -1,0 +1,31 @@
+---
+title: "Comandos y Permisos"
+description: "/link codigo: Vincula tu cuenta de Minecraft con el código generado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos de Minecraft:
+| Comando | Permiso | Descripción |
+| :--- | :--- | :--- |
+| `/discord` | Ninguno | Muestra el mensaje informativo de Discord. |
+| `/discord link` | Ninguno | Genera un código de 6 dígitos para vincular cuenta. |
+| `/discord unlink` | Ninguno | Desvincula tu cuenta de Minecraft de Discord. |
+| `/report <jugador> <motivo>` | Ninguno | Envía un reporte contra un jugador al Staff y a Discord. |
+| `/sc <mensaje>` | `zendiscord.staffchat` | Envía mensaje al StaffChat de Minecraft y Discord. |
+| `/sc` | `zendiscord.staffchat` | Alterna el modo StaffChat permanente. |
+| `#<mensaje>` | `zendiscord.staffchat` | Atajo rápido para enviar mensajes al StaffChat. |
+| `/zendiscord reload` | `zendiscord.admin` | Recarga las configuraciones y reconecta el bot. |
+| `/zendiscord maintenance <on/off>` | `zendiscord.admin` | Activa o desactiva el modo mantenimiento. |
+| `/zendiscord sendpanel [canal_id]` | `zendiscord.admin` | Envía el panel interactivo con botón y modal a Discord. |
+
+### Comandos Slash de Discord:
+* `/link <codigo>`: Vincula tu cuenta de Minecraft con el código generado.
+* `/unlink`: Desvincula tu cuenta.
+* `/playerlist`: Muestra la lista de jugadores conectados agrupados por rango de LuckPerms.
+* `/server status`: Muestra TPS, memoria RAM usada, jugadores y uptime en tiempo real.
+* `/tops <id>`: Genera y envía la imagen con la tabla de clasificación.

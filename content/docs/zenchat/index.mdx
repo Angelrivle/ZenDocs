@@ -1,0 +1,25 @@
+---
+title: "ZenChat"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenChat."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenChat
+
+Bienvenido a la documentación técnica de **ZenChat** para PaperMC / Purpur (1.21+). Este documento describe detalladamente la arquitectura de archivos, variables, formatos de chat (MiniMessage y Legacy), canales, placeholders, antispam, base de datos y permisos.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Estructura de Archivos" href="/docs/zenchat/estructura_de_archivos" description="Todos los archivos de configuración se generan en la carpeta plugins/ZenChat/:" />
+  <Card title="Configuración (config.yml)" href="/docs/zenchat/config-yml" description="Controla el comportamiento global del motor de chat y las menciones." />
+  <Card title="Base de Datos" href="/docs/zenchat/base_de_datos" description="ZenChat almacena los canales activos de cada usuario, jugadores ignorados y colores seleccionados de forma..." />
+  <Card title="Módulos de Chat (modules/)" href="/docs/zenchat/modules" description="Permite definir formatos independientes para cada rango de LuckPerms (basado en primary-group), además de un..." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenchat/messages-yml" description="Contiene todas las cadenas de texto del plugin. Admite códigos de color clásicos (&a, &b), formatos..." />
+  <Card title="Comandos y Permisos" href="/docs/zenchat/comandos_y_permisos" description="- zenchat.: Otorga todos los permisos del plugin (por defecto: OP)." />
+  <Card title="Integraciones y Dependencias" href="/docs/zenchat/integraciones" description="- Paper / Purpur (Adventure API): Soporte nativo de MiniMessage (gradient:#RRGGBB:#RRGGBB, rainbow, , ) y..." />
+</Cards>

@@ -1,0 +1,25 @@
+---
+title: "swap_hands"
+description: "Se dispara cuando el jugador intercambia el ítem a la mano secundaria (tecla F)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `swap_hands`
+
+* **Categoría:** `Inventario`  
+* **Identificador / Alias:** `SWAP_HANDS`
+
+---
+
+Se dispara cuando el jugador intercambia el ítem a la mano secundaria (tecla F).
+```yaml
+triggers:
+  - id: swap_parry
+    type: SWAP_HANDS
+    effects:
+      - type: ACTIONBAR
+        message: "<yellow>🛡 Modo guardia activado"
+```
+
+---

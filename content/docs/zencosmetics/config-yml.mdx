@@ -1,0 +1,72 @@
+---
+title: "Configuración (config.yml)"
+description: "El archivo config.yml controla la base de datos, el sistema de vista previa, economías globales y proyectiles..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+El archivo `config.yml` controla la base de datos, el sistema de vista previa, economías globales y proyectiles permitidos:
+
+```yaml
+# ZenCosmetics Configuration
+
+# Configuración de base de datos (SQLITE o MYSQL)
+database:
+  type: SQLITE # Opciones: SQLITE, MYSQL
+  mysql:
+    host: localhost
+    port: 3306
+    database: zencosmetics
+    username: root
+    password: ""
+
+# Configuración de la cámara de Vista Previa (Preview)
+preview:
+  spawn: null # Se autodefine con /zc setpreview spawn
+  target: null # Se autodefine con /zc setpreview target
+  duration-seconds: 3 # Duración en segundos de la vista previa
+
+# Colores predefinidos para partículas y globos
+colors:
+  red:
+    display-name: "<red>Rojo Carmesí</red>"
+    hex: "#FF0000"
+    price: 100.0
+    permission: "zencosmetics.colors.red"
+    material: RED_DYE
+    slot: 10
+  blue:
+    display-name: "<blue>Azul Marino</blue>"
+    hex: "#0000FF"
+    price: 150.0
+    permission: "zencosmetics.colors.blue"
+    material: BLUE_DYE
+    slot: 11
+  rainbow:
+    display-name: "<rainbow>Arcoíris Dinámico</rainbow>"
+    hex: "RAINBOW"
+    price: 500.0
+    permission: "zencosmetics.colors.rainbow"
+    material: PRISMARINE_SHARD
+    slot: 16
+
+# Sistema de economía por defecto (VAULT o ECOBITS)
+economy:
+  default: VAULT
+  ecobits-currency: crystals # Identificador de moneda si se usa EcoBits
+
+# Configuración de Rastros de Proyectiles
+projectile-trails:
+    enabled: true
+  whitelisted-projectiles:
+    - ENDER_PEARL
+    - ARROW
+    - SNOWBALL
+    - EGG
+    - TRIDENT
+    - FISHING_BOBBER
+```

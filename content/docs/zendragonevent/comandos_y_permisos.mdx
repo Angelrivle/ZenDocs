@@ -1,0 +1,25 @@
+---
+title: "Comandos y Permisos"
+description: "El comando base es /zdragon (alias: /zendragon)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+El comando base es `/zdragon` (alias: `/zendragon`).
+
+| Comando | Argumentos | Permiso | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/zdragon status` | Ninguno | `zendragon.admin` | Muestra el estado del evento, dragón activo, vida y damagers. |
+| `/zdragon spawn` | `[tipo]` | `zendragon.admin` | Fuerza la aparición inmediata de un tipo de dragón específico o aleatorio. |
+| `/zdragon stop` | Ninguno | `zendragon.admin` | Detiene el evento activo y elimina al dragón sin entregar recompensas. |
+| `/zdragon kill` | Ninguno | `zendragon.admin` | Mata al dragón activo de inmediato y ejecuta la entrega de recompensas. |
+| `/zdragon eye` | `[cantidad] [jugador]` | `zendragon.admin` | Entrega Ojos de Invocación configurados en `eye.yml`. |
+| `/zdragon loot` | `[tabla]` | `zendragon.admin` | Muestra en consola/chat la lista de drops de una tabla de loot. |
+| `/zdragon crystals` | `set / clear / list` | `zendragon.admin` | Administra las ubicaciones manuales fijas de los cristales del altar. |
+| `/zdragon reload` | Ninguno | `zendragon.admin` | Recarga todos los archivos `.yml` sin reiniciar el servidor. |
+
+**Permiso General de Administración**: `zendragon.admin` (por defecto asignado a operadores `op`).

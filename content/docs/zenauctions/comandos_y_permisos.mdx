@@ -1,0 +1,54 @@
+---
+title: "Comandos y Permisos"
+description: "- zenauctions.use (Por defecto: true): Acceso a la casa de subastas."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos de Jugador:
+
+| Comando | Alias | Descripción | Permiso Requerido |
+| :--- | :--- | :--- | :--- |
+| `/ah` | `/auctions`, `/auctionhouse` | Abre el menú principal de la casa de subastas. | `zenauctions.use` |
+| `/ah sell <precio> [duración] [--featured]` | `/ah list` | Pone a la venta el ítem en mano. Opcionalmente como destacado. | `zenauctions.sell` |
+| `/ah search <término>` | - | Abre el buscador o filtra directamente por nombre/vendedor. | `zenauctions.search` |
+| `/ah category [categoría]` | - | Abre el selector de categorías. | `zenauctions.use` |
+| `/ah myitems` | `/ah items` | Abre el menú de gestión de artículos propios en venta. | `zenauctions.use` |
+| `/ah expired` | `/ah claims`, `/ah mailbox` | Abre el buzón seguro para reclamar ítems vencidos o cancelados. | `zenauctions.use` |
+| `/ah history` | - | Visualiza el historial global de ventas. | `zenauctions.history` |
+| `/ah offer <id> <monto>` | - | Envía una oferta privada directa al vendedor de una subasta. | `zenauctions.offer` |
+| `/ah watch <material> [precio_max]` | - | Añade una alerta personal en el chat cuando alguien venda dicho ítem. | `zenauctions.watch` |
+| `/ah watch list` | - | Lista tus alertas activas. | `zenauctions.watch` |
+| `/ah watch remove <material>` | - | Elimina una alerta de seguimiento. | `zenauctions.watch` |
+| `/ah watch clear` | - | Borra todas tus alertas de seguimiento. | `zenauctions.watch` |
+
+### Comandos de Administración:
+
+| Comando | Descripción | Permiso Requerido |
+| :--- | :--- | :--- |
+| `/ah reload` | Recarga todas las configuraciones, mensajes y menús sin reiniciar. | `zenauctions.admin` |
+| `/ah admin` | Abre el menú de gestión y moderación administrativa de subastas. | `zenauctions.admin` |
+| `/ah admin remove <id>` | Cancela y retira forzosamente una subasta activa de cualquier usuario. | `zenauctions.admin.remove` |
+| `/ah history <jugador>` | Inspecciona el historial de transacciones de otro jugador. | `zenauctions.history.others` |
+
+### Lista Completa de Permisos:
+
+- `zenauctions.use` (Por defecto: `true`): Acceso a la casa de subastas.
+- `zenauctions.sell` (Por defecto: `true`): Permiso para publicar artículos.
+- `zenauctions.search` (Por defecto: `true`): Uso de búsquedas y filtros.
+- `zenauctions.history` (Por defecto: `true`): Acceso a su propio historial de ventas.
+- `zenauctions.history.others` (Por defecto: `op`): Permiso para auditar el historial de otros jugadores.
+- `zenauctions.offer` (Por defecto: `true`): Permite hacer y recibir ofertas privadas directas.
+- `zenauctions.watch` (Por defecto: `true`): Permite suscribirse a alertas de precios (*Watchlist*).
+- `zenauctions.featured` (Por defecto: `op`): Permite publicar subastas destacadas prioritarias.
+- `zenauctions.admin` (Por defecto: `op`): Permiso de administración general.
+- `zenauctions.admin.remove` (Por defecto: `op`): Permiso para borrar subastas de otros jugadores.
+- `zenauctions.admin.restore` (Por defecto: `op`): Permiso para gestionar o restaurar ítems caducados.
+- `zenauctions.bypass.blacklist` (Por defecto: `op`): Permite vender ítems de la lista negra.
+- `zenauctions.bypass.limit` (Por defecto: `op`): Ignora el límite máximo de artículos simultáneos.
+- `zenauctions.bypass.price` (Por defecto: `op`): Ignora los precios mínimos y máximos fijados.
+- `zenauctions.limit.<grupo>`: Asigna el límite de publicaciones definido en `config.yml` (ej. `zenauctions.limit.vip`).

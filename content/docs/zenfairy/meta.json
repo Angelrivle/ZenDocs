@@ -1,0 +1,14 @@
+{
+  "title": "ZenFairy",
+  "pages": [
+    "index",
+    "integraciones",
+    "estructura_de_archivos",
+    "formato_minimessage",
+    "config-yml",
+    "souls",
+    "sistema_de_acciones",
+    "comandos_y_permisos",
+    "placeholders"
+  ]
+}

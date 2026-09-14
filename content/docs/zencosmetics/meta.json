@@ -1,0 +1,14 @@
+{
+  "title": "ZenCosmetics (New)",
+  "pages": [
+    "index",
+    "integraciones",
+    "comandos_y_permisos",
+    "config-yml",
+    "messages-yml",
+    "menus",
+    "cosmetics",
+    "placeholders",
+    "base_de_datos"
+  ]
+}

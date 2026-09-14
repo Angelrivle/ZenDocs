@@ -1,0 +1,76 @@
+---
+title: "Planes (plans.yml)"
+description: "Los planes deben estructurarse de menor a mayor categoría."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Planes (plans.yml)
+
+---
+
+Los planes deben estructurarse de menor a mayor categoría.
+
+```yaml
+plans:
+  basic:
+    name: "<gray>Plan Básico"
+    lore:
+      - "<gray>Límite de balance: <yellow>10 Millones"
+      - "<gray>Interés: <green>0.1% plano"
+      - "<gray>Seguro contra muerte: <red>0%"
+    limit: 10000000.0
+    cost-vault: 0.0
+    cost-items: []
+    cost-ecobits:
+      currency: ""
+      amount: 0.0
+    permission: ""
+    interest-tranches:
+      - limit: 10000000.0
+        rate: 0.1
+    max-interest: 10000.0
+    deposit-fee-percent: 1.0   # Comisión del 1% al depositar
+    withdraw-fee-percent: 0.5  # Comisión del 0.5% al retirar
+    death-insurance-percent: 0.0 # Sin seguro
+
+  medium:
+    name: "<gold>Plan Comercial"
+    lore:
+      - "<gray>Límite de balance: <yellow>50 Millones"
+      - "<gray>Seguro contra muerte: <green>50% de protección"
+    limit: 50000000.0
+    cost-vault: 10000.0
+    cost-items:
+      - "minecraft:gold_block:64"
+    cost-ecobits:
+      currency: ""
+      amount: 0.0
+    permission: "zenbank.plan.medium"
+    interest-tranches:
+      - limit: 10000000.0
+        rate: 2.0
+      - limit: 50000000.0
+        rate: 1.0
+    max-interest: 500000.0
+    deposit-fee-percent: 0.5
+    withdraw-fee-percent: 0.25
+    death-insurance-percent: 50.0 # Protege el 50% del dinero ante muerte
+
+  advanced:
+    name: "<gradient:#00d2ff:#92fe9d><bold>Plan Palacial</bold></gradient>"
+    limit: 1000000000.0
+    cost-vault: 200000000.0
+    cost-items:
+      - "ecoitems:enchanted_gold_block:200"
+    cost-ecobits:
+      currency: "gems"
+      amount: 50.0
+    permission: "zenbank.plan.advanced"
+    death-insurance-percent: 100.0 # Inmune a pérdidas por muerte
+```
+
+### Sintaxis de Ítems en `cost-items`:
+- Vanilla: `"minecraft:<material>:<cantidad>"` (ej. `"minecraft:diamond_block:10"`)
+- EcoItems: `"ecoitems:<id>:<cantidad>"` (ej. `"ecoitems:enchanted_gold_block:200"`)
+- ItemEdit: `"itemedit:<id>:<cantidad>"`

@@ -1,0 +1,59 @@
+---
+title: "ZenCustomItems"
+description: "Plugin de ítems personalizados modulares para Minecraft con triggers, condiciones, efectos estilo Eco/Libreforge, editor in-game y web."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+**ZenCustomItems** es la solución definitiva para crear armas, armaduras, herramientas y consumibles personalizados de alto rendimiento en Minecraft. Con una arquitectura modular inspirada en los estándares de *eco / libreforge*, cuenta con un potente motor de triggers, condiciones, mutadores y más de 50 efectos cinemáticos y de combate.
+
+---
+
+## 📌 Ficha Técnica
+
+| Dato | Valor |
+| :-- | :-- |
+| **Plugin** | ZenCustomItems |
+| **Arquitectura** | Modular (Triggers, Conditions, Filters, Mutators, Effects) |
+| **Versiones de Minecraft** | 1.18 - 1.21+ (Paper / Purpur / Folia) |
+| **Formato de Texto** | Adventure MiniMessage (`<gradient>`, `<bold>`) y Legacy (`&b`, `&#RRGGBB`) |
+| **Editor** | In-Game GUI (`/zci editor`) y Web Editor remoto (`/zci editor-web`) |
+| **Sincronización** | Actualización dinámica segura (conserva gemas, reforjas y durabilidad) |
+
+---
+
+## 🧩 Componentes del Sistema
+
+<Cards>
+  <Card title="Triggers (Disparadores)" href="/docs/zencustomitems/triggers" description="Eventos de Minecraft que inician la ejecución de habilidades: clics, daño, pesca, proyectiles y más." />
+  <Card title="Effects (Efectos)" href="/docs/zencustomitems/effects" description="Catálogo completo de efectos categorizados: combate, movimiento, partículas cinemáticas, pociones y utilidades." />
+  <Card title="Conditions (Condiciones)" href="/docs/zencustomitems/conditions" description="Reglas y validaciones lógicas para verificar vida, permisos, biomas, distancias o variables." />
+  <Card title="Filters & Mutators" href="/docs/zencustomitems/filters-and-mutators" description="Filtra entidades y bloques objetivo y altera matemáticamente el daño con expresiones y escalas." />
+  <Card title="Behavior Flags" href="/docs/zencustomitems/flags" description="Banderas de comportamiento binarias: NO_PLACE, NO_DROP, SOULBOUND, NO_ANVIL, etc." />
+  <Card title="Sets y Maestría" href="/docs/zencustomitems/sets-and-mastery" description="Sistemas de sets de armaduras con bonificadores progresivos y armas que suben de nivel con XP." />
+</Cards>
+
+---
+
+## ⚡ Guía Rápida de Inicio
+
+<Steps>
+  <Step title="Instalación">
+    Descarga `ZenCustomItems.jar`, colócalo en la carpeta `plugins/` de tu servidor y reinícialo.
+  </Step>
+  <Step title="Explora los ejemplos">
+    Revisa la carpeta `plugins/ZenCustomItems/items/` donde encontrarás plantillas de ítems y armaduras.
+  </Step>
+  <Step title="Usa el editor integrado">
+    Ejecuta `/zci editor` dentro del juego o `/zci editor-web` para configurar tus ítems desde tu navegador web.
+  </Step>
+  <Step title="Aplica cambios en vivo">
+    Usa `/zci reload` o `/zci apply` para actualizar todos los inventarios en vivo sin reiniciar el servidor.
+  </Step>
+</Steps>
+
+<Callout type="info" title="Preservación de Estado">
+El sistema de actualización automática de ZenCustomItems respeta al 100% las gemas engastadas en sockets, nivel de upgrade (+1, +2), reforjas y durabilidad actual de los ítems de tus jugadores.
+</Callout>

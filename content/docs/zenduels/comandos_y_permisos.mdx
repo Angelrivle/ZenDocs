@@ -1,0 +1,53 @@
+---
+title: "Comandos y Permisos"
+description: "Requieren el permiso zenduels.admin:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### 8.1 Comandos de Jugador
+
+| Comando | Alias | Descripción | Permiso |
+|---|---|---|---|
+| `/duels [jugador]` | `/duel` | Abre el menú principal o envía una solicitud de duelo a un jugador. | Ninguno |
+| `/queue [ranked\|unranked]` | Ninguno | Abre el selector de colas de emparejamiento. | Ninguno |
+| `/bots <kit>` | `/bot` | Abre el menú para iniciar un duelo contra un FakePlayer bot eligiendo dificultad. | Ninguno |
+| `/party` | `/p` | Sistema de gestión de grupos (crear, invitar, duelos entre parties, etc.). | `zenduels.party` |
+| `/ffa` | Ninguno | Menú y acceso a las arenas públicas FFA. | Ninguno |
+| `/spectate <jugador>` | `/spec` | Especta la partida activa de un jugador. | Ninguno |
+| `/tournament join` | `/torneo` | Inscribirse en un torneo activo. | Ninguno |
+| `/kitsave` | Ninguno | Guarda la distribución de ítems configurada en el editor de kits. | Ninguno |
+| `/kitcancel` | Ninguno | Cancela la edición del kit y restaura el inventario anterior. | Ninguno |
+
+### 8.2 Comandos Administrativos (`/zenduels` o `/zd`)
+
+Requieren el permiso `zenduels.admin`:
+
+- `/zenduels reload` — Recarga todos los archivos de configuración, mensajes, menús y kits sin reiniciar el servidor (`zenduels.reload`).
+- `/zenduels setspawn` — Establece el spawn global del lobby en la posición actual del administrador.
+- `/zenduels setkiteditorspawn` — Establece el punto de spawn para el editor de kits.
+- `/zenduels arena create <id>` — Crea una arena a partir de la selección actual de WorldEdit (`//wand`).
+- `/zenduels arena setspawn1 <id>` — Fija el punto de spawn del Equipo 1.
+- `/zenduels arena setspawn2 <id>` — Fija el punto de spawn del Equipo 2.
+- `/zenduels arena setcenter <id>` — Fija el punto central de la arena.
+- `/zenduels arena paste <id> <slots>` — Clona e instancia la arena en el mundo virtual en los slots indicados (`zenduels.clone`).
+- `/zenduels arena setdisplayname <id> <nombre>` — Modifica el nombre visible de la arena.
+- `/zenduels kit create <id>` — Crea un nuevo kit a partir de tu inventario y armadura actuales.
+- `/zenduels kit setinv <id>` — Sobrescribe los ítems y armadura del kit con tu inventario actual.
+- `/zenduels kit seticon <id>` — Establece el ícono del kit en los menús usando el ítem que sostienes en la mano.
+- `/zenduels kit delete <id>` — Elimina definitivamente un kit.
+- `/zenduels replay play <id>` — Reproduce una grabación de partida guardada.
+- `/zenduels replay delete <id>` — Elimina un archivo de replay específico.
+
+### 8.3 Nodos de Permisos
+
+| Permiso | Por defecto | Descripción |
+|---|---|---|
+| `zenduels.admin` | `op` | Otorga acceso a todos los comandos y configuraciones administrativas. |
+| `zenduels.reload` | `op` | Permite recargar el plugin con `/zenduels reload`. |
+| `zenduels.clone` | `op` | Permite clonar y pegar arenas en el mundo virtual con FAWE. |
+| `zenduels.party` | `true` | Permite a los jugadores crear y usar el sistema de parties. |

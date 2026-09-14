@@ -1,0 +1,29 @@
+---
+title: "ZenPvPCore"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenPvPCore."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenPvPCore
+
+**ZenPvPCore** es un núcleo integral de PvP competitivo desarrollado para **PaperMC 1.21.x** en **Java 21**, diseñado para alto rendimiento, compatibilidad nativa con la API **Adventure (MiniMessage)** y soporte para bases de datos **SQLite** y **MySQL** mediante HikariCP.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Estructura de Archivos" href="/docs/zenpvpcore/estructura_de_archivos" description="Al iniciarse el plugin, se genera la siguiente estructura de carpetas y archivos YAML en plugins/ZenPvPCore/:" />
+  <Card title="Formato de Texto y MiniMessage" href="/docs/zenpvpcore/formato_minimessage" description="ZenPvPCore utiliza la librería Kyori Adventure MiniMessage de forma nativa. Esto permite el uso de etiquetas..." />
+  <Card title="Configuración (config.yml)" href="/docs/zenpvpcore/config-yml" description="El archivo config.yml controla el núcleo del plugin, módulos de protección, combate, base de datos y..." />
+  <Card title="Sistema ELO (elo_system.yml)" href="/docs/zenpvpcore/elo_system-yml" description="enabled: true                    # Activar o desactivar el sistema ELO" />
+  <Card title="Rachas de Victorias (winstreak_system.yml)" href="/docs/zenpvpcore/winstreak_system-yml" description="Permite configurar recompensas al alcanzar una cantidad de kills consecutivas sin morir. Soporta:" />
+  <Card title="Sistema de Recompensas (bounties_system.yml)" href="/docs/zenpvpcore/bounties_system-yml" description="Permite a los jugadores o administradores colocar recompensas sobre otros usuarios utilizando ELO o Dinero..." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zenpvpcore/messages-yml" description="Todos los mensajes que reciben los jugadores están centralizados en messages.yml." />
+  <Card title="Mensajes de Muerte (deathmessages/)" href="/docs/zenpvpcore/deathmessages" description="ZenPvPCore incluye un sistema modular de mensajes de muerte personalizables por paquete. Los archivos están..." />
+  <Card title="Configuración de Menús (menus/)" href="/docs/zenpvpcore/menus" description="Cada menú cuenta con su propio archivo YAML dentro de menus/." />
+  <Card title="Comandos y Permisos" href="/docs/zenpvpcore/comandos_y_permisos" description="Guía y detalles de configuración del módulo." />
+  <Card title="Placeholders (PAPI)" href="/docs/zenpvpcore/placeholders" description="Si tienes PlaceholderAPI instalado, puedes usar los siguientes identificadores en scoreboards, chat (TAB,..." />
+</Cards>

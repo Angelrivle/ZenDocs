@@ -1,0 +1,23 @@
+---
+title: "right_click_air"
+description: "Se dispara exclusivamente al hacer clic derecho en el aire sin apuntar a ningún bloque."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `right_click_air`
+
+* **Categoría:** `Interacción`  
+* **Identificador / Alias:** `RIGHT_CLICK_AIR`
+
+---
+
+Se dispara exclusivamente al hacer clic derecho en el aire sin apuntar a ningún bloque.
+```yaml
+triggers:
+  - id: air_blast
+    type: RIGHT_CLICK_AIR
+    effects:
+      - type: LAUNCH
+        power: 1.5
+```

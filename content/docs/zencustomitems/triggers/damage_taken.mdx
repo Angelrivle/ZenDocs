@@ -1,0 +1,24 @@
+---
+title: "damage_taken"
+description: "Se dispara cuando el portador del ítem o armadura recibe daño de cualquier fuente."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `damage_taken`
+
+* **Categoría:** `Combate`  
+* **Identificador / Alias:** `DAMAGE_TAKEN`
+
+---
+
+Se dispara cuando el portador del ítem o armadura recibe daño de cualquier fuente.
+```yaml
+triggers:
+  - id: thorns_reaction
+    type: DAMAGE_TAKEN
+    effects:
+      - type: DAMAGE
+        target: TARGET
+        damage: 4.0
+```

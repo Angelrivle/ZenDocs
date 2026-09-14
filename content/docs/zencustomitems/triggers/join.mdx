@@ -1,0 +1,23 @@
+---
+title: "join"
+description: "Se dispara cuando el jugador entra al servidor."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `join`
+
+* **Categoría:** `Jugador & Movimiento`  
+* **Identificador / Alias:** `JOIN`
+
+---
+
+Se dispara cuando el jugador entra al servidor.
+```yaml
+triggers:
+  - id: welcome_buff
+    type: JOIN
+    effects:
+      - type: MESSAGE
+        message: "<green>¡Bienvenido de vuelta!"
+```

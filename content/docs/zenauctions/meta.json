@@ -1,0 +1,18 @@
+{
+  "title": "ZenAuctions (New)",
+  "pages": [
+    "index",
+    "visi_n_general_y_arquitectura",
+    "estructura_de_archivos",
+    "config-yml",
+    "base_de_datos",
+    "currencies-yml",
+    "filters-yml",
+    "categories-yml",
+    "messages-yml",
+    "menus",
+    "comandos_y_permisos",
+    "placeholders",
+    "nuevas_funcionalidades_integradas"
+  ]
+}

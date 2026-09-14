@@ -1,0 +1,25 @@
+---
+title: "ZenDragonEvent"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenDragonEvent."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenDragonEvent
+
+Bienvenido a la documentación oficial y exhaustiva de **ZenDragonEvent**, un plugin premium de eventos de invocación de dragones estilo MMORPG diseñado específicamente para **Paper 1.21.4 (Java 21)** con soporte nativo de la **Adventure API**, **MiniMessage**, compatibilidad dual con **TAB**, y concurrencia optimizada de alto rendimiento.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Estructura de Archivos" href="/docs/zendragonevent/estructura_de_archivos" description="Cuando el plugin se inicia por primera vez, genera la siguiente jerarquía de archivos en la carpeta..." />
+  <Card title="Configuración (config.yml)" href="/docs/zendragonevent/config-yml" description="world-name: 'worldtheend'" />
+  <Card title="Ojo de Invocación (eye.yml)" href="/docs/zendragonevent/eye-yml" description="Permite diseñar el ítem necesario para interactuar con los marcos del portal del altar." />
+  <Card title="Recompensas y Rangos (loot.yml)" href="/docs/zendragonevent/loot-yml" description="El sistema de loot se evalúa de manera totalmente independiente por cada entrada configurada." />
+  <Card title="Arquetipos de Dragones (dragons/)" href="/docs/zendragonevent/dragons" description="Cada archivo dentro de la carpeta dragons/ define una variante única de dragón." />
+  <Card title="Comandos y Permisos" href="/docs/zendragonevent/comandos_y_permisos" description="El comando base es /zdragon (alias: /zendragon)." />
+  <Card title="Integraciones y Dependencias" href="/docs/zendragonevent/integraciones" description="- TAB (NEZnamy): Detección reflectiva automática. Si TAB está instalado, ZenDragonEvent registra su..." />
+</Cards>

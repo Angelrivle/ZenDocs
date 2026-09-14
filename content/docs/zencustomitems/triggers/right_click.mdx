@@ -1,0 +1,26 @@
+---
+title: "right_click"
+description: "Se dispara con clic derecho con el ítem en la mano principal (al aire o contra bloque)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `right_click`
+
+* **Categoría:** `Interacción`  
+* **Identificador / Alias:** `RIGHT_CLICK`
+
+---
+
+Se dispara con clic derecho con el ítem en la mano principal (al aire o contra bloque).
+```yaml
+triggers:
+  - id: cast_spell
+    type: RIGHT_CLICK
+    cooldownSeconds: 3.0
+    effects:
+      - type: PROJECTILE_BEAM
+        particle: FLAME
+        distance: 12.0
+        damage: 6.0
+```

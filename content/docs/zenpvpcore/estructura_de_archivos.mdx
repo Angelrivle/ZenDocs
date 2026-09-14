@@ -1,0 +1,43 @@
+---
+title: "Estructura de Archivos"
+description: "Al iniciarse el plugin, se genera la siguiente estructura de carpetas y archivos YAML en plugins/ZenPvPCore/:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+Al iniciarse el plugin, se genera la siguiente estructura de carpetas y archivos YAML en `plugins/ZenPvPCore/`:
+
+```
+plugins/ZenPvPCore/
+│
+├── config.yml                      # Configuración principal, combate, items, db y módulos
+├── messages.yml                    # Todos los mensajes del plugin (MiniMessage)
+├── elo_system.yml                  # Configuración del ELO, rangos y matchmaking
+├── winstreak_system.yml            # Configuración de recompensas por rachas
+├── bounties_system.yml             # Sistema de recompensas / cazadores
+│
+├── deathmessages/                  # Paquetes cosméticos de mensajes de muerte
+│   ├── default.yml                 # Paquete estándar
+│   ├── halloween.yml               # Paquete temático de Halloween
+│   └── pirate.yml                  # Paquete temático pirata
+│
+└── menus/                          # Interfaces gráficas (GUI)
+    ├── bounties/
+    │   ├── bounty_create.yml       # Menú para crear una recompensa
+    │   └── bounty_list.yml         # Menú interactivo con lista de recompensas
+    ├── cosmetics/
+    │   └── deathmessages.yml       # Selector de paquetes de mensajes de muerte
+    ├── elo/
+    │   ├── elo_main.yml            # Menú principal del sistema ELO
+    │   ├── elo_ranks.yml           # Visualizador de rangos y progreso
+    │   └── elo_top.yml             # Top global de jugadores con paginación
+    └── reports/
+        ├── report_reason.yml       # Selección de motivo del reporte
+        ├── report_list.yml         # Lista de reportes activos para Staff
+        ├── report_detail.yml       # Ficha técnica del reporte (con snapshot de combate)
+        └── report_action.yml       # Menú de sanciones rápidas (Ban, Mute, Kick, etc.)
+```

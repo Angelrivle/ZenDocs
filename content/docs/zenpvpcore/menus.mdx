@@ -1,0 +1,40 @@
+---
+title: "Configuración de Menús (menus/)"
+description: "Cada menú cuenta con su propio archivo YAML dentro de menus/."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Menús (menus/)
+
+---
+
+Cada menú cuenta con su propio archivo YAML dentro de `menus/`.
+
+### Propiedades Estándar de Menús:
+
+```yaml
+title: "<gradient:#1c7bff:#00ffff>Menú Principal</gradient>"
+size: 54                         # Tamaño del inventario (9, 18, 27, 36, 45, 54)
+
+# Decoraciones y botones fijos
+decorations:
+  border:
+    material: "BLACK_STAINED_GLASS_PANE"
+    name: " "
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 45, 46, 47, 48, 50, 51, 52, 53]
+
+items:
+  close:
+    material: "BARRIER"
+    name: "<red><bold>Cerrar</bold></red>"
+    slot: 49
+    action: "[CLOSE]"           # Acciones globales soportadas: [CLOSE], [BACK], [PAGE_NEXT], [PAGE_PREV], [MENU:ruta]
+```
+
+### 📌 Ficha de Detalle de Reportes (`report_detail.yml`):
+Incluye los placeholders de **Combat Snapshot** registrados en el momento exacto en el que el jugador fue reportado:
+- `%ping%`: Ping del jugador reportado en ms.
+- `%in_combat%`: Indica si estaba en combate (`Sí` / `No`).
+- `%hand_item%`: Ítem que sostenía en la mano principal.
+- `%proof%`: Nota o URL de prueba escrita por el denunciante.
