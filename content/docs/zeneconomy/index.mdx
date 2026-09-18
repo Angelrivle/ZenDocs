@@ -1,0 +1,28 @@
+---
+title: "ZenEconomy"
+description: "Documentación oficial, guías de configuración y arquitectura de ZenEconomy."
+---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# ZenEconomy
+
+Bienvenido a la documentación oficial de configuración y uso de **ZenEconomy**.  
+ZenEconomy es un sistema de múltiples economías modulares para servidores de Minecraft **Paper 1.21+ (Java 21)**, optimizado con persistencia asíncrona (HikariCP), Adventure API nativo (MiniMessage) y comandos dedicados dinámicos por moneda al estilo de EcoBits.
+
+---
+
+## 📑 Secciones de la Documentación
+
+<Cards>
+  <Card title="Requisitos del Sistema" href="/docs/zeneconomy/requisitos_del_sistema" description="- Plataforma: Servidor Paper, Purpur o forks modernos de 1.21 en adelante." />
+  <Card title="Instalación" href="/docs/zeneconomy/instalacion" description="1. Descarga el archivo compilado ZenEconomy-1.0.0.jar." />
+  <Card title="Estructura de Archivos" href="/docs/zeneconomy/estructura_de_archivos" description="plugins/ZenEconomy/" />
+  <Card title="Configuración (config.yml)" href="/docs/zeneconomy/config-yml" description="database:" />
+  <Card title="Configuración de Monedas (currencies/)" href="/docs/zeneconomy/currencies" description="Cada archivo dentro de la carpeta currencies/ representa una moneda completamente independiente. Puedes crear..." />
+  <Card title="Mensajes (messages.yml)" href="/docs/zeneconomy/messages-yml" description="ZenEconomy utiliza la librería nativa Adventure MiniMessage. Admite gradientes, colores HEX, negritas,..." />
+  <Card title="Comandos y Permisos" href="/docs/zeneconomy/comandos_y_permisos" description="Por cada moneda configurada en currencies/, se registran sus comandos asociados (por ejemplo /crystals,..." />
+  <Card title="Integraciones y Dependencias" href="/docs/zeneconomy/integraciones" description="- Por defecto ninguna moneda sobreescribe Vault (vault: false), permitiendo la compatibilidad directa con..." />
+  <Card title="API para Desarrolladores" href="/docs/zeneconomy/api" description="Guía completa para desarrolladores y referencia de la API de ZenEconomy." />
+</Cards>

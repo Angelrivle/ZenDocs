@@ -1,0 +1,49 @@
+---
+title: "Configuración (config.yml)"
+description: "database:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+```yaml
+# ZenEconomy Main Configuration
+# Diseñado para Paper 1.21+ (Java 21)
+
+# Configuración del motor de almacenamiento
+database:
+  # Opciones disponibles: SQLITE, MYSQL, MARIADB
+  type: SQLITE
+  
+  sqlite:
+    file: "zeneconomy.db"
+    
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "minecraft"
+    username: "root"
+    password: "password"
+    ssl: false
+    table-prefix: "ze_"
+    
+  # Opciones del Pool de conexiones HikariCP
+  pool:
+    maximum-pool-size: 10
+    minimum-idle: 5
+    max-lifetime: 1800000       # 30 minutos
+    connection-timeout: 10000   # 10 segundos
+
+# Frecuencia del auto-guardado en background de las cuentas en memoria (en segundos)
+auto-save-interval: 300
+
+# Ajustes del comando y GUI de mejores balances (Top Balances)
+baltop:
+  # Intervalo de actualización del caché en segundos para no sobrecargar la base de datos
+  cache-update-interval: 180
+  # Cantidad de jugadores mostrados por página
+  page-size: 10
+```

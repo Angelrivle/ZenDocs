@@ -1,0 +1,37 @@
+---
+title: "Comandos y Permisos"
+description: "Por cada moneda configurada en currencies/, se registran sus comandos asociados (por ejemplo /crystals,..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+### Comandos Dedicados por Divisa
+Por cada moneda configurada en `currencies/`, se registran sus comandos asociados (por ejemplo `/crystals`, `/gems`).
+
+| Comando | Descripción | Permiso |
+| :--- | :--- | :--- |
+| `/<moneda>` | Muestra tu saldo actual | `zeneconomy.currency.<id>` |
+| `/<moneda> [jugador]` | Consulta el saldo de otro jugador | `zeneconomy.currency.<id>.balance.others` |
+| `/<moneda> bal [jugador]` | Consulta el saldo de un jugador | `zeneconomy.currency.<id>.balance.others` |
+| `/<moneda> pay <jugador> <cantidad>` | Envía saldo a otro jugador | `zeneconomy.currency.<id>` |
+| `/<moneda> top [pagina]` | Muestra el ranking de jugadores más ricos en el chat | `zeneconomy.currency.<id>` |
+| `/<moneda> top gui` | Abre una interfaz gráfica con las cabezas de los jugadores | `zeneconomy.currency.<id>` |
+| `/<moneda> give <jugador> <cantidad>` | Acredita fondos a un jugador | `zeneconomy.currency.<id>.admin` o `zeneconomy.admin` |
+| `/<moneda> take <jugador> <cantidad>` | Retira fondos a un jugador | `zeneconomy.currency.<id>.admin` o `zeneconomy.admin` |
+| `/<moneda> set <jugador> <cantidad>` | Establece el saldo exacto de un jugador | `zeneconomy.currency.<id>.admin` o `zeneconomy.admin` |
+| `/<moneda> reset <jugador>` | Reinicia el saldo al valor por defecto | `zeneconomy.currency.<id>.admin` o `zeneconomy.admin` |
+
+### Comandos Generales
+| Comando | Alias | Descripción | Permiso |
+| :--- | :--- | :--- | :--- |
+| `/wallet` | `/billetera` | Abre el menú visual con todas las monedas del jugador | `zeneconomy.command.wallet` (Default: Todos) |
+| `/zeneconomy currencies` | `/ze list` | Lista todas las monedas cargadas y sus propiedades | `zeneconomy.admin` |
+| `/zeneconomy reload` | `/ze reload` | Recarga configuraciones, monedas y mensajes | `zeneconomy.admin` |
+| `/zeneconomy give <jugador> <cant> <moneda>` | | Acredita saldo en cualquier moneda | `zeneconomy.admin` |
+| `/zeneconomy take <jugador> <cant> <moneda>` | | Retira saldo en cualquier moneda | `zeneconomy.admin` |
+| `/zeneconomy set <jugador> <cant> <moneda>` | | Fija el balance en cualquier moneda | `zeneconomy.admin` |
+| `/zeneconomy reset <jugador> <moneda>` | | Reinicia saldo en cualquier moneda | `zeneconomy.admin` |

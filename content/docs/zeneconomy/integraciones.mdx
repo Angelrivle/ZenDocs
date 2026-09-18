@@ -1,0 +1,26 @@
+---
+title: "Integraciones y Dependencias"
+description: "- Por defecto ninguna moneda sobreescribe Vault (vault: false), permitiendo la compatibilidad directa con..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Integraciones y Dependencias
+
+---
+
+### PlaceholderAPI (PAPI)
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%zeneconomy_balance_<currency>%` | Balance numérico o formateado | `1,500.00` |
+| `%zeneconomy_balance_formatted_<currency>%` | Balance con el formato visual de la moneda | `❖1,500.00 Crystals` |
+| `%zeneconomy_balance_raw_<currency>%` | Saldo numérico puro sin separadores | `1500.0` |
+| `%zeneconomy_currency_name_<currency>%` | Nombre configurado de la moneda | `Crystals` |
+| `%zeneconomy_currency_symbol_<currency>%` | Símbolo de la moneda | `❖` |
+| `%zeneconomy_top_name_<currency>_<pos>%` | Nombre del jugador en la posición de ranking | `cuac_xd` |
+| `%zeneconomy_top_balance_<currency>_<pos>%` | Balance en bruto del puesto de ranking | `50000.0` |
+| `%zeneconomy_top_balance_formatted_<currency>_<pos>%` | Balance formateado del puesto de ranking | `❖50,000.00 Crystals` |
+
+### Vault
+- Por defecto ninguna moneda sobreescribe Vault (`vault: false`), permitiendo la compatibilidad directa con EssentialsX, CMI u otros núcleos.
+- Si deseas que una de las monedas sustituya la economía global de Vault, edita su archivo en `currencies/` y coloca `vault: true`.

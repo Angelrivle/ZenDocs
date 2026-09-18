@@ -1,0 +1,20 @@
+---
+title: "Estructura de Archivos"
+description: "plugins/ZenEconomy/"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+```
+plugins/ZenEconomy/
+├── config.yml              # Configuración general y de base de datos
+├── messages.yml            # Mensajes del plugin en formato MiniMessage
+├── zeneconomy.db           # Base de datos SQLite (si se usa SQLite)
+└── currencies/             # Definición de cada moneda individual
+    ├── crystals.yml        # Moneda de ejemplo (Cristales)
+    └── gems.yml            # Moneda de ejemplo (Gemas)
+```

@@ -18,6 +18,7 @@ plugins = [
     ("ZenDiscord", "zendiscord", "ZenDiscord", True),
     ("ZenDragonEvent", "zendragonevent", "ZenDragonEvent", True),
     ("ZenDuels", "zenduels", "ZenDuels", True),
+    ("ZenEconomy", "zeneconomy", "ZenEconomy", True),
     ("ZenFairy", "zenfairy", "ZenFairy", False),
     ("ZenForges", "zenforges", "ZenForges", True),
     ("ZenPvPCore", "zenpvpcore", "ZenPvPCore", True),
@@ -83,9 +84,16 @@ def standardize_section_title(raw_h2):
     if 'webhook' in t_lower:
         return "Webhooks de Discord", "webhooks"
         
+    # System Requirements
+    if 'requisitos del sistema' in t_lower or 'requisitos' in t_lower:
+        return "Requisitos del Sistema", "requisitos_del_sistema"
+
     # Integrations / Dependencies
     if 'integracion' in t_lower or 'integraciones' in t_lower or 'dependencias' in t_lower or 'instalación y dependencias' in t_lower or 'requisitos y dependencias' in t_lower:
         return "Integraciones y Dependencias", "integraciones"
+
+    if 'instalacion' in t_lower or 'instalación' in t_lower:
+        return "Instalación", "instalacion"
 
     # Specific common config files / features
     if 'plans.yml' in t_lower or 'planes bancarios' in t_lower:
@@ -93,6 +101,9 @@ def standardize_section_title(raw_h2):
 
     if 'zones/' in t_lower or 'zonas' in t_lower:
         return "Configuración de Zonas (zones/)", "zonas"
+
+    if 'currencies/' in t_lower or 'configuración de monedas' in t_lower or 'configuracion de monedas' in t_lower:
+        return "Configuración de Monedas (currencies/)", "currencies"
 
     if 'currencies.yml' in t_lower:
         return "Monedas e Impuestos (currencies.yml)", "currencies-yml"
@@ -413,26 +424,27 @@ def main():
         else:
             print(f"File not found: {doc_path}")
 
-    # Check for ZenDiscord/API.md to include developer API documentation
-    api_path = os.path.join(docs_source, "ZenDiscord", "API.md")
-    zendiscord_target = os.path.join(docs_root, "zendiscord")
-    if os.path.exists(api_path) and os.path.exists(zendiscord_target):
-        with open(api_path, 'r', encoding='utf-8') as f:
-            api_text = f.read()
-        api_text = sanitize_mdx_outside_code(api_text)
-        
-        # Remove top H1 if present
-        api_clean_lines = []
-        for line in api_text.split('\n'):
-            if line.startswith('# '):
-                continue
-            api_clean_lines.append(line)
-        api_body = '\n'.join(api_clean_lines).strip()
-        api_body = re.sub(r'\n---\s*$', '', api_body).strip()
-        
-        api_mdx = f"""---
+    # Check for any plugin that contains API.md (e.g. ZenDiscord, ZenEconomy)
+    for folder, target, display_name, is_new in plugins:
+        api_path = os.path.join(docs_source, folder, "API.md")
+        plugin_target = os.path.join(docs_root, target)
+        if os.path.exists(api_path) and os.path.exists(plugin_target):
+            with open(api_path, 'r', encoding='utf-8') as f:
+                api_text = f.read()
+            api_text = sanitize_mdx_outside_code(api_text)
+            
+            # Remove top H1 if present
+            api_clean_lines = []
+            for line in api_text.split('\n'):
+                if line.startswith('# '):
+                    continue
+                api_clean_lines.append(line)
+            api_body = '\n'.join(api_clean_lines).strip()
+            api_body = re.sub(r'\n---\s*$', '', api_body).strip()
+            
+            api_mdx = f"""---
 title: "API para Desarrolladores"
-description: "Guía completa para desarrolladores y referencia de la API de ZenDiscord."
+description: "Guía completa para desarrolladores y referencia de la API de {display_name}."
 ---
 
 import {{ Callout }} from 'fumadocs-ui/components/callout';
@@ -443,28 +455,30 @@ import {{ Callout }} from 'fumadocs-ui/components/callout';
 
 {api_body}
 """
-        with open(os.path.join(zendiscord_target, "api.mdx"), "w", encoding="utf-8") as f:
-            f.write(api_mdx)
-            
-        # Add card to zendiscord/index.mdx
-        index_file = os.path.join(zendiscord_target, "index.mdx")
-        with open(index_file, "r", encoding="utf-8") as f:
-            index_content = f.read()
-        if 'href="/docs/zendiscord/api"' not in index_content:
-            new_card = '  <Card title="API para Desarrolladores" href="/docs/zendiscord/api" description="Guía completa para desarrolladores y referencia de la API de ZenDiscord." />\n</Cards>'
-            index_content = index_content.replace('</Cards>', new_card)
-            with open(index_file, "w", encoding="utf-8") as f:
-                f.write(index_content)
+            with open(os.path.join(plugin_target, "api.mdx"), "w", encoding="utf-8") as f:
+                f.write(api_mdx)
                 
-        # Add to zendiscord/meta.json
-        meta_file = os.path.join(zendiscord_target, "meta.json")
-        with open(meta_file, "r", encoding="utf-8") as f:
-            meta_data = json.load(f)
-        if "api" not in meta_data.get("pages", []):
-            meta_data["pages"].append("api")
-            with open(meta_file, "w", encoding="utf-8") as f:
-                json.dump(meta_data, f, indent=2, ensure_ascii=False)
-        print("Processed ZenDiscord API.md as 'api.mdx'")
+            # Add card to index.mdx
+            index_file = os.path.join(plugin_target, "index.mdx")
+            if os.path.exists(index_file):
+                with open(index_file, "r", encoding="utf-8") as f:
+                    index_content = f.read()
+                if f'href="/docs/{target}/api"' not in index_content:
+                    new_card = f'  <Card title="API para Desarrolladores" href="/docs/{target}/api" description="Guía completa para desarrolladores y referencia de la API de {display_name}." />\n</Cards>'
+                    index_content = index_content.replace('</Cards>', new_card)
+                    with open(index_file, "w", encoding="utf-8") as f:
+                        f.write(index_content)
+                    
+            # Add to meta.json
+            meta_file = os.path.join(plugin_target, "meta.json")
+            if os.path.exists(meta_file):
+                with open(meta_file, "r", encoding="utf-8") as f:
+                    meta_data = json.load(f)
+                if "api" not in meta_data.get("pages", []):
+                    meta_data["pages"].append("api")
+                    with open(meta_file, "w", encoding="utf-8") as f:
+                        json.dump(meta_data, f, indent=2, ensure_ascii=False)
+            print(f"Processed {display_name} API.md as 'api.mdx'")
 
     # Verify root meta.json
     root_meta_path = os.path.join(docs_root, "meta.json")
@@ -475,6 +489,14 @@ import {{ Callout }} from 'fumadocs-ui/components/callout';
     for bad in ["zenhub", "zenwardrobe", "zenprofiles"]:
         if bad in root_meta.get("pages", []):
             root_meta["pages"].remove(bad)
+            
+    # Ensure all current plugins exist in root meta
+    for folder, target, display_name, is_new in plugins:
+        if target not in root_meta.get("pages", []):
+            root_meta["pages"].append(target)
+            
+    # Keep alphabetically sorted
+    root_meta["pages"] = sorted(list(set(root_meta["pages"])))
             
     with open(root_meta_path, "w", encoding="utf-8") as f:
         json.dump(root_meta, f, indent=2, ensure_ascii=False)

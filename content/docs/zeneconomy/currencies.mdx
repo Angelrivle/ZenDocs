@@ -1,0 +1,75 @@
+---
+title: "Configuración de Monedas (currencies/)"
+description: "Cada archivo dentro de la carpeta currencies/ representa una moneda completamente independiente. Puedes crear..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración de Monedas (currencies/)
+
+---
+
+Cada archivo dentro de la carpeta `currencies/` representa una moneda completamente independiente. Puedes crear tantos archivos como desees (por ejemplo: `tokens.yml`, `souls.yml`, `coins.yml`).
+
+### Ejemplo Explicado: `currencies/crystals.yml`
+
+```yaml
+# Identificador único de la divisa (en minúsculas)
+id: crystals
+
+# Nombre descriptivo de la divisa
+name: "Crystals"
+
+# Símbolo que identifica a la moneda
+symbol: "❖"
+
+# Prefijo que se antepone a los mensajes de esta moneda (dejar en blanco para usar el del plugin)
+prefix: ""
+
+# Saldo con el que empieza cada nuevo jugador
+default: 0
+
+# Saldo máximo que un jugador puede almacenar (-1 para sin límite)
+max: -1
+
+# Si los jugadores pueden transferirse fondos entre sí mediante /<comando> pay
+payable: true
+
+# Si se permiten cantidades decimales en los comandos
+decimal: true
+
+# Cantidad máxima de decimales permitidos en comandos y formateos
+max-decimals: 2
+
+# Si esta divisa debe registrarse en Vault (Solo una divisa puede registrarse en Vault)
+# Si usas EssentialsX o CMI como dinero principal, mantén esto en false.
+vault: false
+
+# Si el comando directo /crystals <jugador> debe actuar como atajo para consultar saldo
+balance-shorthand: false
+
+# Formato largo de visualización del balance (Placeholders: %currency%, %amount%, %symbol%)
+format: "<aqua>%symbol%</aqua><green>%amount%</green> <aqua>%currency%</aqua>"
+
+# Formato corto o abreviado (Placeholders: %currency%, %amount%, %symbol%)
+format-short: "<aqua>%symbol%</aqua> <green>%amount%</green>"
+
+# Patrón de formato decimal estándar (Java DecimalFormat)
+decimal-format: "#,##0.00"
+
+# Patrón de formato decimal abreviado
+decimal-format-short: "#,##0.00"
+
+# Lista de comandos que se registrarán dinámicamente para esta divisa
+commands:
+  - crystals
+  - ecocrystals
+
+# Icono representativo para el menú de Billetera (/wallet)
+icon:
+  material: "AMETHYST_SHARD"
+    custom-model-data: 0
+  display-name: "<aqua><bold>Cristales</bold></aqua>"
+  lore:
+    - "<gray>Moneda especial obtenida en eventos y misiones."
+```

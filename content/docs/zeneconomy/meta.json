@@ -1,14 +1,15 @@
 {
-  "title": "ZenFairy",
+  "title": "ZenEconomy (New)",
   "pages": [
     "index",
     "requisitos_del_sistema",
+    "instalacion",
     "estructura_de_archivos",
-    "formato_minimessage",
     "config-yml",
-    "souls",
-    "sistema_de_acciones",
+    "currencies",
+    "messages-yml",
     "comandos_y_permisos",
-    "placeholders"
+    "integraciones",
+    "api"
   ]
 }
