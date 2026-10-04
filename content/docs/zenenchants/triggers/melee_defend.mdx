@@ -1,0 +1,28 @@
+---
+title: "melee_defend"
+description: "Al ser golpeado cuerpo a cuerpo por otra entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `melee_defend`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `melee_defend`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `VICTIM`, `LOCATION`
+
+---
+
+Al ser golpeado cuerpo a cuerpo por otra entidad.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - melee_defend
+```

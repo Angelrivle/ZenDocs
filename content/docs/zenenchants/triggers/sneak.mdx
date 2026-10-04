@@ -1,0 +1,28 @@
+---
+title: "sneak"
+description: "Al agacharse / presionar Shift."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `sneak`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `sneak`  
+* **Contexto Inyectado:** `PLAYER`
+
+---
+
+Al agacharse / presionar Shift.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - sneak
+```

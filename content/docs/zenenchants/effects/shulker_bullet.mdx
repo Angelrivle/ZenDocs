@@ -1,0 +1,39 @@
+---
+title: "shulker_bullet"
+description: "Dispara un proyectil teledirigido de Shulker hacia el objetivo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shulker_bullet`
+
+* **Categorías:** `combat, projectile`  
+* **Identificador / Alias:** `shulker_bullet`
+
+---
+
+Dispara un proyectil teledirigido de Shulker hacia el objetivo.
+- **Categorías:** `combat, projectile`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `speed` | Velocidad de persecución del proyectil. | `DECIMAL` | `1.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: shulker_bullet
+    args:
+      speed: 1.0
+```
+
+---

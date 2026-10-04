@@ -1,0 +1,38 @@
+---
+title: "open_workbench"
+description: "Abre una mesa de crafteo virtual en pantalla."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `open_workbench`
+
+* **Categorías:** `utility, inventory`  
+* **Identificador / Alias:** `open_workbench`
+
+---
+
+Abre una mesa de crafteo virtual en pantalla.
+- **Categorías:** `utility, inventory`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: open_workbench
+    args:
+```
+
+---

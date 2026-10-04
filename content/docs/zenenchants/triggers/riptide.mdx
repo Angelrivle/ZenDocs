@@ -1,0 +1,28 @@
+---
+title: "riptide"
+description: "Al propulsarse usando el encantamiento Riptide."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `riptide`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `riptide`  
+* **Contexto Inyectado:** `PLAYER`, `LOCATION`
+
+---
+
+Al propulsarse usando el encantamiento Riptide.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - riptide
+```

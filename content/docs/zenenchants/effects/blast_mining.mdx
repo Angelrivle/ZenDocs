@@ -1,0 +1,41 @@
+---
+title: "blast_mining"
+description: "Mina un cubo tridimensional de bloques centrado en el bloque picado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `blast_mining`
+
+* **Categorías:** `mining, blocks`  
+* **Identificador / Alias:** `blast_mining`
+
+---
+
+Mina un cubo tridimensional de bloques centrado en el bloque picado.
+- **Categorías:** `mining, blocks`
+- **Requisitos de Trigger:** `mine_block`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio cúbico de rotura (1 = 3x3x3). | `INTEGER` | `1` |
+| `deep` | Profundidad de corte. | `INTEGER` | `1` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: blast_mining
+    args:
+      radius: 2
+      deep: 2
+```
+
+---

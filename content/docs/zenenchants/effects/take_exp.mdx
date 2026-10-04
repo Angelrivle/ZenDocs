@@ -1,0 +1,39 @@
+---
+title: "take_exp"
+description: "Resta puntos de experiencia al usuario."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `take_exp`
+
+* **Categorías:** `player, experience`  
+* **Identificador / Alias:** `take_exp`
+
+---
+
+Resta puntos de experiencia al usuario.
+- **Categorías:** `player, experience`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Puntos de experiencia a descontar. | `EXPRESSION` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: take_exp
+    args:
+      amount: 1.0
+```
+
+---

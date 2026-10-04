@@ -1,0 +1,39 @@
+---
+title: "freeze"
+description: "Congela a la víctima simulando el efecto de nieve en polvo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `freeze`
+
+* **Categorías:** `combat, entity`  
+* **Identificador / Alias:** `freeze`
+
+---
+
+Congela a la víctima simulando el efecto de nieve en polvo.
+- **Categorías:** `combat, entity`
+- **Requisitos de Trigger:** `VICTIM o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de congelamiento. | `EXPRESSION` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: freeze
+    args:
+      duration: 1.0
+```
+
+---

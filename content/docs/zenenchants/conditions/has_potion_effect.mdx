@@ -1,0 +1,25 @@
+---
+title: "has_potion_effect"
+description: "Posee activo un efecto de poción determinado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `has_potion_effect`
+
+* **Categoría:** `Entidad & Jugador`  
+* **Identificador / Alias:** `has_potion_effect`  
+* **Argumentos Soportados:** `effect: <POTION>`, `amplifier: <num>`
+
+---
+
+Posee activo un efecto de poción determinado.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: has_potion_effect
+    args:
+      # `effect: <POTION>`, `amplifier: <num>`
+    not: false
+```

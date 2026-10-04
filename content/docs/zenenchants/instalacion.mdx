@@ -1,0 +1,29 @@
+---
+title: "Instalación"
+description: "1. Descarga el archivo compilado ZenEnchants-1.0.0.jar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Instalación
+
+---
+
+1. Descarga el archivo compilado `ZenEnchants-1.0.0.jar`.
+2. Coloca el archivo `.jar` en la carpeta `plugins/` de tu servidor.
+3. Inicia o reinicia el servidor.
+4. El plugin extraerá automáticamente más de 340 archivos YAML listos para su uso:
+   - `plugins/ZenEnchants/config.yml`
+   - `plugins/ZenEnchants/targets.yml`
+   - `plugins/ZenEnchants/items.yml`
+   - `plugins/ZenEnchants/messages.yml`
+   - `plugins/ZenEnchants/rarities.yml`
+   - `plugins/ZenEnchants/menus/` (enchant_index, enchant_info, mystery_shop, tinkerer)
+   - `plugins/ZenEnchants/enchants/` (303 archivos de encantamientos custom)
+   - `plugins/ZenEnchants/vanilla/` (40 archivos de encantamientos vanilla oficiales)
+5. Puedes editar cualquier archivo y recargar la configuración en caliente sin reiniciar:
+   ```bash
+   /ze reload
+   # o también:
+   /enchants reload
+   ```

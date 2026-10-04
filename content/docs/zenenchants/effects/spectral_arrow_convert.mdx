@@ -1,0 +1,38 @@
+---
+title: "spectral_arrow_convert"
+description: "Transforma una flecha común en flecha espectral que marca al blanco."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spectral_arrow_convert`
+
+* **Categorías:** `projectile, combat`  
+* **Identificador / Alias:** `spectral_arrow_convert`
+
+---
+
+Transforma una flecha común en flecha espectral que marca al blanco.
+- **Categorías:** `projectile, combat`
+- **Requisitos de Trigger:** `PROJECTILE`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spectral_arrow_convert
+    args:
+```
+
+---

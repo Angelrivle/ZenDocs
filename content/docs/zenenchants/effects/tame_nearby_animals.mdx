@@ -1,0 +1,39 @@
+---
+title: "tame_nearby_animals"
+description: "Domestica automáticamente animales salvajes del entorno."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `tame_nearby_animals`
+
+* **Categorías:** `entity, animals`  
+* **Identificador / Alias:** `tame_nearby_animals`
+
+---
+
+Domestica automáticamente animales salvajes del entorno.
+- **Categorías:** `entity, animals`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de domesticación en bloques. | `DECIMAL` | `5.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: tame_nearby_animals
+    args:
+      radius: 1.0
+```
+
+---

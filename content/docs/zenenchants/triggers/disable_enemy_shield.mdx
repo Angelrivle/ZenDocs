@@ -1,0 +1,28 @@
+---
+title: "disable_enemy_shield"
+description: "Al deshabilitar el escudo del enemigo con un impacto."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `disable_enemy_shield`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `disable_enemy_shield`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `VICTIM`
+
+---
+
+Al deshabilitar el escudo del enemigo con un impacto.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - disable_enemy_shield
+```

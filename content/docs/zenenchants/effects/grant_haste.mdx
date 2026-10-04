@@ -1,0 +1,41 @@
+---
+title: "grant_haste"
+description: "Aumenta drásticamente la velocidad de minado y ataque."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_haste`
+
+* **Categorías:** `potions, mining`  
+* **Identificador / Alias:** `grant_haste`
+
+---
+
+Aumenta drásticamente la velocidad de minado y ataque.
+- **Categorías:** `potions, mining`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de prisa de picar. | `EXPRESSION` | `10` |
+| `amplifier` | Nivel de haste. | `EXPRESSION` | `1` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_haste
+    args:
+      duration: 1.0
+      amplifier: 1.0
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "defend"
+description: "Al recibir cualquier tipo de daño en armadura o equipo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `defend`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `defend`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al recibir cualquier tipo de daño en armadura o equipo.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - defend
+```

@@ -1,0 +1,41 @@
+---
+title: "arrow_rain"
+description: "Hace llover una ráfaga de flechas desde el cielo sobre la zona."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `arrow_rain`
+
+* **Categorías:** `projectile, area`  
+* **Identificador / Alias:** `arrow_rain`
+
+---
+
+Hace llover una ráfaga de flechas desde el cielo sobre la zona.
+- **Categorías:** `projectile, area`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Cantidad de flechas. | `INTEGER` | `15` |
+| `spread` | Dispersión horizontal. | `DECIMAL` | `3.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: arrow_rain
+    args:
+      amount: 2
+      spread: 1.0
+```
+
+---

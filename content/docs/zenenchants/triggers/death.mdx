@@ -1,0 +1,28 @@
+---
+title: "death"
+description: "Al morir el jugador portador del encantamiento."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `death`
+
+* **Categoría:** `Muerte & Asesinatos`  
+* **Identificador / Alias:** `death`  
+* **Contexto Inyectado:** `PLAYER`, `LOCATION`
+
+---
+
+Al morir el jugador portador del encantamiento.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - death
+```

@@ -1,0 +1,39 @@
+---
+title: "double_drops"
+description: "Duplica la cantidad de drops generados en la rotura o asesinato."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `double_drops`
+
+* **Categorías:** `mining, drops`  
+* **Identificador / Alias:** `double_drops`
+
+---
+
+Duplica la cantidad de drops generados en la rotura o asesinato.
+- **Categorías:** `mining, drops`
+- **Requisitos de Trigger:** `mine_block, kill_entity`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `chance` | Probabilidad de duplicar botín (0 a 100). | `EXPRESSION` | `25` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: double_drops
+    args:
+      chance: 1.0
+```
+
+---

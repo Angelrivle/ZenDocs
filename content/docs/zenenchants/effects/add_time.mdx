@@ -1,0 +1,39 @@
+---
+title: "add_time"
+description: "Avanza una cantidad de ticks el reloj del mundo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `add_time`
+
+* **Categorías:** `world, time`  
+* **Identificador / Alias:** `add_time`
+
+---
+
+Avanza una cantidad de ticks el reloj del mundo.
+- **Categorías:** `world, time`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `ticks` | Ticks de tiempo a adelantar. | `INTEGER` | `1000` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: add_time
+    args:
+      ticks: 2
+```
+
+---

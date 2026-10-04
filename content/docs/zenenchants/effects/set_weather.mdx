@@ -1,0 +1,39 @@
+---
+title: "set_weather"
+description: "Fija el clima del mundo actual."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_weather`
+
+* **Categorías:** `world, weather`  
+* **Identificador / Alias:** `set_weather`
+
+---
+
+Fija el clima del mundo actual.
+- **Categorías:** `world, weather`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `weather` | Estado climático (CLEAR, RAIN, THUNDER). | `STRING` | `CLEAR` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_weather
+    args:
+      weather: SPEED
+```
+
+---

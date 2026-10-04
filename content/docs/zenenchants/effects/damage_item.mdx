@@ -1,0 +1,39 @@
+---
+title: "damage_item"
+description: "Consume puntos de durabilidad del ítem como coste de ejecución."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `damage_item`
+
+* **Categorías:** `inventory, item`  
+* **Identificador / Alias:** `damage_item`
+
+---
+
+Consume puntos de durabilidad del ítem como coste de ejecución.
+- **Categorías:** `inventory, item`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Puntos de durabilidad consumidos. | `EXPRESSION` | `1` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: damage_item
+    args:
+      amount: 1.0
+```
+
+---

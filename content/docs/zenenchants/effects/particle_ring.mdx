@@ -1,0 +1,43 @@
+---
+title: "particle_ring"
+description: "Traza un anillo horizontal perfecto de partículas en el suelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `particle_ring`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `particle_ring`
+
+---
+
+Traza un anillo horizontal perfecto de partículas en el suelo.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `particle` | Tipo de partícula. | `PARTICLE` | `FLAME` |
+| `radius` | Radio del anillo en bloques. | `DECIMAL` | `2.0` |
+| `points` | Número de partículas en el borde. | `INTEGER` | `20` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: particle_ring
+    args:
+      particle: SPEED
+      radius: 1.0
+      points: 2
+```
+
+---

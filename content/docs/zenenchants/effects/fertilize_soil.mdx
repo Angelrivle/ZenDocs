@@ -1,0 +1,39 @@
+---
+title: "fertilize_soil"
+description: "Aplica fertilizante mejorando la tasa de crecimiento de la tierra."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fertilize_soil`
+
+* **Categorías:** `farming, blocks`  
+* **Identificador / Alias:** `fertilize_soil`
+
+---
+
+Aplica fertilizante mejorando la tasa de crecimiento de la tierra.
+- **Categorías:** `farming, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de fertilizado. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: fertilize_soil
+    args:
+      radius: 2
+```
+
+---

@@ -1,0 +1,25 @@
+---
+title: "food_below"
+description: "El nivel de hambre está por debajo del especificado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `food_below`
+
+* **Categoría:** `Entidad & Jugador`  
+* **Identificador / Alias:** `food_below`  
+* **Argumentos Soportados:** `food: <num>`
+
+---
+
+El nivel de hambre está por debajo del especificado.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: food_below
+    args:
+      # `food: <num>`
+    not: false
+```

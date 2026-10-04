@@ -1,0 +1,39 @@
+---
+title: "place_block"
+description: "Coloca un bloque en la coordenada fijada si el espacio está libre."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `place_block`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `place_block`
+
+---
+
+Coloca un bloque en la coordenada fijada si el espacio está libre.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `block` | Tipo de bloque a colocar. | `MATERIAL` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: place_block
+    args:
+      block: SPEED
+```
+
+---

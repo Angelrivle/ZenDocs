@@ -1,0 +1,28 @@
+---
+title: "arrow_headshot"
+description: "Al impactar un disparo a la cabeza del oponente."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `arrow_headshot`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `arrow_headshot`  
+* **Contexto Inyectado:** `EVENT`, `PROJECTILE`, `VICTIM`
+
+---
+
+Al impactar un disparo a la cabeza del oponente.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - arrow_headshot
+```

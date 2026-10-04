@@ -1,0 +1,38 @@
+---
+title: "mount_entity"
+description: "Monta al jugador sobre la criatura atacada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `mount_entity`
+
+* **Categorías:** `movement, entity`  
+* **Identificador / Alias:** `mount_entity`
+
+---
+
+Monta al jugador sobre la criatura atacada.
+- **Categorías:** `movement, entity`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: mount_entity
+    args:
+```
+
+---

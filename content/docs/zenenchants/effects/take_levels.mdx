@@ -1,0 +1,39 @@
+---
+title: "take_levels"
+description: "Deduce niveles completos de experiencia."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `take_levels`
+
+* **Categorías:** `player, experience`  
+* **Identificador / Alias:** `take_levels`
+
+---
+
+Deduce niveles completos de experiencia.
+- **Categorías:** `player, experience`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Niveles a restar. | `EXPRESSION` | `1` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: take_levels
+    args:
+      amount: 1.0
+```
+
+---

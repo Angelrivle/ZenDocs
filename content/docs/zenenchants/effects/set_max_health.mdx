@@ -1,0 +1,41 @@
+---
+title: "set_max_health"
+description: "Altera la salud máxima permanente del jugador o criatura."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_max_health`
+
+* **Categorías:** `attributes, player`  
+* **Identificador / Alias:** `set_max_health`
+
+---
+
+Altera la salud máxima permanente del jugador o criatura.
+- **Categorías:** `attributes, player`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Nueva salud máxima en medios corazones (20 = 10 corazones). | `EXPRESSION` | `20.0` |
+| `target` | Entidad a modificar. | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_max_health
+    args:
+      amount: 1.0
+      target: SPEED
+```
+
+---

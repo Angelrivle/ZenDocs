@@ -1,0 +1,41 @@
+---
+title: "particle_line"
+description: "Dibuja una línea de partículas uniendo al atacante y la víctima."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `particle_line`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `particle_line`
+
+---
+
+Dibuja una línea de partículas uniendo al atacante y la víctima.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `particle` | Tipo de partícula. | `PARTICLE` | `CRIT` |
+| `density` | Partículas por bloque. | `INTEGER` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: particle_line
+    args:
+      particle: SPEED
+      density: 2
+```
+
+---

@@ -1,0 +1,38 @@
+---
+title: "keep_inventory_on_death"
+description: "Evita que el jugador pierda su inventario al fallecer."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `keep_inventory_on_death`
+
+* **Categorías:** `player, utility`  
+* **Identificador / Alias:** `keep_inventory_on_death`
+
+---
+
+Evita que el jugador pierda su inventario al fallecer.
+- **Categorías:** `player, utility`
+- **Requisitos de Trigger:** `player_death`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `START` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: keep_inventory_on_death
+    args:
+```
+
+---

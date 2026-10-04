@@ -1,0 +1,39 @@
+---
+title: "kick_player"
+description: "Expulsa al jugador del servidor con un mensaje explicativo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `kick_player`
+
+* **Categorías:** `server, moderation`  
+* **Identificador / Alias:** `kick_player`
+
+---
+
+Expulsa al jugador del servidor con un mensaje explicativo.
+- **Categorías:** `server, moderation`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `reason` | Motivo de expulsión mostrado en pantalla. | `STRING` | `Desconectado por encantamiento.` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: kick_player
+    args:
+      reason: SPEED
+```
+
+---

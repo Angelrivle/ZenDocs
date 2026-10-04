@@ -1,0 +1,39 @@
+---
+title: "clear_chat"
+description: "Limpia la ventana del chat del jugador enviando líneas en blanco."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `clear_chat`
+
+* **Categorías:** `messages, player`  
+* **Identificador / Alias:** `clear_chat`
+
+---
+
+Limpia la ventana del chat del jugador enviando líneas en blanco.
+- **Categorías:** `messages, player`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `lines` | Cantidad de líneas vacías para limpiar chat. | `INTEGER` | `100` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: clear_chat
+    args:
+      lines: 2
+```
+
+---

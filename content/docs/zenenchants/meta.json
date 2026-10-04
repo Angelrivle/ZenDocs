@@ -1,0 +1,24 @@
+{
+  "title": "ZenEnchants (New)",
+  "pages": [
+    "index",
+    "requisitos_del_sistema",
+    "instalacion",
+    "comandos_y_permisos",
+    "estructura_de_archivos",
+    "config-yml",
+    "targets-yml",
+    "items-yml",
+    "messages-yml",
+    "rarities-yml",
+    "creacion_encantamientos",
+    "menus",
+    "mecanicas_especiales",
+    "effects",
+    "triggers",
+    "conditions",
+    "filters-and-mutators",
+    "placeholders",
+    "api"
+  ]
+}

@@ -1,0 +1,41 @@
+---
+title: "apply_fatigue"
+description: "Aplica fatiga de picar a la víctima ralentizando sus acciones."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `apply_fatigue`
+
+* **Categorías:** `potions, debuff`  
+* **Identificador / Alias:** `apply_fatigue`
+
+---
+
+Aplica fatiga de picar a la víctima ralentizando sus acciones.
+- **Categorías:** `potions, debuff`
+- **Requisitos de Trigger:** `VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de fatiga de minado. | `EXPRESSION` | `6` |
+| `amplifier` | Nivel de fatiga. | `EXPRESSION` | `0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: apply_fatigue
+    args:
+      duration: 1.0
+      amplifier: 1.0
+```
+
+---

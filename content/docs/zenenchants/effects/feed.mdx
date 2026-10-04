@@ -1,0 +1,41 @@
+---
+title: "feed"
+description: "Restaura puntos de comida y nivel de saturación al jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `feed`
+
+* **Categorías:** `player, food`  
+* **Identificador / Alias:** `feed`
+
+---
+
+Restaura puntos de comida y nivel de saturación al jugador.
+- **Categorías:** `player, food`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `food` | Puntos de comida restaurados. | `INTEGER` | `2` |
+| `saturation` | Puntos de saturación agregados. | `DECIMAL` | `2.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: feed
+    args:
+      food: 2
+      saturation: 1.0
+```
+
+---

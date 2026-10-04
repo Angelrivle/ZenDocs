@@ -1,0 +1,43 @@
+---
+title: "give_item"
+description: "Entrega un ítem configurado directamente al inventario del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `give_item`
+
+* **Categorías:** `inventory, player`  
+* **Identificador / Alias:** `give_item`
+
+---
+
+Entrega un ítem configurado directamente al inventario del jugador.
+- **Categorías:** `inventory, player`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `material` | Material del ítem. | `MATERIAL` | `Obligatorio` |
+| `amount` | Cantidad a entregar. | `INTEGER` | `1` |
+| `name` | Nombre custom del ítem. | `STRING` | `` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: give_item
+    args:
+      material: SPEED
+      amount: 2
+      name: SPEED
+```
+
+---

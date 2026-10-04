@@ -1,0 +1,41 @@
+---
+title: "boost_regeneration"
+description: "Otorga regeneración de vida acelerada al jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `boost_regeneration`
+
+* **Categorías:** `potions, health`  
+* **Identificador / Alias:** `boost_regeneration`
+
+---
+
+Otorga regeneración de vida acelerada al jugador.
+- **Categorías:** `potions, health`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Duración del efecto en segundos. | `EXPRESSION` | `4` |
+| `amplifier` | Nivel del efecto de regeneración. | `EXPRESSION` | `0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: boost_regeneration
+    args:
+      duration: 1.0
+      amplifier: 1.0
+```
+
+---

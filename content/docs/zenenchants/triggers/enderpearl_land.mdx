@@ -1,0 +1,28 @@
+---
+title: "enderpearl_land"
+description: "Al teletransportarse por impacto de perla."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `enderpearl_land`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `enderpearl_land`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al teletransportarse por impacto de perla.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - enderpearl_land
+```

@@ -1,0 +1,39 @@
+---
+title: "telepathy"
+description: "Envía de forma instantánea los drops rotos o botín al inventario del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `telepathy`
+
+* **Categorías:** `mining, inventory`  
+* **Identificador / Alias:** `telepathy`
+
+---
+
+Envía de forma instantánea los drops rotos o botín al inventario del jugador.
+- **Categorías:** `mining, inventory`
+- **Requisitos de Trigger:** `mine_block, kill_entity`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `drop_when_full` | Deja caer el sobrante en el suelo si el inventario está lleno. | `BOOLEAN` | `true` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: telepathy
+    args:
+      drop_when_full: true
+```
+
+---

@@ -1,0 +1,43 @@
+---
+title: "deal_damage"
+description: "Inflige una cantidad directa de daño a la entidad seleccionada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `deal_damage`
+
+* **Categorías:** `combat, entity`  
+* **Identificador / Alias:** `deal_damage`
+
+---
+
+Inflige una cantidad directa de daño a la entidad seleccionada.
+- **Categorías:** `combat, entity`
+- **Requisitos de Trigger:** `VICTIM o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `damage` | Cantidad de puntos de daño a infligir. | `EXPRESSION` | `Obligatorio` |
+| `target` | Entidad objetivo (victim, player). | `STRING` | `victim` |
+| `damage_type` | Tipo de daño (GENERIC, MAGIC, FIRE, WITHER). | `DAMAGE_TYPE` | `GENERIC` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: deal_damage
+    args:
+      damage: 1.0
+      target: SPEED
+      damage_type: SPEED
+```
+
+---

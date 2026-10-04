@@ -1,0 +1,28 @@
+---
+title: "poison_damage"
+description: "Al sufrir daño por veneno."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `poison_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `poison_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al sufrir daño por veneno.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - poison_damage
+```

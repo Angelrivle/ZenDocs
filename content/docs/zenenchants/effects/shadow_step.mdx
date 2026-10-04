@@ -1,0 +1,38 @@
+---
+title: "shadow_step"
+description: "Teletransporta al atacante directamente a la espalda de la víctima."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shadow_step`
+
+* **Categorías:** `movement, stealth`  
+* **Identificador / Alias:** `shadow_step`
+
+---
+
+Teletransporta al atacante directamente a la espalda de la víctima.
+- **Categorías:** `movement, stealth`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: shadow_step
+    args:
+```
+
+---

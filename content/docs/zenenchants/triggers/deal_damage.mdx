@@ -1,0 +1,28 @@
+---
+title: "deal_damage"
+description: "Se dispara al causar cualquier daño en el juego."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `deal_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `deal_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `VICTIM`, `LOCATION`
+
+---
+
+Se dispara al causar cualquier daño en el juego.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - deal_damage
+```

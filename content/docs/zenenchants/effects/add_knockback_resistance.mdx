@@ -1,0 +1,39 @@
+---
+title: "add_knockback_resistance"
+description: "Otorga resistencia al retroceso por golpes o proyectiles."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `add_knockback_resistance`
+
+* **Categorías:** `attributes, defense`  
+* **Identificador / Alias:** `add_knockback_resistance`
+
+---
+
+Otorga resistencia al retroceso por golpes o proyectiles.
+- **Categorías:** `attributes, defense`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Resistencia a retroceso (0.1 a 1.0). | `DECIMAL` | `0.2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: add_knockback_resistance
+    args:
+      amount: 1.0
+```
+
+---

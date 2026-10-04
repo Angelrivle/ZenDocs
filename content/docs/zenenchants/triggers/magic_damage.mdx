@@ -1,0 +1,28 @@
+---
+title: "magic_damage"
+description: "Al recibir daño por pociones mágicas o espinas."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `magic_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `magic_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al recibir daño por pociones mágicas o espinas.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - magic_damage
+```

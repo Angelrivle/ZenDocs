@@ -1,0 +1,28 @@
+---
+title: "eat"
+description: "Al terminar de comer un alimento o beber poción."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `eat`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `eat` / `consume`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `ITEM`
+
+---
+
+Al terminar de comer un alimento o beber poción.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - eat
+```

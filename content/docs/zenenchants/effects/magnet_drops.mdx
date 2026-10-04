@@ -1,0 +1,39 @@
+---
+title: "magnet_drops"
+description: "Atrae todos los ítems tirados en el suelo hacia la posición del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `magnet_drops`
+
+* **Categorías:** `utility, items`  
+* **Identificador / Alias:** `magnet_drops`
+
+---
+
+Atrae todos los ítems tirados en el suelo hacia la posición del jugador.
+- **Categorías:** `utility, items`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de atracción de ítems en bloques. | `DECIMAL` | `6.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: magnet_drops
+    args:
+      radius: 1.0
+```
+
+---

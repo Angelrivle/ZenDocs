@@ -1,0 +1,39 @@
+---
+title: "grant_invisibility"
+description: "Vuelve invisible al jugador ante entidades y rivales."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_invisibility`
+
+* **Categorías:** `potions, stealth`  
+* **Identificador / Alias:** `grant_invisibility`
+
+---
+
+Vuelve invisible al jugador ante entidades y rivales.
+- **Categorías:** `potions, stealth`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de invisibilidad. | `EXPRESSION` | `6` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_invisibility
+    args:
+      duration: 1.0
+```
+
+---

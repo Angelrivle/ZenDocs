@@ -1,0 +1,43 @@
+---
+title: "create_firework"
+description: "Lanza un cohete de fuegos artificiales configurable."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `create_firework`
+
+* **Categorías:** `visual, fireworks`  
+* **Identificador / Alias:** `create_firework`
+
+---
+
+Lanza un cohete de fuegos artificiales configurable.
+- **Categorías:** `visual, fireworks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `power` | Fuerza de propulsión. | `INTEGER` | `1` |
+| `colors` | Lista de colores de la explosión. | `LIST` | `[RED, GOLD]` |
+| `type` | Forma del fuego artificial (BALL, BURST, STAR). | `STRING` | `BALL` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: create_firework
+    args:
+      power: 2
+      colors: SPEED
+      type: SPEED
+```
+
+---

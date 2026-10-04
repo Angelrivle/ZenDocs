@@ -1,0 +1,38 @@
+---
+title: "strike_lightning_effect"
+description: "Invoca un rayo cosmético sin causar fuego ni daño."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `strike_lightning_effect`
+
+* **Categorías:** `world, combat`  
+* **Identificador / Alias:** `strike_lightning_effect`
+
+---
+
+Invoca un rayo cosmético sin causar fuego ni daño.
+- **Categorías:** `world, combat`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: strike_lightning_effect
+    args:
+```
+
+---

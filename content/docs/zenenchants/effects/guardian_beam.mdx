@@ -1,0 +1,39 @@
+---
+title: "guardian_beam"
+description: "Proyecta el rayo láser de Guardián entre dos entidades."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `guardian_beam`
+
+* **Categorías:** `visual, animation`  
+* **Identificador / Alias:** `guardian_beam`
+
+---
+
+Proyecta el rayo láser de Guardián entre dos entidades.
+- **Categorías:** `visual, animation`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de duración del rayo láser. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: guardian_beam
+    args:
+      duration: 2
+```
+
+---

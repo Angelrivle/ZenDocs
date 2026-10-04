@@ -1,0 +1,41 @@
+---
+title: "grant_speed"
+description: "Aumenta la velocidad de carrera y desplazamiento."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_speed`
+
+* **Categorías:** `potions, movement`  
+* **Identificador / Alias:** `grant_speed`
+
+---
+
+Aumenta la velocidad de carrera y desplazamiento.
+- **Categorías:** `potions, movement`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de velocidad. | `EXPRESSION` | `8` |
+| `amplifier` | Nivel del efecto de velocidad. | `EXPRESSION` | `0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_speed
+    args:
+      duration: 1.0
+      amplifier: 1.0
+```
+
+---

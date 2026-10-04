@@ -1,0 +1,41 @@
+---
+title: "particle_sphere"
+description: "Genera una esfera envolvente de partículas en la ubicación."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `particle_sphere`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `particle_sphere`
+
+---
+
+Genera una esfera envolvente de partículas en la ubicación.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `particle` | Tipo de partícula. | `PARTICLE` | `ENCHANT` |
+| `radius` | Radio de la esfera. | `DECIMAL` | `2.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: particle_sphere
+    args:
+      particle: SPEED
+      radius: 1.0
+```
+
+---

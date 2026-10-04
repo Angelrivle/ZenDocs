@@ -1,0 +1,45 @@
+---
+title: "potion_effect"
+description: "Aplica un efecto de poción vanilla a la entidad indicada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `potion_effect`
+
+* **Categorías:** `potions, entity`  
+* **Identificador / Alias:** `potion_effect`
+
+---
+
+Aplica un efecto de poción vanilla a la entidad indicada.
+- **Categorías:** `potions, entity`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `effect` | Tipo de poción Bukkit (SPEED, HASTE, STRENGTH, etc.). | `POTION_TYPE` | `Obligatorio` |
+| `duration` | Duración en ticks o segundos. | `EXPRESSION` | `100` |
+| `amplifier` | Nivel de la poción (0 = Nivel I, 1 = Nivel II). | `EXPRESSION` | `0` |
+| `target` | Objetivo que recibe la poción (player o victim). | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: potion_effect
+    args:
+      effect: SPEED
+      duration: 1.0
+      amplifier: 1.0
+      target: SPEED
+```
+
+---

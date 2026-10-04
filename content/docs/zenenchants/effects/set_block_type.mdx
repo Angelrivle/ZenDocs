@@ -1,0 +1,39 @@
+---
+title: "set_block_type"
+description: "Cambia el material del bloque objetivo de forma instantánea."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_block_type`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `set_block_type`
+
+---
+
+Cambia el material del bloque objetivo de forma instantánea.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `material` | Material del bloque. | `MATERIAL` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_block_type
+    args:
+      material: SPEED
+```
+
+---

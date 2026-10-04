@@ -1,0 +1,41 @@
+---
+title: "ignite"
+description: "Prende fuego a la entidad durante la cantidad especificada de segundos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `ignite`
+
+* **Categorías:** `combat, entity`  
+* **Identificador / Alias:** `ignite`
+
+---
+
+Prende fuego a la entidad durante la cantidad especificada de segundos.
+- **Categorías:** `combat, entity`
+- **Requisitos de Trigger:** `VICTIM o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Duración del fuego en segundos o ticks. | `EXPRESSION` | `4` |
+| `target` | Entidad afectada (victim o player). | `STRING` | `victim` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: ignite
+    args:
+      duration: 1.0
+      target: SPEED
+```
+
+---

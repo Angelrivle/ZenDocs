@@ -1,0 +1,39 @@
+---
+title: "flash_screen"
+description: "Genera un destello visual en la pantalla del usuario."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `flash_screen`
+
+* **Categorías:** `visual, player`  
+* **Identificador / Alias:** `flash_screen`
+
+---
+
+Genera un destello visual en la pantalla del usuario.
+- **Categorías:** `visual, player`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `color` | Color del destello (WHITE, RED). | `STRING` | `RED` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: flash_screen
+    args:
+      color: SPEED
+```
+
+---

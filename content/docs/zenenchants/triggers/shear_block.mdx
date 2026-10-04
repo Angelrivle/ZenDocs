@@ -1,0 +1,28 @@
+---
+title: "shear_block"
+description: "Al podar hojas, enredaderas o colmenas con tijeras."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shear_block`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `shear_block`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`
+
+---
+
+Al podar hojas, enredaderas o colmenas con tijeras.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - shear_block
+```

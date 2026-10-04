@@ -1,0 +1,65 @@
+---
+title: "Filtros y Mutadores"
+description: "Transforma parámetros de contexto y filtra entidades, bloques y orígenes de daño en ZenEnchants."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Los **Filtros (Filters)** y **Mutadores (Mutators)** permiten acotar y alterar con exactitud los parámetros del evento antes de que se despachen los efectos en ZenEnchants.
+
+---
+
+## 🔀 Mutadores (Mutators)
+
+Los mutadores transforman los parámetros de contexto (ubicación, jugador, víctima, etc.) antes de que el efecto se procese.
+
+```yaml
+mutators:
+  - id: translate_location
+    args:
+      add_x: 0.0
+      add_y: 1.0
+      add_z: 0.0
+```
+
+| Mutador ID | Argumentos | Descripción |
+| :--- | :--- | :--- |
+| `translate_location` | `add_x`, `add_y`, `add_z` | Desplaza las coordenadas donde se generará el efecto. |
+| `set_location_to_victim` | *(ninguno)* | Reemplaza la ubicación del evento por la de la víctima. |
+| `set_location_to_player` | *(ninguno)* | Reemplaza la ubicación del evento por la del jugador atacante. |
+| `set_location_to_block` | *(ninguno)* | Fija la coordenada en el centro exacto del bloque afectado. |
+| `swap_player_victim` | *(ninguno)* | Intercambia los roles de jugador y víctima para efectos recíprocos. |
+| `nearby_entities` | `radius: <num>`, `types: [...]` | Multiplica la ejecución del efecto para cada entidad en el radio. |
+| `nearby_blocks` | `radius: <num>`, `blocks: [...]` | Aplica el efecto a todos los bloques coincidentes en el radio. |
+| `random_offset` | `spread_x`, `spread_y`, `spread_z` | Añade un desplazamiento aleatorio a la ubicación del efecto. |
+
+---
+
+---
+
+## 🎯 Filtros (Filters)
+
+Los filtros permiten acotar de forma limpia los detonadores sin anidar condicionales complejos. Se colocan bajo la clave `filters:`.
+
+```yaml
+filters:
+  blocks:
+    - "#ores"
+    - ancient_debris
+  entities:
+    - zombie
+    - skeleton
+    - creeper
+  damage_sources:
+    - entity_attack
+    - projectile
+```
+
+| Clave de Filtro | Valores Soportados | Uso Típico |
+| :--- | :--- | :--- |
+| `blocks` | IDs de bloques de Paper (`diamond_ore`, `obsidian`, o tags como `#ores`, `#logs`). | En `mine_block` o `place_block`. |
+| `entities` | IDs de entidades (`player`, `zombie`, `ender_dragon`, etc.). | En `melee_attack`, `kill_entity`, `defend`. |
+| `damage_sources`| Nombres de daño de Bukkit (`ENTITY_ATTACK`, `FALL`, `FIRE`, `VOID`). | En `take_damage` o `defend`. |
+| `projectiles` | Tipos de proyectiles (`ARROW`, `SPECTRAL_ARROW`, `TRIDENT`). | En `shoot_bow`, `arrow_hit`. |
+
+---

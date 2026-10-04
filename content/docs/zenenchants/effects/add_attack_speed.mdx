@@ -1,0 +1,39 @@
+---
+title: "add_attack_speed"
+description: "Aumenta la velocidad de ataque y enfriamiento de arma."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `add_attack_speed`
+
+* **Categorías:** `attributes, combat`  
+* **Identificador / Alias:** `add_attack_speed`
+
+---
+
+Aumenta la velocidad de ataque y enfriamiento de arma.
+- **Categorías:** `attributes, combat`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Puntos sumados a la velocidad de recarga del arma. | `DECIMAL` | `0.2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: add_attack_speed
+    args:
+      amount: 1.0
+```
+
+---

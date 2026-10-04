@@ -1,0 +1,39 @@
+---
+title: "spawn_cobweb"
+description: "Coloca una telaraña temporal que ralentiza al enemigo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_cobweb`
+
+* **Categorías:** `world, combat`  
+* **Identificador / Alias:** `spawn_cobweb`
+
+---
+
+Coloca una telaraña temporal que ralentiza al enemigo.
+- **Categorías:** `world, combat`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos antes de desaparecer. | `INTEGER` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_cobweb
+    args:
+      duration: 2
+```
+
+---

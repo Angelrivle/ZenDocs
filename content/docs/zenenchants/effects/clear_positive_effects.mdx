@@ -1,0 +1,39 @@
+---
+title: "clear_positive_effects"
+description: "Disipa todos los buffs y efectos beneficiosos de la víctima."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `clear_positive_effects`
+
+* **Categorías:** `potions, entity`  
+* **Identificador / Alias:** `clear_positive_effects`
+
+---
+
+Disipa todos los buffs y efectos beneficiosos de la víctima.
+- **Categorías:** `potions, entity`
+- **Requisitos de Trigger:** `VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `target` | Objetivo a disipar (victim o player). | `STRING` | `victim` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: clear_positive_effects
+    args:
+      target: SPEED
+```
+
+---

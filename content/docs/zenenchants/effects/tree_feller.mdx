@@ -1,0 +1,41 @@
+---
+title: "tree_feller"
+description: "Tala el árbol completo al quebrar un bloque de su base."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `tree_feller`
+
+* **Categorías:** `woodcutting, blocks`  
+* **Identificador / Alias:** `tree_feller`
+
+---
+
+Tala el árbol completo al quebrar un bloque de su base.
+- **Categorías:** `woodcutting, blocks`
+- **Requisitos de Trigger:** `mine_block`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `limit` | Límite de bloques de tronco talados. | `EXPRESSION` | `64` |
+| `break_leaves` | Si rompe también el follaje de hojas. | `BOOLEAN` | `true` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: tree_feller
+    args:
+      limit: 1.0
+      break_leaves: true
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "sprint"
+description: "Al iniciar carrera continua."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `sprint`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `sprint`  
+* **Contexto Inyectado:** `PLAYER`
+
+---
+
+Al iniciar carrera continua.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - sprint
+```

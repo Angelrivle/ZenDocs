@@ -1,0 +1,38 @@
+---
+title: "open_anvil"
+description: "Abre la interfaz de un yunque virtual sin desgaste."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `open_anvil`
+
+* **Categorías:** `utility, inventory`  
+* **Identificador / Alias:** `open_anvil`
+
+---
+
+Abre la interfaz de un yunque virtual sin desgaste.
+- **Categorías:** `utility, inventory`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: open_anvil
+    args:
+```
+
+---

@@ -1,0 +1,41 @@
+---
+title: "vein_mine"
+description: "Rompe de forma continua la veta entera del mineral conectado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `vein_mine`
+
+* **Categorías:** `mining, blocks`  
+* **Identificador / Alias:** `vein_mine`
+
+---
+
+Rompe de forma continua la veta entera del mineral conectado.
+- **Categorías:** `mining, blocks`
+- **Requisitos de Trigger:** `mine_block`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `limit` | Máximo de bloques picados por veta. | `EXPRESSION` | `16` |
+| `damage_durability` | Si desgasta durabilidad por bloque picado. | `BOOLEAN` | `true` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: vein_mine
+    args:
+      limit: 1.0
+      damage_durability: true
+```
+
+---

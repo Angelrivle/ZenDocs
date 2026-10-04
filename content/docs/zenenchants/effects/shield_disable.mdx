@@ -1,0 +1,39 @@
+---
+title: "shield_disable"
+description: "Inhabilita el escudo del defensor durante varios segundos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shield_disable`
+
+* **Categorías:** `combat, player`  
+* **Identificador / Alias:** `shield_disable`
+
+---
+
+Inhabilita el escudo del defensor durante varios segundos.
+- **Categorías:** `combat, player`
+- **Requisitos de Trigger:** `VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de desactivación de escudo. | `EXPRESSION` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: shield_disable
+    args:
+      duration: 1.0
+```
+
+---

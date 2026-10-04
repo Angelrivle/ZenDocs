@@ -1,0 +1,45 @@
+---
+title: "bossbar_create"
+description: "Crea una barra de jefe personalizada en la parte superior."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `bossbar_create`
+
+* **Categorías:** `display, bossbar`  
+* **Identificador / Alias:** `bossbar_create`
+
+---
+
+Crea una barra de jefe personalizada en la parte superior.
+- **Categorías:** `display, bossbar`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `id` | Identificador de la barra. | `STRING` | `Obligatorio` |
+| `title` | Título en MiniMessage. | `STRING` | `Obligatorio` |
+| `color` | Color de la barra (RED, BLUE, GREEN). | `STRING` | `PURPLE` |
+| `progress` | Progreso de 0.0 a 1.0. | `DECIMAL` | `1.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: bossbar_create
+    args:
+      id: SPEED
+      title: SPEED
+      color: SPEED
+      progress: 1.0
+```
+
+---

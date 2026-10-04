@@ -1,0 +1,28 @@
+---
+title: "trample_farmland"
+description: "Al pisar y destruir un bloque de tierra arada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `trample_farmland`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `trample_farmland`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`
+
+---
+
+Al pisar y destruir un bloque de tierra arada.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - trample_farmland
+```

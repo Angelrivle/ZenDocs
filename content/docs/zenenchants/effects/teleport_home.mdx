@@ -1,0 +1,38 @@
+---
+title: "teleport_home"
+description: "Teletransporta al jugador de regreso a su punto de reaparición o cama."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `teleport_home`
+
+* **Categorías:** `movement, teleport`  
+* **Identificador / Alias:** `teleport_home`
+
+---
+
+Teletransporta al jugador de regreso a su punto de reaparición o cama.
+- **Categorías:** `movement, teleport`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: teleport_home
+    args:
+```
+
+---

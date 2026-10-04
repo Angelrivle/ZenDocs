@@ -1,0 +1,39 @@
+---
+title: "grant_slow_falling"
+description: "Hace que el jugador caiga como una pluma sin sufrir daño de impacto."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_slow_falling`
+
+* **Categorías:** `potions, movement`  
+* **Identificador / Alias:** `grant_slow_falling`
+
+---
+
+Hace que el jugador caiga como una pluma sin sufrir daño de impacto.
+- **Categorías:** `potions, movement`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de caída lenta. | `EXPRESSION` | `8` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_slow_falling
+    args:
+      duration: 1.0
+```
+
+---

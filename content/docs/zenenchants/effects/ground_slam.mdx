@@ -1,0 +1,43 @@
+---
+title: "ground_slam"
+description: "Golpea el suelo levantando por los aires y dañando a los enemigos cercanos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `ground_slam`
+
+* **Categorías:** `combat, physical`  
+* **Identificador / Alias:** `ground_slam`
+
+---
+
+Golpea el suelo levantando por los aires y dañando a los enemigos cercanos.
+- **Categorías:** `combat, physical`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio del impacto en el suelo. | `DECIMAL` | `4.0` |
+| `damage` | Daño del impacto. | `EXPRESSION` | `5.0` |
+| `lift` | Elevación aplicada a los enemigos. | `DECIMAL` | `0.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: ground_slam
+    args:
+      radius: 1.0
+      damage: 1.0
+      lift: 1.0
+```
+
+---

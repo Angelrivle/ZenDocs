@@ -1,0 +1,25 @@
+---
+title: "light_above"
+description: "El nivel de luz es superior al umbral indicado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `light_above`
+
+* **Categoría:** `Ubicación & Mundo`  
+* **Identificador / Alias:** `light_above`  
+* **Argumentos Soportados:** `level: <0-15>`
+
+---
+
+El nivel de luz es superior al umbral indicado.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: light_above
+    args:
+      # `level: <0-15>`
+    not: false
+```

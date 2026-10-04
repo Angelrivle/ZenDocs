@@ -1,0 +1,39 @@
+---
+title: "spawn_light"
+description: "Coloca un bloque invisible de luz en la ubicación."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_light`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `spawn_light`
+
+---
+
+Coloca un bloque invisible de luz en la ubicación.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `level` | Nivel de iluminación (1 a 15). | `INTEGER` | `15` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_light
+    args:
+      level: 2
+```
+
+---

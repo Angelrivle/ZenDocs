@@ -1,0 +1,22 @@
+---
+title: "Comandos y Permisos"
+description: "Guía y detalles de configuración del módulo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Comandos y Permisos
+
+---
+
+| Comando | Alias | Permiso Requerido | Descripción |
+| :--- | :--- | :--- | :--- |
+| `/enchants` | `/ze`, `/zenenchants` | `zenenchants.use` (por defecto: todos) | Abre la enciclopedia interactiva de encantamientos. |
+| `/enchants shop` | `/ze shop`, `/ze buy` | `zenenchants.use` | Abre la tienda de libros misteriosos. |
+| `/enchants reload` | `/ze reload` | `zenenchants.admin` (por defecto: OP) | Recarga configuraciones, encantamientos, targets, ítems y mensajes en caliente. |
+| `/enchants givebook <jugador> <enchant> <nivel> <éxito> <destrucción>` | `/ze givebook` | `zenenchants.admin` | Entrega un libro custom con tasas obligatorias de éxito y destrucción. |
+| `/enchants giverandombook <jugador> <rareza>` | `/ze giverandombook` | `zenenchants.admin` | Entrega un libro aleatorio de la rareza indicada (`common`, `rare`, `legendary`, `special`). |
+| `/enchants givedust <jugador> <porcentaje>` | `/ze givedust` | `zenenchants.admin` | Entrega Polvo Mágico (Secret Dust) que incrementa la probabilidad de éxito de libros custom al arrastrarlo. |
+| `/enchant <jugador> <enchant> [nivel]` | Ninguno | `zenenchants.admin` | Comando prioritario para encantar el ítem sostenido en mano (soporta custom y vanilla con glint). |
+| `/enchantinfo [enchant]` | `/zenchantinfo`, `/ei` | `zenenchants.use` | Abre la GUI informativa de un encantamiento. Si no se indica argumento, lee el ítem/libro en mano. |
+| `/tinkerer` | `/tinker` | `zenenchants.use` | Abre el menú del Tinkerer para reciclar libros o ítems customs por Polvo Mágico o experiencia. |

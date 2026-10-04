@@ -1,0 +1,28 @@
+---
+title: "totem_pop"
+description: "Al consumirse un Tótem de la Inmortalidad salvando la vida."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `totem_pop`
+
+* **Categoría:** `Muerte & Asesinatos`  
+* **Identificador / Alias:** `totem_pop`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al consumirse un Tótem de la Inmortalidad salvando la vida.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - totem_pop
+```

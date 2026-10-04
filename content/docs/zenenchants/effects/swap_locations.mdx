@@ -1,0 +1,38 @@
+---
+title: "swap_locations"
+description: "Intercambia instantáneamente las posiciones del jugador y su oponente."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `swap_locations`
+
+* **Categorías:** `movement, teleport`  
+* **Identificador / Alias:** `swap_locations`
+
+---
+
+Intercambia instantáneamente las posiciones del jugador y su oponente.
+- **Categorías:** `movement, teleport`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: swap_locations
+    args:
+```
+
+---

@@ -1,0 +1,95 @@
+---
+title: "Configuración (config.yml)"
+description: "El archivo config.yml controla el comportamiento de los encantamientos, mesas, yunques y aldeanos en el..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Configuración (config.yml)
+
+---
+
+El archivo `config.yml` controla el comportamiento de los encantamientos, mesas, yunques y aldeanos en el servidor:
+
+```yaml
+settings:
+  # Activar o desactivar encantamientos personalizados y de catálogo
+  enable-custom-enchantments: true
+  enable-vanilla-enchantments: true
+
+  # Límite máximo de encantamientos personalizados por objeto (-1 para ilimitado)
+  max-custom-enchants-per-item: 15
+
+  # Formato de números romanos en los niveles
+  numerals:
+    enabled: true
+    threshold: 10 # A partir de este nivel se usarán números arábigos (ej: 11, 12...)
+
+  # Estilo visual para niveles que superan el máximo natural
+  above-max-level:
+    enabled: true
+    format: "<gradient:#DB9D32:#E8DF33>"
+    level-only: true
+
+  # Orden de prioridad para mostrar las rarezas en el lore
+  rarity-order:
+    - common
+    - rare
+    - legendary
+    - special
+
+  # Probabilidades de éxito y destrucción al aplicar libros mágicos
+  success-destroy-system:
+    enabled: true
+    default-min-success: 60
+    default-max-success: 100
+    default-min-destroy: 0
+    default-max-destroy: 25
+
+  # Formato del lore en los objetos encantados
+  lore-format:
+    prefix: "<gray>"
+    show-rarity-color: true
+    descriptions:
+      enabled: true
+      threshold: 3 # Oculta descripciones si el ítem tiene más de este límite
+      prefix: " <dark_gray>» </dark_gray><gray>"
+    collapse:
+      enabled: false
+      threshold: 5
+      per-line: 2
+      delimiter: "<dark_gray>, </dark_gray>"
+
+  # Integración con Mesa de Encantamientos
+  enchanting-table:
+    enabled: true
+    chance-to-offer-custom: 60
+    book-multiplier: 0.14
+    cap: 5
+    reduction: 2.2
+
+  # Integración con Aldeanos Libreros
+  villagers:
+    enabled: true
+    chance-to-replace-trade: 35
+    pass-through-chance: 25
+    book-multiplier: 0.14
+    reduction: 5
+
+  # Integración con Cofres de Estructuras
+  loot-chests:
+    enabled: true
+    chance-per-chest: 65
+    min-books: 1
+    max-books: 2
+    book-multiplier: 0.5
+    reduction: 7.5
+
+  # Opciones del Yunque
+  anvil:
+    vanilla-costs: false
+    cost-exponent: 0.95
+    enchant-limit: -1
+    max-repair-cost: 40
+    clamp-repair-cost: true
+```

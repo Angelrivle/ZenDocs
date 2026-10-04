@@ -1,0 +1,38 @@
+---
+title: "cure_zombie_villager"
+description: "Cura de forma inmediata a un aldeano zombi transformándolo en aldeano."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `cure_zombie_villager`
+
+* **Categorías:** `entity, transform`  
+* **Identificador / Alias:** `cure_zombie_villager`
+
+---
+
+Cura de forma inmediata a un aldeano zombi transformándolo en aldeano.
+- **Categorías:** `entity, transform`
+- **Requisitos de Trigger:** `VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: cure_zombie_villager
+    args:
+```
+
+---

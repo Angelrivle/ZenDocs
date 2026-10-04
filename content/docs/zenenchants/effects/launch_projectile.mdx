@@ -1,0 +1,41 @@
+---
+title: "launch_projectile"
+description: "Dispara un proyectil en la dirección de la mirada del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `launch_projectile`
+
+* **Categorías:** `projectile, combat`  
+* **Identificador / Alias:** `launch_projectile`
+
+---
+
+Dispara un proyectil en la dirección de la mirada del jugador.
+- **Categorías:** `projectile, combat`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `projectile` | Tipo de proyectil (ARROW, FIREBALL, SNOWBALL). | `PROJECTILE_TYPE` | `ARROW` |
+| `speed` | Velocidad de salida. | `DECIMAL` | `1.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: launch_projectile
+    args:
+      projectile: SPEED
+      speed: 1.0
+```
+
+---

@@ -1,0 +1,47 @@
+---
+title: "title"
+description: "Muestra un título y subtítulo en medio de la pantalla del usuario."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `title`
+
+* **Categorías:** `messages, display`  
+* **Identificador / Alias:** `title`
+
+---
+
+Muestra un título y subtítulo en medio de la pantalla del usuario.
+- **Categorías:** `messages, display`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `title` | Título principal en pantalla. | `STRING` | `Obligatorio` |
+| `subtitle` | Subtítulo complementario. | `STRING` | `` |
+| `fade_in` | Ticks de desvanecimiento de entrada. | `INTEGER` | `10` |
+| `stay` | Ticks de permanencia en pantalla. | `INTEGER` | `40` |
+| `fade_out` | Ticks de salida. | `INTEGER` | `10` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: title
+    args:
+      title: SPEED
+      subtitle: SPEED
+      fade_in: 2
+      stay: 2
+      fade_out: 2
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "stop_glide"
+description: "Al tocar tierra y cerrar los élitros."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `stop_glide`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `stop_glide`  
+* **Contexto Inyectado:** `PLAYER`
+
+---
+
+Al tocar tierra y cerrar los élitros.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - stop_glide
+```

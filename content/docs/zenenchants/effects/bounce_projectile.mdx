@@ -1,0 +1,39 @@
+---
+title: "bounce_projectile"
+description: "Hace que el proyectil rebote hacia otra entidad cercana tras impactar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `bounce_projectile`
+
+* **Categorías:** `projectile, combat`  
+* **Identificador / Alias:** `bounce_projectile`
+
+---
+
+Hace que el proyectil rebote hacia otra entidad cercana tras impactar.
+- **Categorías:** `projectile, combat`
+- **Requisitos de Trigger:** `PROJECTILE, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `max_bounces` | Cantidad máxima de rebotes. | `INTEGER` | `2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: bounce_projectile
+    args:
+      max_bounces: 2
+```
+
+---

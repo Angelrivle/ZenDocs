@@ -1,0 +1,38 @@
+---
+title: "open_enderchest"
+description: "Abre el cofre del End personal del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `open_enderchest`
+
+* **Categorías:** `utility, inventory`  
+* **Identificador / Alias:** `open_enderchest`
+
+---
+
+Abre el cofre del End personal del jugador.
+- **Categorías:** `utility, inventory`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: open_enderchest
+    args:
+```
+
+---

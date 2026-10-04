@@ -1,0 +1,67 @@
+---
+title: "Placeholders y Argumentos Comunes"
+description: "Variables de contexto dinámico, expresiones matemáticas y modificadores comunes de efectos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+ZenEnchants proporciona soporte nativo para placeholders dinámicos de evento y modificadores de ejecución universal (`chance`, `cooldown`, `delay`, `repeat`, etc.).
+
+---
+
+## ⚙️ Argumentos Opcionales Comunes
+
+Todos estos modificadores se pueden ubicar dentro de la sección `args:` de **cualquier efecto**:
+
+```yaml
+args:
+  chance: 25 # Probabilidad de 0 a 100% de ejecutarse (soporta expresiones)
+  cooldown: 5 # Cooldown en segundos entre activaciones para este jugador
+  cooldown_group: combat_burst # Grupo de cooldown compartido con otros efectos
+  delay: 20 # Tiempo de espera en ticks (20 ticks = 1 seg) antes de disparar
+  every: 3 # Se activa cada X ejecuciones del evento
+  cost: 50.0 # Coste económico de activación (requiere Vault)
+  run-order: normal # Orden de ejecución: START, EARLY, NORMAL, LATE o END
+  repeat:
+    times: 5 # Cantidad de repeticiones continuas
+    interval: 10 # Intervalo de ticks entre cada repetición
+```
+
+---
+
+---
+
+## 🧮 Placeholders de Contexto Dinámico
+
+Cualquier valor numérico en ZenEnchants acepta expresiones matemáticas avanzadas combinadas con placeholders:
+
+### Placeholders Universales:
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%level%` | Nivel del encantamiento que dispara el efecto. | `3` |
+| `%player%` | Nombre del jugador que porta el encantamiento. | `Alex` |
+| `%player_uuid%` | UUID del jugador. | `e1f82c44-77a8...` |
+| `%player_health%` | Salud actual del jugador. | `14.5` |
+| `%player_max_health%` | Salud máxima del jugador. | `20.0` |
+| `%player_food%` | Nivel de barra de comida del jugador (0 a 20). | `18` |
+| `%player_y%` | Coordenada Y de elevación del jugador. | `64` |
+| `%player_level%` | Niveles de experiencia acumulados del jugador. | `30` |
+
+### Placeholders de Combate & Víctima:
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%victim%` | Nombre o display de la víctima golpeada. | `Zombie` |
+| `%victim_health%` | Vida actual de la víctima antes del golpe. | `8.0` |
+| `%victim_max_health%`| Vida máxima de la criatura oponente. | `20.0` |
+| `%distance%` | Distancia en bloques entre el atacante y la víctima. | `4.2` |
+| `%damage%` / `%trigger_value%` | Daño original que transporta el evento. | `7.5` |
+| `%hits%` | Número consecutivo de golpes acertados al objetivo. | `3` |
+
+### Placeholders de Ubicación y Bloque:
+| Placeholder | Descripción | Ejemplo de Salida |
+| :--- | :--- | :--- |
+| `%location_x%` / `%x%` | Coordenada X exacta del evento. | `120.5` |
+| `%location_y%` / `%y%` | Coordenada Y exacta del evento. | `64.0` |
+| `%location_z%` / `%z%` | Coordenada Z exacta del evento. | `-350.2` |
+| `%location_world%` | Nombre del mundo donde ocurrió el evento. | `world_nether` |
+| `%block_type%` | Tipo de bloque involucrado en la acción. | `DIAMOND_ORE` |

@@ -1,0 +1,39 @@
+---
+title: "blink"
+description: "Teletransporta al jugador hacia adelante en la dirección a la que mira."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `blink`
+
+* **Categorías:** `movement, teleport`  
+* **Identificador / Alias:** `blink`
+
+---
+
+Teletransporta al jugador hacia adelante en la dirección a la que mira.
+- **Categorías:** `movement, teleport`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `distance` | Distancia en bloques hacia el frente. | `DECIMAL` | `5.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: blink
+    args:
+      distance: 1.0
+```
+
+---

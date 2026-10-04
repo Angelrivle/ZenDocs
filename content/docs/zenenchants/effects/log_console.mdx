@@ -1,0 +1,39 @@
+---
+title: "log_console"
+description: "Escribe una línea de registro informativa en los logs de la consola."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `log_console`
+
+* **Categorías:** `logging, server`  
+* **Identificador / Alias:** `log_console`
+
+---
+
+Escribe una línea de registro informativa en los logs de la consola.
+- **Categorías:** `logging, server`
+- **Requisitos de Trigger:** `none`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `message` | Texto a escribir en consola. | `STRING` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: log_console
+    args:
+      message: SPEED
+```
+
+---

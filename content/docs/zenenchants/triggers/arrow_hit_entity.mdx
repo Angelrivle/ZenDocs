@@ -1,0 +1,28 @@
+---
+title: "arrow_hit_entity"
+description: "Al impactar una flecha directamente a una criatura."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `arrow_hit_entity`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `arrow_hit_entity`  
+* **Contexto Inyectado:** `EVENT`, `PROJECTILE`, `VICTIM`
+
+---
+
+Al impactar una flecha directamente a una criatura.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - arrow_hit_entity
+```

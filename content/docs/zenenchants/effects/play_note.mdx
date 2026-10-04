@@ -1,0 +1,41 @@
+---
+title: "play_note"
+description: "Toca una nota musical instrumental de bloque musical."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `play_note`
+
+* **Categorías:** `audio`  
+* **Identificador / Alias:** `play_note`
+
+---
+
+Toca una nota musical instrumental de bloque musical.
+- **Categorías:** `audio`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `instrument` | Instrumento Bukkit (PIANO, BASS, SNARE). | `INSTRUMENT` | `PIANO` |
+| `note` | Nota musical (0 a 24). | `INTEGER` | `12` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: play_note
+    args:
+      instrument: SPEED
+      note: 2
+```
+
+---

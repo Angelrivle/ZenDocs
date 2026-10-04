@@ -1,0 +1,39 @@
+---
+title: "dispatch_bungee_message"
+description: "Envía un mensaje a través del canal de plugins de BungeeCord / Velocity."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `dispatch_bungee_message`
+
+* **Categorías:** `network, proxy`  
+* **Identificador / Alias:** `dispatch_bungee_message`
+
+---
+
+Envía un mensaje a través del canal de plugins de BungeeCord / Velocity.
+- **Categorías:** `network, proxy`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `channel` | Canal del plugin proxy. | `STRING` | `BungeeCord` |
+| `message` | Mensaje raw enviado. | `STRING` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: dispatch_bungee_message
+    args:
+      channel: SPEED
+      message: SPEED
+```

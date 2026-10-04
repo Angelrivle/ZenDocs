@@ -1,0 +1,39 @@
+---
+title: "spawn_tnt"
+description: "Genera un bloque de dinamita encendida con cuenta atrás."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_tnt`
+
+* **Categorías:** `world, combat`  
+* **Identificador / Alias:** `spawn_tnt`
+
+---
+
+Genera un bloque de dinamita encendida con cuenta atrás.
+- **Categorías:** `world, combat`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `fuse` | Ticks antes de detonar. | `INTEGER` | `40` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_tnt
+    args:
+      fuse: 2
+```
+
+---

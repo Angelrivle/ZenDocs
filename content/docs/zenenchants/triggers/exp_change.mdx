@@ -1,0 +1,28 @@
+---
+title: "exp_change"
+description: "Al absorber cualquier orbe de experiencia."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `exp_change`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `exp_change`  
+* **Contexto Inyectado:** `PLAYER`
+
+---
+
+Al absorber cualquier orbe de experiencia.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - exp_change
+```

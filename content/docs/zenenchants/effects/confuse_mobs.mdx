@@ -1,0 +1,39 @@
+---
+title: "confuse_mobs"
+description: "Hace que los monstruos del área comiencen a atacarse entre sí."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `confuse_mobs`
+
+* **Categorías:** `entity, combat`  
+* **Identificador / Alias:** `confuse_mobs`
+
+---
+
+Hace que los monstruos del área comiencen a atacarse entre sí.
+- **Categorías:** `entity, combat`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de confusión en bloques. | `DECIMAL` | `6.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: confuse_mobs
+    args:
+      radius: 1.0
+```
+
+---

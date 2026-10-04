@@ -1,0 +1,39 @@
+---
+title: "damage_multiplier"
+description: "Multiplica el daño total infligido o recibido por un factor configurado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `damage_multiplier`
+
+* **Categorías:** `combat, damage`  
+* **Identificador / Alias:** `damage_multiplier`
+
+---
+
+Multiplica el daño total infligido o recibido por un factor configurado.
+- **Categorías:** `combat, damage`
+- **Requisitos de Trigger:** `EVENT`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `multiplier` | Factor multiplicador del daño total (ej. 1.5 = +50%). | `EXPRESSION` | `1.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: damage_multiplier
+    args:
+      multiplier: 1.0
+```
+
+---

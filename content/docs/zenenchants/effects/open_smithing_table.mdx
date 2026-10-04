@@ -1,0 +1,38 @@
+---
+title: "open_smithing_table"
+description: "Abre la mesa de herrería virtual."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `open_smithing_table`
+
+* **Categorías:** `utility, inventory`  
+* **Identificador / Alias:** `open_smithing_table`
+
+---
+
+Abre la mesa de herrería virtual.
+- **Categorías:** `utility, inventory`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: open_smithing_table
+    args:
+```
+
+---

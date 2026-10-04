@@ -1,0 +1,41 @@
+---
+title: "launch_towards"
+description: "Dispara al jugador propulsado hacia la entidad seleccionada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `launch_towards`
+
+* **Categorías:** `physics, movement`  
+* **Identificador / Alias:** `launch_towards`
+
+---
+
+Dispara al jugador propulsado hacia la entidad seleccionada.
+- **Categorías:** `physics, movement`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `target` | Objetivo hacia el cual propulsarse. | `STRING` | `victim` |
+| `speed` | Velocidad de propulsión. | `DECIMAL` | `1.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: launch_towards
+    args:
+      target: SPEED
+      speed: 1.0
+```
+
+---

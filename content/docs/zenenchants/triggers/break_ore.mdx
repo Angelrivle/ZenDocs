@@ -1,0 +1,28 @@
+---
+title: "break_ore"
+description: "Al picar cualquier tipo de mineral del subsuelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `break_ore`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `break_ore`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`, `LOCATION`
+
+---
+
+Al picar cualquier tipo de mineral del subsuelo.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - break_ore
+```

@@ -1,0 +1,28 @@
+---
+title: "fish_caught"
+description: "Al pescar exitosamente un pez o tesoro con caña."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fish_caught`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `fish_caught`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `ITEM`
+
+---
+
+Al pescar exitosamente un pez o tesoro con caña.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - fish_caught
+```

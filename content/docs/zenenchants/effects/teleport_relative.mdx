@@ -1,0 +1,43 @@
+---
+title: "teleport_relative"
+description: "Teletransporta al jugador desplazándolo de forma relativa a su orientación."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `teleport_relative`
+
+* **Categorías:** `movement, teleport`  
+* **Identificador / Alias:** `teleport_relative`
+
+---
+
+Teletransporta al jugador desplazándolo de forma relativa a su orientación.
+- **Categorías:** `movement, teleport`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `x` | Desplazamiento horizontal relativo. | `DECIMAL` | `0.0` |
+| `y` | Desplazamiento vertical. | `DECIMAL` | `0.0` |
+| `z` | Desplazamiento en profundidad. | `DECIMAL` | `3.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: teleport_relative
+    args:
+      x: 1.0
+      y: 1.0
+      z: 1.0
+```
+
+---

@@ -1,0 +1,41 @@
+---
+title: "grant_strength"
+description: "Aumenta el daño base de los ataques cuerpo a cuerpo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_strength`
+
+* **Categorías:** `potions, combat`  
+* **Identificador / Alias:** `grant_strength`
+
+---
+
+Aumenta el daño base de los ataques cuerpo a cuerpo.
+- **Categorías:** `potions, combat`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de fuerza activa. | `EXPRESSION` | `5` |
+| `amplifier` | Nivel del buff de fuerza. | `EXPRESSION` | `0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_strength
+    args:
+      duration: 1.0
+      amplifier: 1.0
+```
+
+---

@@ -1,0 +1,41 @@
+---
+title: "drop_item"
+description: "Genera un ítem físico en el suelo del mundo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `drop_item`
+
+* **Categorías:** `items, world`  
+* **Identificador / Alias:** `drop_item`
+
+---
+
+Genera un ítem físico en el suelo del mundo.
+- **Categorías:** `items, world`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `material` | Material del ítem soltado. | `MATERIAL` | `Obligatorio` |
+| `amount` | Cantidad de ítems. | `INTEGER` | `1` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: drop_item
+    args:
+      material: SPEED
+      amount: 2
+```
+
+---

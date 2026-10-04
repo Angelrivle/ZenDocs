@@ -1,0 +1,44 @@
+---
+title: "Ítems Especiales (items.yml)"
+description: "Permite personalizar el aspecto, materiales, brillos y textos de los libros custom, polvos mágicos y libros..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Ítems Especiales (items.yml)
+
+---
+
+Permite personalizar el aspecto, materiales, brillos y textos de los libros custom, polvos mágicos y libros misteriosos:
+
+```yaml
+items:
+  # Formato del Libro de Encantamiento Personalizado
+  enchanted-book:
+    success-lore: "<green>%success%% Probabilidad de Éxito</green>"
+    destroy-lore: "<red>%destroy%% Probabilidad de Destrucción</red>"
+    applies-to-format: "<gray>Se aplica a: <white>%targets%</white></gray>"
+
+  # Polvo Mágico de Éxito
+  magic-dust:
+    material: SUGAR
+    name: "<gold><b>Polvo Mágico de Éxito</b></gold> <yellow>(+%rate%%)</yellow>"
+    glow: true
+    lore:
+      - "<gray>Aumenta la probabilidad de éxito de</gray>"
+      - "<gray>un libro de encantamientos personalizado.</gray>"
+      - ""
+      - "<yellow>Incremento: <green>+%rate%% Éxito</green></yellow>"
+      - "<dark_gray>Arrastra y suelta sobre un libro custom</dark_gray>"
+
+  # Libro Misterioso (Mystery Book)
+  mystery-book:
+    material: BOOK
+    name: "%rarity_color%<b>Libro Misterioso [%rarity_name%]</b>"
+    glow: true
+    lore:
+      - "<gray>Examina este libro para revelar un</gray>"
+      - "<gray>encantamiento de categoría %rarity_name%.</gray>"
+      - ""
+      - "<green>▶ Clic derecho para revelar</green>"
+```

@@ -1,0 +1,41 @@
+---
+title: "evoker_fangs"
+description: "Spawnea colmillos de invocador de Evoker que emergen del suelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `evoker_fangs`
+
+* **Categorías:** `combat, magic`  
+* **Identificador / Alias:** `evoker_fangs`
+
+---
+
+Spawnea colmillos de invocador de Evoker que emergen del suelo.
+- **Categorías:** `combat, magic`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `count` | Cantidad de colmillos invocados. | `INTEGER` | `5` |
+| `radius` | Radio de propagación circular. | `DECIMAL` | `2.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: evoker_fangs
+    args:
+      count: 2
+      radius: 1.0
+```
+
+---

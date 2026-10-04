@@ -1,0 +1,39 @@
+---
+title: "pacify_mobs"
+description: "Elimina la hostilidad y agresividad de las criaturas cercanas."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `pacify_mobs`
+
+* **Categorías:** `entity, combat`  
+* **Identificador / Alias:** `pacify_mobs`
+
+---
+
+Elimina la hostilidad y agresividad de las criaturas cercanas.
+- **Categorías:** `entity, combat`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de pacificación. | `DECIMAL` | `6.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: pacify_mobs
+    args:
+      radius: 1.0
+```
+
+---

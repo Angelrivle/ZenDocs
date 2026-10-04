@@ -1,0 +1,41 @@
+---
+title: "transmute_block"
+description: "Transforma el bloque actual a otro material especificado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `transmute_block`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `transmute_block`
+
+---
+
+Transforma el bloque actual a otro material especificado.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `from` | Material original requerido. | `MATERIAL` | `Obligatorio` |
+| `to` | Nuevo material resultante. | `MATERIAL` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: transmute_block
+    args:
+      from: SPEED
+      to: SPEED
+```
+
+---

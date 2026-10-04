@@ -1,0 +1,25 @@
+---
+title: "has_permission"
+description: "El jugador cuenta con un permiso específico de LuckPerms."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `has_permission`
+
+* **Categoría:** `Entidad & Jugador`  
+* **Identificador / Alias:** `has_permission`  
+* **Argumentos Soportados:** `permission: <node>`
+
+---
+
+El jugador cuenta con un permiso específico de LuckPerms.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: has_permission
+    args:
+      # `permission: <node>`
+    not: false
+```

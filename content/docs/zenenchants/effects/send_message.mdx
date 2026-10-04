@@ -1,0 +1,41 @@
+---
+title: "send_message"
+description: "Envía un mensaje de texto formateado con MiniMessage al chat."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `send_message`
+
+* **Categorías:** `messages, chat`  
+* **Identificador / Alias:** `send_message`
+
+---
+
+Envía un mensaje de texto formateado con MiniMessage al chat.
+- **Categorías:** `messages, chat`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `message` | Texto formateado con MiniMessage. | `STRING` | `Obligatorio` |
+| `target` | Quién recibe el mensaje (player o victim). | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: send_message
+    args:
+      message: SPEED
+      target: SPEED
+```
+
+---

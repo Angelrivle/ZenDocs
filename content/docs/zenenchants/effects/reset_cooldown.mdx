@@ -1,0 +1,39 @@
+---
+title: "reset_cooldown"
+description: "Restablece el tiempo de enfriamiento de un grupo de habilidades."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `reset_cooldown`
+
+* **Categorías:** `cooldown, utility`  
+* **Identificador / Alias:** `reset_cooldown`
+
+---
+
+Restablece el tiempo de enfriamiento de un grupo de habilidades.
+- **Categorías:** `cooldown, utility`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `group` | Nombre del grupo de cooldown. | `STRING` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: reset_cooldown
+    args:
+      group: SPEED
+```
+
+---

@@ -1,0 +1,41 @@
+---
+title: "cleave"
+description: "Inflige un porcentaje del daño en área a todos los enemigos circundantes."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `cleave`
+
+* **Categorías:** `combat, area`  
+* **Identificador / Alias:** `cleave`
+
+---
+
+Inflige un porcentaje del daño en área a todos los enemigos circundantes.
+- **Categorías:** `combat, area`
+- **Requisitos de Trigger:** `LOCATION, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de alcance en bloques. | `DECIMAL` | `3.0` |
+| `percentage` | Porcentaje de daño infligido a enemigos cercanos. | `EXPRESSION` | `0.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: cleave
+    args:
+      radius: 1.0
+      percentage: 1.0
+```
+
+---

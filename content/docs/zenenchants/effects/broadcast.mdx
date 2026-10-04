@@ -1,0 +1,41 @@
+---
+title: "broadcast"
+description: "Transmite un mensaje global a todo el servidor o jugadores autorizados."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `broadcast`
+
+* **Categorías:** `messages, server`  
+* **Identificador / Alias:** `broadcast`
+
+---
+
+Transmite un mensaje global a todo el servidor o jugadores autorizados.
+- **Categorías:** `messages, server`
+- **Requisitos de Trigger:** `none`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `message` | Mensaje a difundir. | `STRING` | `Obligatorio` |
+| `permission` | Permiso opcional requerido para leerlo. | `STRING` | `` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: broadcast
+    args:
+      message: SPEED
+      permission: SPEED
+```
+
+---

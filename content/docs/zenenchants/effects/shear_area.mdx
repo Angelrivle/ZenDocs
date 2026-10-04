@@ -1,0 +1,39 @@
+---
+title: "shear_area"
+description: "Esquila o poda todas las ovejas o bloques en el radio con tijeras."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shear_area`
+
+* **Categorías:** `farming, utility`  
+* **Identificador / Alias:** `shear_area`
+
+---
+
+Esquila o poda todas las ovejas o bloques en el radio con tijeras.
+- **Categorías:** `farming, utility`
+- **Requisitos de Trigger:** `shear_block, shear_sheep`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de esquilado en bloques. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: shear_area
+    args:
+      radius: 2
+```
+
+---

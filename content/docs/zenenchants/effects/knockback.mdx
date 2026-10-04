@@ -1,0 +1,41 @@
+---
+title: "knockback"
+description: "Aplica un empuje vectorial horizontal y vertical sobre el objetivo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `knockback`
+
+* **Categorías:** `combat, physics`  
+* **Identificador / Alias:** `knockback`
+
+---
+
+Aplica un empuje vectorial horizontal y vertical sobre el objetivo.
+- **Categorías:** `combat, physics`
+- **Requisitos de Trigger:** `VICTIM o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `strength` | Fuerza de empuje horizontal. | `EXPRESSION` | `1.0` |
+| `y` | Impulso vertical hacia arriba. | `EXPRESSION` | `0.35` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: knockback
+    args:
+      strength: 1.0
+      y: 1.0
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "shield_break"
+description: "Cuando el escudo del jugador es deshabilitado por hacha."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shield_break`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `shield_break`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`
+
+---
+
+Cuando el escudo del jugador es deshabilitado por hacha.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - shield_break
+```

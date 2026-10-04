@@ -1,0 +1,41 @@
+---
+title: "gravity_well"
+description: "Crea un vórtice gravitacional que atrae entidades al centro."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `gravity_well`
+
+* **Categorías:** `physics, area`  
+* **Identificador / Alias:** `gravity_well`
+
+---
+
+Crea un vórtice gravitacional que atrae entidades al centro.
+- **Categorías:** `physics, area`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de atracción gravitacional. | `DECIMAL` | `5.0` |
+| `strength` | Fuerza de succión. | `DECIMAL` | `0.8` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: gravity_well
+    args:
+      radius: 1.0
+      strength: 1.0
+```
+
+---

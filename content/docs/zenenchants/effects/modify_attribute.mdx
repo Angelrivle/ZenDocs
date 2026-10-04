@@ -1,0 +1,43 @@
+---
+title: "modify_attribute"
+description: "Modifica cualquier atributo vanilla de la entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `modify_attribute`
+
+* **Categorías:** `attributes, entity`  
+* **Identificador / Alias:** `modify_attribute`
+
+---
+
+Modifica cualquier atributo vanilla de la entidad.
+- **Categorías:** `attributes, entity`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `attribute` | Nombre del atributo (GENERIC_MAX_HEALTH, GENERIC_ARMOR, etc.). | `ATTRIBUTE` | `Obligatorio` |
+| `amount` | Cantidad a incrementar. | `DECIMAL` | `1.0` |
+| `target` | Entidad afectada. | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: modify_attribute
+    args:
+      attribute: SPEED
+      amount: 1.0
+      target: SPEED
+```
+
+---

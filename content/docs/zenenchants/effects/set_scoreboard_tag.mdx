@@ -1,0 +1,39 @@
+---
+title: "set_scoreboard_tag"
+description: "Asigna una etiqueta NBT ScoreboardTag a la entidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_scoreboard_tag`
+
+* **Categorías:** `entity, tags`  
+* **Identificador / Alias:** `set_scoreboard_tag`
+
+---
+
+Asigna una etiqueta NBT ScoreboardTag a la entidad.
+- **Categorías:** `entity, tags`
+- **Requisitos de Trigger:** `VICTIM o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `tag` | Etiqueta NBT a asignar. | `STRING` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_scoreboard_tag
+    args:
+      tag: SPEED
+```
+
+---

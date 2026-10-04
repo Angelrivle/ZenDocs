@@ -1,0 +1,28 @@
+---
+title: "freeze_damage"
+description: "Al sufrir congelamiento en nieve en polvo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `freeze_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `freeze_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al sufrir congelamiento en nieve en polvo.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - freeze_damage
+```

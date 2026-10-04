@@ -1,0 +1,39 @@
+---
+title: "spawn_wolf_pack"
+description: "Invoca una manada de lobos domesticados listos para atacar."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_wolf_pack`
+
+* **Categorías:** `entity, spawn`  
+* **Identificador / Alias:** `spawn_wolf_pack`
+
+---
+
+Invoca una manada de lobos domesticados listos para atacar.
+- **Categorías:** `entity, spawn`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Número de lobos en la manada. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_wolf_pack
+    args:
+      amount: 2
+```
+
+---

@@ -1,0 +1,39 @@
+---
+title: "void_filter"
+description: "Elimina y destruye los bloques molestos seleccionados (ej. diorita, grava)."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `void_filter`
+
+* **Categorías:** `utility, inventory`  
+* **Identificador / Alias:** `void_filter`
+
+---
+
+Elimina y destruye los bloques molestos seleccionados (ej. diorita, grava).
+- **Categorías:** `utility, inventory`
+- **Requisitos de Trigger:** `mine_block`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `blocks` | Lista de materiales a desechar automáticamente. | `LIST` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: void_filter
+    args:
+      blocks: SPEED
+```
+
+---

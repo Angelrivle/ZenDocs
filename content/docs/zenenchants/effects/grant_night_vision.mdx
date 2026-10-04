@@ -1,0 +1,39 @@
+---
+title: "grant_night_vision"
+description: "Otorga visión nocturna nítida en cuevas y oscuridad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `grant_night_vision`
+
+* **Categorías:** `potions, visual`  
+* **Identificador / Alias:** `grant_night_vision`
+
+---
+
+Otorga visión nocturna nítida en cuevas y oscuridad.
+- **Categorías:** `potions, visual`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `duration` | Segundos de visión nocturna. | `EXPRESSION` | `20` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: grant_night_vision
+    args:
+      duration: 1.0
+```
+
+---

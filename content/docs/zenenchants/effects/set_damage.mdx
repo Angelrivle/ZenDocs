@@ -1,0 +1,39 @@
+---
+title: "set_damage"
+description: "Sobrescribe de forma absoluta el valor del daño del evento."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_damage`
+
+* **Categorías:** `combat, damage`  
+* **Identificador / Alias:** `set_damage`
+
+---
+
+Sobrescribe de forma absoluta el valor del daño del evento.
+- **Categorías:** `combat, damage`
+- **Requisitos de Trigger:** `EVENT`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `damage` | Nuevo valor de daño absoluto. | `EXPRESSION` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `START` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_damage
+    args:
+      damage: 1.0
+```
+
+---

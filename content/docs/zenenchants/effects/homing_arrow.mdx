@@ -1,0 +1,39 @@
+---
+title: "homing_arrow"
+description: "Convierte la flecha disparada en un proyectil teledirigido hacia el enemigo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `homing_arrow`
+
+* **Categorías:** `projectile, combat`  
+* **Identificador / Alias:** `homing_arrow`
+
+---
+
+Convierte la flecha disparada en un proyectil teledirigido hacia el enemigo.
+- **Categorías:** `projectile, combat`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `speed` | Velocidad del guiado. | `DECIMAL` | `1.2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: homing_arrow
+    args:
+      speed: 1.0
+```
+
+---

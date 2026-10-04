@@ -1,0 +1,28 @@
+---
+title: "jump"
+description: "Al saltar en el suelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `jump`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `jump`  
+* **Contexto Inyectado:** `PLAYER`, `LOCATION`
+
+---
+
+Al saltar en el suelo.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - jump
+```

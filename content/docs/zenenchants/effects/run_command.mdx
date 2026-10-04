@@ -1,0 +1,41 @@
+---
+title: "run_command"
+description: "Ejecuta un comando en la consola o a nombre del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `run_command`
+
+* **Categorías:** `server, utility`  
+* **Identificador / Alias:** `run_command`
+
+---
+
+Ejecuta un comando en la consola o a nombre del jugador.
+- **Categorías:** `server, utility`
+- **Requisitos de Trigger:** `none`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `command` | Comando a ejecutar sin barra inicial. | `STRING` | `Obligatorio` |
+| `as_console` | Si se despacha como consola del servidor. | `BOOLEAN` | `true` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: run_command
+    args:
+      command: SPEED
+      as_console: true
+```
+
+---

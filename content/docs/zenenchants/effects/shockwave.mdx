@@ -1,0 +1,41 @@
+---
+title: "shockwave"
+description: "Empuja con fuerza hacia afuera a todas las entidades del radio."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `shockwave`
+
+* **Categorías:** `physics, area`  
+* **Identificador / Alias:** `shockwave`
+
+---
+
+Empuja con fuerza hacia afuera a todas las entidades del radio.
+- **Categorías:** `physics, area`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de la onda expansiva. | `DECIMAL` | `4.0` |
+| `force` | Fuerza de repulsión. | `DECIMAL` | `1.2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: shockwave
+    args:
+      radius: 1.0
+      force: 1.0
+```
+
+---

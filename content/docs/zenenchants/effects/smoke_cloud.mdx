@@ -1,0 +1,39 @@
+---
+title: "smoke_cloud"
+description: "Crea una cortina densa de humo que dificulta la visibilidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `smoke_cloud`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `smoke_cloud`
+
+---
+
+Crea una cortina densa de humo que dificulta la visibilidad.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de la nube de humo. | `DECIMAL` | `2.5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: smoke_cloud
+    args:
+      radius: 1.0
+```
+
+---

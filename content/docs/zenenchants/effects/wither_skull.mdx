@@ -1,0 +1,41 @@
+---
+title: "wither_skull"
+description: "Dispara un proyectil de calavera de Wither hacia la dirección de la mirada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `wither_skull`
+
+* **Categorías:** `combat, projectile`  
+* **Identificador / Alias:** `wither_skull`
+
+---
+
+Dispara un proyectil de calavera de Wither hacia la dirección de la mirada.
+- **Categorías:** `combat, projectile`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `speed` | Velocidad del proyectil disparado. | `DECIMAL` | `1.5` |
+| `damage` | Daño de impacto de la calavera. | `EXPRESSION` | `6.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: wither_skull
+    args:
+      speed: 1.0
+      damage: 1.0
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "break_log"
+description: "Al talar bloques de madera/tronco."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `break_log`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `break_log`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`, `LOCATION`
+
+---
+
+Al talar bloques de madera/tronco.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - break_log
+```

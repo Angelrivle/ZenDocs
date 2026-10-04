@@ -1,0 +1,43 @@
+---
+title: "chain_lightning"
+description: "Desata un rayo en cadena que salta de un enemigo a otro en proximidad."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `chain_lightning`
+
+* **Categorías:** `combat, elemental`  
+* **Identificador / Alias:** `chain_lightning`
+
+---
+
+Desata un rayo en cadena que salta de un enemigo a otro en proximidad.
+- **Categorías:** `combat, elemental`
+- **Requisitos de Trigger:** `LOCATION, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `bounces` | Número de saltos entre enemigos. | `INTEGER` | `3` |
+| `range` | Distancia máxima entre saltos. | `DECIMAL` | `5.0` |
+| `damage` | Daño por cada rayo. | `EXPRESSION` | `4.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: chain_lightning
+    args:
+      bounces: 2
+      range: 1.0
+      damage: 1.0
+```
+
+---

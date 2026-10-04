@@ -1,0 +1,28 @@
+---
+title: "take_damage"
+description: "Se dispara al recibir daño de cualquier procedencia."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `take_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `take_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Se dispara al recibir daño de cualquier procedencia.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - take_damage
+```

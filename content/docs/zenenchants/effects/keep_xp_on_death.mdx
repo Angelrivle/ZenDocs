@@ -1,0 +1,38 @@
+---
+title: "keep_xp_on_death"
+description: "Evita la pérdida de experiencia acumulada al morir."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `keep_xp_on_death`
+
+* **Categorías:** `player, utility`  
+* **Identificador / Alias:** `keep_xp_on_death`
+
+---
+
+Evita la pérdida de experiencia acumulada al morir.
+- **Categorías:** `player, utility`
+- **Requisitos de Trigger:** `player_death`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `START` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: keep_xp_on_death
+    args:
+```
+
+---

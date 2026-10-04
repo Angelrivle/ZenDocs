@@ -1,0 +1,28 @@
+---
+title: "splash_potion"
+description: "Al detonar una poción de salpicadura en el suelo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `splash_potion`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `splash_potion`  
+* **Contexto Inyectado:** `EVENT`, `LOCATION`
+
+---
+
+Al detonar una poción de salpicadura en el suelo.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - splash_potion
+```

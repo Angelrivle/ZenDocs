@@ -1,0 +1,28 @@
+---
+title: "mine_block"
+description: "Al romper un bloque con una herramienta válida."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `mine_block`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `mine_block`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`, `LOCATION`
+
+---
+
+Al romper un bloque con una herramienta válida.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - mine_block
+```

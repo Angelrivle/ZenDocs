@@ -1,0 +1,43 @@
+---
+title: "play_sound"
+description: "Reproduce un efecto de sonido espacial con volumen y tono."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `play_sound`
+
+* **Categorías:** `audio`  
+* **Identificador / Alias:** `play_sound`
+
+---
+
+Reproduce un efecto de sonido espacial con volumen y tono.
+- **Categorías:** `audio`
+- **Requisitos de Trigger:** `LOCATION o PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `sound` | Identificador del sonido Bukkit. | `SOUND` | `ENTITY_EXPERIENCE_ORB_PICKUP` |
+| `volume` | Volumen de reproducción. | `DECIMAL` | `1.0` |
+| `pitch` | Tono del sonido (0.5 a 2.0). | `DECIMAL` | `1.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: SPEED
+      volume: 1.0
+      pitch: 1.0
+```
+
+---

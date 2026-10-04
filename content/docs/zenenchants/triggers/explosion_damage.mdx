@@ -1,0 +1,28 @@
+---
+title: "explosion_damage"
+description: "Al recibir daño por explosiones de TNT o mobs."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `explosion_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `explosion_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al recibir daño por explosiones de TNT o mobs.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - explosion_damage
+```

@@ -1,0 +1,25 @@
+---
+title: "victim_health_below"
+description: "La vida de la víctima está por debajo del valor indicado."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `victim_health_below`
+
+* **Categoría:** `Entidad & Jugador`  
+* **Identificador / Alias:** `victim_health_below`  
+* **Argumentos Soportados:** `health: <num>`
+
+---
+
+La vida de la víctima está por debajo del valor indicado.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: victim_health_below
+    args:
+      # `health: <num>`
+    not: false
+```

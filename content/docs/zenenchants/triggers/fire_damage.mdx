@@ -1,0 +1,28 @@
+---
+title: "fire_damage"
+description: "Al quemarse por fuego, lava o magma."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `fire_damage`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `fire_damage`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `LOCATION`
+
+---
+
+Al quemarse por fuego, lava o magma.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - fire_damage
+```

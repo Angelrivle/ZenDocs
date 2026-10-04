@@ -1,0 +1,43 @@
+---
+title: "play_sound_world"
+description: "Reproduce un sonido audible en todo el mundo para todos los presentes."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `play_sound_world`
+
+* **Categorías:** `audio, world`  
+* **Identificador / Alias:** `play_sound_world`
+
+---
+
+Reproduce un sonido audible en todo el mundo para todos los presentes.
+- **Categorías:** `audio, world`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `sound` | Sonido a reproducir. | `SOUND` | `Obligatorio` |
+| `volume` | Volumen global. | `DECIMAL` | `1.0` |
+| `pitch` | Tono. | `DECIMAL` | `1.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: play_sound_world
+    args:
+      sound: SPEED
+      volume: 1.0
+      pitch: 1.0
+```
+
+---

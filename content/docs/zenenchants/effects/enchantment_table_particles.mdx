@@ -1,0 +1,39 @@
+---
+title: "enchantment_table_particles"
+description: "Genera runas y glifos voladores de mesa de encantamientos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `enchantment_table_particles`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `enchantment_table_particles`
+
+---
+
+Genera runas y glifos voladores de mesa de encantamientos.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Cantidad de runas místicas. | `INTEGER` | `12` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: enchantment_table_particles
+    args:
+      amount: 2
+```
+
+---

@@ -1,0 +1,28 @@
+---
+title: "critical_hit"
+description: "Al asestar un golpe crítico en caída de salto."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `critical_hit`
+
+* **Categoría:** `Combate & Daño`  
+* **Identificador / Alias:** `critical_hit`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `VICTIM`
+
+---
+
+Al asestar un golpe crítico en caída de salto.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - critical_hit
+```

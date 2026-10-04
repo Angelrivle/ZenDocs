@@ -1,0 +1,39 @@
+---
+title: "bossbar_remove"
+description: "Elimina la barra de jefe personalizada del usuario."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `bossbar_remove`
+
+* **Categorías:** `display, bossbar`  
+* **Identificador / Alias:** `bossbar_remove`
+
+---
+
+Elimina la barra de jefe personalizada del usuario.
+- **Categorías:** `display, bossbar`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `id` | Identificador de la barra a destruir. | `STRING` | `Obligatorio` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: bossbar_remove
+    args:
+      id: SPEED
+```
+
+---

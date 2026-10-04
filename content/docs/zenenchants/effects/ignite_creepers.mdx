@@ -1,0 +1,39 @@
+---
+title: "ignite_creepers"
+description: "Fuerza a los creepers cercanos a entrar en estado de ignición."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `ignite_creepers`
+
+* **Categorías:** `combat, entity`  
+* **Identificador / Alias:** `ignite_creepers`
+
+---
+
+Fuerza a los creepers cercanos a entrar en estado de ignición.
+- **Categorías:** `combat, entity`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de detección de creepers. | `DECIMAL` | `6.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: ignite_creepers
+    args:
+      radius: 1.0
+```
+
+---

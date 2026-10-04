@@ -1,0 +1,41 @@
+---
+title: "actionbar"
+description: "Proyecta un texto animado sobre la barra de acción del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `actionbar`
+
+* **Categorías:** `messages, display`  
+* **Identificador / Alias:** `actionbar`
+
+---
+
+Proyecta un texto animado sobre la barra de acción del jugador.
+- **Categorías:** `messages, display`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `text` | Texto formateado con MiniMessage. | `STRING` | `Obligatorio` |
+| `target` | Quién recibe el texto. | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: actionbar
+    args:
+      text: SPEED
+      target: SPEED
+```
+
+---

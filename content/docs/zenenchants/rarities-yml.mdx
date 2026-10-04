@@ -1,0 +1,63 @@
+---
+title: "Sistema de Rarezas (rarities.yml)"
+description: "Define la jerarquía, colores, experiencia y nivel mínimo en el que los aldeanos pueden ofrecer cada rareza:"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Sistema de Rarezas (rarities.yml)
+
+---
+
+Define la jerarquía, colores, experiencia y nivel mínimo en el que los aldeanos pueden ofrecer cada rareza:
+
+```yaml
+rarities:
+  common:
+    display-name: "<white>Comun</white>"
+    color: "<white>"
+    weight: 100
+    table-weight: 80
+    villager-weight: 70
+    loot-weight: 80
+    book-color: "GRAY"
+    villager-min-tier: 1     # Aparece desde novato (Tier 1)
+    villager-min-xp: 2       # Rango de experiencia que otorga al aldeano
+    villager-max-xp: 4
+
+  rare:
+    display-name: "<blue>Raro</blue>"
+    color: "<blue>"
+    weight: 50
+    table-weight: 40
+    villager-weight: 35
+    loot-weight: 40
+    book-color: "CYAN"
+    villager-min-tier: 2
+    villager-min-xp: 4
+    villager-max-xp: 8
+
+  legendary:
+    display-name: "<gold>Legendario</gold>"
+    color: "<gold>"
+    weight: 20
+    table-weight: 15
+    villager-weight: 10
+    loot-weight: 15
+    book-color: "MAGENTA"
+    villager-min-tier: 3
+    villager-min-xp: 8
+    villager-max-xp: 15
+
+  special:
+    display-name: "<red>Especial</red>"
+    color: "<red>"
+    weight: 5
+    table-weight: 5
+    villager-weight: 3
+    loot-weight: 5
+    book-color: "ORANGE"
+    villager-min-tier: 4
+    villager-min-xp: 15
+    villager-max-xp: 25
+```

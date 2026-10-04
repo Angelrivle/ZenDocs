@@ -1,0 +1,39 @@
+---
+title: "sonic_boom"
+description: "Dispara un haz sónico horizontal de Warden atravesando paredes."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `sonic_boom`
+
+* **Categorías:** `combat, ranged`  
+* **Identificador / Alias:** `sonic_boom`
+
+---
+
+Dispara un haz sónico horizontal de Warden atravesando paredes.
+- **Categorías:** `combat, ranged`
+- **Requisitos de Trigger:** `PLAYER, VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `damage` | Daño infligido por el rayo sónico. | `EXPRESSION` | `10.0` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: sonic_boom
+    args:
+      damage: 1.0
+```
+
+---

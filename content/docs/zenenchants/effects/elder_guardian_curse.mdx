@@ -1,0 +1,38 @@
+---
+title: "elder_guardian_curse"
+description: "Muestra la animación fantasma del Elder Guardian en la visión del jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `elder_guardian_curse`
+
+* **Categorías:** `visual, animation`  
+* **Identificador / Alias:** `elder_guardian_curse`
+
+---
+
+Muestra la animación fantasma del Elder Guardian en la visión del jugador.
+- **Categorías:** `visual, animation`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: elder_guardian_curse
+    args:
+```
+
+---

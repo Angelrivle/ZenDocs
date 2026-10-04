@@ -1,0 +1,39 @@
+---
+title: "clear_negative_effects"
+description: "Purga instantáneamente todos los efectos negativos y toxinas activas."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `clear_negative_effects`
+
+* **Categorías:** `potions, player`  
+* **Identificador / Alias:** `clear_negative_effects`
+
+---
+
+Purga instantáneamente todos los efectos negativos y toxinas activas.
+- **Categorías:** `potions, player`
+- **Requisitos de Trigger:** `PLAYER o VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `target` | Objetivo a purgar (player o victim). | `STRING` | `player` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: clear_negative_effects
+    args:
+      target: SPEED
+```
+
+---

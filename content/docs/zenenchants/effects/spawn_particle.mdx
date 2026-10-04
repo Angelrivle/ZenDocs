@@ -1,0 +1,49 @@
+---
+title: "spawn_particle"
+description: "Genera una nube de partículas de Minecraft en la coordenada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_particle`
+
+* **Categorías:** `visual, particles`  
+* **Identificador / Alias:** `spawn_particle`
+
+---
+
+Genera una nube de partículas de Minecraft en la coordenada.
+- **Categorías:** `visual, particles`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `particle` | Nombre de la partícula Bukkit. | `PARTICLE` | `SOUL_FIRE_FLAME` |
+| `amount` | Cantidad de partículas generadas. | `INTEGER` | `10` |
+| `speed` | Velocidad de dispersión. | `DECIMAL` | `0.05` |
+| `offset_x` | Dispersión en eje X. | `DECIMAL` | `0.2` |
+| `offset_y` | Dispersión en eje Y. | `DECIMAL` | `0.5` |
+| `offset_z` | Dispersión en eje Z. | `DECIMAL` | `0.2` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_particle
+    args:
+      particle: SPEED
+      amount: 2
+      speed: 1.0
+      offset_x: 1.0
+      offset_y: 1.0
+      offset_z: 1.0
+```
+
+---

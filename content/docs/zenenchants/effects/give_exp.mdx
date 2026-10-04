@@ -1,0 +1,39 @@
+---
+title: "give_exp"
+description: "Otorga puntos de experiencia vanilla al jugador."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `give_exp`
+
+* **Categorías:** `player, experience`  
+* **Identificador / Alias:** `give_exp`
+
+---
+
+Otorga puntos de experiencia vanilla al jugador.
+- **Categorías:** `player, experience`
+- **Requisitos de Trigger:** `PLAYER`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `amount` | Puntos de experiencia vanilla. | `EXPRESSION` | `5` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: give_exp
+    args:
+      amount: 1.0
+```
+
+---

@@ -8,6 +8,7 @@ docs_source = r"c:\Development\Webs\ZenDocs\DOCS"
 
 # Standard mapping of all plugins with DOC.md
 # Standard mapping of all plugins that have a DOC.md
+# Plugins hidden per user request: ZenSacks, ZenProtecctions, ZenForges, ZenDragonEvent, ZenDuels, ZenDungeons, ZenDiscord
 plugins = [
     ("ZenAfkZone", "zenafkzone", "ZenAfkZone", True),
     ("ZenAuctions", "zenauctions", "ZenAuctions", True),
@@ -15,12 +16,9 @@ plugins = [
     ("ZenChat", "zenchat", "ZenChat", True),
     ("ZenChatGames", "zenchatgames", "ZenChatGames", True),
     ("ZenCosmetics", "zencosmetics", "ZenCosmetics", True),
-    ("ZenDiscord", "zendiscord", "ZenDiscord", True),
-    ("ZenDragonEvent", "zendragonevent", "ZenDragonEvent", True),
-    ("ZenDuels", "zenduels", "ZenDuels", True),
     ("ZenEconomy", "zeneconomy", "ZenEconomy", True),
+    ("ZenEnchants", "zenenchants", "ZenEnchants", True),
     ("ZenFairy", "zenfairy", "ZenFairy", False),
-    ("ZenForges", "zenforges", "ZenForges", True),
     ("ZenPvPCore", "zenpvpcore", "ZenPvPCore", True),
     ("ZenRankups", "zenrankups", "ZenRankups", True),
 ]
@@ -194,6 +192,24 @@ def standardize_section_title(raw_h2):
 
     if 'sistema de acciones' in t_lower:
         return "Sistema de Acciones Disponibles", "sistema_de_acciones"
+
+    if 'targets.yml' in t_lower or 'categorías y objetivos' in t_lower or 'categorias y objetivos' in t_lower:
+        return "Categorías y Objetivos (targets.yml)", "targets-yml"
+
+    if 'items.yml' in t_lower or 'ítems especiales' in t_lower or 'items especiales' in t_lower:
+        return "Ítems Especiales (items.yml)", "items-yml"
+
+    if 'rarities.yml' in t_lower or 'sistema de rarezas' in t_lower or 'rarezas' in t_lower:
+        return "Sistema de Rarezas (rarities.yml)", "rarities-yml"
+
+    if 'crear y modificar' in t_lower or 'crear encantamientos' in t_lower:
+        return "Creación de Encantamientos", "creacion_encantamientos"
+
+    if 'menú interactivo' in t_lower or 'menu interactivo' in t_lower or 'enciclopedia' in t_lower:
+        return "Menú Interactivo y Enciclopedia", "menu_interactivo"
+
+    if 'mecánicas estilo' in t_lower or 'mecanicas estilo' in t_lower or 'mysteryenchants' in t_lower:
+        return "Mecánicas Especiales y Mystery Enchants", "mecanicas_especiales"
         
     # Clean any angle brackets or symbols for general fallback
     clean_title = re.sub(r'<([^>]+)>', r'`<\1>`', t)
@@ -419,6 +435,8 @@ import {{ Callout }} from 'fumadocs-ui/components/callout';
 def main():
     for folder, target, display_name, is_new in plugins:
         doc_path = os.path.join(docs_source, folder, "DOC.md")
+        if not os.path.exists(doc_path):
+            doc_path = os.path.join(docs_source, folder, "DOCS.md")
         if os.path.exists(doc_path):
             process_plugin(doc_path, target, display_name, is_new)
         else:
@@ -480,13 +498,25 @@ import {{ Callout }} from 'fumadocs-ui/components/callout';
                         json.dump(meta_data, f, indent=2, ensure_ascii=False)
             print(f"Processed {display_name} API.md as 'api.mdx'")
 
+    # ZenEnchants CONTENT.md is processed modularly into effects, triggers, conditions, filters-and-mutators, placeholders
+    try:
+        import subprocess
+        subprocess.run(["python", "scripts/build_zenenchants_content.py"], check=True)
+    except Exception as e:
+        print(f"Error running build_zenenchants_content: {e}")
+
     # Verify root meta.json
     root_meta_path = os.path.join(docs_root, "meta.json")
     with open(root_meta_path, "r", encoding="utf-8") as f:
         root_meta = json.load(f)
         
-    # Remove any deleted plugins if still present
-    for bad in ["zenhub", "zenwardrobe", "zenprofiles"]:
+    # Remove any deleted or hidden plugins if present in root meta
+    hidden_plugins = [
+        "zenhub", "zenwardrobe", "zenprofiles",
+        "zensacks", "zenprotecctions", "zenforges",
+        "zendragonevent", "zenduels", "zendungeons", "zendiscord"
+    ]
+    for bad in hidden_plugins:
         if bad in root_meta.get("pages", []):
             root_meta["pages"].remove(bad)
             

@@ -1,0 +1,39 @@
+---
+title: "melt_ice"
+description: "Derrite hielo y nieve en agua en el radio circundante."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `melt_ice`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `melt_ice`
+
+---
+
+Derrite hielo y nieve en agua en el radio circundante.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de descongelamiento en bloques. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: melt_ice
+    args:
+      radius: 2
+```
+
+---

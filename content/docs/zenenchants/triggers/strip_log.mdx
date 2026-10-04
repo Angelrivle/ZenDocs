@@ -1,0 +1,28 @@
+---
+title: "strip_log"
+description: "Al descortezar un tronco con un hacha."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `strip_log`
+
+* **Categoría:** `Minería, Bloques & Agricultura`  
+* **Identificador / Alias:** `strip_log`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `BLOCK`
+
+---
+
+Al descortezar un tronco con un hacha.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - strip_log
+```

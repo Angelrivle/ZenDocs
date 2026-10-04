@@ -1,0 +1,33 @@
+---
+title: "Estructura de Archivos"
+description: "plugins/ZenEnchants/"
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Estructura de Archivos
+
+---
+
+```text
+plugins/ZenEnchants/
+│
+├── config.yml              # Configuración general, opciones de yunque, mesa, aldeanos y lores
+├── targets.yml             # Categorización modular de objetivos y ranuras de activación (estilo EcoEnchants)
+├── items.yml               # Formato y personalización de libros, polvo mágico y libros misteriosos
+├── messages.yml            # Todos los mensajes del plugin (MiniMessage & colores &)
+├── rarities.yml            # Definición de rarezas, colores, pesos y tiers de aldeanos
+│
+├── menus/                  # Configuraciones YAML editables de todas las interfaces
+│   ├── enchant_index.yml   # Enciclopedia principal con paginación dinámica y filtros
+│   ├── enchant_info.yml    # Información detallada del encantamiento
+│   ├── mystery_shop.yml    # Tienda de libros misteriosos
+│   └── tinkerer.yml        # Menú del Tinkerer / Reciclador
+│
+├── enchants/               # Encantamientos personalizados (más de 300 incluidos)
+│   ├── _example.yml        # Plantilla oficial comentada
+│   └── ... (303 archivos YAML)
+│
+└── vanilla/                # Encantamientos oficiales de Minecraft editables
+    └── ... (40 archivos YAML)
+```

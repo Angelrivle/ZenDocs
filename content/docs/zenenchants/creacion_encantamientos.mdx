@@ -1,0 +1,53 @@
+---
+title: "Creación de Encantamientos"
+description: "Para crear un nuevo encantamiento, simplemente añade un archivo .yml en plugins/ZenEnchants/enchants/..."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# Creación de Encantamientos
+
+---
+
+Para crear un nuevo encantamiento, simplemente añade un archivo `.yml` en `plugins/ZenEnchants/enchants/` siguiendo el estándar Libreforge:
+
+```yaml
+id: "soul_storm"
+display-name: "%rarity_color%Soul Storm"
+rarity: "legendary"
+max-level: 3
+enabled: true
+
+targets:
+  - sword
+
+conflicts: []
+
+availability:
+  enchanting-table: true
+  villager-trade: true
+  loot-chest: true
+
+description:
+  - "<gray>Otorga un bono de <green>%bonus%%</green> de</gray>"
+  - "<gray>daño de ataque durante <green>%duration%</green> segundos.</gray>"
+
+placeholders:
+  bonus: "100 + (%level% * 75)"
+  duration: "15 + (%level% * 5)"
+
+effects:
+  - id: potion_effect
+    args:
+      target: "ATTACKER"
+      effect: "STRENGTH"
+      duration: "%duration% * 20"
+      amplifier: "%level% - 1"
+      chance: 100
+      cooldown: 15
+      cooldown_group: "soul_storm_cd"
+    triggers:
+      - melee_attack
+    conditions:
+      - id: victim_is_alive
+```

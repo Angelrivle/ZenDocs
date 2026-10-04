@@ -1,0 +1,41 @@
+---
+title: "spawn_entity"
+description: "Invoca una criatura en la ubicación especificada."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_entity`
+
+* **Categorías:** `entity, spawn`  
+* **Identificador / Alias:** `spawn_entity`
+
+---
+
+Invoca una criatura en la ubicación especificada.
+- **Categorías:** `entity, spawn`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `type` | Tipo de entidad Bukkit (ZOMBIE, SKELETON, etc.). | `ENTITY_TYPE` | `Obligatorio` |
+| `target` | Ubicación donde spawnear. | `STRING` | `victim` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_entity
+    args:
+      type: SPEED
+      target: SPEED
+```
+
+---

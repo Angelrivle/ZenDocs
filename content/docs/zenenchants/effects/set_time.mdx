@@ -1,0 +1,39 @@
+---
+title: "set_time"
+description: "Cambia la hora del mundo."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `set_time`
+
+* **Categorías:** `world, time`  
+* **Identificador / Alias:** `set_time`
+
+---
+
+Cambia la hora del mundo.
+- **Categorías:** `world, time`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `time` | Hora del mundo en ticks o palabra clave (day, night). | `STRING` | `day` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: set_time
+    args:
+      time: SPEED
+```
+
+---

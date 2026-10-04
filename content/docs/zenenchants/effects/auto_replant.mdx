@@ -1,0 +1,38 @@
+---
+title: "auto_replant"
+description: "Vuelve a plantar de inmediato la semilla tras cosechar un cultivo maduro."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `auto_replant`
+
+* **Categorías:** `farming, blocks`  
+* **Identificador / Alias:** `auto_replant`
+
+---
+
+Vuelve a plantar de inmediato la semilla tras cosechar un cultivo maduro.
+- **Categorías:** `farming, blocks`
+- **Requisitos de Trigger:** `mine_block`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: auto_replant
+    args:
+```
+
+---

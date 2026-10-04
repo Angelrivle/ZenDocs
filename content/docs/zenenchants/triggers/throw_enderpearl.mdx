@@ -1,0 +1,28 @@
+---
+title: "throw_enderpearl"
+description: "Al lanzar una Ender Pearl."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `throw_enderpearl`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `throw_enderpearl`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`
+
+---
+
+Al lanzar una Ender Pearl.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - throw_enderpearl
+```

@@ -1,0 +1,39 @@
+---
+title: "execute_target"
+description: "Elimina instantáneamente al objetivo si su salud se encuentra bajo el umbral porcentual."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `execute_target`
+
+* **Categorías:** `combat, entity`  
+* **Identificador / Alias:** `execute_target`
+
+---
+
+Elimina instantáneamente al objetivo si su salud se encuentra bajo el umbral porcentual.
+- **Categorías:** `combat, entity`
+- **Requisitos de Trigger:** `VICTIM`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `threshold` | Porcentaje de vida bajo el cual la víctima es eliminada (0.15 = 15%). | `EXPRESSION` | `0.15` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `LATE` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: execute_target
+    args:
+      threshold: 1.0
+```
+
+---

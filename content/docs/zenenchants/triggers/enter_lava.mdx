@@ -1,0 +1,28 @@
+---
+title: "enter_lava"
+description: "Al caer en un pozo o corriente de lava."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `enter_lava`
+
+* **Categoría:** `Movimiento, Entorno & Estado`  
+* **Identificador / Alias:** `enter_lava`  
+* **Contexto Inyectado:** `PLAYER`, `LOCATION`
+
+---
+
+Al caer en un pozo o corriente de lava.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - enter_lava
+```

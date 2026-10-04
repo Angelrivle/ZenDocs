@@ -1,0 +1,38 @@
+---
+title: "spawn_iron_golem"
+description: "Spawnea un Golem de Hierro leal para asistir en combate."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `spawn_iron_golem`
+
+* **Categorías:** `entity, spawn`  
+* **Identificador / Alias:** `spawn_iron_golem`
+
+---
+
+Spawnea un Golem de Hierro leal para asistir en combate.
+- **Categorías:** `entity, spawn`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `true` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: spawn_iron_golem
+    args:
+```
+
+---

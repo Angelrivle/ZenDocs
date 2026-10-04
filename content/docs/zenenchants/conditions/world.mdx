@@ -1,0 +1,25 @@
+---
+title: "world"
+description: "El jugador está en uno de los mundos permitidos."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `world`
+
+* **Categoría:** `Ubicación & Mundo`  
+* **Identificador / Alias:** `world`  
+* **Argumentos Soportados:** `worlds: [<world1>, <world2>]`
+
+---
+
+El jugador está en uno de los mundos permitidos.
+
+### Estructura Canónica:
+```yaml
+conditions:
+  - id: world
+    args:
+      # `worlds: [<world1>, <world2>]`
+    not: false
+```

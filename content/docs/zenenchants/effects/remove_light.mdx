@@ -1,0 +1,38 @@
+---
+title: "remove_light"
+description: "Remueve bloques de luz creados anteriormente."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `remove_light`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `remove_light`
+
+---
+
+Remueve bloques de luz creados anteriormente.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `none` | No requiere argumentos. | `NONE` | `N/A` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: remove_light
+    args:
+```
+
+---

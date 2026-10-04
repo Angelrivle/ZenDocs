@@ -1,0 +1,39 @@
+---
+title: "freeze_water"
+description: "Congela el agua circundante en hielo escarchado temporal."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `freeze_water`
+
+* **Categorías:** `world, blocks`  
+* **Identificador / Alias:** `freeze_water`
+
+---
+
+Congela el agua circundante en hielo escarchado temporal.
+- **Categorías:** `world, blocks`
+- **Requisitos de Trigger:** `LOCATION`
+
+**Argumentos:**
+| Key(s) | Descripción | Tipo | Default |
+| :--- | :--- | :--- | :--- |
+| `radius` | Radio de congelamiento en bloques. | `INTEGER` | `3` |
+
+**Comportamiento:**
+| Propiedad | Valor |
+| :--- | :--- |
+| Run order | `NORMAL` |
+| Supports delay | `false` |
+| Reloads on reload | `true` |
+
+**Ejemplo:**
+```yaml
+effects:
+  - id: freeze_water
+    args:
+      radius: 2
+```
+
+---

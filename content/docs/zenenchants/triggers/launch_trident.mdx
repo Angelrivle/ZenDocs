@@ -1,0 +1,28 @@
+---
+title: "launch_trident"
+description: "Al arrojar un tridente al aire o agua."
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+# `launch_trident`
+
+* **Categoría:** `Proyectiles & Arquería`  
+* **Identificador / Alias:** `launch_trident`  
+* **Contexto Inyectado:** `EVENT`, `PLAYER`, `PROJECTILE`
+
+---
+
+Al arrojar un tridente al aire o agua.
+
+### Ejemplo de Configuración:
+```yaml
+effects:
+  - id: play_sound
+    args:
+      sound: ENTITY_EXPERIENCE_ORB_PICKUP
+      volume: 1.0
+      pitch: 1.0
+    triggers:
+      - launch_trident
+```
