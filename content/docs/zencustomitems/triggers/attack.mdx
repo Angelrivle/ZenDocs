@@ -7,7 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `attack`
 
-* **Categoría:** `Combate`  
+* **Categoría:** `Combate` 
 * **Identificador / Alias:** `ATTACK`
 
 ---
@@ -15,12 +15,12 @@ import { Callout } from 'fumadocs-ui/components/callout';
 Se dispara cuando el jugador golpea a otra entidad viva.
 ```yaml
 triggers:
-  - id: lifesteal
+ - id: lifesteal
     type: ATTACK
     conditions:
-      - type: CHANCE
+ - type: CHANCE
         chance: 0.25 # 25%
     effects:
-      - type: HEAL
+ - type: HEAL
         amount: 2.0
 ```

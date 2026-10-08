@@ -17,19 +17,19 @@ El archivo `config.yml` controla el núcleo del plugin, módulos de protección,
 item_blocked_alerts: true # Envía alerta en chat cuando un jugador intenta usar un ítem bloqueado
 
 report:
-  # URL del Webhook de Discord para enviar notificaciones automáticas al Staff
+ # URL del Webhook de Discord para enviar notificaciones automáticas al Staff
   webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL"
   
-  # Motivos disponibles en el menú interactivo /report
+ # Motivos disponibles en el menú interactivo /report
   reasons:
-    - "Uso de Hacks"
-    - "Aprovechamiento de Bugs"
-    - "Insultos / Toxicidad"
-    - "Spam / Flood"
-    - "Evasión de Ban"
+ - "Uso de Hacks"
+ - "Aprovechamiento de Bugs"
+ - "Insultos / Toxicidad"
+ - "Spam / Flood"
+ - "Evasión de Ban"
     
-  # Comandos de consola que ejecuta el menú de sanciones rápidas /report view
-  # Placeholders disponibles: %player%, %reason%
+ # Comandos de consola que ejecuta el menú de sanciones rápidas /report view
+ # Placeholders disponibles: %player%, %reason%
   actions:
     ban: "ban %player% 30d %reason% -s"
     mute: "mute %player% 1h %reason% -s"
@@ -46,30 +46,30 @@ combat:
     enabled: true                  # Activa o desactiva el sistema de combate (CombatLog)
   duration_seconds: 15           # Tiempo en segundos que dura el estado de combate tras recibir/hacer daño
   
-  # BossBar superior en pantalla
+ # BossBar superior en pantalla
   bossbar:
     enabled: true
-    title: "<color:#ff3333><b>¡EN COMBATE!</b></color> <dark_gray>»</dark_gray> <yellow>%time%s</yellow>"
+ title: "<color:#ff3333><b>¡EN COMBATE!</b></color> <dark_gray>»</dark_gray> <yellow>%time%s</yellow>"
     color: "RED"                 # Opciones: RED, BLUE, GREEN, PINK, PURPLE, WHITE, YELLOW
     style: "PROGRESS"            # Opciones: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
     
-  # Muro visual de advertencia cerca de zonas seguras (WorldGuard)
+ # Muro visual de advertencia cerca de zonas seguras (WorldGuard)
   barrier:
     enabled: true
   barrier_material: "RED_STAINED_GLASS" # Bloque falso renderizado solo para el jugador en combate
   barrier_radius_check: 6        # Radio de detección antes de alcanzar el límite de la zona segura
   
-  # Nombres de regiones de WorldGuard consideradas zonas seguras donde no se puede entrar en combate
+ # Nombres de regiones de WorldGuard consideradas zonas seguras donde no se puede entrar en combate
   safezones:
-    - "crystal_spawn"
-    - "koth_mazo"
-    - "koth_spawn"
-    - "spawnkothmixto"
+ - "crystal_spawn"
+ - "koth_mazo"
+ - "koth_spawn"
+ - "spawnkothmixto"
     
-  # Comandos permitidos durante el estado de combate
+ # Comandos permitidos durante el estado de combate
     allowed_commands:
-    - "/msg"
-    - "/r"
+ - "/msg"
+ - "/r"
 ```
 
 ---
@@ -84,24 +84,24 @@ arrow:
   worlds:
     mode: "BLACKLIST"
     list:
-      - "mundo_paz"
+ - "mundo_paz"
   regions:
     mode: "BLACKLIST"
     list:
-      - "spawn"
-      - "zonasafe"
+ - "spawn"
+ - "zonasafe"
 
 # Restricción de Elytras
 elytra:
   worlds:
     mode: "BLACKLIST"
     list:
-      - "test"
+ - "test"
   regions:
     mode: "BLACKLIST"
     list:
-      - "koths"
-      - "crystal_pvp"
+ - "koths"
+ - "crystal_pvp"
 
 # Restricción de Cargas de Viento (Wind Charges)
 wind_charge:
@@ -111,7 +111,7 @@ wind_charge:
   regions:
     mode: "BLACKLIST"
     list:
-      - "koths"
+ - "koths"
 
 # Restricción de Mazo (Mace)
 mace:
@@ -121,7 +121,7 @@ mace:
   regions:
     mode: "BLACKLIST"
     list:
-      - "koths"
+ - "koths"
 
 # Restricción de Cohetes de Fuegos Artificiales (Firework Rockets)
 firework_rocket:
@@ -131,8 +131,8 @@ firework_rocket:
   regions:
     mode: "BLACKLIST"
     list:
-      - "koths"
-      - "crystal_pvp"
+ - "koths"
+ - "crystal_pvp"
 
 # Restricción y Cooldown de Ender Pearls
 ender_pearl:
@@ -148,11 +148,11 @@ ender_pearl:
     worlds:
       mode: "WHITELIST"          # WHITELIST: Solo se aplica cooldown en los mundos listados
       list:
-        - "minapvp"
+ - "minapvp"
     regions:
       mode: "WHITELIST"          # WHITELIST: Solo se aplica cooldown en las regiones listadas
       list:
-        - "zonapvp"
+ - "zonapvp"
 
 # Cooldown de Manzanas Doradas Encantadas (Notch Apples)
 enchanted_golden_apple:
@@ -165,8 +165,8 @@ enchanted_golden_apple:
     regions:
       mode: "WHITELIST"
       list:
-        - "koth_mazo"
-        - "koth_mazo_pvp"
+ - "koth_mazo"
+ - "koth_mazo_pvp"
 ```
 
 ---
@@ -179,15 +179,15 @@ Permite que bloques colocados en combate (como Obsidiana, Telarañas o Glowstone
 tempblocks:
   regions:
     koth_mixto:
-      - "OBSIDIAN:10s"
-      - "GLOWSTONE:5s"
-      - "COBWEB:10s"
+ - "OBSIDIAN:10s"
+ - "GLOWSTONE:5s"
+ - "COBWEB:10s"
     warppvp:
-      - "OBSIDIAN:10s"
-      - "COBWEB:10s"
+ - "OBSIDIAN:10s"
+ - "COBWEB:10s"
   worlds:
     arena_world:
-      - "STONE:15s"
+ - "STONE:15s"
 ```
 
 ---
@@ -208,34 +208,34 @@ crystal_pvp:
   worlds:
     mode: "WHITELIST"
     list:
-      - "KOTH_Mundo"
+ - "KOTH_Mundo"
   regions:
     mode: "WHITELIST"
     list:
-      - "koths"
-      - "crystal_pvp"
+ - "koths"
+ - "crystal_pvp"
 
 # Regeneración automática periódica de la arena Flat Crystal
 crystal_pvp_flat:
     enabled: true
   reset_interval_seconds: 600    # Intervalo de reinicio en segundos (600s = 10 minutos)
   regions:
-    - "crystal_flat"
-    - "arena_flat"
+ - "crystal_flat"
+ - "arena_flat"
   worlds: []
   
   alerts:
-    # Segundos previos en los que se envía una cuenta regresiva sonora y por chat
+ # Segundos previos en los que se envía una cuenta regresiva sonora y por chat
     seconds:
-      - 300 # 5m
-      - 60  # 1m
-      - 30  # 30s
-      - 15  # 15s
-      - 5
-      - 4
-      - 3
-      - 2
-      - 1
+ - 300 # 5m
+ - 60 # 1m
+ - 30 # 30s
+ - 15 # 15s
+ - 5
+ - 4
+ - 3
+ - 2
+ - 1
     message: "<color:#1c7bff><b>COMBATE</b></color> <dark_gray>» <yellow>La arena se regenerará y dispersará en <red><bold>%time%</bold></red>.</yellow>"
     sound: "BLOCK_NOTE_BLOCK_PLING"
     reset_completed_message: "<color:#1c7bff><b>COMBATE</b></color> <dark_gray>» <green>¡La arena ha sido completamente regenerada y los jugadores dispersados!</green>"
@@ -252,11 +252,11 @@ blocked_commands_regions:
   message: "<red>¡No puedes usar ese comando en esta región!</red>"
   regions:
     koths:
-      - "/fly"
-      - "/tp"
+ - "/fly"
+ - "/tp"
     crystal_pvp:
-      - "/fly"
-      - "/god"
+ - "/fly"
+ - "/god"
 ```
 
 ---

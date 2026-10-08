@@ -7,7 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `item_break`
 
-* **Categoría:** `Estado del Ítem`  
+* **Categoría:** `Estado del Ítem` 
 * **Identificador / Alias:** `ITEM_BREAK`
 
 ---
@@ -15,12 +15,12 @@ import { Callout } from 'fumadocs-ui/components/callout';
 Se dispara cuando el ítem agota toda su durabilidad y se destruye.
 ```yaml
 triggers:
-  - id: shatter_blast
+ - id: shatter_blast
     type: ITEM_BREAK
     effects:
-      - type: PLAY_SOUND
+ - type: PLAY_SOUND
         sound: ENTITY_ITEM_BREAK
-      - type: MESSAGE
+ - type: MESSAGE
         message: "<red>¡Tu arma se ha hecho añicos!"
 ```
 

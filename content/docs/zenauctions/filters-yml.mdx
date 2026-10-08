@@ -13,7 +13,7 @@ Permite restringir qué artículos pueden o no publicarse en la subasta para pro
 
 ```yaml
 # ======================================================
-#                ZenAuctions Item Filtering
+# ZenAuctions Item Filtering
 # ======================================================
 
 # Modo de operación:
@@ -22,31 +22,31 @@ Permite restringir qué artículos pueden o no publicarse en la subasta para pro
 mode: blacklist
 
 blacklist:
-  # Materiales bloqueados (Nombres válidos de Material de Bukkit/Paper)
+ # Materiales bloqueados (Nombres válidos de Material de Bukkit/Paper)
   materials:
-    - BEDROCK
-    - COMMAND_BLOCK
-    - CHAIN_COMMAND_BLOCK
-    - REPEATING_COMMAND_BLOCK
-    - STRUCTURE_BLOCK
-    - STRUCTURE_VOID
-    - BARRIER
-    - JIGSAW
-    - LIGHT
-    - DEBUG_STICK
+ - BEDROCK
+ - COMMAND_BLOCK
+ - CHAIN_COMMAND_BLOCK
+ - REPEATING_COMMAND_BLOCK
+ - STRUCTURE_BLOCK
+ - STRUCTURE_VOID
+ - BARRIER
+ - JIGSAW
+ - LIGHT
+ - DEBUG_STICK
 
-  # Nombres personalizados bloqueados (si el nombre contiene esta cadena)
+ # Nombres personalizados bloqueados (si el nombre contiene esta cadena)
   names:
-    - "<red>Admin Item"
-    - "<red>Illegal Item"
+ - "<red>Admin Item"
+ - "<red>Illegal Item"
 
-  # Namespaces de NBT / Identificadores de items
+ # Namespaces de NBT / Identificadores de items
   namespaces:
-    - "minecraft:command_block"
+ - "minecraft:command_block"
 
-  # Claves de PersistentDataContainer (NBT de Paper) prohibidas
+ # Claves de PersistentDataContainer (NBT de Paper) prohibidas
   persistent-data-keys:
-    - "admin_unbreakable"
+ - "admin_unbreakable"
 
 whitelist:
   materials: []

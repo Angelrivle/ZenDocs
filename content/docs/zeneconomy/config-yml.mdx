@@ -15,7 +15,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # Configuración del motor de almacenamiento
 database:
-  # Opciones disponibles: SQLITE, MYSQL, MARIADB
+ # Opciones disponibles: SQLITE, MYSQL, MARIADB
   type: SQLITE
   
   sqlite:
@@ -30,7 +30,7 @@ database:
     ssl: false
     table-prefix: "ze_"
     
-  # Opciones del Pool de conexiones HikariCP
+ # Opciones del Pool de conexiones HikariCP
   pool:
     maximum-pool-size: 10
     minimum-idle: 5
@@ -42,8 +42,8 @@ auto-save-interval: 300
 
 # Ajustes del comando y GUI de mejores balances (Top Balances)
 baltop:
-  # Intervalo de actualización del caché en segundos para no sobrecargar la base de datos
+ # Intervalo de actualización del caché en segundos para no sobrecargar la base de datos
   cache-update-interval: 180
-  # Cantidad de jugadores mostrados por página
+ # Cantidad de jugadores mostrados por página
   page-size: 10
 ```

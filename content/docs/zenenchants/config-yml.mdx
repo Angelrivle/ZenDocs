@@ -13,32 +13,32 @@ El archivo `config.yml` controla el comportamiento de los encantamientos, mesas,
 
 ```yaml
 settings:
-  # Activar o desactivar encantamientos personalizados y de catálogo
+ # Activar o desactivar encantamientos personalizados y de catálogo
   enable-custom-enchantments: true
   enable-vanilla-enchantments: true
 
-  # Límite máximo de encantamientos personalizados por objeto (-1 para ilimitado)
+ # Límite máximo de encantamientos personalizados por objeto (-1 para ilimitado)
   max-custom-enchants-per-item: 15
 
-  # Formato de números romanos en los niveles
+ # Formato de números romanos en los niveles
   numerals:
     enabled: true
     threshold: 10 # A partir de este nivel se usarán números arábigos (ej: 11, 12...)
 
-  # Estilo visual para niveles que superan el máximo natural
+ # Estilo visual para niveles que superan el máximo natural
   above-max-level:
     enabled: true
     format: "<gradient:#DB9D32:#E8DF33>"
     level-only: true
 
-  # Orden de prioridad para mostrar las rarezas en el lore
+ # Orden de prioridad para mostrar las rarezas en el lore
   rarity-order:
-    - common
-    - rare
-    - legendary
-    - special
+ - common
+ - rare
+ - legendary
+ - special
 
-  # Probabilidades de éxito y destrucción al aplicar libros mágicos
+ # Probabilidades de éxito y destrucción al aplicar libros mágicos
   success-destroy-system:
     enabled: true
     default-min-success: 60
@@ -46,7 +46,7 @@ settings:
     default-min-destroy: 0
     default-max-destroy: 25
 
-  # Formato del lore en los objetos encantados
+ # Formato del lore en los objetos encantados
   lore-format:
     prefix: "<gray>"
     show-rarity-color: true
@@ -60,7 +60,7 @@ settings:
       per-line: 2
       delimiter: "<dark_gray>, </dark_gray>"
 
-  # Integración con Mesa de Encantamientos
+ # Integración con Mesa de Encantamientos
   enchanting-table:
     enabled: true
     chance-to-offer-custom: 60
@@ -68,7 +68,7 @@ settings:
     cap: 5
     reduction: 2.2
 
-  # Integración con Aldeanos Libreros
+ # Integración con Aldeanos Libreros
   villagers:
     enabled: true
     chance-to-replace-trade: 35
@@ -76,7 +76,7 @@ settings:
     book-multiplier: 0.14
     reduction: 5
 
-  # Integración con Cofres de Estructuras
+ # Integración con Cofres de Estructuras
   loot-chests:
     enabled: true
     chance-per-chest: 65
@@ -85,7 +85,7 @@ settings:
     book-multiplier: 0.5
     reduction: 7.5
 
-  # Opciones del Yunque
+ # Opciones del Yunque
   anvil:
     vanilla-costs: false
     cost-exponent: 0.95

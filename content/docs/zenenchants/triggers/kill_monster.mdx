@@ -7,8 +7,8 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `kill_monster`
 
-* **Categoría:** `Muerte & Asesinatos`  
-* **Identificador / Alias:** `kill_monster`  
+* **Categoría:** `Muerte & Asesinatos` 
+* **Identificador / Alias:** `kill_monster` 
 * **Contexto Inyectado:** `PLAYER`, `VICTIM`, `LOCATION`
 
 ---
@@ -18,11 +18,11 @@ Al eliminar un monstruo hostil (zombies, esqueletos, etc.).
 ### Ejemplo de Configuración:
 ```yaml
 effects:
-  - id: play_sound
+ - id: play_sound
     args:
       sound: ENTITY_EXPERIENCE_ORB_PICKUP
       volume: 1.0
       pitch: 1.0
     triggers:
-      - kill_monster
+ - kill_monster
 ```

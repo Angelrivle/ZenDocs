@@ -7,8 +7,8 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `entity_death_nearby`
 
-* **Categoría:** `Muerte & Asesinatos`  
-* **Identificador / Alias:** `entity_death_nearby`  
+* **Categoría:** `Muerte & Asesinatos` 
+* **Identificador / Alias:** `entity_death_nearby` 
 * **Contexto Inyectado:** `LOCATION`, `VICTIM`
 
 ---
@@ -18,11 +18,11 @@ Cuando cualquier entidad muere en un radio cercano.
 ### Ejemplo de Configuración:
 ```yaml
 effects:
-  - id: play_sound
+ - id: play_sound
     args:
       sound: ENTITY_EXPERIENCE_ORB_PICKUP
       volume: 1.0
       pitch: 1.0
     triggers:
-      - entity_death_nearby
+ - entity_death_nearby
 ```

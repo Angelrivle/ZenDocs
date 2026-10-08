@@ -19,15 +19,15 @@ webhooks:
     username: "ZenRankups Bot"
     avatar_url: "https://crafatar.com/avatars/%player_uuid%?size=128&overlay"
     embed:
-      title: "¡Subida de Rango!"
-      description: "El jugador **%player%** ha ascendido de rango."
+ title: "¡Subida de Rango!"
+ description: "El jugador **%player%** ha ascendido de rango."
       color: "#00FF00"
       thumbnail_url: "https://crafatar.com/avatars/%player_uuid%?size=128&overlay"
       fields:
-        - name: "» Rango anterior"
+ - name: "» Rango anterior"
           value: "`%old_rank%`"
           inline: true
-        - name: "» Rango nuevo"
+ - name: "» Rango nuevo"
           value: "`%new_rank%`"
           inline: true
       footer:
@@ -37,15 +37,15 @@ webhooks:
     url: "https://discord.com/api/webhooks/..."
     enabled: true
     embed:
-      title: "¡Nuevo Prestigio!"
-      description: "¡El jugador **%player%** ha alcanzado el **%prestige_display%**!"
+ title: "¡Nuevo Prestigio!"
+ description: "¡El jugador **%player%** ha alcanzado el **%prestige_display%**!"
       color: "#FFAA00"
 
   reset:
     url: "https://discord.com/api/webhooks/..."
     enabled: false
     embed:
-      title: "Datos Restablecidos"
-      description: "Los datos de **%player%** fueron reseteados por: %reason%"
+ title: "Datos Restablecidos"
+ description: "Los datos de **%player%** fueron reseteados por: %reason%"
       color: "#FF0000"
 ```

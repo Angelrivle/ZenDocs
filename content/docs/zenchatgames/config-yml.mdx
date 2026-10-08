@@ -16,30 +16,30 @@ debug: false
 # Configuración del programador automático de juegos
 scheduler:
     enabled: true
-  # Cantidad mínima de jugadores en línea para iniciar un juego automáticamente
+ # Cantidad mínima de jugadores en línea para iniciar un juego automáticamente
   min-players: 1
-  # Intervalo de tiempo mínimo entre juegos (en segundos)
+ # Intervalo de tiempo mínimo entre juegos (en segundos)
   min-delay: 180
-  # Intervalo de tiempo máximo entre juegos (en segundos)
+ # Intervalo de tiempo máximo entre juegos (en segundos)
   max-delay: 360
-  # Tiempo de espera inicial tras encender el servidor antes del primer juego (en segundos)
+ # Tiempo de espera inicial tras encender el servidor antes del primer juego (en segundos)
   initial-delay: 30
 
 # Ajustes generales del juego
 game-settings:
-  # ¿Ignorar mayúsculas y minúsculas al validar respuestas?
+ # ¿Ignorar mayúsculas y minúsculas al validar respuestas?
   ignore-case: true
-  # ¿Ignorar tildes y acentos (ej. 'canción' = 'cancion')?
+ # ¿Ignorar tildes y acentos (ej. 'canción' = 'cancion')?
   ignore-accents: true
-  # ¿Ocultar el mensaje en el chat del jugador que acertó la respuesta?
+ # ¿Ocultar el mensaje en el chat del jugador que acertó la respuesta?
   hide-winning-message: false
-  # ¿Exigir coincidencia exacta de la palabra? (Recomendado: true)
+ # ¿Exigir coincidencia exacta de la palabra? (Recomendado: true)
   exact-match-only: true
   
-  # Sistema inteligente de pistas progresivas (Hints)
+ # Sistema inteligente de pistas progresivas (Hints)
   hints:
     enabled: true
-    # Porcentaje del tiempo límite para emitir la pista (0.5 = a la mitad del tiempo)
+ # Porcentaje del tiempo límite para emitir la pista (0.5 = a la mitad del tiempo)
     delay-percentage: 0.5
 
 # Efectos de sonido (Nativos de Minecraft 1.21+)
@@ -72,10 +72,10 @@ notifications:
 
 # Configuración de base de datos
 database:
-  # SQLITE o MYSQL
+ # SQLITE o MYSQL
   type: SQLITE
 
-  # Ajustes de MySQL / MariaDB (usados si type: MYSQL)
+ # Ajustes de MySQL / MariaDB (usados si type: MYSQL)
   mysql:
     host: "localhost"
     port: 3306
@@ -85,12 +85,12 @@ database:
     use-ssl: false
     table-prefix: "zen_"
 
-  # Ajustes de SQLite local
+ # Ajustes de SQLite local
   sqlite:
     file-name: "zenchatgames.db"
     table-prefix: "zen_"
 
-  # Pool de conexiones HikariCP
+ # Pool de conexiones HikariCP
   pool:
     maximum-pool-size: 10
     minimum-idle: 2
@@ -101,6 +101,6 @@ database:
 # Recompensas globales predeterminadas (ejecutadas desde la consola del servidor)
 # Placeholders disponibles: %player%, %time%, %answer%, %game%, %streak%
 default-rewards:
-  - "give %player% diamond 2"
-      - "eco give %player% 100"
+ - "give %player% diamond 2"
+ - "eco give %player% 100"
 ```

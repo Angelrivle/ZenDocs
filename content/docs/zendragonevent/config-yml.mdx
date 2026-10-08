@@ -15,19 +15,19 @@ import { Callout } from 'fumadocs-ui/components/callout';
 world-name: "world_the_end"
 
 altar:
-  # Tipo de bloque que los jugadores deben cliquear con el Ojo de Invocación (Material Bukkit)
+ # Tipo de bloque que los jugadores deben cliquear con el Ojo de Invocación (Material Bukkit)
   block-type: END_PORTAL_FRAME
   
-  # Cantidad de Ojos de Invocación requeridos para iniciar la secuencia de activación
+ # Cantidad de Ojos de Invocación requeridos para iniciar la secuencia de activación
   required-eyes: 8
   
-  # Radio (en bloques) para detectar marcos de portal pertenecientes al mismo altar
+ # Radio (en bloques) para detectar marcos de portal pertenecientes al mismo altar
   detection-radius: 8
   
-  # Cooldown en segundos antes de que el altar pueda volver a usarse tras un evento
+ # Cooldown en segundos antes de que el altar pueda volver a usarse tras un evento
   cooldown-seconds: 10
   
-  # Radio alrededor del centro del altar donde se proyecta el título de invocación a los jugadores
+ # Radio alrededor del centro del altar donde se proyecta el título de invocación a los jugadores
   spawn-title-radius: 64.0
 ```
 
@@ -37,11 +37,11 @@ altar:
 Controla la barra superior de vida del dragón mostrada a los jugadores en el mundo del evento:
 ```yaml
 bossbar:
-  # Colores disponibles: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
-  # Nota: El plugin cambia automáticamente la barra a RED cuando el dragón entra en fase enfurecida (Enrage).
+ # Colores disponibles: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+ # Nota: El plugin cambia automáticamente la barra a RED cuando el dragón entra en fase enfurecida (Enrage).
   color: PURPLE
   
-  # Estilos de segmentos: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+ # Estilos de segmentos: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
   overlay: NOTCHED_20
 ```
 
@@ -54,41 +54,41 @@ Muestra estadísticas en tiempo real durante la batalla. Integra un sistema inte
 
 ```yaml
 scoreboard:
-  # Activa o desactiva la barra lateral de información
+ # Activa o desactiva la barra lateral de información
     enabled: true
   
-  # Si es true y el plugin TAB está presente, usa su API. Si es false, usa el modo nativo de Paper.
+ # Si es true y el plugin TAB está presente, usa su API. Si es false, usa el modo nativo de Paper.
   use-tab-if-available: true
   
-  # Título de la barra lateral (soporta formato completo MiniMessage y gradientes)
-  title: "<bold><gradient:#b721ff:#ff6b35>⚡ DRAGON EVENT ⚡</gradient></bold>"
+ # Título de la barra lateral (soporta formato completo MiniMessage y gradientes)
+ title: "<bold><gradient:#b721ff:#ff6b35> DRAGON EVENT </gradient></bold>"
   
-  # Intervalo de actualización en ticks (20 ticks = 1 segundo)
+ # Intervalo de actualización en ticks (20 ticks = 1 segundo)
   update-interval-ticks: 20
   
-  # Líneas del Scoreboard.
-  # Placeholders disponibles:
-  #   {dragon_name}        - Nombre formateado del dragón activo
-  #   {dragon_health}      - Vida actual del dragón
-  #   {dragon_max_health}  - Vida máxima del dragón
-  #   {dragon_percent}     - Porcentaje de vida restante (ej. 75)
-  #   {dragon_state}       - Estado actual (Normal, ESCUDO ACTIVO, ENFURECIDO)
-  #   {player_damage}      - Daño total acumulado por el jugador que ve el scoreboard
-  #   {player_rank}        - Puesto actual del jugador en el ranking (#1, #2, etc.)
-  #   {crystals_count}     - Cantidad de cristales activos regenerando al dragón
-  #   {event_world}        - Nombre del mundo del evento
+ # Líneas del Scoreboard.
+ # Placeholders disponibles:
+ # {dragon_name} - Nombre formateado del dragón activo
+ # {dragon_health} - Vida actual del dragón
+ # {dragon_max_health} - Vida máxima del dragón
+ # {dragon_percent} - Porcentaje de vida restante (ej. 75)
+ # {dragon_state} - Estado actual (Normal, ESCUDO ACTIVO, ENFURECIDO)
+ # {player_damage} - Daño total acumulado por el jugador que ve el scoreboard
+ # {player_rank} - Puesto actual del jugador en el ranking (#1, #2, etc.)
+ # {crystals_count} - Cantidad de cristales activos regenerando al dragón
+ # {event_world} - Nombre del mundo del evento
     lines:
-    - "<dark_gray>━━━━━━━━━━━━━━━━━━"
-    - "<white>Dragón: {dragon_name}"
-    - "<gray>Estado: {dragon_state}"
-    - "<gray>Vida: <red>{dragon_health} ❤ <dark_gray>({dragon_percent}%)"
-    - ""
-    - "<gold>Tu Rendimiento:"
-    - " <gray>Daño: <yellow>{player_damage} ❤"
-    - " <gray>Puesto: <aqua>#{player_rank}"
-    - ""
-    - "<gray>Cristales: <light_purple>{crystals_count}"
-    - "<dark_gray>━━━━━━━━━━━━━━━━━━"
+ - "<dark_gray>━━━━━━━━━━━━━━━━━━"
+ - "<white>Dragón: {dragon_name}"
+ - "<gray>Estado: {dragon_state}"
+ - "<gray>Vida: <red>{dragon_health} <dark_gray>({dragon_percent}%)"
+ - ""
+ - "<gold>Tu Rendimiento:"
+ - " <gray>Daño: <yellow>{player_damage} "
+ - " <gray>Puesto: <aqua>#{player_rank}"
+ - ""
+ - "<gray>Cristales: <light_purple>{crystals_count}"
+ - "<dark_gray>━━━━━━━━━━━━━━━━━━"
 ```
 
 ---
@@ -97,11 +97,11 @@ scoreboard:
 Envía un resumen continuo al centro inferior de la pantalla del jugador participante:
 ```yaml
 actionbar:
-  # Activa o desactiva el mensaje de Action Bar
+ # Activa o desactiva el mensaje de Action Bar
     enabled: true
   
-  # Formato del Action Bar.
-  # Placeholders disponibles: {dragon_name}, {dragon_health}, {dragon_percent}, {player_damage}, {player_rank}
+ # Formato del Action Bar.
+ # Placeholders disponibles: {dragon_name}, {dragon_health}, {dragon_percent}, {player_damage}, {player_rank}
   format: "<gradient:#ff5555:#ffaa00>⚔ Daño:</gradient> <white>{player_damage} ❤</white> <gray>(#{player_rank})</gray> <dark_gray>•</dark_gray> <red>❤ {dragon_percent}%</red>"
 ```
 
@@ -111,16 +111,16 @@ actionbar:
 Delimita el espacio de combate para evitar que el dragón vuele fuera de la arena del End o se pierda en el vacío:
 ```yaml
 dragon:
-  # Altura vertical sobre el altar donde aparece el dragón
+ # Altura vertical sobre el altar donde aparece el dragón
   spawn-y-offset: 12.0
   
-  # Radio horizontal (bloques) que delimita la zona de combate de la arena
+ # Radio horizontal (bloques) que delimita la zona de combate de la arena
   arena-radius: 40.0
   
-  # Altura máxima antes de que el dragón sea devuelto hacia el centro de la arena
+ # Altura máxima antes de que el dragón sea devuelto hacia el centro de la arena
     max-height-offset: 18.0
   
-  # Segundos tras la muerte del dragón antes de generar el portal de salida del End
+ # Segundos tras la muerte del dragón antes de generar el portal de salida del End
   portal-delay-seconds: 10
 ```
 
@@ -131,16 +131,16 @@ Configuración de las fases especiales y los esbirros que pueden invocarse en la
 ```yaml
 mechanics:
   phases:
-    # Porcentaje de vida en el que el dragón entra en Fase Enfurecida (Enrage)
-    # Aumenta su velocidad de ataque a la mitad del tiempo e ilumina su cuerpo en rojo
+ # Porcentaje de vida en el que el dragón entra en Fase Enfurecida (Enrage)
+ # Aumenta su velocidad de ataque a la mitad del tiempo e ilumina su cuerpo en rojo
     enraged-health-percent: 50.0
     
-    # Porcentajes de vida en los que aparece un Cristal de Escudo Corrupto volviendo inmune al dragón
+ # Porcentajes de vida en los que aparece un Cristal de Escudo Corrupto volviendo inmune al dragón
     immunity-crystal-health-percents:
-      - 75.0
-      - 25.0
+ - 75.0
+ - 25.0
 
-  # Minions configurables invocados por los cristales o las habilidades del dragón
+ # Minions configurables invocados por los cristales o las habilidades del dragón
   vanilla-minions:
     dragon_guard:
       type: ZOMBIE
@@ -148,10 +148,10 @@ mechanics:
       health: 50.0
       speed: 0.35
       damage: 10.0
-      # ID de la tabla de drop en loot.yml al ser asesinado por un jugador
+ # ID de la tabla de drop en loot.yml al ser asesinado por un jugador
       loot-table: guardian_loot
       equipment:
-        # Puedes usar ítems vanilla o prefijar con "ecoitems:" o "ecoarmor:" si usas la suite Eco
+ # Puedes usar ítems vanilla o prefijar con "ecoitems:" o "ecoarmor:" si usas la suite Eco
         helmet: DIAMOND_HELMET
         chestplate: DIAMOND_CHESTPLATE
         leggings: DIAMOND_LEGGINGS
@@ -168,35 +168,35 @@ Los cristales del evento se diferencian de los cristales vanilla: no generan exp
 crystals:
     enabled: true
   
-  # Cantidad de cristales que se generan automáticamente alrededor del altar si no se usan posiciones manuales
+ # Cantidad de cristales que se generan automáticamente alrededor del altar si no se usan posiciones manuales
   count: 4
   
-  # Radio de distancia respecto al centro del altar
+ # Radio de distancia respecto al centro del altar
   spawn-radius: 7.0
   
-  # Elevación vertical de los cristales
+ # Elevación vertical de los cristales
   spawn-y-offset: 2.0
   
-  # Segundos tras romperse antes de que un cristal vuelva a regenerarse
+ # Segundos tras romperse antes de que un cristal vuelva a regenerarse
   respawn-seconds: 5
   
-  # Cantidad de vida que cura al dragón por cada pulso de rayo
+ # Cantidad de vida que cura al dragón por cada pulso de rayo
   heal-amount: 25.0
   
-  # Tabla de loot en loot.yml otorgada al jugador que destruye el cristal
+ # Tabla de loot en loot.yml otorgada al jugador que destruye el cristal
   reward-table: crystal_loot
   
-  # Probabilidad (0.0 a 1.0) de que aparezca un minion al romper el cristal
+ # Probabilidad (0.0 a 1.0) de que aparezca un minion al romper el cristal
     mob-spawn-chance: 0.25
   
-  # Definición del minion: "vanilla:ZOMBIE", "DRAGON_GUARD" (nuestro minion custom), o "mythic:EndMinion"
+ # Definición del minion: "vanilla:ZOMBIE", "DRAGON_GUARD" (nuestro minion custom), o "mythic:EndMinion"
   mob-spawn-spec: "DRAGON_GUARD"
   
-  # Cantidad de mobs a spawnear si la probabilidad se cumple
+ # Cantidad de mobs a spawnear si la probabilidad se cumple
   mob-spawn-amount: 1
   
-  # Posiciones fijas manuales (formato: "mundo;x;y;z;yaw;pitch")
-  # Si esta lista está vacía, los cristales se distribuyen en círculo automáticamente.
+ # Posiciones fijas manuales (formato: "mundo;x;y;z;yaw;pitch")
+ # Si esta lista está vacía, los cristales se distribuyen en círculo automáticamente.
   manual-positions: []
 ```
 
@@ -233,10 +233,10 @@ messages:
   invalid-dragon-type: "<prefix><red>Tipo de dragón inválido: <white>{type}</white>."
   eye-given: "<prefix><green>Se te ha entregado <white>x{amount} Ojo(s) de Invocación</white>."
 
-  # Plantilla del anuncio de victoria tras derrotar al dragón
+ # Plantilla del anuncio de victoria tras derrotar al dragón
   victory:
     separator: "<dark_gray>■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
-    title: "        <bold><gradient:#ff6b35:#f7c59f>¡DRAGÓN {type} DERROTADO!</gradient></bold>"
+ title: " <bold><gradient:#ff6b35:#f7c59f>¡DRAGÓN {type} DERROTADO!</gradient></bold>"
     final-blow: "  <gray>{prefix} <white>{player}</white> <gray>dio el golpe final."
     damager-line: "  <gold>{pos} <gray>- <white>{prefix} {player}</white> <gray>- <yellow>{damage} ❤</yellow>"
     personal-damage: "  <aqua>Tu Daño: <white>{damage} ❤</white>{record}"

@@ -9,7 +9,7 @@ ZenCustomItems incluye sistemas de progresión RPG nativos: **Sets de armadura**
 
 ---
 
-## 🛡️ Sets de Armadura (`set`)
+## Sets de Armadura (`set`)
 
 Puedes definir un set completo dentro de un solo archivo YAML con piezas individuales y bonificadores según la cantidad de partes equipadas simultáneamente:
 
@@ -39,17 +39,17 @@ set:
         material: DIAMOND_BOOTS
 
   bonuses:
-    - required-pieces: 2
+ - required-pieces: 2
       effects:
-        - type: ADD_POTION_EFFECT
+ - type: ADD_POTION_EFFECT
           effect: RESISTANCE
           amplifier: 0
-    - required-pieces: 4
+ - required-pieces: 4
       effects:
-        - type: ADD_POTION_EFFECT
+ - type: ADD_POTION_EFFECT
           effect: REGENERATION
           amplifier: 1
-        - type: PARTICLES
+ - type: PARTICLES
           particle: ENCHANT
 ```
 
@@ -59,7 +59,7 @@ El lore de cada pieza equipada muestra de manera automática el estado del set e
 
 ---
 
-## ⚔️ Maestría de Ítem (Evolution)
+## Maestría de Ítem (Evolution)
 
 Las armas y herramientas ganan experiencia por su uso activo en combate o minería:
 * **Asesinato de entidades**: `+15 XP`
@@ -73,7 +73,7 @@ Al alcanzar la fórmula `nivel * 100 XP`, el ítem sube de nivel automáticament
 
 ---
 
-## 📦 Exportación e Importación Rápida
+## Exportación e Importación Rápida
 
 * **Exportar**: Usa `/zci export <id>` para generar un código compacto en Base64. Haz clic sobre él en el chat de Minecraft para copiarlo directamente al portapapeles.
 * **Importar**: En cualquier otro servidor que tenga ZenCustomItems instalado, ejecuta `/zci import <codigo>` para instalar y registrar el ítem al instante sin necesidad de reiniciar el servidor.

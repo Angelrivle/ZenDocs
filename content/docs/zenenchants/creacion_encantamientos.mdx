@@ -19,7 +19,7 @@ max-level: 3
 enabled: true
 
 targets:
-  - sword
+ - sword
 
 conflicts: []
 
@@ -29,15 +29,15 @@ availability:
   loot-chest: true
 
 description:
-  - "<gray>Otorga un bono de <green>%bonus%%</green> de</gray>"
-  - "<gray>daño de ataque durante <green>%duration%</green> segundos.</gray>"
+ - "<gray>Otorga un bono de <green>%bonus%%</green> de</gray>"
+ - "<gray>daño de ataque durante <green>%duration%</green> segundos.</gray>"
 
 placeholders:
   bonus: "100 + (%level% * 75)"
   duration: "15 + (%level% * 5)"
 
 effects:
-  - id: potion_effect
+ - id: potion_effect
     args:
       target: "ATTACKER"
       effect: "STRENGTH"
@@ -47,7 +47,7 @@ effects:
       cooldown: 15
       cooldown_group: "soul_storm_cd"
     triggers:
-      - melee_attack
+ - melee_attack
     conditions:
-      - id: victim_is_alive
+ - id: victim_is_alive
 ```

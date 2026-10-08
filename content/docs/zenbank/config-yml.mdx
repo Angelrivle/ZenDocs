@@ -13,12 +13,12 @@ El archivo `config.yml` controla el motor central y la activación de cada módu
 
 ```yaml
 # ============================================================= #
-#                   CONFIGURACIÓN DE ZENBANK                    #
+# CONFIGURACIÓN DE ZENBANK #
 # ============================================================= #
 
 # --- Configuración de Base de Datos ---
 database:
-  # Base de datos compartida MySQL (útil para Networks o servidores vinculados)
+ # Base de datos compartida MySQL (útil para Networks o servidores vinculados)
   mysql:
     enabled: false
     host: localhost
@@ -28,56 +28,56 @@ database:
     password: ""
     ssl: false
   
-  # Optimización SQLite: Write-Ahead Logging (WAL)
-  # Permite lecturas asíncronas concurrentes sin bloquear la escritura en disco
+ # Optimización SQLite: Write-Ahead Logging (WAL)
+ # Permite lecturas asíncronas concurrentes sin bloquear la escritura en disco
   sqlite-wal-mode: true
 
 # --- Sistema de Intereses ---
 interest:
-  # Intervalo de pago en minutos (por defecto 30 minutos)
+ # Intervalo de pago en minutos (por defecto 30 minutos)
   interval-minutes: 30
   
-  # Modo de distribución:
-  # "LAZY" (Recomendado): Calcula los intereses pendientes al entrar el jugador (on-demand), reduciendo lag a cero.
-  # "GLOBAL_BATCH": Recorre todas las cuentas periódicamente (comportamiento tradicional).
+ # Modo de distribución:
+ # "LAZY" (Recomendado): Calcula los intereses pendientes al entrar el jugador (on-demand), reduciendo lag a cero.
+ # "GLOBAL_BATCH": Recorre todas las cuentas periódicamente (comportamiento tradicional).
   distribution-mode: "LAZY"
 
 # --- Penalización por Muerte ---
 death-penalty:
-  # Activar la pérdida de monedas al morir
+ # Activar la pérdida de monedas al morir
     enabled: true
-  # PERCENT: Deduce un porcentaje del dinero en mano (Vault)
-  # FIXED: Deduce una cantidad fija
+ # PERCENT: Deduce un porcentaje del dinero en mano (Vault)
+ # FIXED: Deduce una cantidad fija
   type: PERCENT
-  # Cantidad o porcentaje a cobrar
+ # Cantidad o porcentaje a cobrar
   amount: 50.0
-  # Mundos seguros donde los jugadores NO pierden dinero al morir
+ # Mundos seguros donde los jugadores NO pierden dinero al morir
   safe-worlds:
-    - safe_zone
-    - spawn
+ - safe_zone
+ - spawn
 
 # --- Función 1: Transferencias entre Jugadores ---
 transfers:
-  # Activar el subcomando /bank transfer <jugador> <monto>
+ # Activar el subcomando /bank transfer <jugador> <monto>
     enabled: true
-  # Monto mínimo permitido en una transferencia
+ # Monto mínimo permitido en una transferencia
   min-amount: 1.0
-  # Comisión bancaria cobrada al emisor (en porcentaje, 0.0 para desactivar)
+ # Comisión bancaria cobrada al emisor (en porcentaje, 0.0 para desactivar)
   fee-percent: 1.0
 
 # --- Función 2: Cheques Bancarios Físicos ---
 cheques:
-  # Activar el subcomando /bank cheque <monto>
+ # Activar el subcomando /bank cheque <monto>
     enabled: true
-  # Material de Minecraft para el ítem
+ # Material de Minecraft para el ítem
   material: "PAPER"
-  # CustomModelData para paquetes de texturas (0 para desactivar)
+ # CustomModelData para paquetes de texturas (0 para desactivar)
     custom-model-data: 0
-  # Monto mínimo para emitir un cheque
+ # Monto mínimo para emitir un cheque
   min-amount: 10.0
-  # De dónde se extrae el dinero al crear el cheque: "BANK" (banco) o "VAULT" (monedero)
+ # De dónde se extrae el dinero al crear el cheque: "BANK" (banco) o "VAULT" (monedero)
   source: "BANK"
-  # Dónde se deposita el dinero al canjear con clic derecho: "BANK" (banco) o "VAULT" (monedero)
+ # Dónde se deposita el dinero al canjear con clic derecho: "BANK" (banco) o "VAULT" (monedero)
   redeem-target: "BANK"
 
 # --- Inactividad Offline ---

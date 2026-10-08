@@ -7,8 +7,8 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `kill_player`
 
-* **Categoría:** `Muerte & Asesinatos`  
-* **Identificador / Alias:** `kill_player`  
+* **Categoría:** `Muerte & Asesinatos` 
+* **Identificador / Alias:** `kill_player` 
 * **Contexto Inyectado:** `PLAYER`, `VICTIM`, `LOCATION`
 
 ---
@@ -18,11 +18,11 @@ Al liquidar a otro jugador en PvP.
 ### Ejemplo de Configuración:
 ```yaml
 effects:
-  - id: play_sound
+ - id: play_sound
     args:
       sound: ENTITY_EXPERIENCE_ORB_PICKUP
       volume: 1.0
       pitch: 1.0
     triggers:
-      - kill_player
+ - kill_player
 ```

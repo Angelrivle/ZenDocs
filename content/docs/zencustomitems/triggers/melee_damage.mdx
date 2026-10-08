@@ -7,7 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `melee_damage`
 
-* **Categoría:** `Combate`  
+* **Categoría:** `Combate` 
 * **Identificador / Alias:** `MELEE_DAMAGE`
 
 ---
@@ -15,10 +15,10 @@ import { Callout } from 'fumadocs-ui/components/callout';
 Se dispara al calcular el daño final de un ataque cuerpo a cuerpo (permite usar mutadores de daño).
 ```yaml
 triggers:
-  - id: critical_crush
+ - id: critical_crush
     type: MELEE_DAMAGE
     mutators:
-      - type: MULTIPLY
+ - type: MULTIPLY
         variable: damage
         value: 1.5
 ```

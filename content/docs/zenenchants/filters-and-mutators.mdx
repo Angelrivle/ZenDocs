@@ -9,13 +9,13 @@ Los **Filtros (Filters)** y **Mutadores (Mutators)** permiten acotar y alterar c
 
 ---
 
-## 🔀 Mutadores (Mutators)
+## Mutadores (Mutators)
 
 Los mutadores transforman los parámetros de contexto (ubicación, jugador, víctima, etc.) antes de que el efecto se procese.
 
 ```yaml
 mutators:
-  - id: translate_location
+ - id: translate_location
     args:
       add_x: 0.0
       add_y: 1.0
@@ -37,22 +37,22 @@ mutators:
 
 ---
 
-## 🎯 Filtros (Filters)
+## Filtros (Filters)
 
 Los filtros permiten acotar de forma limpia los detonadores sin anidar condicionales complejos. Se colocan bajo la clave `filters:`.
 
 ```yaml
 filters:
   blocks:
-    - "#ores"
-    - ancient_debris
+ - "#ores"
+ - ancient_debris
   entities:
-    - zombie
-    - skeleton
-    - creeper
+ - zombie
+ - skeleton
+ - creeper
   damage_sources:
-    - entity_attack
-    - projectile
+ - entity_attack
+ - projectile
 ```
 
 | Clave de Filtro | Valores Soportados | Uso Típico |

@@ -12,6 +12,7 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig } from "@/lib/shared";
 import { FeedbackWidget } from "@/components/FeedbackWidget";
 import { MarkdownCopyButton } from "@/components/MarkdownCopyButton";
+import { SidebarSupportCard } from "@/components/SidebarSupportCard";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
@@ -24,8 +25,19 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const markdownUrl = getPageMarkdownUrl(page).url;
   const currentSlug = slug.join("/");
 
+
   return (
-    <DocsPage toc={pageData.toc} full={pageData.full}>
+    <DocsPage
+      toc={pageData.toc}
+      full={pageData.full}
+      tableOfContent={{
+        footer: (
+          <div className="pt-4">
+            <SidebarSupportCard />
+          </div>
+        ),
+      }}
+    >
       <DocsTitle>{pageData.title}</DocsTitle>
       <DocsDescription className="mb-0">{pageData.description}</DocsDescription>
       <div className="flex flex-row gap-2 items-center border-b pb-6">

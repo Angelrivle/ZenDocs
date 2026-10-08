@@ -13,7 +13,7 @@ Este documento explica cómo integrar **ZenEnchants** en plugins externos de ít
 
 ---
 
-## 📦 1. Dependencia en tu Proyecto (Gradle / Maven)
+## 1. Dependencia en tu Proyecto (Gradle / Maven)
 
 Si estás desarrollando otro plugin en el mismo servidor o entorno:
 
@@ -41,7 +41,7 @@ softdepend: [ZenEnchants]
 
 ---
 
-## ⚡ 2. Punto de Entrada: `ZenEnchantsAPI`
+## 2. Punto de Entrada: `ZenEnchantsAPI`
 
 La clase principal de interacción es [`com.cuac_xd.zenenchants.api.ZenEnchantsAPI`](../src/main/java/com/cuac_xd/zenenchants/api/ZenEnchantsAPI.java). Sus métodos de catálogo se pueden consultar después de que el plugin termine de cargar. Toda operación que lea o modifique un `ItemStack` debe ejecutarse en el hilo principal del servidor.
 
@@ -55,7 +55,7 @@ import org.bukkit.Material;
 
 ---
 
-## 🛠️ 3. Ejemplos Prácticos de Integración
+## 3. Ejemplos Prácticos de Integración
 
 ### 3.1 Aplicar un Encantamiento Custom a un Ítem
 Aplica un encantamiento custom actualizando automáticamente los tags PDC (PersistentDataContainer) y el Lore visual del ítem con colores MiniMessage:
@@ -176,7 +176,7 @@ rareza.ifPresent(r -> {
 
 ---
 
-## 📋 Resumen de Métodos de `ZenEnchantsAPI`
+## Resumen de Métodos de `ZenEnchantsAPI`
 
 | Método | Retorno | Descripción |
 | :--- | :--- | :--- |

@@ -39,16 +39,16 @@ ability-interval-ticks: 50
 
 # Triggers por umbral de salud
 health-triggers:
-  - below: 80               # Cuando la vida baja del 80%
+ - below: 80 # Cuando la vida baja del 80%
     action: CAST_SKILL
     value: WITHER_NOVA      # Lanza una habilidad instantánea
     chance: 1.0
-  - below: 55               # Cuando la vida baja del 55%
+ - below: 55 # Cuando la vida baja del 55%
     action: SPAWN_MOB
     value: mythic:EndMinion # Invoca minions (Vanilla, Custom Guard o MythicMobs)
     amount: 3
     chance: 1.0
-  - below: 25               # Cuando la vida baja del 25%
+ - below: 25 # Cuando la vida baja del 25%
     action: CAST_SKILL
     value: SUMMON_MINIONS
     chance: 1.0

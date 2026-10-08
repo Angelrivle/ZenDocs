@@ -24,23 +24,23 @@ ranks:
       material: "COAL"
       displayname: "&aRango A"
       lore:
-        - "&7El primer paso de tu aventura."
+ - "&7El primer paso de tu aventura."
       slot: 10
       glow: false
     requeriments:
-      - "[COST-VAULT] 100"
-      - "[KILL-MOB] ZOMBIE:10"
+ - "[COST-VAULT] 100"
+ - "[KILL-MOB] ZOMBIE:10"
     display-requirements:
-      - "&7Dinero: &a$100"
-      - "&7Zombis eliminados: &c10"
+ - "&7Dinero: &a$100"
+ - "&7Zombis eliminados: &c10"
     display-rewards:
-      - "&e+ 1x Manzana Dorada"
-      - "&e+ $500 de Bono"
+ - "&e+ 1x Manzana Dorada"
+ - "&e+ $500 de Bono"
     commands:
-      - "[CONSOLE]give %player% golden_apple 1"
-      - "[PLAYER]spawn"
+ - "[CONSOLE]give %player% golden_apple 1"
+ - "[PLAYER]spawn"
     revert-commands: # Comandos que se ejecutan si el rango expira o es removido
-      - "[CONSOLE]broadcast &cEl rango de %player% ha expirado."
+ - "[CONSOLE]broadcast &cEl rango de %player% ha expirado."
 ```
 
 ### Todos los Tipos de Requisitos Soportados
@@ -72,9 +72,9 @@ ZenRankups permite caminos no lineales. Puedes definir una lista en `next-rank` 
   GuerreroNovato:
     displayname: "&cGuerrero Novato"
     next-ranks:
-      - "Caballero"
-      - "Arquero"
-      - "Berserker"
+ - "Caballero"
+ - "Arquero"
+ - "Berserker"
 ```
 El jugador podrá seleccionar en el menú a qué senda desea avanzar.
 

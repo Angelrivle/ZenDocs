@@ -15,7 +15,7 @@ La API de **ZenDiscord** permite a desarrolladores de plugins de Minecraft conec
 
 ---
 
-## 📦 1. Agregar ZenDiscord como Dependencia (Maven / JitPack)
+## 1. Agregar ZenDiscord como Dependencia (Maven / JitPack)
 
 Dado que este proyecto está en GitHub, puedes alojar y consumir la API en cualquier plugin utilizando **JitPack**.
 
@@ -52,7 +52,7 @@ depend: [ZenDiscord]
 
 ---
 
-## 🚀 2. Cómo Obtener la Instancia de la API
+## 2. Cómo Obtener la Instancia de la API
 
 Existen dos formas estándar de obtener la API:
 
@@ -81,9 +81,9 @@ if (provider != null) {
 
 ---
 
-## 📚 3. Referencia de Métodos (`ZenDiscordAPI`)
+## 3. Referencia de Métodos (`ZenDiscordAPI`)
 
-### 🔍 Comprobación de Cuentas y Vinculación
+### Comprobación de Cuentas y Vinculación
 
 #### `boolean isLinked(UUID uuid)`
 * **Descripción:** Comprueba en tiempo constante $O(1)$ si un jugador tiene su cuenta de Minecraft vinculada con Discord.
@@ -102,31 +102,31 @@ if (provider != null) {
 
 ---
 
-### ✉️ Envío de Mensajes Directos (DMs / MD)
+### Envío de Mensajes Directos (DMs / MD)
 
 Todos los métodos de envío retornan un `CompletableFuture<Boolean>` para garantizar que las operaciones de red de Discord nunca bloqueen el hilo principal de Minecraft.
 
 #### `CompletableFuture<Boolean> sendDirectMessage(UUID uuid, String message)`
 * **Descripción:** Envía un mensaje de texto plano por mensaje directo al Discord del usuario.
 * **Parámetros:**
-  * `uuid`: UUID de Minecraft del jugador.
-  * `message`: Texto del mensaje.
+ * `uuid`: UUID de Minecraft del jugador.
+ * `message`: Texto del mensaje.
 * **Retorna:** `CompletableFuture<Boolean>` que resuelve a `true` si el DM se entregó con éxito, o `false` si el jugador no está vinculado o tiene los DMs cerrados.
 
 #### `CompletableFuture<Boolean> sendDirectEmbed(UUID uuid, String title, String description, Color color)`
 * **Descripción:** Envía un Embed estilizado con pie de página automático, timestamp y color al Discord del usuario vinculado.
 * **Parámetros:**
-  * `uuid`: UUID de Minecraft del jugador.
-  * `title`: Título del Embed.
-  * `description`: Contenido del Embed (soporta Markdown de Discord).
-  * `color`: Color del lateral del Embed (`java.awt.Color`).
+ * `uuid`: UUID de Minecraft del jugador.
+ * `title`: Título del Embed.
+ * `description`: Contenido del Embed (soporta Markdown de Discord).
+ * `color`: Color del lateral del Embed (`java.awt.Color`).
 
 #### `CompletableFuture<Boolean> sendDirectEmbed(UUID uuid, MessageEmbed embed)`
 * **Descripción:** Envía un `MessageEmbed` de JDA completamente personalizado al usuario por DM.
 
 ---
 
-### 📢 Canales de Texto y JDA Avanzado
+### Canales de Texto y JDA Avanzado
 
 #### `CompletableFuture<Boolean> sendChannelMessage(String channelId, String message)`
 * **Descripción:** Envía un mensaje a un canal de texto de Discord por su ID.
@@ -142,7 +142,7 @@ Todos los métodos de envío retornan un `CompletableFuture<Boolean>` para garan
 
 ---
 
-## 💡 4. Ejemplo Práctico Completo: Plugin de Forjas (Aviso por DM al terminar)
+## 4. Ejemplo Práctico Completo: Plugin de Forjas (Aviso por DM al terminar)
 
 Supongamos que tienes un plugin de Forjas y quieres avisar a un jugador cuando termine de forjarse su objeto, **únicamente si no está conectado en el servidor**:
 
@@ -201,6 +201,6 @@ public class NotificadorForja {
 
 ---
 
-## 🛡️ 5. Manejo de Errores y Buenas Prácticas
+## 5. Manejo de Errores y Buenas Prácticas
 1. **DMs Cerrados en Discord:** Es común que usuarios tengan la opción *"Permitir mensajes directos de miembros del servidor"* deshabilitada en sus ajustes de privacidad de Discord. Por esta razón, `sendDirectMessage` y `sendDirectEmbed` devuelven `false` en lugar de lanzar excepciones que congelen tu código.
 2. **Hilos y Rendimiento:** La API de ZenDiscord gestiona todas las llamadas a Discord de forma asíncrona mediante `CompletableFuture`. Si necesitas ejecutar comandos de Bukkit al recibir la respuesta, asegúrate de volver al hilo principal con `Bukkit.getScheduler().runTask(plugin, () -> { ... })`.

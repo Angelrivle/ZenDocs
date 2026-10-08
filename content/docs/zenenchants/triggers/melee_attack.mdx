@@ -7,8 +7,8 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `melee_attack`
 
-* **Categoría:** `Combate & Daño`  
-* **Identificador / Alias:** `melee_attack`  
+* **Categoría:** `Combate & Daño` 
+* **Identificador / Alias:** `melee_attack` 
 * **Contexto Inyectado:** `EVENT`, `PLAYER`, `VICTIM`, `LOCATION`
 
 ---
@@ -18,11 +18,11 @@ Al golpear cuerpo a cuerpo a una criatura o jugador.
 ### Ejemplo de Configuración:
 ```yaml
 effects:
-  - id: play_sound
+ - id: play_sound
     args:
       sound: ENTITY_EXPERIENCE_ORB_PICKUP
       volume: 1.0
       pitch: 1.0
     triggers:
-      - melee_attack
+ - melee_attack
 ```

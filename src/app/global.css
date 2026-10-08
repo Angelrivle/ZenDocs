@@ -1,23 +1,40 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/solar.css';
+@import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
-@theme {
-  /* High-end Neon Cyan/Celeste Primary Accent */
-  --color-fd-primary: hsl(199, 89%, 48%);
+:root {
+  --color-fd-primary: hsl(200, 100%, 50%);
   --color-fd-primary-foreground: hsl(0, 0%, 100%);
+  --color-fd-background: #ffffff;
+  --color-fd-card: #f9fafb;
+  --color-fd-border: #e5e7eb;
+}
+
+.dark {
+  /* Minimalist purist dark palette (sapphi.dev / modern dark theme) */
+  --color-fd-primary: #0099ff;
+  --color-fd-primary-foreground: #ffffff;
   
-  /* Sleek Dark-Sky Accent Hover States */
-  --color-fd-accent: hsl(199, 70%, 10%);
-  --color-fd-accent-foreground: hsl(199, 95%, 85%);
+  --color-fd-background: #09090b;
+  --color-fd-card: #111114;
+  --color-fd-accent: #17181c;
+  --color-fd-accent-foreground: #f4f4f5;
   
-  --color-fd-background: hsl(200, 50%, 3.5%);
-  --color-fd-card: hsl(200, 45%, 6%);
-  
-  /* Tech Steel Borders & Secondary Colors */
-  --color-fd-border: hsl(200, 30%, 12%);
-  --color-fd-muted: hsl(200, 30%, 8%);
-  --color-fd-muted-foreground: hsl(200, 15%, 65%);
+  --color-fd-border: #222226;
+  --color-fd-muted: #141417;
+  --color-fd-muted-foreground: #a1a1aa;
+}
+
+@theme {
+  --color-fd-primary: #0099ff;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-background: #09090b;
+  --color-fd-card: #111114;
+  --color-fd-accent: #17181c;
+  --color-fd-accent-foreground: #f4f4f5;
+  --color-fd-border: #222226;
+  --color-fd-muted: #141417;
+  --color-fd-muted-foreground: #a1a1aa;
 }
 
 html {
@@ -27,4 +44,11 @@ html {
 html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Sidebar active item styling matching user's reference image */
+[data-fd-sidebar] a[data-active="true"],
+nav a[data-active="true"] {
+  color: #38bdf8 !important;
+  font-weight: 500;
 }

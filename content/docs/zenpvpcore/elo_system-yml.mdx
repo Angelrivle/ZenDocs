@@ -1,6 +1,6 @@
 ---
 title: "Sistema ELO (elo_system.yml)"
-description: "enabled: true                    # Activar o desactivar el sistema ELO"
+description: "enabled: true # Activar o desactivar el sistema ELO"
 ---
 
 import { Callout } from 'fumadocs-ui/components/callout';
@@ -62,12 +62,12 @@ ranks:
     min_elo: 0
     icon: "COPPER_INGOT"
     lore:
-      - "<gray>El rango más básico."
-      - ""
-      - "<yellow>Requisitos:"
-      - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
+ - "<gray>El rango más básico."
+ - ""
+ - "<yellow>Requisitos:"
+ - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
     rewards: []
-    title: ""
+ title: ""
     sound: ""
     message: ""
 
@@ -77,13 +77,13 @@ ranks:
     min_elo: 500
     icon: "IRON_INGOT"
     lore:
-      - "<gray>Rango intermedio inicial."
-      - ""
-      - "<yellow>Requisitos:"
-      - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
+ - "<gray>Rango intermedio inicial."
+ - ""
+ - "<yellow>Requisitos:"
+ - "<white>▶ <gray>Tener al menos <gold>%min_elo% ELO</gold>."
     rewards:
-      - "eco give %player% 1000"
-    title: "<gray><bold>¡RANGO HIERRO!</bold></gray>;<white>Has demostrado tu valía</white>"
+ - "eco give %player% 1000"
+ title: "<gray><bold>¡RANGO HIERRO!</bold></gray>;<white>Has demostrado tu valía</white>"
     sound: "ENTITY_PLAYER_LEVELUP;1.0;1.0"
     message: "<green>¡Felicidades, has subido al rango Hierro!</green>"
 
@@ -93,10 +93,10 @@ ranks:
     min_elo: 1000
     icon: "GOLD_INGOT"
     lore:
-      - "<gray>Rango de combatiente probado."
+ - "<gray>Rango de combatiente probado."
     rewards:
-      - "eco give %player% 2500"
-    title: "<gold><bold>¡RANGO ORO!</bold></gold>;<yellow>¡Impresionante nivel!</yellow>"
+ - "eco give %player% 2500"
+ title: "<gold><bold>¡RANGO ORO!</bold></gold>;<yellow>¡Impresionante nivel!</yellow>"
     sound: "ENTITY_PLAYER_LEVELUP;1.0;1.0"
     message: "<gold>¡Felicidades, has alcanzado el rango Oro!</gold>"
 
@@ -106,10 +106,10 @@ ranks:
     min_elo: 2500
     icon: "DIAMOND"
     lore:
-      - "<gray>Élite del servidor."
+ - "<gray>Élite del servidor."
     rewards:
-      - "eco give %player% 10000"
-    title: "<aqua><bold>¡RANGO DIAMANTE!</bold></aqua>;<white>¡Nivel de élite!</white>"
+ - "eco give %player% 10000"
+ title: "<aqua><bold>¡RANGO DIAMANTE!</bold></aqua>;<white>¡Nivel de élite!</white>"
     sound: "UI_TOAST_CHALLENGE_COMPLETE;1.0;1.0"
     message: "<aqua>¡Increíble! Has alcanzado el rango Diamante.</aqua>"
 ```

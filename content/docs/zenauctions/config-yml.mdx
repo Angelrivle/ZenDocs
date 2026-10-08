@@ -15,7 +15,7 @@ Controla los módulos activos, duraciones, anti-sniping en subastas por pujas, l
 
 ```yaml
 # ======================================================
-#                ZenAuctions Configuration
+# ZenAuctions Configuration
 # ======================================================
 
 # Activa o desactiva módulos individuales.
@@ -50,12 +50,12 @@ auctions:
   min-duration: 3600        # Duración mínima permitida (1 hora)
   max-duration: 604800      # Duración máxima permitida (7 días)
   durations:                # Opciones disponibles en el menú interactivo /ah sell
-    - 3600    # 1 hora
-    - 21600   # 6 horas
-    - 43200   # 12 horas
-    - 86400   # 24 horas
-    - 172800  # 48 horas
-    - 259200  # 72 horas
+ - 3600 # 1 hora
+ - 21600 # 6 horas
+ - 43200 # 12 horas
+ - 86400 # 24 horas
+ - 172800 # 48 horas
+ - 259200 # 72 horas
   min-price: 1.0            # Precio mínimo para listar un ítem
   max-price: 1000000000.0   # Precio máximo permitido
   allow-partial-purchase: true # Permite compras parciales (si se habilita en ítems apilados)
@@ -109,16 +109,16 @@ discord:
     admin-remove: true      # Notificar cuando un staff retire un artículo
   embeds:
     auction-created:
-      title: "📦 New Auction Listed: %item% x%amount%"
-      description: "**Seller:** %seller%\n**Price:** %price% %currency%\n**Format:** %type%\n**ID:** #%id%"
+ title: " New Auction Listed: %item% x%amount%"
+ description: "**Seller:** %seller%\n**Price:** %price% %currency%\n**Format:** %type%\n**ID:** #%id%"
       color: "#5865F2"
     auction-sold:
-      title: "💰 Auction Sold: %item% x%amount%"
-      description: "**Buyer:** %buyer%\n**Seller:** %seller%\n**Final Price:** %price% %currency%"
+ title: " Auction Sold: %item% x%amount%"
+ description: "**Buyer:** %buyer%\n**Seller:** %seller%\n**Final Price:** %price% %currency%"
       color: "#57F287"
     bid-placed:
-      title: "🔨 New Bid Placed on #%id%"
-      description: "**Bidder:** %bidder%\n**Item:** %item%\n**New Highest Bid:** %price% %currency%"
+ title: " New Bid Placed on #%id%"
+ description: "**Bidder:** %bidder%\n**Item:** %item%\n**New Highest Bid:** %price% %currency%"
       color: "#FEE75C"
 
 # Notificaciones directas en pantalla al jugador
@@ -126,17 +126,17 @@ notifications:
   item-sold:
     chat: true
     actionbar: true
-    title: false
+ title: false
     sound: true
   item-expired:
     chat: true
     actionbar: false
-    title: false
+ title: false
     sound: true
   bid-outbid:
     chat: true
     actionbar: true
-    title: false
+ title: false
     sound: true
 
 # Sonidos de la interfaz gráfica y eventos

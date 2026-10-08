@@ -13,7 +13,7 @@ Cada zona tiene su propio archivo YAML dentro de la carpeta `zones/`. Puedes cre
 
 ```yaml
 # =========================================================
-#                 Zona AFK de Ejemplo
+# Zona AFK de Ejemplo
 # =========================================================
 
 enabled: true
@@ -46,7 +46,7 @@ reward-time-seconds: 300
 roll-amount: 1
 
 # =========================================================
-#  NUEVO: Requisitos de Entrada (Opcionales)
+# NUEVO: Requisitos de Entrada (Opcionales)
 # =========================================================
 requirements:
   permission: "" # Ej: zenafkzone.zone.vip (vacío = sin permiso requerido)
@@ -74,7 +74,7 @@ hologram:
    enabled: true
    height-offset: 2.8 # Altura sobre el punto de spawn
    lines:
- - <gradient:#00c6ff:#0072ff><b>★ ZONA AFK ★</b></gradient>
+ - <gradient:#00c6ff:#0072ff><b> ZONA AFK </b></gradient>
  - <gray>Jugadores descansando: <green><players></green></gray>
  - <yellow>Ciclo de recompensa: <reward_time>s</yellow>
 
@@ -85,16 +85,16 @@ milestones:
  # segundos: comandos a ejecutar en consola
    1800: # 30 minutos
  - eco give %player% 2500
- - broadcast <gold>★</gold> <yellow>%player%</yellow> <gray>alcanzó <green>30 minutos</green> en la Zona AFK.</gray>
+ - broadcast <gold></gold> <yellow>%player%</yellow> <gray>alcanzó <green>30 minutos</green> en la Zona AFK.</gray>
    3600: # 1 hora
  - eco give %player% 6000
  - crate give %player% vip 1
- - broadcast <gold>★</gold> <yellow>%player%</yellow> <gray>alcanzó <green>1 hora</green> continua en la Zona AFK.</gray>
+ - broadcast <gold></gold> <yellow>%player%</yellow> <gray>alcanzó <green>1 hora</green> continua en la Zona AFK.</gray>
 
 # Feedback Visual
 bossbar:
    enabled: true
-   title: <gradient:#00c6ff:#0072ff><b>AFK Zone</b></gradient> <gray>|</gray> Recompensa en: <yellow><time_left></yellow>
+ title: <gradient:#00c6ff:#0072ff><b>AFK Zone</b></gradient> <gray>|</gray> Recompensa en: <yellow><time_left></yellow>
    color: BLUE # BLUE, BUKKIT, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
    overlay: PROGRESS # PROGRESS, NOTCHES_6, NOTCHES_10, NOTCHES_12, NOTCHES_20
 

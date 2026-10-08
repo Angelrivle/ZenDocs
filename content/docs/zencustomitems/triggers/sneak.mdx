@@ -7,7 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `sneak`
 
-* **Categoría:** `Jugador & Movimiento`  
+* **Categoría:** `Jugador & Movimiento` 
 * **Identificador / Alias:** `SNEAK`
 
 ---
@@ -15,11 +15,11 @@ import { Callout } from 'fumadocs-ui/components/callout';
 Se dispara cuando el jugador presiona Shift para agacharse.
 ```yaml
 triggers:
-  - id: sneak_invisibility
+ - id: sneak_invisibility
     type: SNEAK
     cooldownSeconds: 8.0
     effects:
-      - type: ADD_POTION_EFFECT
+ - type: ADD_POTION_EFFECT
         effect: INVISIBILITY
         duration: 60
 ```

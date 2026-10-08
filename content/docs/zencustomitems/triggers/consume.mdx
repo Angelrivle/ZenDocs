@@ -7,7 +7,7 @@ import { Callout } from 'fumadocs-ui/components/callout';
 
 # `consume`
 
-* **Categoría:** `Estado del Ítem`  
+* **Categoría:** `Estado del Ítem` 
 * **Identificador / Alias:** `CONSUME`
 
 ---
@@ -15,12 +15,12 @@ import { Callout } from 'fumadocs-ui/components/callout';
 Se dispara cuando el jugador termina de comer o beber un alimento o consumible.
 ```yaml
 triggers:
-  - id: divine_apple
+ - id: divine_apple
     type: CONSUME
     effects:
-      - type: SET_HEALTH
+ - type: SET_HEALTH
         amount: 20.0
-      - type: ADD_POTION_EFFECT
+ - type: ADD_POTION_EFFECT
         effect: REGENERATION
         amplifier: 2
         duration: 200

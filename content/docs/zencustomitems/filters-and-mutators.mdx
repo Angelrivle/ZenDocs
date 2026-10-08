@@ -9,7 +9,7 @@ Los **Filters** y **Mutators** permiten refinar con exactitud qué entidades o b
 
 ---
 
-## 🎯 Catálogo de Filtros (Filters)
+## Catálogo de Filtros (Filters)
 
 Los filtros descartan objetivos no deseados de forma instantánea.
 
@@ -30,16 +30,16 @@ Los filtros descartan objetivos no deseados de forma instantánea.
 
 ```yaml
 filters:
-  - type: BLOCK_TYPE
+ - type: BLOCK_TYPE
     values:
-      - DIAMOND_ORE
-      - DEEPSLATE_DIAMOND_ORE
-      - ANCIENT_DEBRIS
+ - DIAMOND_ORE
+ - DEEPSLATE_DIAMOND_ORE
+ - ANCIENT_DEBRIS
 ```
 
 ---
 
-## ⚡ Catálogo de Mutadores (Mutators)
+## Catálogo de Mutadores (Mutators)
 
 Los mutadores modifican dinámicamente variables numéricas. Por defecto operan sobre `damage`, pero pueden aplicarse a cualquier variable de instancia (`combo`, `multiplier`, etc.).
 
@@ -47,19 +47,19 @@ Los mutadores modifican dinámicamente variables numéricas. Por defecto operan 
 
 ```yaml
 mutators:
-  - type: ADD
+ - type: ADD
     variable: damage
     value: 4.0 # +4 daño fijo
 
-  - type: MULTIPLY
+ - type: MULTIPLY
     variable: damage
     value: 1.5 # +50% de daño
 
-  - type: PERCENTAGE
+ - type: PERCENTAGE
     variable: damage
     value: 125 # 125% del valor base
 
-  - type: SUBTRACT
+ - type: SUBTRACT
     variable: damage
     value: 2.0
 ```
@@ -68,12 +68,12 @@ mutators:
 
 ```yaml
 mutators:
-  - type: CLAMP
+ - type: CLAMP
     variable: damage
     min: 2.0
     max: 25.0
 
-  - type: ROUND
+ - type: ROUND
     variable: damage
 ```
 
@@ -83,7 +83,7 @@ Calcula fórmulas dinámicas compuestas con funciones matemáticas:
 
 ```yaml
 mutators:
-  - type: EXPRESSION
+ - type: EXPRESSION
     variable: damage
     expression: "damage * (1 + (combo * 0.05))"
 ```
